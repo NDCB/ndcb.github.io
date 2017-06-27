@@ -1,0 +1,89 @@
+@import 'colors';
+@import 'breakpoints';
+@import 'navigation';
+main {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    @include respond-to(desktop) {
+        width: 100vw - $desktop-navigation-width;
+        height: 100%;
+    }
+    article {
+        $padding: 1rem;
+        padding: $padding;
+        padding-top: $mobile-navigation-height + $padding;
+        @include respond-to(tablet-portrait) {
+            padding: 4rem;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            a {
+                display: none;
+            }
+            @include respond-to(tablet-portrait) {
+                $transition-time: 0.2s;
+                a {
+                    display: block;
+                    color: $secondary-light;
+                    $transition: color $transition-time ease-in-out;
+                    transition: $transition;
+                    -webkit-transition: $transition;
+                    &:hover {
+                        color: $primary-dark;
+                        i.fa {
+                            $rotation: rotate(-15deg);
+                            -ms-transform: $rotation;
+                            -webkit-transform: $rotation;
+                            transform: $rotation;
+                        }
+                    }
+                    i.fa {
+                        font-size: 0.7em;
+                        vertical-align: middle;
+                        margin-left: -1.2em;
+                        margin-top: 0.3em;
+                        display: inline-block;
+                        position: absolute;
+                        $transition: transform $transition-time cubic-bezier(0.895, 0.03, 0.685, 0.22);
+                        transition: $transition;
+                        -webkit-transition: $transition;
+                    }
+                }
+            }
+        }
+        pre {
+            position: relative !important;
+            width: 100vw;
+            margin: -1rem !important;
+            margin: 0;
+            @include respond-to(desktop) {
+                width: 100%;
+            }
+        }
+        pre,
+        code {
+            //white-space: pre-wrap !important;
+            overflow: auto;
+        }
+        code {
+            overflow: visible;
+        }
+    }
+}
+
+//TODO: Color formatting
+//@see 'colors.scss'
+main.turquoise {}
+
+main.green {}
+
+//...

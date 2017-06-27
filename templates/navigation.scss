@@ -1,0 +1,76 @@
+@import 'colors';
+@import 'breakpoints';
+$mobile-navigation-height: 1.5rem;
+$desktop-navigation-width: 17vw;
+header#main-navigation {
+    background-color: $primary-dark;
+    color: $primary-light;
+    vertical-align: top;
+    position: fixed;
+    width: 100vw;
+    z-index: 1; //Set navigation bar above MathJax equations
+    @include respond-to(desktop) {
+        position: relative;
+        width: $desktop-navigation-width;
+        display: inline-block;
+        align-items: stretch;
+    }
+    nav {
+        font-size: 1.5rem;
+        overflow: hidden;
+        text-align: right;
+        @include respond-to(desktop) {
+            z-index: -1; //Set navigation content below footer
+            position: fixed;
+            width: $desktop-navigation-width;
+            display: block;
+            text-align: left;
+            height: 100vh;
+        }
+        img#logo {
+            @include respond-to(mobile-portrait) {
+                display: none;
+            }
+            @include respond-to(desktop) {
+                $logo-width: 100%;
+                display: block;
+                width: $logo-width;
+                padding: 10%;
+            }
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+                display: none;
+            @include respond-to(desktop) {
+                display: block;
+            }
+            li {
+                margin: 1rem;
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                    &:hover {
+                        color: $secondary-light;
+                    }
+                }
+            }
+        }
+        button {
+            background: none;
+            border: none;
+            color: inherit;
+            font-size: $mobile-navigation-height;
+            cursor: pointer;
+            @include respond-to(desktop) {
+                display: none;
+            }
+            &.hidden {
+                display: none;
+            }
+            &.displayed {
+                display: static;
+            }
+        }
+    }
+}

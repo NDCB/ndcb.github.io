@@ -1,0 +1,74 @@
+@import 'navigation';
+@import 'footer';
+@import 'article';
+@import 'colors';
+@import 'fonts';
+@import 'breakpoints';
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: $font-roboto;
+	font-size: 12pt;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font-arimo;
+}
+
+h1 {
+	$font-size: 1.8rem;
+	font-size: $font-size;
+	@include respond-to(tablet-portrait) {
+		font-size: $font-size + 1.2;
+	}
+}
+
+h2 {
+	$font-size: 1.6rem;
+	font-size: $font-size;
+	@include respond-to(tablet-portrait) {
+		font-size: $font-size + 0.8;
+	}
+}
+
+h3 {
+	$font-size: 1.4rem;
+	font-size: $font-size;
+	@include respond-to(tablet-portrait) {
+		font-size: $font-size + 0.6;
+	}
+}
+
+h4 {
+	$font-size: 1.3rem;
+	font-size: $font-size;
+	@include respond-to(tablet-portrait) {
+		font-size: $font-size + 0.5;
+	}
+}
+
+h5 {
+	$font-size: 1.2rem;
+	font-size: $font-size;
+	@include respond-to(tablet-portrait) {
+		font-size: $font-size + 0.4;
+	}
+}
+
+h6 {
+	$font-size: 1.1rem;
+	font-size: $font-size;
+	@include respond-to(tablet-portrait) {
+		font-size: $font-size + 0.3;
+	}
+}
+
+.wrapper {
+	display: flex;
+}

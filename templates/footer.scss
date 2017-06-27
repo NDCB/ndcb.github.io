@@ -1,0 +1,41 @@
+@import 'colors';
+@import 'breakpoints';
+footer#secondary-navigation {
+    position: absolute;
+    z-index: 1; //Set footer above navigation
+    background-color: $secondary-dark;
+    color: $primary-light;
+    width: 100%;
+    a {
+        text-decoration: none;
+        padding: 1rem;
+        color: $secondary-grey;
+        display: inline-block;
+        @include respond-to(desktop) {
+            $transition: color 0.1s ease-in-out;
+            transition: $transition;
+            -webkit-transition: $transition;
+        }
+        &:hover {
+            color: $primary-yellow;
+        }
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+    li {
+        display: inline;
+    }
+    ul.social p {
+        display: none;
+        @include respond-to(desktop) {
+            display: inline-block;
+        }
+    }
+    ul.links i.fa {
+        margin-right: 1rem;
+    }
+}

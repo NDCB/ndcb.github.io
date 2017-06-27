@@ -1,0 +1,33 @@
+$break-xs: 0px;
+$break-sm: 576px;
+$break-md: 768px;
+$break-lg: 992px;
+$break-xl: 1200px;
+$screens: "mobile-portrait", "mobile-landscape", "tablet-portrait", "tablet-landscape", "desktop";
+@mixin respond-to($media) {
+  @if $media==nth($screens, 1) {
+    @media only screen and (min-width: $break-xs) {
+      @content;
+    }
+  }
+  @if $media==nth($screens, 2) {
+    @media only screen and (min-width: $break-sm) {
+      @content;
+    }
+  }
+  @if $media==nth($screens, 3) {
+    @media only screen and (min-width: $break-md) {
+      @content;
+    }
+  }
+  @if $media==nth($screens, 4) {
+    @media only screen and (min-width: $break-lg) {
+      @content;
+    }
+  }
+  @if $media==nth($screens, 5) {
+    @media only screen and (min-width: $break-xl) {
+      @content;
+    }
+  }
+}
