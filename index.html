@@ -1,16 +1,384 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<!doctype html>
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="{{article-description}}">
+    <meta name="keywords" content="{{article-tags}}">
+    <meta name="author" content="{{article-author}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-okaidia.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+    <link rel="shortcut icon" type="image/png" href="{{favicon}}" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <link rel="stylesheet" href="main.css" />
+    <script type="text/javascript" src="main.js"></script>
+    <title>content-template</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header id="main-navigation">
+            <nav>
+                <a href=""><img id="logo" src="logo.svg" alt="Logo"/></a>
+                <button id="nav-open" onClick="openNavigation()"><i class="fa fa-bars"></i></button>
+                <button id="nav-close" class="hidden" onClick="closeNavigation()"><i class="fa fa-close"></i></button>
+                <ul id="categories" class="links">
+                    <li>
+                        <a href="">Mathématiques</a>
+                        <ul>
+                            <li><a href="">Calcul différentiel</a></li>
+                            <li><a href="">Calcul intégral</a></li>
+                            <li><a href="">SN secondaire 5</a></li>
+                            <li><a href="">SN secondaire 4</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">Physique</a>
+                        <ul>
+                            <li><a href="">Physique secondaire 5</a></li>
+                            <li><a href="">Mécanique</a>
+                                <ul>
+                                    <li><a href="">Cinématique</a></li>
+                                    <li><a href="">Dynamique</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Électricité et magnétisme</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="links">
+                    <li><a href=""><i class="fa fa-home"></i>Accueil</a></li>
+                    <li><a href=""><i class="fa fa-info"></i>À propos</a></li>
+                    <li><a href=""><i class="fa fa-map-signs"></i>Plan du site</a></li>
+                    <li><a href=""><i class="fa fa-group"></i>Contributeurs</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!--
+        -->
+        <main>
+            <article>
+                <aside id="table-of-contents">
+                    Les identités trigonométriques
+                    <nav>
+                        <ul>
+                            <li><a href="">La mise en évidence double</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+                <header id="article-header">
+                    <h1><a href="#les-identites-trigonometriques"><i class="fa fa-link"></i></a>Les identités trigonométriques</h1>
+                    <span class="publication-date"><time datetime="2017-07-05">5 juillet 2017</time></span>
+                    <div class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin fringilla, nisl vitae commodo pulvinar,
+                        sapien ante varius justo, id venenatis metus ex quis erat. Sed enim felis, elementum a dolor nec,
+                        luctus dapibus nulla. Proin ullamcorper neque vitae lorem tempor, a convallis lorem accumsan.</div>
+                </header>
+                <section>
+                    <h2><a href=""><i class="fa fa-link"></i></a>La mise en évidence double</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin fringilla, nisl vitae commodo pulvinar,
+                        sapien ante varius justo, id venenatis metus ex quis erat. Sed enim felis, elementum a dolor nec,
+                        luctus dapibus nulla. Proin ullamcorper neque vitae lorem tempor, a convallis lorem accumsan. Maecenas
+                        a orci hendrerit, auctor nisl id, rutrum tellus. Aenean pellentesque hendrerit turpis mattis mollis.
+                        Sed scelerisque lorem in massa luctus euismod. Phasellus eget tempus nulla. Donec et orci accumsan,
+                        sagittis est at, mattis arcu. In semper nisi sit amet malesuada condimentum. Etiam scelerisque, tellus
+                        quis dapibus dapibus, est turpis lobortis ligula, vitae dictum libero diam id dui. Fusce at imperdiet
+                        mi. Nulla dictum erat a sem vestibulum luctus ut non tortor. Quisque ex purus, cursus ut cursus ut,
+                        euismod id odio. Praesent vestibulum vitae lorem a placerat.</p>
+                    <figure>
+                        <a href=""><img src="cercleTrig.gif" alt="Construction du cercle trigonométrique."/></a>
+                        <figcaption>Figure 1: La construction du cercle trigonométrique</figcaption>
+                    </figure>
+                    <p>Aenean vel mi ac dui fermentum fringilla. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                        Integer condimentum laoreet massa at volutpat. Integer sapien tellus, iaculis eget tempus quis, egestas
+                        nec arcu. Duis nisl risus, dictum ut cursus nec, ullamcorper sed odio. Nulla facilisi. Fusce semper
+                        orci mauris, sed ornare est egestas a. Morbi sodales, lacus a pretium efficitur, nibh felis volutpat
+                        lacus, hendrerit tincidunt ante massa nec nisi. Duis lacinia molestie est, pretium finibus neque
+                        tristique vehicula. Duis a tristique ligula, quis convallis dui. Pellentesque porta, ante aliquam
+                        pharetra varius, ligula sem consectetur mi, et mollis odio ipsum ut lacus. Mauris a velit sodales,
+                        dapibus felis ac, dictum erat. Nam mollis eget sem sit amet rhoncus. Maecenas sodales rhoncus dolor
+                        eget posuere. When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are $$x
+                        = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
+<pre class="line-numbers">
+<code class="language-java">
+/*
+ * The MIT License
+ *
+ * Copyright 2017 NDCB.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package io.github.ndcb.sitegen.model.newcore;
+
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+/**
+ * Model of a standard tag. Used to associate similar elements based on
+ * keywords.
+ *
+ * @author Marc-Antoine Ouimet <ouimetmarcantoine@gmail.com>
+ */
+@DatabaseTable
+public class Tag extends Element {
+
+    /**
+     * The name of the database column for a tag foreign key reference.
+     */
+    public static final String TAG_ID_REFERENCE_COLUMN_NAME = "tag_id";
+
+    /**
+     * Model of a standard localized tag. Used to describe the content of a tag
+     * mapped to a locale.
+     */
+    @DatabaseTable
+    public static class LocalizedTag extends LocalizedElement {
+
+        /**
+         * The name of the database column for the a localized tag foreign key
+         * reference.
+         */
+        public final static String LOCALIZED_TAG_ID_REFERENCE_COLUMN_NAME = "localized_tag_id";
+
+        /**
+         * The tag reference of this localized tag.
+         */
+        @DatabaseField(
+                uniqueCombo = true,
+                canBeNull = false,
+                foreign = true,
+                useGetSet = true,
+                columnName = TAG_ID_REFERENCE_COLUMN_NAME
+        )
+        private final ObjectProperty<Tag> tag = new SimpleObjectProperty<>();
+
+        public Tag getTag() {
+            return tag.get();
+        }
+
+        public void setTag(Tag value) {
+            tag.set(value);
+        }
+
+        public ObjectProperty tagProperty() {
+            return tag;
+        }
+
+        /**
+         * The title of this localized tag.
+         */
+        @DatabaseField(
+                canBeNull = false,
+                useGetSet = true
+        )
+        private final StringProperty title = new SimpleStringProperty();
+
+        public String getTitle() {
+            return title.get();
+        }
+
+        public void setTitle(String value) {
+            title.set(value);
+        }
+
+        public StringProperty titleProperty() {
+            return title;
+        }
+
+        /**
+         * The string reference of this localized tag.
+         */
+        @DatabaseField(
+                canBeNull = false,
+                useGetSet = true
+        )
+        private final StringProperty reference = new SimpleStringProperty();
+
+        public String getReference() {
+            return reference.get();
+        }
+
+        public void setReference(String value) {
+            reference.set(value);
+        }
+
+        public StringProperty referenceProperty() {
+            return reference;
+        }
+
+        /**
+         * Model of a junction between a localized tag and a content. Used to
+         * associate a localized content-based description to a tag.
+         */
+        @DatabaseTable
+        public static class LocalizedTagContentJunction extends Content {
+
+            /**
+             * The localized article of this content-article junction.
+             */
+            @DatabaseField(
+                    uniqueCombo = true,
+                    canBeNull = false,
+                    foreign = true,
+                    useGetSet = true,
+                    columnName = LOCALIZED_TAG_ID_REFERENCE_COLUMN_NAME
+            )
+            private final ObjectProperty<LocalizedTag> localizedTag = new SimpleObjectProperty<>();
+
+            public LocalizedTag getLocalizedTag() {
+                return localizedTag.get();
+            }
+
+            public void setLocalizedTag(LocalizedTag value) {
+                localizedTag.set(value);
+            }
+
+            public ObjectProperty localizedTagProperty() {
+                return localizedTag;
+            }
+
+        }
+    }
+
+}
+</code>
+</pre>
+                </section>
+                <aside class="references">
+                    Références
+                    <nav>
+                        <ul>
+                            <li><a href="">La mise en évidence simple</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+                <footer>
+                    <section id="contributors">
+                    </section>
+                    <section id="comments">
+                        <div id="disqus_thread"></div>
+                    </section>
+                </footer>
+
+                TEST
+                <h1><a href=""><i class="fa fa-link"></i></a>h1</h1>
+                <h2><a href=""><i class="fa fa-link"></i></a>h2</h2>
+                <h3><a href=""><i class="fa fa-link"></i></a>h3</h3>
+                <h4><a href=""><i class="fa fa-link"></i></a>h4</h4>
+                <h5><a href=""><i class="fa fa-link"></i></a>h5</h5>
+                <h6><a href=""><i class="fa fa-link"></i></a>h6</h6>
+                END_TEST
+            </article>
+        </main>
+    </div>
+    <footer id="secondary-navigation">
+        <ul class="social">
+            <li><a href="">
+                    <span class="fa-stack">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <p>Flux RSS</p>
+                    </a></li>
+            <li><a href="">
+                    <span class="fa-stack">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <p>Page Facebook</p>
+                    </a></li>
+            <li><a href="">
+                    <span class="fa-stack">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <p>Fil Twitter</p>
+                    </a></li>
+            <li><a href="">
+                    <span class="fa-stack">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-youtube-play fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <p>Chaîne YouTube</p>
+                    </a></li>
+            <li><a href="">
+                    <span class="fa-stack">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <p>Page Google+</p>
+                    </a></li>
+            <li><a href="">
+                    <span class="fa-stack">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <p>Profil Github</p>
+                    </a></li>
+            <li><a href="">
+                    <span class="fa-stack">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <p>Courriel</p>
+                    </a></li>
+        </ul>
+        <ul class="links">
+            <li><a href=""><i class="fa fa-home"></i>NDCB</a></li>
+            <li><a href=""><i class="fa fa-map-signs"></i>Plan du site</a></li>
+            <li><a href=""><i class="fa fa-info"></i>À propos</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://ndcb.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <!--Prism and plugins-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-java.min.js"></script>
+</body>
+
 </html>
