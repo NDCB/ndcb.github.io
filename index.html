@@ -6,7 +6,7 @@
     <meta name="description" content="{{article-description}}">
     <meta name="keywords" content="{{article-tags}}">
     <meta name="author" content="{{article-author}}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-okaidia.min.css" />
@@ -27,8 +27,8 @@
         <header id="main-navigation">
             <nav>
                 <a href=""><img id="logo" src="logo.svg" alt="Logo"/></a>
-                <button id="nav-open" onClick="openNavigation()"><i class="fa fa-bars"></i></button>
-                <button id="nav-close" class="hidden" onClick="closeNavigation()"><i class="fa fa-close"></i></button>
+                <input type="checkbox" id="toggle-nav-btn" />
+                <label class="nav-icon" for="toggle-nav-btn"><span class="nav-burger"></span></label>
                 <ul id="categories" class="links">
                     <li>
                         <a href="">Mathématiques</a>

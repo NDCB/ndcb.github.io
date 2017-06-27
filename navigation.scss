@@ -1,6 +1,6 @@
 @import 'colors';
 @import 'breakpoints';
-$mobile-navigation-height: 1.5rem;
+$mobile-navigation-height: 3rem;
 $desktop-navigation-width: 17vw;
 header#main-navigation {
     background-color: $primary-dark;
@@ -16,9 +16,8 @@ header#main-navigation {
         align-items: stretch;
     }
     nav {
-        font-size: 1.5rem;
         overflow: hidden;
-        text-align: right;
+        position: static;
         @include respond-to(desktop) {
             z-index: -1; //Set navigation content below footer
             position: fixed;
@@ -27,21 +26,63 @@ header#main-navigation {
             text-align: left;
             height: 100vh;
         }
-        img#logo {
-            @include respond-to(mobile-portrait) {
-                display: none;
-            }
-            @include respond-to(desktop) {
-                $logo-width: 100%;
+        #toggle-nav-btn {
+            display: none;
+        }
+        .nav-icon {
+            cursor: pointer;
+            display: block;
+            float: right;
+            position: relative;
+            //top: $mobile-navigation-height / 2;
+            //right: 2rem;
+            padding: $mobile-navigation-height / 2;
+            user-select: none;
+            background-color: red;
+            height: 2rem;
+        }
+        .nav-burger {
+            $burger-bar-height: 2px;
+            background: $primary-light;
+            display: block;
+            position: relative;
+            transition: background 0.2s ease-out;
+            height: $burger-bar-height;
+            width: 1.5rem;
+            &:before,
+            &:after {
+                background: $primary-light;
+                content: '';
                 display: block;
-                width: $logo-width;
+                position: absolute;
+                transition: all 0.2s ease-out;
+                height: 100%;
+                width: 100%;
+            }
+            &:before {
+                top: 3 * $burger-bar-height;
+            }
+            &:after {
+                top: -3 * $burger-bar-height;
+            }
+        }
+        img#logo {
+            display: block;
+            height: $mobile-navigation-height;
+            width: auto;
+            float: left;
+            padding: 0.4rem;
+            @include respond-to(desktop) {
+                float: none;
+                height: auto;
+                width: 100%;
                 padding: 10%;
             }
         }
         ul {
             list-style-type: none;
             padding: 0;
-                display: none;
+            display: none;
             @include respond-to(desktop) {
                 display: block;
             }
@@ -56,21 +97,8 @@ header#main-navigation {
                 }
             }
         }
-        button {
-            background: none;
-            border: none;
-            color: inherit;
-            font-size: $mobile-navigation-height;
-            cursor: pointer;
-            @include respond-to(desktop) {
-                display: none;
-            }
-            &.hidden {
-                display: none;
-            }
-            &.displayed {
-                display: static;
-            }
+        #toggle-nav-btn:checked ~ ul{
+            display: block;
         }
     }
 }

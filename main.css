@@ -13,9 +13,8 @@ header#main-navigation {
       display: inline-block;
       align-items: stretch; } }
   header#main-navigation nav {
-    font-size: 1.5rem;
     overflow: hidden;
-    text-align: right; }
+    position: static; }
     @media only screen and (min-width: 1200px) {
       header#main-navigation nav {
         z-index: -1;
@@ -24,14 +23,48 @@ header#main-navigation {
         display: block;
         text-align: left;
         height: 100vh; } }
-    @media only screen and (min-width: 0px) {
-      header#main-navigation nav img#logo {
-        display: none; } }
-    @media only screen and (min-width: 1200px) {
-      header#main-navigation nav img#logo {
+    header#main-navigation nav #toggle-nav-btn {
+      display: none; }
+    header#main-navigation nav .nav-icon {
+      cursor: pointer;
+      display: block;
+      float: right;
+      position: relative;
+      padding: 1.5rem;
+      user-select: none;
+      background-color: red;
+      height: 2rem; }
+    header#main-navigation nav .nav-burger {
+      background: #ecf0f1;
+      display: block;
+      position: relative;
+      transition: background 0.2s ease-out;
+      height: 2px;
+      width: 1.5rem; }
+      header#main-navigation nav .nav-burger:before, header#main-navigation nav .nav-burger:after {
+        background: #ecf0f1;
+        content: '';
         display: block;
-        width: 100%;
-        padding: 10%; } }
+        position: absolute;
+        transition: all 0.2s ease-out;
+        height: 100%;
+        width: 100%; }
+      header#main-navigation nav .nav-burger:before {
+        top: 6px; }
+      header#main-navigation nav .nav-burger:after {
+        top: -6px; }
+    header#main-navigation nav img#logo {
+      display: block;
+      height: 3rem;
+      width: auto;
+      float: left;
+      padding: 0.4rem; }
+      @media only screen and (min-width: 1200px) {
+        header#main-navigation nav img#logo {
+          float: none;
+          height: auto;
+          width: 100%;
+          padding: 10%; } }
     header#main-navigation nav ul {
       list-style-type: none;
       padding: 0;
@@ -46,19 +79,8 @@ header#main-navigation {
           text-decoration: none; }
           header#main-navigation nav ul li a:hover {
             color: #bdc3c7; }
-    header#main-navigation nav button {
-      background: none;
-      border: none;
-      color: inherit;
-      font-size: 1.5rem;
-      cursor: pointer; }
-      @media only screen and (min-width: 1200px) {
-        header#main-navigation nav button {
-          display: none; } }
-      header#main-navigation nav button.hidden {
-        display: none; }
-      header#main-navigation nav button.displayed {
-        display: static; }
+    header#main-navigation nav #toggle-nav-btn:checked ~ ul {
+      display: block; }
 
 footer#secondary-navigation {
   position: absolute;
@@ -106,9 +128,8 @@ header#main-navigation {
       display: inline-block;
       align-items: stretch; } }
   header#main-navigation nav {
-    font-size: 1.5rem;
     overflow: hidden;
-    text-align: right; }
+    position: static; }
     @media only screen and (min-width: 1200px) {
       header#main-navigation nav {
         z-index: -1;
@@ -117,14 +138,48 @@ header#main-navigation {
         display: block;
         text-align: left;
         height: 100vh; } }
-    @media only screen and (min-width: 0px) {
-      header#main-navigation nav img#logo {
-        display: none; } }
-    @media only screen and (min-width: 1200px) {
-      header#main-navigation nav img#logo {
+    header#main-navigation nav #toggle-nav-btn {
+      display: none; }
+    header#main-navigation nav .nav-icon {
+      cursor: pointer;
+      display: block;
+      float: right;
+      position: relative;
+      padding: 1.5rem;
+      user-select: none;
+      background-color: red;
+      height: 2rem; }
+    header#main-navigation nav .nav-burger {
+      background: #ecf0f1;
+      display: block;
+      position: relative;
+      transition: background 0.2s ease-out;
+      height: 2px;
+      width: 1.5rem; }
+      header#main-navigation nav .nav-burger:before, header#main-navigation nav .nav-burger:after {
+        background: #ecf0f1;
+        content: '';
         display: block;
-        width: 100%;
-        padding: 10%; } }
+        position: absolute;
+        transition: all 0.2s ease-out;
+        height: 100%;
+        width: 100%; }
+      header#main-navigation nav .nav-burger:before {
+        top: 6px; }
+      header#main-navigation nav .nav-burger:after {
+        top: -6px; }
+    header#main-navigation nav img#logo {
+      display: block;
+      height: 3rem;
+      width: auto;
+      float: left;
+      padding: 0.4rem; }
+      @media only screen and (min-width: 1200px) {
+        header#main-navigation nav img#logo {
+          float: none;
+          height: auto;
+          width: 100%;
+          padding: 10%; } }
     header#main-navigation nav ul {
       list-style-type: none;
       padding: 0;
@@ -139,19 +194,8 @@ header#main-navigation {
           text-decoration: none; }
           header#main-navigation nav ul li a:hover {
             color: #bdc3c7; }
-    header#main-navigation nav button {
-      background: none;
-      border: none;
-      color: inherit;
-      font-size: 1.5rem;
-      cursor: pointer; }
-      @media only screen and (min-width: 1200px) {
-        header#main-navigation nav button {
-          display: none; } }
-      header#main-navigation nav button.hidden {
-        display: none; }
-      header#main-navigation nav button.displayed {
-        display: static; }
+    header#main-navigation nav #toggle-nav-btn:checked ~ ul {
+      display: block; }
 
 main {
   display: inline-block;
@@ -164,7 +208,7 @@ main {
       height: 100%; } }
   main article {
     padding: 1rem;
-    padding-top: 2.5rem; }
+    padding-top: 4rem; }
     @media only screen and (min-width: 768px) {
       main article {
         padding: 4rem; } }
@@ -229,6 +273,7 @@ main {
           margin-left: -4rem !important; } }
       @media only screen and (min-width: 1200px) {
         main article pre {
+          width: 100%;
           margin: auto !important; } }
     main article pre,
     main article code {
