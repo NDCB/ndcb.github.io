@@ -5,6 +5,7 @@ main {
     display: inline-block;
     vertical-align: top;
     position: relative;
+    width: 100vw;
     @include respond-to(desktop) {
         width: 100vw - $desktop-navigation-width;
         height: 100%;
@@ -63,14 +64,12 @@ main {
         pre {
             position: relative !important;
             width: 100vw;
-            margin: -$padding !important;
-            margin: 0;
+            margin-left: -$padding !important;
         @include respond-to(tablet-portrait) {
             padding: 4rem;
-            margin: -4rem !important;
+            margin-left: -4rem !important;
         }
             @include respond-to(desktop) {
-                width: 100%;
                 margin: auto !important;
             }
         }

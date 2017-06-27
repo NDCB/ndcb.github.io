@@ -156,7 +156,8 @@ header#main-navigation {
 main {
   display: inline-block;
   vertical-align: top;
-  position: relative; }
+  position: relative;
+  width: 100vw; }
   @media only screen and (min-width: 1200px) {
     main {
       width: 83vw;
@@ -221,15 +222,13 @@ main {
     main article pre {
       position: relative !important;
       width: 100vw;
-      margin: -1rem !important;
-      margin: 0; }
+      margin-left: -1rem !important; }
       @media only screen and (min-width: 768px) {
         main article pre {
           padding: 4rem;
-          margin: -4rem !important; } }
+          margin-left: -4rem !important; } }
       @media only screen and (min-width: 1200px) {
         main article pre {
-          width: 100%;
           margin: auto !important; } }
     main article pre,
     main article code {
