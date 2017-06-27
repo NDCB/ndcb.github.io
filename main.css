@@ -223,9 +223,14 @@ main {
       width: 100vw;
       margin: -1rem !important;
       margin: 0; }
+      @media only screen and (min-width: 768px) {
+        main article pre {
+          padding: 4rem;
+          margin: -4rem !important; } }
       @media only screen and (min-width: 1200px) {
         main article pre {
-          width: 100%; } }
+          width: 100%;
+          margin: auto !important; } }
     main article pre,
     main article code {
       overflow: auto; }

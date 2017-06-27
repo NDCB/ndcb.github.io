@@ -63,10 +63,15 @@ main {
         pre {
             position: relative !important;
             width: 100vw;
-            margin: -1rem !important;
+            margin: -$padding !important;
             margin: 0;
+        @include respond-to(tablet-portrait) {
+            padding: 4rem;
+            margin: -4rem !important;
+        }
             @include respond-to(desktop) {
                 width: 100%;
+                margin: auto !important;
             }
         }
         pre,
