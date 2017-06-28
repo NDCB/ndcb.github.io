@@ -1,53 +1,34 @@
 @import url("https://fonts.googleapis.com/css?family=Arimo:700|Roboto");
+.vertical-scroll, header#main-navigation, header#main-navigation nav {
+  max-height: 100%;
+  overflow-y: scroll; }
+  .vertical-scroll::-webkit-scrollbar, header#main-navigation::-webkit-scrollbar, header#main-navigation nav::-webkit-scrollbar {
+    display: none; }
+
 header#main-navigation {
   background-color: #34495e;
   color: #ecf0f1;
   vertical-align: top;
   position: fixed;
-  width: 100vw;
-  z-index: 1; }
+  width: 100%;
+  z-index: 1;
+  text-transform: uppercase; }
   @media only screen and (min-width: 1200px) {
     header#main-navigation {
       position: relative;
-      width: 17vw;
+      width: 17%;
       display: inline-block;
       align-items: stretch; } }
   header#main-navigation nav {
-    position: static; }
+    position: relative; }
     @media only screen and (min-width: 1200px) {
       header#main-navigation nav {
         z-index: -1;
         position: fixed;
-        width: 17vw;
+        width: 17%;
         display: block;
         text-align: left;
-        height: 100vh; } }
-    header#main-navigation nav .toggle-btn {
-      display: none; }
-    header#main-navigation nav label.nav-expand {
-      position: relative;
-      float: right;
-      cursor: pointer;
-      width: 3rem;
-      text-align: center; }
-      header#main-navigation nav label.nav-expand i.fa {
-        font-size: 1.5rem;
-        margin: 0; }
-    header#main-navigation nav label#nav-icon {
-      cursor: pointer;
-      display: block;
-      float: right;
-      position: relative;
-      padding: 1.5rem;
-      user-select: none;
-      height: 2rem; }
-      @media only screen and (min-width: 1200px) {
-        header#main-navigation nav label#nav-icon {
-          display: none; } }
-      header#main-navigation nav label#nav-icon .fa-navicon {
-        font-size: 2rem;
-        position: relative;
-        top: -1rem; }
+        padding-bottom: 5rem; } }
     header#main-navigation nav img#logo {
       display: block;
       height: 3rem;
@@ -60,38 +41,86 @@ header#main-navigation {
           height: auto;
           width: 100%;
           padding: 10%; } }
-    header#main-navigation nav ul {
-      background-color: #2c3e50;
-      list-style-type: none;
-      display: block;
+    header#main-navigation nav input[type=checkbox]#toggle-nav {
+      cursor: pointer;
       position: relative;
+      float: right;
+      width: 3rem;
+      height: 3rem;
+      z-index: 1;
+      opacity: 5; }
+      @media only screen and (min-width: 1200px) {
+        header#main-navigation nav input[type=checkbox]#toggle-nav {
+          display: none; } }
+      header#main-navigation nav input[type=checkbox]#toggle-nav ~ ul {
+        overflow: hidden;
+        max-height: 0vh;
+        width: 100%; }
+        @media only screen and (min-width: 768px) {
+          header#main-navigation nav input[type=checkbox]#toggle-nav ~ ul {
+            transition: max-height 0.5s ease-out; } }
+        @media only screen and (min-width: 1200px) {
+          header#main-navigation nav input[type=checkbox]#toggle-nav ~ ul {
+            max-height: 200vh; } }
+      header#main-navigation nav input[type=checkbox]#toggle-nav:checked ~ ul {
+        max-height: 200vh; }
+        @media only screen and (min-width: 768px) {
+          header#main-navigation nav input[type=checkbox]#toggle-nav:checked ~ ul {
+            transition: max-height 0.5s ease-in; } }
+    header#main-navigation nav ul {
+      display: block;
+      list-style-type: none;
       padding: 0;
       margin: 0;
-      max-height: 0;
-      width: 100%;
-      overflow: hidden;
-      transition: max-height 0.5s ease-out; }
+      padding-left: 1rem;
+      background-color: #2c3e50; }
       @media only screen and (min-width: 1200px) {
         header#main-navigation nav ul {
-          padding: 0;
-          display: block; } }
+          background-color: #34495e; } }
       header#main-navigation nav ul li {
-        padding-left: 1rem; }
+        position: relative;
+        padding: 0;
+        margin: 0;
+        width: 100%; }
         header#main-navigation nav ul li a {
           padding: 1rem;
           display: block;
           color: inherit;
+          height: 3rem;
           text-decoration: none; }
-        header#main-navigation nav ul li:hover {
-          background-color: #34495e; }
-      header#main-navigation nav ul i.fa {
-        margin-right: 1rem;
-        width: 1rem;
-        text-align: center; }
-    header#main-navigation nav input.toggle-btn:checked ~ ul {
-      display: block;
-      max-height: 100vh;
-      transition: max-height 0.5s ease-in; }
+          header#main-navigation nav ul li a:hover {
+            color: #f1c40f;
+            background-color: #34495e; }
+            @media only screen and (min-width: 1200px) {
+              header#main-navigation nav ul li a:hover {
+                background-color: #2c3e50; } }
+        header#main-navigation nav ul li i.fa {
+          margin-right: 1rem;
+          width: 1rem;
+          text-align: center; }
+      header#main-navigation nav ul input[type=checkbox] {
+        cursor: pointer;
+        position: relative;
+        float: right;
+        width: 3rem;
+        height: 3rem;
+        z-index: 1;
+        opacity: 5; }
+        header#main-navigation nav ul input[type=checkbox] ~ ul {
+          overflow: hidden;
+          max-height: 0vh; }
+          @media only screen and (min-width: 768px) {
+            header#main-navigation nav ul input[type=checkbox] ~ ul {
+              transition: max-height 0.5s ease-out; } }
+        header#main-navigation nav ul input[type=checkbox]:checked ~ ul {
+          max-height: 200vh; }
+          @media only screen and (min-width: 768px) {
+            header#main-navigation nav ul input[type=checkbox]:checked ~ ul {
+              transition: max-height 0.5s ease-in; } }
+        header#main-navigation nav ul input[type=checkbox]:checked ~ i {
+          -ms-transform: rotate(180deg);
+          -webkit-transform: rotate(180deg);
+          transform: rotate(180deg); }
 
 footer#secondary-navigation {
   position: absolute;
@@ -125,55 +154,36 @@ footer#secondary-navigation {
   footer#secondary-navigation ul.links i.fa {
     margin-right: 1rem; }
 
+.vertical-scroll, header#main-navigation, header#main-navigation nav {
+  max-height: 100%;
+  overflow-y: scroll; }
+  .vertical-scroll::-webkit-scrollbar, header#main-navigation::-webkit-scrollbar, header#main-navigation nav::-webkit-scrollbar {
+    display: none; }
+
 header#main-navigation {
   background-color: #34495e;
   color: #ecf0f1;
   vertical-align: top;
   position: fixed;
-  width: 100vw;
-  z-index: 1; }
+  width: 100%;
+  z-index: 1;
+  text-transform: uppercase; }
   @media only screen and (min-width: 1200px) {
     header#main-navigation {
       position: relative;
-      width: 17vw;
+      width: 17%;
       display: inline-block;
       align-items: stretch; } }
   header#main-navigation nav {
-    position: static; }
+    position: relative; }
     @media only screen and (min-width: 1200px) {
       header#main-navigation nav {
         z-index: -1;
         position: fixed;
-        width: 17vw;
+        width: 17%;
         display: block;
         text-align: left;
-        height: 100vh; } }
-    header#main-navigation nav .toggle-btn {
-      display: none; }
-    header#main-navigation nav label.nav-expand {
-      position: relative;
-      float: right;
-      cursor: pointer;
-      width: 3rem;
-      text-align: center; }
-      header#main-navigation nav label.nav-expand i.fa {
-        font-size: 1.5rem;
-        margin: 0; }
-    header#main-navigation nav label#nav-icon {
-      cursor: pointer;
-      display: block;
-      float: right;
-      position: relative;
-      padding: 1.5rem;
-      user-select: none;
-      height: 2rem; }
-      @media only screen and (min-width: 1200px) {
-        header#main-navigation nav label#nav-icon {
-          display: none; } }
-      header#main-navigation nav label#nav-icon .fa-navicon {
-        font-size: 2rem;
-        position: relative;
-        top: -1rem; }
+        padding-bottom: 5rem; } }
     header#main-navigation nav img#logo {
       display: block;
       height: 3rem;
@@ -186,38 +196,86 @@ header#main-navigation {
           height: auto;
           width: 100%;
           padding: 10%; } }
-    header#main-navigation nav ul {
-      background-color: #2c3e50;
-      list-style-type: none;
-      display: block;
+    header#main-navigation nav input[type=checkbox]#toggle-nav {
+      cursor: pointer;
       position: relative;
+      float: right;
+      width: 3rem;
+      height: 3rem;
+      z-index: 1;
+      opacity: 5; }
+      @media only screen and (min-width: 1200px) {
+        header#main-navigation nav input[type=checkbox]#toggle-nav {
+          display: none; } }
+      header#main-navigation nav input[type=checkbox]#toggle-nav ~ ul {
+        overflow: hidden;
+        max-height: 0vh;
+        width: 100%; }
+        @media only screen and (min-width: 768px) {
+          header#main-navigation nav input[type=checkbox]#toggle-nav ~ ul {
+            transition: max-height 0.5s ease-out; } }
+        @media only screen and (min-width: 1200px) {
+          header#main-navigation nav input[type=checkbox]#toggle-nav ~ ul {
+            max-height: 200vh; } }
+      header#main-navigation nav input[type=checkbox]#toggle-nav:checked ~ ul {
+        max-height: 200vh; }
+        @media only screen and (min-width: 768px) {
+          header#main-navigation nav input[type=checkbox]#toggle-nav:checked ~ ul {
+            transition: max-height 0.5s ease-in; } }
+    header#main-navigation nav ul {
+      display: block;
+      list-style-type: none;
       padding: 0;
       margin: 0;
-      max-height: 0;
-      width: 100%;
-      overflow: hidden;
-      transition: max-height 0.5s ease-out; }
+      padding-left: 1rem;
+      background-color: #2c3e50; }
       @media only screen and (min-width: 1200px) {
         header#main-navigation nav ul {
-          padding: 0;
-          display: block; } }
+          background-color: #34495e; } }
       header#main-navigation nav ul li {
-        padding-left: 1rem; }
+        position: relative;
+        padding: 0;
+        margin: 0;
+        width: 100%; }
         header#main-navigation nav ul li a {
           padding: 1rem;
           display: block;
           color: inherit;
+          height: 3rem;
           text-decoration: none; }
-        header#main-navigation nav ul li:hover {
-          background-color: #34495e; }
-      header#main-navigation nav ul i.fa {
-        margin-right: 1rem;
-        width: 1rem;
-        text-align: center; }
-    header#main-navigation nav input.toggle-btn:checked ~ ul {
-      display: block;
-      max-height: 100vh;
-      transition: max-height 0.5s ease-in; }
+          header#main-navigation nav ul li a:hover {
+            color: #f1c40f;
+            background-color: #34495e; }
+            @media only screen and (min-width: 1200px) {
+              header#main-navigation nav ul li a:hover {
+                background-color: #2c3e50; } }
+        header#main-navigation nav ul li i.fa {
+          margin-right: 1rem;
+          width: 1rem;
+          text-align: center; }
+      header#main-navigation nav ul input[type=checkbox] {
+        cursor: pointer;
+        position: relative;
+        float: right;
+        width: 3rem;
+        height: 3rem;
+        z-index: 1;
+        opacity: 5; }
+        header#main-navigation nav ul input[type=checkbox] ~ ul {
+          overflow: hidden;
+          max-height: 0vh; }
+          @media only screen and (min-width: 768px) {
+            header#main-navigation nav ul input[type=checkbox] ~ ul {
+              transition: max-height 0.5s ease-out; } }
+        header#main-navigation nav ul input[type=checkbox]:checked ~ ul {
+          max-height: 200vh; }
+          @media only screen and (min-width: 768px) {
+            header#main-navigation nav ul input[type=checkbox]:checked ~ ul {
+              transition: max-height 0.5s ease-in; } }
+        header#main-navigation nav ul input[type=checkbox]:checked ~ i {
+          -ms-transform: rotate(180deg);
+          -webkit-transform: rotate(180deg);
+          transform: rotate(180deg); }
 
 main {
   display: inline-block;
@@ -226,7 +284,7 @@ main {
   width: 100vw; }
   @media only screen and (min-width: 1200px) {
     main {
-      width: 83vw;
+      width: 83%;
       height: 100%; } }
   main article {
     padding: 1rem;

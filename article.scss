@@ -7,7 +7,7 @@ main {
     position: relative;
     width: 100vw;
     @include respond-to(desktop) {
-        width: 100vw - $desktop-navigation-width;
+        width: 100% - $desktop-navigation-width;
         height: 100%;
     }
     article {
