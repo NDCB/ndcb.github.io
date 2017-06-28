@@ -29,14 +29,15 @@
                 <a href=""><img id="logo" src="logo.svg" alt="Logo"/></a>
                 <input type="checkbox" class="toggle-btn" id="toggle-nav-btn" />
                 <label id="nav-icon" for="toggle-nav-btn"><i class="fa fa-navicon"></i></label>
-                <ul class="links">
+                <ul>
                     <li><a href=""><i class="fa fa-home"></i>Accueil</a></li>
                     <li>
-                        <a href=""><i class="fa fa-list-alt"></i>Catégories<label class="nav-expand" for="sub-nav-1"><i class="fa fa-caret-down"></i></label></a>
-                        <input type="checkbox" class="toggle-btn" id="sub-nav-1" />
-                        <ul id="categories" class="links">
+                        <a href=""><i class="fa fa-list-alt"></i>Catégories<label class="nav-expand" for="categories-nav"><i class="fa fa-caret-down"></i></label></a>
+                        <input type="checkbox" class="toggle-btn" id="categories-nav" checked />
+                        <ul id="categories">
                             <li>
-                                <a href="">Mathématiques</a>
+                                <a href="">Mathématiques<label class="nav-expand" for="sub-nav-1"><i class="fa fa-caret-down"></i></label></a>
+                                <input type="checkbox" class="toggle-btn" id="sub-nav-1" />
                                 <ul>
                                     <li><a href="">Calcul différentiel</a></li>
                                     <li><a href="">Calcul intégral</a></li>
@@ -45,7 +46,8 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="">Physique</a>
+                                <a href="">Physique<label class="nav-expand" for="sub-nav-2"><i class="fa fa-caret-down"></i></label></a>
+                                <input type="checkbox" class="toggle-btn" id="sub-nav-2" />
                                 <ul>
                                     <li><a href="">Physique secondaire 5</a></li>
                                     <li><a href="">Mécanique</a>
