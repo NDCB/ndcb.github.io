@@ -24,7 +24,7 @@ header#main-navigation {
   @media only screen and (min-width: 1200px) {
     header#main-navigation {
       position: relative;
-      width: 17%;
+      width: 20%;
       display: inline-block;
       align-items: stretch; } }
   header#main-navigation nav {
@@ -33,7 +33,7 @@ header#main-navigation {
       header#main-navigation nav {
         z-index: -1;
         position: fixed;
-        width: 17%;
+        width: 20%;
         display: block;
         text-align: left;
         padding-bottom: 5rem; } }
@@ -116,7 +116,6 @@ header#main-navigation {
           padding: 1rem;
           display: block;
           color: inherit;
-          height: 3rem;
           text-decoration: none; }
           header#main-navigation nav ul li a:hover {
             color: #f1c40f;
@@ -186,7 +185,7 @@ header#main-navigation {
   @media only screen and (min-width: 1200px) {
     header#main-navigation {
       position: relative;
-      width: 17%;
+      width: 20%;
       display: inline-block;
       align-items: stretch; } }
   header#main-navigation nav {
@@ -195,7 +194,7 @@ header#main-navigation {
       header#main-navigation nav {
         z-index: -1;
         position: fixed;
-        width: 17%;
+        width: 20%;
         display: block;
         text-align: left;
         padding-bottom: 5rem; } }
@@ -278,7 +277,6 @@ header#main-navigation {
           padding: 1rem;
           display: block;
           color: inherit;
-          height: 3rem;
           text-decoration: none; }
           header#main-navigation nav ul li a:hover {
             color: #f1c40f;
@@ -298,7 +296,7 @@ main {
   width: 100%; }
   @media only screen and (min-width: 1200px) {
     main {
-      width: 83%;
+      width: 80%;
       align-items: stretch; } }
   main article {
     padding: 1rem;

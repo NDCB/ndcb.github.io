@@ -1,7 +1,7 @@
 @import 'colors';
 @import 'breakpoints';
 $mobile-navigation-height: 3rem;
-$desktop-navigation-width: 17%;
+$desktop-navigation-width: 20%;
 $ul-expanded-height: 200vh; //Hard-coded value for the transition effect
 $transition-duration: 0.5s;
 .vertical-scroll {
@@ -142,7 +142,7 @@ header#main-navigation {
                     padding: 1rem;
                     display: block;
                     color: inherit;
-                    height: 3rem;
+                    //height: 3rem;
                     text-decoration: none;
                     &:hover {
                         color: $primary-yellow;
