@@ -3,6 +3,7 @@
 $mobile-navigation-height: 3rem;
 $desktop-navigation-width: 17%;
 $ul-expanded-height: 200vh; //Hard-coded value for the transition effect
+$transition-duration: 0.5s;
 .vertical-scroll {
     max-height: 100%;
     overflow-y: scroll;
@@ -11,7 +12,17 @@ $ul-expanded-height: 200vh; //Hard-coded value for the transition effect
     }
 }
 
+.navigation-icon {
+    cursor: pointer;
+    position: relative;
+    float: right;
+    width: 3rem;
+    height: 3rem;
+    display: block;
+}
+
 header#main-navigation {
+    //Background container for the navigation
     background-color: $primary-dark;
     color: $primary-light;
     vertical-align: top;
@@ -19,17 +30,16 @@ header#main-navigation {
     width: 100%;
     z-index: 1; //Set navigation bar above MathJax equations
     text-transform: uppercase;
-    @extend .vertical-scroll;
+    @extend .vertical-scroll; //Allows for scrolling on mobile
     @include respond-to(desktop) {
         position: relative;
         width: $desktop-navigation-width;
         display: inline-block;
-        align-items: stretch;
+        align-items: stretch; //Stretch the container to the footer
     }
     nav {
-        $transition-duration: 0.5s;
         position: relative;
-        @extend .vertical-scroll;
+        @extend .vertical-scroll; //Allows for scrolling on desktop
         @include respond-to(desktop) {
             z-index: -1; //Set navigation content below footer
             position: fixed;
@@ -51,17 +61,31 @@ header#main-navigation {
                 padding: 10%;
             }
         }
-        input[type=checkbox]#toggle-nav {
-            cursor: pointer;
-            position: relative;
-            float: right;
-            width: 3rem;
-            height: 3rem;
-            z-index: 1;
-            opacity: 5;
+        i.fa-navicon {
             @include respond-to(desktop) {
                 display: none;
             }
+        }
+        i.fa-navicon,
+        i.fa-caret-down {
+            position: absolute;
+            vertical-align: middle;
+            top: 0;
+            right: 0;
+            padding: 0.5rem;
+            padding-right: 1rem;
+            font-size: 2rem;
+            margin: 0;
+            width: 3rem;
+            text-align: center;
+            @include respond-to(tablet-portrait) {
+                transition: all $transition-duration ease-out;
+            }
+        }
+        input[type=checkbox] {
+            @extend .navigation-icon;
+            opacity: 0;
+            z-index: 10;
             &~ul {
                 overflow: hidden;
                 max-height: 0vh;
@@ -69,14 +93,33 @@ header#main-navigation {
                 @include respond-to(tablet-portrait) {
                     transition: max-height $transition-duration ease-out;
                 }
-                @include respond-to(desktop) {
+            }
+            &:checked {
+                &~ul {
                     max-height: $ul-expanded-height;
+                    @include respond-to(tablet-portrait) {
+                        transition: max-height $transition-duration ease-in;
+                    }
+                }
+                &~a i.fa-caret-down {
+                    $rotation: rotate(-180deg);
+                    -ms-transform: $rotation;
+                    -webkit-transform-origin: 70% 55%;
+                    -webkit-transform: $rotation;
+                    transform: $rotation;
+                    @include respond-to(tablet-portrait) {
+                        transition: all $transition-duration ease-in;
+                    }
                 }
             }
-            &:checked~ul {
-                max-height: $ul-expanded-height;
-                @include respond-to(tablet-portrait) {
-                    transition: max-height $transition-duration ease-in;
+        }
+        input[type=checkbox]#toggle-nav {
+            @include respond-to(desktop) {
+                display: none;
+            }
+            &~ul {
+                @include respond-to(desktop) {
+                    max-height: $ul-expanded-height;
                 }
             }
         }
@@ -108,40 +151,10 @@ header#main-navigation {
                             background-color: $secondary-dark;
                         }
                     }
-                }
-                i.fa {
-                    margin-right: 1rem;
-                    width: 1rem;
-                    text-align: center;
-                }
-            }
-            input[type=checkbox] {
-                cursor: pointer;
-                position: relative;
-                float: right;
-                width: 3rem;
-                height: 3rem;
-                z-index: 1;
-                opacity: 5;
-                &~ul {
-                    overflow: hidden;
-                    max-height: 0vh;
-                    @include respond-to(tablet-portrait) {
-                        transition: max-height $transition-duration ease-out;
-                    }
-                }
-                &:checked {
-                    &~ul {
-                        max-height: $ul-expanded-height;
-                        @include respond-to(tablet-portrait) {
-                            transition: max-height $transition-duration ease-in;
-                        }
-                    }
-                    &~i {
-                        $rotation: rotate(180deg);
-                        -ms-transform: $rotation;
-                        -webkit-transform: $rotation;
-                        transform: $rotation;
+                    i.fa {
+                        margin-right: 1rem;
+                        width: 1rem;
+                        text-align: center;
                     }
                 }
             }

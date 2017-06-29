@@ -14,8 +14,8 @@
 
     <link rel="shortcut icon" type="image/png" href="{{favicon}}" />
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
     <link rel="stylesheet" href="main.css" />
     <script type="text/javascript" src="main.js"></script>
@@ -50,7 +50,9 @@
                                 <a href="">Physique<i class="fa fa-caret-down"></i></a>
                                 <ul>
                                     <li><a href="">Physique secondaire 5</a></li>
-                                    <li><a href="">Mécanique</a>
+                                    <li>
+                                        <input type="checkbox" />
+                                        <a href="">Mécanique<i class="fa fa-caret-down"></i></a>
                                         <ul>
                                             <li><a href="">Cinématique</a></li>
                                             <li><a href="">Dynamique</a></li>
@@ -382,9 +384,9 @@ public class Tag extends Element {
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <!--Prism and plugins-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-java.min.js"></script>
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-java.min.js"></script>
 </body>
 
 </html>
