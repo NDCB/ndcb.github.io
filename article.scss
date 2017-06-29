@@ -14,12 +14,21 @@ main {
         $padding: 1rem;
         padding: $padding;
         padding-top: $mobile-navigation-height + $padding;
+        display: block;
         @include respond-to(tablet-portrait) {
             padding: 4rem;
+            //width: 70%;
         }
         img {
             width: 100%;
             height: auto;
+        }
+        aside {
+            position: relative;
+            float: right;
+            top: 0;
+            display: block;
+            background-color: $primary-light;
         }
         h1,
         h2,
@@ -60,27 +69,6 @@ main {
                     }
                 }
             }
-        }
-        pre {
-            position: relative !important;
-            width: 100%;
-            //margin-left: -$padding !important;
-            @include respond-to(tablet-portrait) {
-                padding: 4rem;
-               // margin-left: -4rem !important;
-            }
-            @include respond-to(desktop) {
-                width: 100%;
-                margin: auto !important;
-            }
-        }
-        pre,
-        code {
-            //white-space: pre-wrap !important;
-            overflow: auto;
-        }
-        code {
-            overflow: visible;
         }
     }
 }

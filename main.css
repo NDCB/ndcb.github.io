@@ -67,7 +67,7 @@ header#main-navigation {
       @media only screen and (min-width: 768px) {
         header#main-navigation nav i.fa-navicon,
         header#main-navigation nav i.fa-caret-down {
-          transition: all 0.5s ease-out; } }
+          transition: all 0.2s ease-out; } }
     header#main-navigation nav input[type=checkbox] {
       opacity: 0;
       z-index: 10; }
@@ -90,19 +90,20 @@ header#main-navigation {
         transform: rotate(-180deg); }
         @media only screen and (min-width: 768px) {
           header#main-navigation nav input[type=checkbox]:checked ~ a i.fa-caret-down {
-            transition: all 0.5s ease-in; } }
+            transition: all 0.2s ease-in; } }
     @media only screen and (min-width: 1200px) {
       header#main-navigation nav input[type=checkbox]#toggle-nav {
         display: none; } }
     @media only screen and (min-width: 1200px) {
       header#main-navigation nav input[type=checkbox]#toggle-nav ~ ul {
         max-height: 200vh; } }
+    header#main-navigation nav ul ul {
+      padding-left: 1rem; }
     header#main-navigation nav ul {
       display: block;
       list-style-type: none;
       padding: 0;
       margin: 0;
-      padding-left: 1rem;
       background-color: #2c3e50; }
       @media only screen and (min-width: 1200px) {
         header#main-navigation nav ul {
@@ -123,6 +124,8 @@ header#main-navigation {
             @media only screen and (min-width: 1200px) {
               header#main-navigation nav ul li a:hover {
                 background-color: #2c3e50; } }
+            header#main-navigation nav ul li a:hover i.fa-caret-down {
+              color: #ecf0f1; }
           header#main-navigation nav ul li a i.fa {
             margin-right: 1rem;
             width: 1rem;
@@ -228,7 +231,7 @@ header#main-navigation {
       @media only screen and (min-width: 768px) {
         header#main-navigation nav i.fa-navicon,
         header#main-navigation nav i.fa-caret-down {
-          transition: all 0.5s ease-out; } }
+          transition: all 0.2s ease-out; } }
     header#main-navigation nav input[type=checkbox] {
       opacity: 0;
       z-index: 10; }
@@ -251,19 +254,20 @@ header#main-navigation {
         transform: rotate(-180deg); }
         @media only screen and (min-width: 768px) {
           header#main-navigation nav input[type=checkbox]:checked ~ a i.fa-caret-down {
-            transition: all 0.5s ease-in; } }
+            transition: all 0.2s ease-in; } }
     @media only screen and (min-width: 1200px) {
       header#main-navigation nav input[type=checkbox]#toggle-nav {
         display: none; } }
     @media only screen and (min-width: 1200px) {
       header#main-navigation nav input[type=checkbox]#toggle-nav ~ ul {
         max-height: 200vh; } }
+    header#main-navigation nav ul ul {
+      padding-left: 1rem; }
     header#main-navigation nav ul {
       display: block;
       list-style-type: none;
       padding: 0;
       margin: 0;
-      padding-left: 1rem;
       background-color: #2c3e50; }
       @media only screen and (min-width: 1200px) {
         header#main-navigation nav ul {
@@ -284,6 +288,8 @@ header#main-navigation {
             @media only screen and (min-width: 1200px) {
               header#main-navigation nav ul li a:hover {
                 background-color: #2c3e50; } }
+            header#main-navigation nav ul li a:hover i.fa-caret-down {
+              color: #ecf0f1; }
           header#main-navigation nav ul li a i.fa {
             margin-right: 1rem;
             width: 1rem;
@@ -300,13 +306,20 @@ main {
       align-items: stretch; } }
   main article {
     padding: 1rem;
-    padding-top: 4rem; }
+    padding-top: 4rem;
+    display: block; }
     @media only screen and (min-width: 768px) {
       main article {
         padding: 4rem; } }
     main article img {
       width: 100%;
       height: auto; }
+    main article aside {
+      position: relative;
+      float: right;
+      top: 0;
+      display: block;
+      background-color: #ecf0f1; }
     main article h1 a,
     main article h2 a,
     main article h3 a,
@@ -355,21 +368,6 @@ main {
           position: absolute;
           transition: transform 0.2s cubic-bezier(0.895, 0.03, 0.685, 0.22);
           -webkit-transition: transform 0.2s cubic-bezier(0.895, 0.03, 0.685, 0.22); } }
-    main article pre {
-      position: relative !important;
-      width: 100%; }
-      @media only screen and (min-width: 768px) {
-        main article pre {
-          padding: 4rem; } }
-      @media only screen and (min-width: 1200px) {
-        main article pre {
-          width: 100%;
-          margin: auto !important; } }
-    main article pre,
-    main article code {
-      overflow: auto; }
-    main article code {
-      overflow: visible; }
 
 * {
   box-sizing: border-box; }

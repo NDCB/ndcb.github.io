@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism-okaidia.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-numbers/prism-line-numbers.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-numbers/prism-line-numbers.min.css"
+    />
 
     <link rel="shortcut icon" type="image/png" href="{{favicon}}" />
 
@@ -69,51 +70,307 @@
                 </ul>
             </nav>
         </header>
-        <!--
-        -->
         <main>
             <article>
-                <aside id="table-of-contents">
-                    Les identités trigonométriques
-                    <nav>
-                        <ul>
-                            <li><a href="">La mise en évidence double</a></li>
-                        </ul>
-                    </nav>
-                </aside>
-                <header id="article-header">
-                    <h1><a href="#les-identites-trigonometriques"><i class="fa fa-link"></i></a>Les identités trigonométriques</h1>
+                <header>
+                    <h1><a href=""><i class="fa fa-link"></i></a>L'étude du domaine de fonctions</h1>
                     <span class="publication-date"><time datetime="2017-07-05">5 juillet 2017</time></span>
-                    <div class="article-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin fringilla, nisl vitae commodo pulvinar,
-                        sapien ante varius justo, id venenatis metus ex quis erat. Sed enim felis, elementum a dolor nec,
-                        luctus dapibus nulla. Proin ullamcorper neque vitae lorem tempor, a convallis lorem accumsan.</div>
+                    <p>L'étude du domaine de fonctions consiste à déterminer le ou les intervalles de définition d'une fonction,
+                        c'est-à-dire l'ensemble des valeurs d'abscisse pour lesquelles la fonction renvoie une ordonnée.
+                        C'est une notion indispensable pour l'étude de la continuité de fonctions, en passant par <a href="https://notesdecoursblog.wordpress.com/2016/12/16/les-fonctions-reciproques/">la réciprocité et la bijection de fonctions rationnelles et algébriques</a>.
+                    </p>
                 </header>
                 <section>
-                    <h2><a href=""><i class="fa fa-link"></i></a>La mise en évidence double</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin fringilla, nisl vitae commodo pulvinar,
-                        sapien ante varius justo, id venenatis metus ex quis erat. Sed enim felis, elementum a dolor nec,
-                        luctus dapibus nulla. Proin ullamcorper neque vitae lorem tempor, a convallis lorem accumsan. Maecenas
-                        a orci hendrerit, auctor nisl id, rutrum tellus. Aenean pellentesque hendrerit turpis mattis mollis.
-                        Sed scelerisque lorem in massa luctus euismod. Phasellus eget tempus nulla. Donec et orci accumsan,
-                        sagittis est at, mattis arcu. In semper nisi sit amet malesuada condimentum. Etiam scelerisque, tellus
-                        quis dapibus dapibus, est turpis lobortis ligula, vitae dictum libero diam id dui. Fusce at imperdiet
-                        mi. Nulla dictum erat a sem vestibulum luctus ut non tortor. Quisque ex purus, cursus ut cursus ut,
-                        euismod id odio. Praesent vestibulum vitae lorem a placerat.</p>
-                    <figure>
-                        <a href=""><img src="cercleTrig.gif" alt="Construction du cercle trigonométrique."/></a>
-                        <figcaption>Figure 1: La construction du cercle trigonométrique</figcaption>
-                    </figure>
-                    <p>Aenean vel mi ac dui fermentum fringilla. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                        Integer condimentum laoreet massa at volutpat. Integer sapien tellus, iaculis eget tempus quis, egestas
-                        nec arcu. Duis nisl risus, dictum ut cursus nec, ullamcorper sed odio. Nulla facilisi. Fusce semper
-                        orci mauris, sed ornare est egestas a. Morbi sodales, lacus a pretium efficitur, nibh felis volutpat
-                        lacus, hendrerit tincidunt ante massa nec nisi. Duis lacinia molestie est, pretium finibus neque
-                        tristique vehicula. Duis a tristique ligula, quis convallis dui. Pellentesque porta, ante aliquam
-                        pharetra varius, ligula sem consectetur mi, et mollis odio ipsum ut lacus. Mauris a velit sodales,
-                        dapibus felis ac, dictum erat. Nam mollis eget sem sit amet rhoncus. Maecenas sodales rhoncus dolor
-                        eget posuere. When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are $$x
-                        = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
-                    <pre class="line-numbers">
+                    <header>
+                        <h2><a href=""><i class="fa fa-link"></i></a>Abscisses et ordonnées comme ensembles</h2>
+                    </header>
+                    <p>Formellement, une fonction mathématique peut se définir comme étant un opérateur (ou une application) qui
+                        prend un ensemble de départ (abscisse) et le projette sur un ensemble d'arrivée (ordonnée). La fonction
+                        agit donc comme lien entre ces deux ensembles. On note le domaine d'une fonction \( f\): \( D_f\)
+                        ou \( \text{dom}_f\).
+                    </p>
+                </section>
+                <section>
+                    <header>
+                        <h3><a href=""><i class="fa fa-link"></i></a>Définition du domaine d'une fonction</h3>
+                    </header>
+                    <p>
+                        Le domaine d'une fonction est le sous-ensemble de la définition de l'ensemble des abscisses de la fonction qui comprend toutes
+                        les valeurs d'abscisse qui renvoient une image. Une fonction \( f:\mathbb{R}\rightarrow\mathbb{R}\)
+                        prend une valeur de l'ensemble des réels en abscisse (définition des abscisses) et renvoie une valeur
+                        de l'ensemble des réels pour ordonnées (définition des ordonnées). Soient \( X\) et \( Y\) les ensembles
+                        des abscisses et des ordonnées d'une fonction respectivement, si \( f:\mathbb{R}\rightarrow\mathbb{R}\),
+                        alors le domaine de la fonction sera \( \text{dom}_f=X\subseteq\mathbb{R}\) et l'image de la fonction
+                        sera \( \text{ima}_f=Y\subseteq\mathbb{R}\). L'étude du domaine d'une fonction consistera donc à
+                        déterminer l'ensemble \( X\).
+                    </p>
+                    <p>
+                        Être en mesure de déterminer le domaine de fonctions constitue un des aspects de base de l'analyse de fonctions. Outre de
+                        permettre l'étude de la continuité de fonctions, le domaine des fonctions permet d'en tracer le graphe,
+                        d'en faire l'étude des signes, de trouver des valeurs critiques voire même de résoudre des problèmes
+                        d'incongruités dans des démarches/preuves mathématiques. En somme, on cherche l'ensemble des valeurs
+                        d'abscisse posant une indétermination de la fonction pour l'y soustraire de l'ensemble de définition
+                        de la fonction. Pour une fonction \( f:\mathbb{R}\rightarrow\mathbb{R}\), il se peut que ce ne soit
+                        pas toutes les valeurs de \( x\in\mathbb{R}\) qui aient une image, mais il n'existe pas pour autant
+                        d'autres ensembles qui correspondent au domaine de \( f\).
+                    </p>
+                </section>
+                <section>
+                    <header>
+                        <h2><a href=""><i class="fa fa-link"></i></a>Démarche pour déterminer le domaine d'une fonction</h2>
+                    </header>
+                    <p>Tel qu'énoncé brièvement plus tôt, on va chercher l'ensemble des valeurs pour lesquelles le résultat/l'image
+                        de la fonction est indéterminé. Pour une fonction \( f:\mathbb{R}\rightarrow\mathbb{R}\), qui d'ailleurs
+                        est la définition par défaut des fonctions algébriques à moins qu'on ne spécifie autrement, l'ensemble
+                        \( X\) représentant le domaine de la fonction sera un sous-ensemble inclusif de \( \mathbb{R}\) (qui
+                        peut être égal à \( \mathbb{R}\)), donc \( X\subseteq\mathbb{R}\). Autrement dit, la cardinalité
+                        de l'ensemble \( X\), notée \( \#X\), soit le nombre de valeurs comprises dans l'ensemble, sera inférieure
+                        ou égale à la cardinalité de l'ensemble de définition, soit couramment \( \mathbb{R}\) (\( \#X\le\#\mathbb{R}\)).
+                    </p>
+                    <p>
+                        Si une fonction présente des ensembles ou intervalles de valeurs d'abscisse pour lesquelles elle est indéfinie, alors il
+                        faudra soustraire à l'ensemble de définition le ou les ensembles de valeurs d'exclusions. Il y aura
+                        donc des fonctions de base dont il faudra se souvenir du domaine par cœur, on d'en comprendre les
+                        mécaniques pour savoir les exprimer adéquatement. On se souvient des notions d'ensembles et d'intervalles
+                        que s'écrivent respectivement l'addition/l'union, la soustraction/l'exclusion et l'intersection d'ensembles
+                        et d'intervalles \( X\) et \( Y\) \( X\cup Y\), \( X\setminus Y\) et \( X\cap Y\). Pour l'étude du
+                        domaine de fonctions, on s'intéressera surtout à la soustraction et à l'addition d'ensembles.
+                    </p>
+                </section>
+                <section>
+                    <header>
+                        <h3><a href=""><i class="fa fa-link"></i></a>Fonctions ayant des indéterminations</h3>
+                    </header>
+                    <p>
+                        Les fonctions algébriques présentent des indéterminations selon la valeur passée en paramètre. Ce sont des incongruités dans
+                        les fonctions qui se présentent sous des formes indéterminées ou dont le résultat est tout bonnement
+                        impossible, la différence entre les deux étant qu'une indétermination peut souvent être levée dans
+                        certains cas, parce que l'indétermination peut donner lieu à une infinité de solutions. Ces indéterminations
+                        seront le sujet d'étude de la notion de limite, base du calcul différentiel et intégral.
+                    </p>
+                </section>
+                <section>
+                    <header>
+                        <h4><a href=""><i class="fa fa-link"></i></a>Les fonctions rationnelles</h4>
+                    </header>
+                    <p>
+                        Une forme indéterminée qu'on a invariablement rencontrée est la division par zéro. En effet, parce que la division est essentiellement
+                        des soustractions répétées, on ne pourrait pas soustraire infiniment le nombre zéro d'un autre nombre.
+                        Par ailleurs, des propriétés de la division, lorsque l'un ou l'autre des nombres au numérateur ou
+                        au dénominateur exclusivement est négatif, alors la fraction en tant que telle sera négative. Parce
+                        que le zéro marque l'interface des nombres positifs et négatifs, l'indétermination de la division
+                        par zéro repose dans le signe du infini résultant. <a href="https://notesdecoursblog.wordpress.com/2016/08/31/la-notion-de-limite/">Ce problème d'indétermination s'écrirait formellement</a>                        \( \displaystyle \lim_{x\rightarrow 0}{\frac{k}{x}}\) pour \( k\in\mathbb{R}\), dont le résultat
+                        est indéterminé, parce qu'il est à la fois \( -\infty\) et \( \infty\). On dirait alors qu'il y a
+                        une asymptote verticale d'équation \( x=0\) dans la fonction \( \frac{k}{x}\).
+                    </p>
+                    <p>
+                        Parce que la division par zéro renvoie une réponse qui figure parmi \( \overline{\mathbb{R}}\) et non pas parmi \( \mathbb{R}\)
+                        (le second ensemble étant la définition implicite de toutes fonctions), il y aura lieu d'indétermination
+                        pour toutes fonctions rationnelles dont le dénominateur sera nul. Si le dénominateur est une expression
+                        algébrique, alors il y aura lieu d'exclusion du domaine de base de la fonction pour toutes valeurs
+                        d'abscisse qui annulent le dénominateur. Par exemple, considérons la fonction suivante:
+                    </p>
+                    $$ \displaystyle f(x)=\frac{(x-1)(2x+3)}{(x-1)(x+4)}$$
+                    <p>
+                        Dans cette fonction, on remarque au dénominateur que \( (x-1)(x+4)=0\forall x\in\{-4,1\}\). Bien qu'on aurait pu lever l'indétermination
+                        en \( x=1\) en éliminant les facteurs \( (x-1)\), on devrait écrire \( \displaystyle f(x)=\frac{(x-1)(2x+3)}{(x-1)(x+4)}\neq\frac{2x+3}{x+4}\).
+                        Par contre, on pourrait écrire \( \displaystyle f(x)=\frac{(x-1)(2x+3)}{(x-1)(x+4)}=\frac{2x+3}{x+4}\quad(x\not\in\{-4,1\})\),
+                        parce qu'on spécifie les exclusions, ou encore que \( \displaystyle \left\{\forall x\in\mathbb{R}\setminus\{-4,1\}:f(x)=\frac{2x+3}{x+4}\right\}\).
+                    </p>
+                    <p>
+                        On pourrait aussi exprimer le domaine de \( f(x)\) à l'aide d'une affirmation de logique propositionnelle:
+                    </p>
+                    $$ \begin{aligned} x\in D_{ f } &\Leftrightarrow x-1\neq 0\wedge x+4\neq 0\\ &\Leftrightarrow x\neq 1\wedge x\neq -4\\ \therefore
+                    x\in D_{ f }&\Leftrightarrow x\not\in \{ -4,1\} \implies D_f=\mathbb{R}\setminus\{-4,1\} \end{aligned}$$
+                </section>
+                <section>
+                    <header>
+                        <h4><a href=""><i class="fa fa-link"></i></a>Les fonctions de racines paires</h4>
+                    </header>
+                    <p>
+                        Les fonctions \( x^k\) sont <a href="https://notesdecoursblog.wordpress.com/2016/12/16/les-fonctions-reciproques/">les fonctions réciproques </a>des
+                        fonctions \( \displaystyle \pm x^{\frac{1}{k}}=\pm\sqrt[k]{x}\). Lorsque \( k\) est pair (\( \{\forall
+                        i\in\mathbb{Z}:k=2i\}\)), la fonction \(f(x)= x^k\) est paire, de telle sorte que \( f(-x)=f(x)\);
+                        il y a donc symétrie horizontale de la fonction par rapport à l'axe des ordonnées. Le fait est que
+                        la fonction réciproque de cette fonction paire est la fonction racine, et qu'en vertu de la bijection
+                        des fonctions réciproques, \( f^{-1}\) correspond à \( \displaystyle \pm x^{\frac{1}{k}}=\pm\sqrt[k]{x}\).
+                        Le plus ou moins se traduit par le fait que toutes fonctions racines dont la valeur d'exposant au
+                        dénominateur est paire posent une indétermination lorsque le radicande est négatif. On peut donc
+                        dire que \( \forall x\in\mathbb{R}^+_*\nexists\sqrt{-x}\).
+                    </p>
+                    <p>
+                        L'indétermination lorsque le radicande d'une fonction racine paire est négatif se traduit par un intervalle. Par ce, pour
+                        toutes fonctions composées \( \sqrt{f(x)}\), il faudra considérer \( \forall x\in\mathbb{R}:f(x)
+                        <0\) comme des indéterminations: il faudra donc faire l
+                            'étude des signes de \( f\) pour déterminer les intervalles de \( x\in\mathbb{R}\) (où \( \mathbb{R}\) est, on se rappelle, l'ensemble de définition de la fonction) pour lesquelles \( f(x)\) est négative. Si l
+                            'expression en racine est exprimée au dénominateur, s'ajoutera aussi en exclusions toutes les valeurs de \( x\in\mathbb{R}\) pour lesquelles \( f(x)=0\).
+                            Par exemple, considérons la fonction suivante: </p>
+                            $$ \displaystyle f(x)=\frac{1}{\sqrt{x^2+4}}$$
+                            <p>
+                                Soit \( g(x)=x^2+4\), le radicande de la fonction \( \displaystyle f(x)=\frac{1}{\sqrt{g(x)}}\). Si pour un certain \( k\in\mathbb{R}\),
+                                \( g(k)
+                                <0\), alors il faudra exclure cet ensemble de celui de définition pour déterminer \( D_f\) (\( D_f=\mathbb{R}\setminus \{\forall
+                                    k\in\mathbb{R}:k^2+4<0\}\)). En résolvant \( k^2+4=0\), on constate que \( k=\pm\sqrt{-4}\),
+                                    ce qui est indéfini en soit: il n
+                                    'existera donc aucune valeur de \( k\) pour laquelle \( k^2+4=0\), et encore moins de valeurs pour lesquelles \( k^2+4<0\) (un graphique de l'expression aurait aussi pu nous le démontrer). Le domaine de \( f\) sera donc \( \mathbb{R}\).
+                                    </p>
+                                    <p>
+                                        À l'aide d'une expression de logique propositionnelle:
+                                    </p>
+                                    $$ \begin{aligned} x\in D_{ f }&\Leftrightarrow \sqrt { x^{ 2 }+4 } \neq 0\wedge x^{ 2 }+4>0\\ &\Leftrightarrow x^{ 2 }+4\neq
+                                    0\wedge x^{ 2 }>-4\\ \therefore D_{ f }&=\mathbb{ R }\because x\in \mathbb{ R }:x=\pm
+                                    \sqrt { -4 } \wedge \forall x\in \mathbb{ R },x^{ 2 }>-4 \end{aligned}$$
+                                    <p>
+                                        Considérons maintenant la fonction suivante:
+                                    </p>
+                                    $$ \displaystyle h(x)=\frac{x-7}{\sqrt{(x-7)^2}}$$
+                                    <p>
+                                        On serait tenté de simplifier \( \displaystyle \sqrt{(x-7)^2}=\left((x-7)^2\right)^{\frac{1}{2}}=x-7\), mais il ne peut exister
+                                        de solution à \( \sqrt{(x-7)^2}\) que si \( (x-7)^2>0\). On sait que \( \forall x\in\mathbb{R}:(x-7)^2>0\),
+                                        mais comme la fonction racine paire est la réciproque d'une fonction polynomiale
+                                        paire, il faut ajouter un \( \pm\) lorsqu'on extrait la racine de telle sorte que
+                                        le résultat de la racine soit toujours positif (\( \displaystyle \sqrt{(x-7)^2}=\left((x-7)^2\right)^{\frac{1}{2}}="\pm"(x-7)=|x-7|\));
+                                        c'est d'ailleurs pourquoi on dit que pour toute fonction \( g\), \( \displaystyle
+                                        \left(g^k\right)^{\frac{1}{k}}=|g|\) pour toutes valeurs de \( k\) paire (divisible
+                                        par deux). Le radicande ne posera donc pas d'indétermination, il n'y aura que la
+                                        valeur de \( x\) pour laquelle \( x-7=0\) qui posera problème, d'où \( D_h=\mathbb{R}\setminus
+                                        \{7\}\). On pourrait exprimer \( h(x)\) selon une fonction par parties:
+                                    </p>
+                                    $$ \displaystyle \begin{aligned} h(x)&=\frac{x-7}{\sqrt{(x-7)^2}}\\ &=\frac{x-7}{|x-7|}\\ \therefore h(x)&=\begin{cases}
+                                    \dfrac{x-7}{x-7} & x\ge 7 \wedge x\neq 7 \\ \dfrac{x-7}{-(x-7)} & x
+                                    <7 \end{cases}\\ &=\begin{cases} 1 & x>7 \\ -1 & x
+                                        <7 \end{cases}\\ \end{aligned}$$ </section>
+                                            <section>
+                                                <header>
+                                                    <h4><a href=""><i class="fa fa-link"></i></a>Les fonctions logarithmiques</h4>
+                                                </header>
+                                                <p>
+                                                    Par définition, les fonctions logarithmiques sont <a href="https://notesdecoursblog.wordpress.com/2016/12/16/les-fonctions-reciproques/">réciproques </a>de
+                                                    fonctions exponentielles. Les fonctions exponentielles, de forme \( a^x\),
+                                                    ont pour domaine \( \mathbb{R}\) parce qu'aucune valeur de \( x\) ne
+                                                    peut rendre l'expression indéterminée. La fonction exponentielle est
+                                                    caractérisée par une asymptote horizontale d'équation \( y=0\) qui, lorsqu'on
+                                                    considère la fonction logarithmique, devient une asymptote verticale en
+                                                    \( x=0\). Lorsque qu'on considère \( e^x=y\Leftrightarrow x=\ln(x)\),
+                                                    \( y\) ne peut être que positif: il n'existe pas de valeur d'exposant
+                                                    pour une base positive qui renvoie une valeur négative. Voire, parce
+                                                    que la fonction exponentielle est asymptotique en \( y=0\), le résultat
+                                                    de l'exponentielle ne pourra pas être égal à \( 0\). Par ce, on comprend
+                                                    que \( y>0\) pour \( x=\ln(y)\); l'argument d'un logarithme devra être
+                                                    positif et non-nul. Par exemple:
+                                                </p>
+                                                $$ \displaystyle f(x)=\frac{2(x-3)}{\sqrt{\ln(x-9)}}$$
+                                                <p>
+                                                    La fonction \( f(x)\) sera indéterminée pour toutes valeurs de \( x\) pour lesquelles \( \sqrt{\ln(x-9)}=0\) (division par
+                                                    zéro), pour lesquelles \( \ln(x-9)
+                                                    <0\) (radicande négatif) et pour lesquelles \( x-9\le 0\) (argument d
+                                                        'un logarithme négatif ou nul). On se souvient que \( \ln(1)=0\), alors:
+</p>
+$$ \displaystyle \begin{aligned}
+x\in D_{ f }&\Leftrightarrow \sqrt { \ln { ( } x-9) } \neq 0\wedge \ln { ( x-9)}\geq 0\wedge x-9>0\\ &\Leftrightarrow x\neq 10\wedge x\geq 10\wedge x>9\\
+\therefore x\in D_f &\Leftrightarrow x>10\implies D_f=\mathbb{R}\setminus ]-\infty;10]
+\end{aligned}$$
+<p>
+En français, à partir de la deuxième ligne du raisonnement, on comprend que \( \sqrt{\ln(x-9)}=0\) si \( x=9\), parce que \( \ln(1)=0\). On note au passage que, parce que la fonction \( \ln(x)\) est croissante sur tout son domaine, \( \ln(x)>0\quad\forall x>1\), d'où la proposition que \( \ln(x-9)\geq 0\implies x\geq 10\). Par la combinaison
+                                                        de toutes les propositions établies dans la deuxième ligne de démarche,
+                                                        on arrive à simplifier l
+                                                        'expression du domaine de la fonction.
+</p>
+</section>
+<section>
+<header>
+<h4><a href=""><i class="fa fa-link"></i></a>Les fonctions trigonométriques</h4>
+</header>
+<p>
+<a href="https://notesdecoursblog.wordpress.com/2017/01/22/les-fonctions-trigonometriques/">Les fonctions trigonométriques</a> sont périodiques, alors si elles présentent des indéterminations, ces indéterminations seront aussi périodiques. Il faut savoir que, parce que les fonctions sinus et cosinus expriment les coordonnées des points trigonométriques en fonction de l'angle par rapport à l
+                                                        'horizontale, ces fonctions ne seront jamais indéterminées; elles seront continues sur l'ensemble des réels (\( \mathbb{R}\)). </p>
+                                                        <p>
+                                                            Les fonctions trigonométriques présentant des restrictions sur leur domaine sont les fonctions \( \displaystyle \tan(\theta)=\frac{\sin(\theta)}{\cos(\theta)}\)
+                                                            et \( \displaystyle \cot(\theta)=\frac{\cos(\theta)}{\sin(\theta)}\),
+                                                            lorsque \( \cos(\theta)=0\) et lorsque \( \sin(\theta)=0\) respectivement.
+                                                        </p>
+                                                        <p>
+                                                            D'abord, parce que le cosinus d'un angle correspond à l'abscisse du point trigonométrique associé, \( \displaystyle \cos(\theta)=0\quad\forall\theta\in\left\{\frac{\pi}{2}+k\pi\right\}:k\in\mathbb{Z}\).
+                                                            Ensuite, parce que le sinus d'un angle correspond à l'ordonnée
+                                                            du point trigonométrique associé, \( \displaystyle \sin(\theta)=0\quad\forall\theta\in\left\{k\pi\right\}:k\in\mathbb{Z}\).
+                                                        </p>
+                                                        <p>
+                                                            Si \( \theta=g(x)\), il faudra réécrire les affirmations précédentes. Sachant que \( \theta\) figure parmi les ensembles
+                                                            définis, on peut dire qu'il existera un \( \displaystyle \theta=\frac{\pi}{2}+k\pi\)
+                                                            et un \( k\pi\) pour lesquels les fonctions cosinus et sinus
+                                                            de \( \theta\) soient nul respectivement. Suffira donc de substituer
+                                                            à cette égalité \( \theta=g(x)\) et d'isoler \( x\) pour exprimer
+                                                            l'ensemble solution à l'équation trigonométrique.
+                                                        </p>
+                                                        <p>
+                                                            Sachant tout cela, on comprend que, par division par zéro, les fonction tangente et cotangente présentent des asymptotes
+                                                            verticales.
+                                                        </p>
+                                                        <p>
+                                                            Par ce, pour la fonction tangente \( \displaystyle f(\theta)=\tan(\theta)=\frac{\sin(\theta)}{\cos(\theta)}\), il y aura
+                                                            indétermination lorsque \( \cos(\theta)=0\), soit \( \displaystyle
+                                                            \forall\theta\in\left\{\frac{\pi}{2}+k\pi\right\}:k\in\mathbb{Z}\).
+                                                            Alors, \( \displaystyle D_f=\mathbb{R}\setminus\left\{\frac{\pi}{2}+k\pi\right\}:k\in\mathbb{Z}\).
+                                                            Similairement, pour la fonction cotangente \( \displaystyle g(\theta)=\cot(\theta)=\frac{\cos(\theta)}{\sin(\theta)}\),
+                                                            il y aura indétermination lorsque \( \displaystyle \sin(\theta)=0\),
+                                                            soit \( \displaystyle \forall\theta\in\left\{k\pi\right\}:k\in\mathbb{Z}\).
+                                                            Alors, \( \displaystyle D_g=\mathbb{R}\setminus\left\{k\pi\right\}:k\in\mathbb{Z}\).
+                                                        </p>
+                                            </section>
+                                            <section>
+                                                <header>
+                                                    <h4><a href=""><i class="fa fa-link"></i></a>Les fonctions trigonométriques
+                                                        inverses
+                                                    </h4>
+                                                </header>
+                                                <p>
+                                                    Le domaine des <a href="https://notesdecoursblog.wordpress.com/2017/01/29/les-fonctions-trigonometriques-inverses/">fonctions trigonométriques inverses</a>                                                    (ou réciproques) est plus particulier. De la <a href="https://notesdecoursblog.wordpress.com/2016/12/16/les-fonctions-reciproques/">réciprocité des fonctions</a>,
+                                                    lorsqu'on considère la fonction réciproque \( f^{-1}\) à \( f\), \( \displaystyle \text{dom}_f=\text{ima}_{f^{-1}}\),
+                                                    et \( \displaystyle \text{dom}_{f^{-1}}=\text{ima}_{f}\). Par ailleurs,
+                                                    parce que les fonctions trigonométriques ne sont pas biunivoques sur
+                                                    leur domaine, il faudrait restreindre leur domaine pour exprimer leur
+                                                    fonction réciproque; il y a lieu de conventions en ce qui a trait au
+                                                    domaine et images des fonctions trigonométriques inverses.
+                                                </p>
+                                            </section>
+                                            <section>
+                                                <header>
+                                                    <h4><a href=""><i class="fa fa-link"></i></a>Les fonctions par parties</h4>
+                                                </header>
+                                                <p>
+                                                    Les fonctions par parties sont essentiellement une succession de fonctions définies indépendamment, qu'on restreint sur un
+                                                    intervalle. Il importera donc pour trouver le domaine d'une fonction
+                                                    par parties de considérer chacune des fonctions et leurs indéterminations,
+                                                    le tout fermé sur leur intervalle de définition. En logique propositionnelle,
+                                                    on pourrait dire que \( x\) sera compris dans le domaine de la fonction
+                                                    par parties si et seulement si dans un intervalle, il ne pose par d'indétermination.
+                                                    Cela dit, si nous avions par exemple deux fonction définies respectivement
+                                                    sur \( ]-1;1[\) et \( [5;7]\): il n'existera pas de valeur de \( x\)
+                                                    comprise à la fois dans les deux intervalles; il faudra qu'on se serve
+                                                    d'un argument "ou exclusif" pour séparer les parties de la fonction (qu'on
+                                                    note \( \oplus\) ou \( \overline{\lor}\), la ligne du dessus désignant
+                                                    l'exclusion). Cet argument vient spécifier qu'il ne peut y avoir qu'une
+                                                    seule des deux propositions qui soit vraie pour que l'ensemble soit vrai.
+                                                    Considérons l'exemple suivant:
+                                                </p>
+                                                $$ \displaystyle f(x)=\begin{cases} \ln { | } x-9| & x\leq -7 \\ \dfrac { (x+1)(3x^{ 2 }+4) }{ x^{ 2 }-1 } & 0 \le x\leq
+                                                10 \\ e^{ \sqrt { 9-x } } & 10\le x \end{cases}$$
+                                                <p>
+                                                    Nous savons que \( x\) sera compris dans le domaine de \( f\) si l'argument du logarithme est positif et non nul sur \( x\leq
+                                                    -7\), si le dénominateur de la fonction n'est pas nul sur \( 0 \le x\leq
+                                                    10\), et enfin si l 'argument de la racine n'est pas négatif sur \( 10\le
+                                                    x\):
+                                                </p>
+                                                $$ \displaystyle \begin{aligned} x\in D_{f}&\Leftrightarrow (|x-9|>0\land x\leq -7)\overline{\lor}(x^{2}-1\neq 0\land 0 \le
+                                                x\leq 10)\overline {\lor}(9-x\geq 0\land 10 \le x)\\ &\Leftrightarrow (x\neq
+                                                9\land x\leq -7)\overline{\lor}(x\neq \pm 1\land 0\le x\leq 10)\overline
+                                                {\lor}(x\leq 9\land 10\le x)\\ &\Leftrightarrow (x\leq -7)\overline{\lor}(0\le
+                                                x\leq 10\setminus\{1\})\overline {\lor}(\emptyset )\\ \therefore x\in D_f
+                                                &\Leftrightarrow x \in ]-\infty;-7] \cup ]0;1[ \cup ]1;10] \end{aligned}$$
+                                                <p>
+                                                    On constate donc que \( e^{\sqrt{9-x}}\) est indéfinie pour tout \( x\) compris dans l'intervalle \( 10 \le x\) (\( \forall
+                                                    x\in ]10;\infty [, \nexists e^{\sqrt{9-x}}\)): </p>
+                                                <pre class="line-numbers">
 <code class="language-java">
 /*
  * The MIT License
@@ -277,31 +534,14 @@ public class Tag extends Element {
 }
 </code>
 </pre>
-                </section>
-                <aside class="references">
-                    Références
-                    <nav>
-                        <ul>
-                            <li><a href="">La mise en évidence simple</a></li>
-                        </ul>
-                    </nav>
-                </aside>
-                <footer>
-                    <section id="contributors">
-                    </section>
-                    <section id="comments">
-                        <div id="disqus_thread"></div>
-                    </section>
-                </footer>
-
-                TEST
-                <h1><a href=""><i class="fa fa-link"></i></a>h1</h1>
-                <h2><a href=""><i class="fa fa-link"></i></a>h2</h2>
-                <h3><a href=""><i class="fa fa-link"></i></a>h3</h3>
-                <h4><a href=""><i class="fa fa-link"></i></a>h4</h4>
-                <h5><a href=""><i class="fa fa-link"></i></a>h5</h5>
-                <h6><a href=""><i class="fa fa-link"></i></a>h6</h6>
-                END_TEST
+                                            </section>
+                                            <footer>
+                                                <section id="contributors">
+                                                </section>
+                                                <section id="comments">
+                                                    <div id="disqus_thread"></div>
+                                                </section>
+                                            </footer>
             </article>
         </main>
     </div>
