@@ -320,6 +320,12 @@ main {
       top: 0;
       display: block;
       background-color: #ecf0f1; }
+    main article span.mjx-chtml.MJXc-display {
+      overflow-y: hidden;
+      overflow-x: scroll; }
+      @media only screen and (min-width: 768px) {
+        main article span.mjx-chtml.MJXc-display {
+          overflow: hidden; } }
     main article h1 a,
     main article h2 a,
     main article h3 a,

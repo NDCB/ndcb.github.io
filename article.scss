@@ -30,6 +30,13 @@ main {
             display: block;
             background-color: $primary-light;
         }
+        span.mjx-chtml.MJXc-display {
+            overflow-y: hidden;
+            overflow-x: scroll;
+            @include respond-to(tablet-portrait) {
+                overflow: hidden;
+            }
+        }
         h1,
         h2,
         h3,
