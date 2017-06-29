@@ -359,7 +359,7 @@ main {
           -webkit-transition: transform 0.2s cubic-bezier(0.895, 0.03, 0.685, 0.22); } }
     main article pre {
       position: relative !important;
-      width: 100vw;
+      width: 100%;
       margin-left: -1rem !important; }
       @media only screen and (min-width: 768px) {
         main article pre {

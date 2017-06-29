@@ -63,7 +63,7 @@ main {
         }
         pre {
             position: relative !important;
-            width: 100vw;
+            width: 100%;
             margin-left: -$padding !important;
             @include respond-to(tablet-portrait) {
                 padding: 4rem;
