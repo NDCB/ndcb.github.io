@@ -359,12 +359,10 @@ main {
           -webkit-transition: transform 0.2s cubic-bezier(0.895, 0.03, 0.685, 0.22); } }
     main article pre {
       position: relative !important;
-      width: 100%;
-      margin-left: -1rem !important; }
+      width: 100%; }
       @media only screen and (min-width: 768px) {
         main article pre {
-          padding: 4rem;
-          margin-left: -4rem !important; } }
+          padding: 4rem; } }
       @media only screen and (min-width: 1200px) {
         main article pre {
           width: 100%;

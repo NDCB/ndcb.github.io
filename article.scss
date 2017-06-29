@@ -64,10 +64,10 @@ main {
         pre {
             position: relative !important;
             width: 100%;
-            margin-left: -$padding !important;
+            //margin-left: -$padding !important;
             @include respond-to(tablet-portrait) {
                 padding: 4rem;
-                margin-left: -4rem !important;
+               // margin-left: -4rem !important;
             }
             @include respond-to(desktop) {
                 width: 100%;
