@@ -1,26 +1,7 @@
 @import 'colors';
 @import 'breakpoints';
-$mobile-navigation-height: 3rem;
+$mobile-navigation-bar-height: 3rem;
 $desktop-navigation-width: 20%;
-$ul-expanded-height: 200vh; //Hard-coded value for the transition effect
-$transition-duration: 0.5s;
-.vertical-scroll {
-    max-height: 100%;
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-}
-
-.navigation-icon {
-    cursor: pointer;
-    position: relative;
-    float: right;
-    width: 3rem;
-    height: 3rem;
-    display: block;
-}
-
 header#main-navigation {
     //Background container for the navigation
     background-color: $primary-dark;
@@ -30,7 +11,11 @@ header#main-navigation {
     width: 100%;
     z-index: 1; //Set navigation bar above MathJax equations
     text-transform: uppercase;
-    @extend .vertical-scroll; //Allows for scrolling on mobile
+    max-height: 100%;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
     @include respond-to(desktop) {
         position: relative;
         width: $desktop-navigation-width;
@@ -39,8 +24,12 @@ header#main-navigation {
     }
     nav {
         position: relative;
-        @extend .vertical-scroll; //Allows for scrolling on desktop
+        &::-webkit-scrollbar {
+            display: none;
+        }
         @include respond-to(desktop) {
+            max-height: 100%;
+            overflow-y: scroll;
             z-index: -1; //Set navigation content below footer
             position: fixed;
             width: $desktop-navigation-width;
@@ -49,119 +38,91 @@ header#main-navigation {
             padding-bottom: 5rem; //Blank space for ease of access to the last element
         }
         img#logo {
+            position: absolute;
             display: block;
-            height: $mobile-navigation-height;
+            height: $mobile-navigation-bar-height;
             width: auto;
             float: left;
             padding: 0.4rem;
             @include respond-to(desktop) {
+                position: relative;
                 float: none;
                 height: auto;
                 width: 100%;
                 padding: 10%;
             }
         }
-        i.fa-navicon {
+        >ul {
+            top: $mobile-navigation-bar-height;
             @include respond-to(desktop) {
-                display: none;
+                top: 0rem;
+            }
+        }
+        ul {
+            position: relative;
+            background-color: $secondary-dark;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            @include respond-to(desktop) {
+                background-color: $primary-dark;
+            }
+            ul {
+                padding-left: 2rem;
+            }
+            li {
+                width: 100%;
+                padding: 0;
+            }
+            a {
+                width: 100%;
+                display: inline-block;
+                padding: 1rem;
+                color: $primary-light;
+                text-decoration: none;
+                &:hover {
+                    color: $primary-yellow;
+                    background-color: $primary-dark;
+                    border-left: 0.3rem solid $primary-yellow;
+                    @include respond-to(desktop) {
+                        transition: all 0.1s ease-in-out;
+                        background-color: $secondary-dark;
+                    }
+                }
             }
         }
         i.fa-navicon,
         i.fa-caret-down {
-            position: absolute;
-            vertical-align: middle;
+            display: unset;
+            float: right;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+        i.fa-navicon {
+            position: fixed;
             top: 0;
             right: 0;
-            padding: 0.5rem;
-            padding-right: 1rem;
             font-size: 2rem;
-            margin: 0;
-            width: 3rem;
-            text-align: center;
-            @include respond-to(tablet-portrait) {
-                transition: all 0.2s ease-out;
-            }
-        }
-        input[type=checkbox] {
-            @extend .navigation-icon;
-            opacity: 0;
-            z-index: 10;
-            &~ul {
-                overflow: hidden;
-                max-height: 0vh;
-                width: 100%;
-                @include respond-to(tablet-portrait) {
-                    transition: max-height $transition-duration ease-out;
-                }
-            }
-            &:checked {
-                &~ul {
-                    max-height: $ul-expanded-height;
-                    @include respond-to(tablet-portrait) {
-                        transition: max-height $transition-duration ease-in;
-                    }
-                }
-                &~a i.fa-caret-down {
-                    $rotation: rotate(-180deg);
-                    -ms-transform: $rotation;
-                    -webkit-transform-origin: 70% 55%;
-                    -webkit-transform: $rotation;
-                    transform: $rotation;
-                    @include respond-to(tablet-portrait) {
-                        transition: all 0.2s ease-in;
-                    }
-                }
-            }
-        }
-        input[type=checkbox]#toggle-nav {
+            background-color: $primary-dark;
+            border-radius: 0 0 0 0.5rem;
             @include respond-to(desktop) {
                 display: none;
             }
-            &~ul {
-                @include respond-to(desktop) {
-                    max-height: $ul-expanded-height;
-                }
+        }
+        i.fa-caret-down {
+            position: absolute;
+            right: 0;
+            @include respond-to(tablet-portrait) {
+                transition: transform 0.2s ease-in-out;
             }
         }
-        ul ul {
-            padding-left: 1rem;
-        }
-        ul {
-            display: block;
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            background-color: $secondary-dark;
-            @include respond-to(desktop) {
-                background-color: $primary-dark;
-            }
-            li {
-                position: relative;
-                padding: 0;
-                margin: 0;
-                width: 100%;
-                a {
-                    padding: 1rem;
-                    display: block;
-                    color: inherit;
-                    text-decoration: none;
-                    &:hover {
-                        color: $primary-yellow;
-                        background-color: $primary-dark;
-                        @include respond-to(desktop) {
-                            background-color: $secondary-dark;
-                        }
-                        i.fa-caret-down {
-                            color: $primary-light;
-                        }
-                    }
-                    i.fa {
-                        margin-right: 1rem;
-                        width: 1rem;
-                        text-align: center;
-                    }
-                }
-            }
-        }
+    }
+}
+
+.rotate {
+    transform: rotate(-180deg);
+    @include respond-to(tablet-portrait) {
+        transition: transform 0.2s ease-in-out;
     }
 }

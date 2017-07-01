@@ -11,13 +11,10 @@ main {
         align-items: stretch;
     }
     article {
-        $padding: 1rem;
-        padding: $padding;
-        padding-top: $mobile-navigation-height + $padding;
+        padding: 1rem;
         display: block;
         @include respond-to(tablet-portrait) {
             padding: 4rem;
-            //width: 70%;
         }
         img {
             width: 100%;

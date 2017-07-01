@@ -6,11 +6,21 @@ footer#secondary-navigation {
     background-color: $secondary-dark;
     color: $primary-light;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    @include respond-to(tablet-landscape) {
+        justify-content: space-between;
+        flex-direction: row;
+    }
     a {
         text-decoration: none;
         padding: 1rem;
         color: $secondary-grey;
-        display: inline-block;
+        display: block;
         @include respond-to(desktop) {
             $transition: color 0.1s ease-in-out;
             transition: $transition;
@@ -21,21 +31,24 @@ footer#secondary-navigation {
         }
     }
     ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
         list-style-type: none;
         padding: 0;
         margin: 0;
-        text-align: center;
-    }
-    li {
-        display: inline;
-    }
-    ul.social p {
-        display: none;
-        @include respond-to(desktop) {
+        li {
             display: inline-block;
         }
     }
-    ul.links i.fa {
-        margin-right: 1rem;
+    nav.social {
+        @include respond-to(tablet-landscape) {
+            order: 2;
+        }
+    }
+    nav.links {
+        @include respond-to(tablet-landscape) {
+            order: 1;
+        }
     }
 }
