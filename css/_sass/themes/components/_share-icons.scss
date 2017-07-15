@@ -1,0 +1,64 @@
+$color-facebook: #3b5999;
+$color-twitter: #55acee;
+$color-google-plus: #dd4b39;
+$color-reddit: #ff5700;
+$color-whatsapp: #25D366;
+$color-print: #1ba1e2;
+$color-comment: #64DD17;
+
+.share a {
+    $transition: color 0.1s ease-in-out;
+    @include respond-to(desktop){
+        transition: $transition;
+    }
+    i {
+        @include respond-to(desktop){
+            transition: $transition;
+        }
+    }
+    &.facebook {
+        color: $color-facebook;
+        i:hover {
+            color: $color-facebook;
+        }
+    }
+    &.twitter {
+        color: $color-twitter;
+        i:hover {
+            color: $color-twitter;
+        }
+    }
+    &.google-plus {
+        color: $color-google-plus;
+        i:hover {
+            color: $color-google-plus;
+        }
+    }
+    &.reddit {
+        color: $color-reddit;
+        i:hover {
+            color: $color-reddit;
+        }
+    }
+    &.whatsapp {
+        color: $color-whatsapp;
+        i:hover {
+            color: $color-whatsapp;
+        }
+    }
+    &.print {
+        color: $color-print;
+        i:hover {
+            color: $color-print;
+        }
+    }
+    &.comment {
+        color: $color-comment;
+        i:hover {
+            color: $color-comment;
+        }
+    }
+    &:hover {
+        color: white !important;
+    }
+}

@@ -1,0 +1,31 @@
+header#main-navigation {
+    background-color: $primary-dark;
+    color: white;
+    text-transform: uppercase;
+    ul {
+        list-style: none;
+        background-color: $secondary-dark;
+        @include respond-to(desktop) {
+            background-color: transparent;
+        }
+    }
+    li a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+            color: $primary-yellow;
+            background-color: $primary-dark;
+            border-left: 0.3rem solid $primary-yellow;
+            @include respond-to(desktop) {
+                transition: all 0.1s ease-in-out;
+                background-color: $secondary-dark;
+            }
+        }
+    }
+    header {
+        background-color: $primary-dark;
+        @include respond-to(desktop) {
+            background-color: transparent;
+        }
+    }
+}

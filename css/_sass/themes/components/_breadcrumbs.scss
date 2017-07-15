@@ -1,0 +1,14 @@
+nav.breadcrumbs {
+    background-color: $primary-light;
+    ul {
+        list-style: none;
+    }
+    li {
+        display: inline-block;
+        &+li:before {
+            color: $secondary-light;
+            padding: 0.3rem;
+            content: '/';
+        }
+    }
+}

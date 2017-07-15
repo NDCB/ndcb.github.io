@@ -1,0 +1,92 @@
+.vertical-scroll {
+    max-height: 100%;
+    overflow-y: scroll;
+    -ms-overflow-style: none; //Hide scrollbars on Microsoft Edge
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+header#main-navigation {
+    //Background container for the navigation
+    z-index: 1; //Set navigation bar above MathJax equations
+    @include flex-order(1);
+    @include respond-to(desktop) {
+        width: $desktop-navigation-width;
+        @include flex-align-items(stretch);
+        @include flex-grow(2);
+    }
+    @include respond-to(print) {
+        display: none;
+    }
+    nav {
+        min-height: $mobile-navigation-bar-height;
+        position: fixed;
+        width: 100%;
+        @extend .vertical-scroll;
+        @include respond-to(desktop) {
+            z-index: 2; //Set navigation content below footer
+            width: $desktop-navigation-width;
+            padding-bottom: 5rem;
+        }
+        > ul {
+            padding-bottom: 5rem;
+        }
+        ul {
+            position: relative;
+            padding: 0;
+            margin: 0;
+            ul {
+                padding-left: 2rem;
+            }
+        }
+        li {
+            $anchor-width: 100%;
+            position: relative;
+            padding: 0;
+            a {
+                display: inline-block;
+                width: $anchor-width;
+                padding: 1rem;
+            }
+            i.toggler {
+                position: absolute;
+                right: 0;
+            }
+        }
+        i.toggler {
+            z-index: 10;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+        }
+    }
+    header {
+        z-index: 4;
+        height: $mobile-navigation-bar-height;
+        width: 100%;
+        @include respond-to(desktop) {
+            display: block;
+            height: auto;
+        }
+        i.toggler {
+            float: right;
+            z-index: 10;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            font-size: 2rem;
+            @include respond-to(desktop) {
+                display: none;
+            }
+        }
+        img#logo {
+            float: left;
+            padding: 0.3rem;
+            height: 100%;
+            width: auto;
+            @include respond-to(desktop) {
+                height: auto;
+                width: 100%;
+                padding: 10%;
+            }
+        }
+    }
+}

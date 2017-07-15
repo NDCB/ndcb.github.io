@@ -1,0 +1,24 @@
+{
+    "categories": [
+        {
+            "mathematiques": {
+                "headline": "Mathématiques",
+                "colorClass": "blue"
+            }
+        },
+
+        {
+            "physique": {
+                "headline": "Physique",
+                "colorClass": "red"
+            }
+        },
+
+        {
+            "informatique": {
+                "headline": "Informatique",
+                "colorClass": "orange"
+            }
+        }
+    ]
+}

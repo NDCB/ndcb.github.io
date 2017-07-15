@@ -1,0 +1,39 @@
+.pop-out {
+    width: auto;
+    padding-left: $main-mobile-padding;
+    padding-right: $main-mobile-padding;
+    @include respond-to(tablet-portrait) {
+        padding-left: $main-tablet-padding;
+        padding-right: $main-tablet-padding;
+    }
+    margin-left: -$main-mobile-padding;
+    margin-right: -$main-mobile-padding;
+    @include respond-to(tablet-portrait) {
+        margin-left: -$main-tablet-padding;
+        margin-right: -$main-tablet-padding;
+    }
+}
+
+.pop-out-top {
+    @extend .pop-out;
+    padding-top: $main-mobile-padding;
+    @include respond-to(tablet-portrait) {
+        padding-top: $main-tablet-padding;
+    }
+    margin-top: -$main-mobile-padding;
+    @include respond-to(tablet-portrait) {
+        margin-top: -$main-tablet-padding;
+    }
+}
+
+.pop-out-bottom {
+    @extend .pop-out;
+    padding-bottom: $main-mobile-padding;
+    @include respond-to(tablet-portrait) {
+        padding-bottom: $main-tablet-padding;
+    }
+    margin-bottom: -$main-mobile-padding;
+    @include respond-to(tablet-portrait) {
+        margin-bottom: -$main-tablet-padding;
+    }
+}

@@ -1,0 +1,16 @@
+footer#secondary-navigation{
+    background-color: $secondary-dark;
+    color: $primary-light;
+    a {
+        text-decoration: none;
+        color: $secondary-grey;
+        @include respond-to(desktop) {
+            $transition: color 0.1s ease-in-out;
+            transition: $transition;
+            -webkit-transition: $transition;
+        }
+        &:hover {
+            color: $primary-yellow;
+        }
+    }
+}

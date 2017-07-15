@@ -1,0 +1,30 @@
+footer#sidebar {
+    display: none;
+    @include respond-to(desktop) {
+        width: $desktop-sidebar-width;
+        display: block;
+        padding: 1rem;
+        @include flex-order(3);
+        @include flex-align-items(stretch);
+        @include flex-grow(2);
+    }
+    @include respond-to(print) {
+        display: none;
+    }
+    nav {
+        position: fixed;
+    }
+}
+
+nav.share ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav.inline-items {
+    li {
+        display: inline-block;
+    }
+}

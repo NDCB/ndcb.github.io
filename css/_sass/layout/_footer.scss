@@ -1,0 +1,32 @@
+footer#secondary-navigation {
+    position: relative;
+    z-index: 3; //Set footer above navigation
+    width: 100%;
+    @include flex-display();
+    @include flex-justify-content(center);
+    @include flex-wrap(wrap);
+    @include flex-align-items(center);
+    @include flex-direction(column);
+    @include respond-to(tablet-landscape) {
+        @include flex-justify-content(space-between);
+        @include flex-direction(row);
+    }
+    @include respond-to(print) {
+        display: none;
+    }
+    a {
+        padding: 1rem;
+        display: block;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        @include flex-display();
+        @include flex-justify-content(center);
+        @include flex-wrap(wrap);
+        li {
+            display: inline-block;
+        }
+    }
+}

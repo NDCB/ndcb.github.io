@@ -1,0 +1,32 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    a {
+        @include respond-to(tablet-portrait) {
+            $transition-time: 0.2s;
+            &:visited, &:link, &:active {
+                color: $secondary-light !important;
+            }
+            $transition: color $transition-time ease-in-out;
+            transition: $transition;
+            -webkit-transition: $transition;
+            &:hover {
+                color: $primary-dark !important;
+                i.fa {
+                    $rotation: rotate(-15deg);
+                    -ms-transform: $rotation;
+                    -webkit-transform: $rotation;
+                    transform: $rotation;
+                }
+            }
+            i.fa {
+                $transition: transform $transition-time cubic-bezier(0.895, 0.03, 0.685, 0.22);
+                transition: $transition;
+                -webkit-transition: $transition;
+            }
+        }
+    }
+}

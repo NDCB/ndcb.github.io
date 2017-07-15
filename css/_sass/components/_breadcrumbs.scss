@@ -1,0 +1,13 @@
+nav.breadcrumbs {
+    $padding-breadcrumbs: 0.5rem;
+    padding-top: $padding-breadcrumbs;
+    padding-bottom: $padding-breadcrumbs;
+    @extend .pop-out;
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+    li {
+        display: inline-block;
+    }
+}

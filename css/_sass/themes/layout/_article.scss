@@ -1,0 +1,66 @@
+@mixin colorize($primary-color, $secondary-color) {
+    h1 {
+        background-color: $primary-color;
+    }
+    a {
+        &:link {
+            color: $primary-color;
+        }
+        &:hover,
+        &:visited {
+            color: $secondary-color;
+        }
+    }
+    section#contributors {
+        img {
+            border-color: $secondary-color;
+            @include respond-to(desktop) {
+                transition: all 0.3s ease-in-out;
+            }
+            &:hover {
+                border-color: white !important;
+                @include respond-to(desktop) {
+                    transition: all 0.3s ease-in-out;
+                }
+            }
+        }
+        section {
+            background: $primary-color;
+        }
+    }
+}
+
+article {
+    >header>h1 {
+        color: white;
+    }
+    a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+main.blue {
+    @include colorize($primary-blue, $secondary-blue);
+    h1 {
+        background-image: url("../css/res/pattern-blue.svg");
+    }
+}
+
+main.red {
+    @include colorize($primary-red,
+    $secondary-red);
+    h1 {
+        background-image: url("../css/res/pattern-red.svg");
+    }
+}
+
+main.orange {
+    @include colorize($primary-orange,
+    $secondary-orange);
+    h1 {
+        background-image: url("../css/res/pattern-orange.svg");
+    }
+}

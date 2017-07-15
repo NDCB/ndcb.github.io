@@ -1,0 +1,40 @@
+@import '_navigation';
+@import '_sidebar';
+main {
+    width: 100%;
+    margin-top: $mobile-navigation-bar-height;
+    padding: $main-mobile-padding;
+    @include flex-order(2);
+    @include flex-grow(6);
+    @include respond-to(tablet-portrait) {
+        padding: $main-tablet-padding;
+    }
+    @include respond-to(desktop) {
+        padding-top: 0;
+        width: $desktop-main-width;
+        @include flex-align-items(stretch);
+    }
+    article {
+        display: block;
+        img {
+            width: 100%;
+            height: auto;
+        }
+        span.mjx-chtml.MJXc-display {
+            overflow-y: hidden;
+            overflow-x: scroll;
+            @include respond-to(tablet-portrait) {
+                overflow: hidden;
+            }
+            @include respond-to(print) {
+                overflow: hidden;
+            }
+        }
+        >header>h1 {
+            margin-bottom: 0;
+            @extend .pop-out-top;
+            padding-top: 10rem;
+            padding-bottom: 1rem;
+        }
+    }
+}

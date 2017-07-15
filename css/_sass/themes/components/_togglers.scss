@@ -1,0 +1,11 @@
+.toggler {
+	@include respond-to(tablet-portrait) {
+		transition: transform 0.2s ease-in-out;
+	}
+}
+
+.rotate {
+    @include respond-to(tablet-portrait) {
+        transition: transform 0.2s ease-in-out;
+    }
+}

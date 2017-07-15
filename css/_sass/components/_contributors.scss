@@ -1,0 +1,31 @@
+section#contributors {
+    margin-bottom: 1rem;
+    section {
+        $profile-picture-height: 7rem;
+        $profile-picture-margin: 0.5rem;
+        @extend .pop-out;
+        padding: 0.3rem;
+        min-height: $profile-picture-height + 2 * $profile-picture-margin;
+        article {
+            padding: 0.3rem;
+        }
+        header {
+            padding: 1rem;
+        }
+        footer {
+            font-size: 1.5rem;
+        }
+        img {
+            width: auto;
+            height: $profile-picture-height;
+            border-radius: 100%;
+            float: left;
+            margin: $profile-picture-margin;
+            border-width: 0.3rem;
+            border-style: solid;
+        }
+        p {
+            margin: 0;
+        }
+    }
+}

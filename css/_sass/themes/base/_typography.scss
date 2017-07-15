@@ -1,0 +1,42 @@
+body {
+	font-family: $font-roboto;
+	font-size: 12pt;
+	@include respond-to(print) {
+		font-size: 14pt;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font-arimo;
+}
+
+@mixin font-sizing($size, $mobile-offset){
+	font-size: $size;
+	@include respond-to(tablet-portrait) {
+		font-size: $size + $mobile-offset;
+	}
+} 
+
+h1 {
+	@include font-sizing(1.8rem, 1.2rem);
+}
+h2 {
+	@include font-sizing(1.6rem, 0.8rem);
+}
+h3 {
+	@include font-sizing(1.4rem, 0.6rem);
+}
+h4 {
+	@include font-sizing(1.3rem, 0.5rem);
+}
+h5 {
+	@include font-sizing(1.2rem, 0.4rem);
+}
+h6 {
+	@include font-sizing(1.1rem, 0.3rem);
+}

@@ -1,0 +1,19 @@
+section {
+    &.module {
+        border-style: solid;
+        border-width: 0.25rem;
+        margin-top: 1rem;
+        article {
+            padding: 1rem;
+        }
+        header {
+            display: inline-block;
+            padding: 0.5rem;
+        }
+        i.toggler {
+            @include respond-to(print) {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+$break-xs: 0px;
+$break-sm: 576px;
+$break-md: 768px;
+$break-lg: 992px;
+$break-xl: 1200px;
+$media: "mobile-portrait", "mobile-landscape", "tablet-portrait", "tablet-landscape", "desktop", "print";
+@mixin respond-to($current-media) {
+  @if $current-media==nth($media, 1) {
+    @media only screen and (min-width: $break-xs) {
+      @content;
+    }
+  }
+  @if $current-media==nth($media, 2) {
+    @media only screen and (min-width: $break-sm) {
+      @content;
+    }
+  }
+  @if $current-media==nth($media, 3) {
+    @media only screen and (min-width: $break-md) {
+      @content;
+    }
+  }
+  @if $current-media==nth($media, 4) {
+    @media only screen and (min-width: $break-lg) {
+      @content;
+    }
+  }
+  @if $current-media==nth($media, 5) {
+    @media only screen and (min-width: $break-xl) {
+      @content;
+    }
+  }
+  @if $current-media==nth($media, 6) {
+    @media print {
+      @content;
+    }
+  }
+}
