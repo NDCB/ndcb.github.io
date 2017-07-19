@@ -1,0 +1,60 @@
+include /_jade/base/_functions
+
+doctype html
+html(lang="fr")
+    head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#")
+        //- Define the meta title of the document
+        -var meta_title 
+        //- Unless a document headline is provided in _data.json, use the global headline
+        if !headline ? meta_title=public._data.globals.site_name : meta_title=headline
+        if meta_title.length > 70
+            -console.log("WARNING: Meta title is too long (l=" + meta_title.length + ">70): " + meta_title + "\n")
+        title #{meta_title}
+
+        //- Define the meta description of the document
+        -var meta_description
+        //- Unless a document summary is provided in _data.json, use the global description
+        if !description ? meta_description = public.fr_CA._data.globals.description : meta_description = description
+        if meta_description.length > 155
+            -console.log("WARNING: Meta description is too long (l=" + meta_description.length + ">155): " + meta_description + "\n")
+        meta(name='description' content="#{meta_description}")
+
+        //- Define the meta author
+        -var meta_author
+        //- Unless a document author is provided in _data.json, use the global author
+        if !author ? meta_author = public._data.globals.author : meta_author = author
+        meta(name='author' content="#{meta_author}")
+
+        //- Open Graph data
+        meta(property='og:title' content="#{meta_title}")
+        meta(property='og:type' content="article")
+        -var url = getCurrentUrl()
+        meta(property='og:url' content="#{url}")
+
+        block og:image
+            meta(name='twitter:image' content="#{public._data.globals.url}/fr_CA/res/thumbnail.png")
+
+        meta(property='og:description' content="#{meta_description}")
+        meta(property='og:site_name' content="#{public._data.globals.site_name}")
+        meta(property='fb:app_id' content="#{public._data.globals.profiles.facebook_app_id}")
+
+        //- Twitter Card data
+        meta(name='twitter:card' content="summary")
+        meta(name='twitter:site' content="#{public._data.globals.profiles.twitter}")
+        meta(name='twitter:title' content="#{meta_title}")
+        meta(name='twitter:description' content="#{meta_description}")
+
+        block twitter:image
+            meta(name='twitter:image' content="#{public._data.globals.url}/fr_CA/res/thumbnail.png")
+
+        include /_jade/base/_stylesheets
+    body
+        .wrapper
+            block content
+                main
+                    != yield
+            include _jade/layout/_navigation
+            include _jade/layout/_sidebar
+        include _jade/layout/_footer
+        block scripts
+            include /_jade/components/_scripts

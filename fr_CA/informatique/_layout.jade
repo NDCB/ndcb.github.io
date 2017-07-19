@@ -1,0 +1,18 @@
+extends ../_layout
+
+//- @Override
+block og:image
+    meta(property='og:image' content="#{public._data.globals.url}/fr_CA/informatique/res/thumbnail.png")
+
+//- @Override
+block twitter:image
+    meta(name='twitter:image' content="#{public._data.globals.url}/fr_CA/informatique/res/thumbnail.png")
+
+block prepend scripts
+    include /_jade/components/_mathjax
+    include /_jade/components/_prism
+
+//- @Override
+block content
+    main.orange
+        != yield

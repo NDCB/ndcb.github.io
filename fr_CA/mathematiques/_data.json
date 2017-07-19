@@ -1,0 +1,28 @@
+{
+    "categories": [
+        {
+            "headline": "4e secondaire SN",
+            "slug": "4e-secondaire-sn"
+        },
+
+        {
+            "headline": "5e secondaire SN",
+            "slug": "5e-secondaire-sn"
+        },
+
+        {
+            "headline": "Calcul différentiel",
+            "slug": "calcul-differentiel"
+        },
+
+        {
+            "headline": "Calcul intégral",
+            "slug": "calcul-integral"
+        },
+
+        {
+            "headline": "Algèbre linéaire",
+            "slug": "algebre-lineaire"
+        }
+    ]
+}

@@ -1,3 +1,11 @@
+.light {
+
+}
+
+.dark {
+    
+}
+
 @mixin colorize($primary-color, $secondary-color) {
     h1 {
         background-color: $primary-color;
@@ -42,6 +50,20 @@ article {
     }
 }
 
+main.turquoise {
+    @include colorize($primary-turquoise, $secondary-turquoise);
+    h1 {
+        background-image: url("../css/res/pattern-turquoise.svg");
+    }
+}
+
+main.green {
+    @include colorize($primary-green, $secondary-green);
+    h1 {
+        background-image: url("../css/res/pattern-green.svg");
+    }
+}
+
 main.blue {
     @include colorize($primary-blue, $secondary-blue);
     h1 {
@@ -49,18 +71,51 @@ main.blue {
     }
 }
 
+main.purple {
+    @include colorize($primary-purple, $secondary-purple);
+    h1 {
+        background-image: url("../css/res/pattern-purple.svg");
+    }
+}
+
+main.dark {
+    @include colorize($primary-dark, $secondary-dark);
+    h1 {
+        background-image: url("../css/res/pattern-dark.svg");
+    }
+}
+
+main.yellow {
+    @include colorize($primary-yellow, $secondary-yellow);
+    h1 {
+        background-image: url("../css/res/pattern-yellow.svg");
+    }
+}
+
+main.orange {
+    @include colorize($primary-orange, $secondary-orange);
+    h1 {
+        background-image: url("../css/res/pattern-orange.svg");
+    }
+}
+
 main.red {
-    @include colorize($primary-red,
-    $secondary-red);
+    @include colorize($primary-red, $secondary-red);
     h1 {
         background-image: url("../css/res/pattern-red.svg");
     }
 }
 
-main.orange {
-    @include colorize($primary-orange,
-    $secondary-orange);
+main.light {
+    @include colorize($primary-light, $secondary-light);
     h1 {
-        background-image: url("../css/res/pattern-orange.svg");
+        background-image: url("../css/res/pattern-light.svg");
+    }
+}
+
+main.grey {
+    @include colorize($primary-grey, $secondary-grey);
+    h1 {
+        background-image: url("../css/res/pattern-grey.svg");
     }
 }

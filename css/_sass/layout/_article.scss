@@ -2,6 +2,7 @@
 @import '_sidebar';
 main {
     width: 100%;
+    min-height: 100vh;
     margin-top: $mobile-navigation-bar-height;
     padding: $main-mobile-padding;
     @include flex-order(2);
@@ -10,8 +11,8 @@ main {
         padding: $main-tablet-padding;
     }
     @include respond-to(desktop) {
-        padding-top: 0;
         width: $desktop-main-width;
+        margin-top: 0;
         @include flex-align-items(stretch);
     }
     article {

@@ -1,0 +1,30 @@
+extends /_jade/layout/_sidebar
+
+block sidebar-content
+    nav.share
+        ul
+            li: a.facebook(href="//www.facebook.com/sharer/sharer.php?u=#{current.url}" rel="nofollow")
+                span.fa-stack
+                    i.fa.fa-stack-2x.fa-square
+                    i.fa.fa-stack-1x.fa-inverse.fa-facebook
+            li: a.twitter(href="//twitter.com/intent/tweet?url=#{current.url}&hashtags=NDCB" rel="nofollow")
+                span.fa-stack
+                    i.fa.fa-stack-2x.fa-square
+                    i.fa.fa-stack-1x.fa-inverse.fa-twitter
+            li: a.google-plus(href="//plus.google.com/share?url=#{current.url}" rel="nofollow")
+                span.fa-stack
+                    i.fa.fa-stack-2x.fa-square
+                    i.fa.fa-stack-1x.fa-inverse.fa-google-plus
+            li: a.reddit(onClick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false" href="//www.reddit.com/submit" rel="nofollow")
+                span.fa-stack
+                    i.fa.fa-stack-2x.fa-square
+                    i.fa.fa-stack-1x.fa-inverse.fa-reddit
+            li: a.whatsapp(href="whatsapp://send?text=#{current.url}" rel="nofollow")
+                span.fa-stack
+                    i.fa.fa-stack-2x.fa-square
+                    i.fa.fa-stack-1x.fa-inverse.fa-whatsapp
+            //- TODO: Append....
+            li: a.comment(href="#comments" rel="nofollow")
+                span.fa-stack
+                    i.fa.fa-stack-2x.fa-square
+                    i.fa.fa-stack-1x.fa-inverse.fa-comment

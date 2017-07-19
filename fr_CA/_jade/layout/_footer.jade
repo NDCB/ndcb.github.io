@@ -1,0 +1,70 @@
+extends /_jade/layout/_footer
+
+
+block links
+    ul
+        -var currentYear = new Date().getFullYear()
+        li: a © 2016-#{currentYear}
+        li: a(href='/') <i class="fa fa-fw fa-home"></i>NDCB
+        li: a(href='https://github.com/NDCB/ndcb.github.io-source') <i class="fa fa-fw fa-code"></i>Source
+        li: a(href='/fr_CA/plan-du-site.html') <i class="fa fa-fw fa-map-signs"></i>Plan du site
+        li: a(href='/fr_CA/a-propos.html') <i class="fa fa-fw fa-info"></i>À propos
+
+block social-links
+    ul
+        li: a(
+                href="/fr_CA/feed" 
+                target="_blank" 
+                aria-label="Flux RSS"
+            )
+            span.fa-stack
+                i.fa.fa-stack-2x.fa-square
+                i.fa.fa-stack-1x.fa-inverse.fa-rss
+        li: a(
+                href="https://www.facebook.com/#{public._data.globals.profiles.facebook}" 
+                target="_blank" 
+                aria-label="Page Facebook"
+            )
+            span.fa-stack
+                i.fa.fa-stack-2x.fa-square
+                i.fa.fa-stack-1x.fa-inverse.fa-facebook
+        li: a(
+                href="https://twitter.com/#{public._data.globals.profiles.twitter}"
+                target="_blank" 
+                aria-label="Fil Twitter"
+            )
+            span.fa-stack
+                i.fa.fa-stack-2x.fa-square
+                i.fa.fa-stack-1x.fa-inverse.fa-twitter
+        li: a(
+                href="https://www.youtube.com/channel/#{public._data.globals.profiles.youtube}" 
+                target="_blank" 
+                aria-label="Chaîne YouTube"
+            )
+            span.fa-stack
+                i.fa.fa-stack-2x.fa-square
+                i.fa.fa-stack-1x.fa-inverse.fa-youtube-play
+        li: a(
+                href="https://plus.google.com/#{public._data.globals.profiles.google-plus}" 
+                target="_blank" 
+                aria-label="Profil Google+"
+            )
+            span.fa-stack
+                i.fa.fa-stack-2x.fa-square
+                i.fa.fa-stack-1x.fa-inverse.fa-google-plus
+        li: a(
+                href="https://github.com/#{public._data.globals.profiles.github}"
+                target="_blank" 
+                aria-label="Profil Github"
+            )
+            span.fa-stack
+                i.fa.fa-stack-2x.fa-square
+                i.fa.fa-stack-1x.fa-inverse.fa-github
+        li: a(
+                href="mailto:#{public._data.globals.profiles.mail}" 
+                target="_blank" 
+                aria-label="Adresse e-mail"
+            )
+            span.fa-stack
+                i.fa.fa-stack-2x.fa-square
+                i.fa.fa-stack-1x.fa-inverse.fa-envelope

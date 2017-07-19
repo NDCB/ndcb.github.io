@@ -1,0 +1,31 @@
+include /_jade/mixins/_categories.jade
+
+extends /_jade/layout/_navigation
+
+block prepend navigation-header
+    a(href='/'): img#logo(src='/res/logo.svg' alt="Retour à l'accueil")
+
+//- @Override
+block navigation-list
+    ul
+        li: a(href='') <i class="fa fa-fw fa-home"></i>Accueil
+        li
+            a <i class="fa fa-fw fa-list-alt"></i>Catégories
+            i.fa.fa-fw.fa-caret-down.toggler
+            +linkCategories(public.fr_CA)
+        li: a(href='a-propos') <i class="fa fa-fw fa-info"></i>À propos
+        li: a(href='plan-du-site') <i class="fa fa-fw fa-map-signs"></i>Plan du site
+//-header#main-navigation
+    nav
+        header
+            a(href='/'): img#logo(src='/img/logo.svg' alt="Retour à l'accueil")
+            i.fa.fa-navicon.toggler
+        ul
+            li: a(href='') <i class="fa fa-fw fa-home"></i>Accueil
+            li
+                a <i class="fa fa-fw fa-list-alt"></i>Catégories
+                i.fa.fa-fw.fa-caret-down.toggler
+                +linkCategories(public.fr_CA)
+            li: a(href='') <i class="fa fa-fw fa-info"></i>À propos
+            li: a(href='') <i class="fa fa-fw fa-map-signs"></i>Plan du site
+

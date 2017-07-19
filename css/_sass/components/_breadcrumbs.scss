@@ -3,7 +3,7 @@ nav.breadcrumbs {
     padding-top: $padding-breadcrumbs;
     padding-bottom: $padding-breadcrumbs;
     @extend .pop-out;
-    ul {
+    ol {
         padding: 0;
         margin: 0;
     }

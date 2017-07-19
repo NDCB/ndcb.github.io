@@ -1,0 +1,34 @@
+{
+    "globals": {
+        "description": "Trouvez des articles de renforcement en mathématiques, physique et informatique du secondaire et du collégial pour miser sur l'excellence."
+    },
+
+    "categories": [
+        {
+            "headline": "Mathématiques",
+            "slug": "mathematiques"
+        },
+
+        {
+            "headline": "Physique",
+            "slug": "physique"
+        },
+
+        {
+            "headline": "Informatique",
+            "slug": "informatique"
+        }
+    ],
+
+    "index": {
+    },
+
+    "a-propos": {
+        "headline": "À propos",
+        "description": ""
+    },
+
+    "plan-du-site": {
+        "headline": "Plan du site"
+    }
+}
