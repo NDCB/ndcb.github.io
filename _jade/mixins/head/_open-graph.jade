@@ -1,0 +1,10 @@
+//- Adds metadata for an Open Graph image.
+mixin ogimage(url, type, width, height)
+    meta(property='og:image' content="#{url}")
+    meta(property='og:image:type' content="image/#{type}")
+    meta(property='og:image:width' content="#{width}")
+    meta(property='og:image:height' content="#{height}")
+
+//- Adds global document Open Graph metadata. 
+meta(property='og:url' content="#{getCurrentUrl()}")
+meta(property='og:site_name' content="#{public._data.globals.site_name}")

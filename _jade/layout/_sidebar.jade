@@ -1,2 +1,8 @@
+include /_jade/base/_functions
+
 footer#sidebar
     block sidebar-content
+        nav.share
+            ul
+                block sidebar-content-share
+                    include /_jade/components/_share-icons

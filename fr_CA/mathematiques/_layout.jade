@@ -1,15 +1,16 @@
 extends ../_layout
 
+include /_jade/mixins/head/_head
+
+-var thumbnailUrl = public._data.globals.url + "res/thumbnails/thumbnail-blue.png"
+
 //- @Override
 block og:image
-    meta(property='og:image' content="#{public._data.globals.url}/fr_CA/mathematiques/res/thumbnail.png")
+    +ogimage(thumbnailUrl, "png", 300, 300)
 
 //- @Override
 block twitter:image
-    meta(name='twitter:image' content="#{public._data.globals.url}/fr_CA/mathematiques/res/thumbnail.png")
-
-block prepend scripts
-    include /_jade/components/_mathjax
+    +twitterimage(thumbnailUrl)
 
 //- @Override
 block content

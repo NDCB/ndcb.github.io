@@ -1,8 +1,8 @@
 //- MathJax configuration
-script(
-    type="text/x-mathjax-config"
-    ) 
-    != 'MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } });'
+script(type="text/x-mathjax-config").
+    MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
 //- MathJax script reference
 script(
     defer 

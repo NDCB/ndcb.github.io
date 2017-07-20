@@ -1,0 +1,41 @@
+include /_jade/mixins/_icon-stack-button
+
+//- Facebook share icon
+li: a.social-share-popup.facebook(
+    href="//www.facebook.com/sharer/sharer.php?u=#{getCurrentUrl()}" 
+    target='_blank'
+    rel="nofollow"
+    )
+    +iconStackButton("fa-facebook")
+
+//- Twitter share icon
+li: a.social-share-popup.twitter(
+    href="//twitter.com/intent/tweet?url=#{getCurrentUrl()}&via=#{public._data.globals.profiles.twitter}" 
+    target='_blank'
+    rel="nofollow"
+    )
+    +iconStackButton("fa-twitter")
+
+//- Google+ share icon
+li: a.social-share-popup.google-plus(
+    href="//plus.google.com/share?url=#{getCurrentUrl()}" 
+    target='_blank'
+    rel="nofollow"
+    )
+    +iconStackButton("fa-google-plus")
+
+//- Reddit share icon
+li: a.social-share-popup.reddit(
+    href="//www.reddit.com/submit?url=#{getCurrentUrl()}" 
+    target='_blank'
+    rel="nofollow"
+    )
+    +iconStackButton("fa-reddit")
+
+//- Whatsapp share icon
+li: a.whatsapp(
+    href="whatsapp://send?text=#{getCurrentUrl()}" 
+    target='_blank'
+    rel="nofollow"
+    )
+    +iconStackButton("fa-whatsapp")

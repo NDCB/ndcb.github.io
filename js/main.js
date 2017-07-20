@@ -73,11 +73,6 @@ $(window).resize(function () {
     }
 });
 
-/**
- * Configures the path to the grammar components of the Prism autoloader plugin.
- */
-//Prism.plugins.autoloader.languages_path = 'prism-grammars/';
-
 /*
 var options = {
     color: '#e67e22',

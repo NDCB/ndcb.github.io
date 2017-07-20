@@ -1,0 +1,64 @@
+include /_jade/mixins/_icon-stack-button
+
+//- Adds the website RSS feed anchor button, given a label.
+mixin rssFeed(label)
+    a(
+        href="/feed" 
+        target='_blank'
+        aria-label="#{label}"
+    )
+        +iconStackButton("fa-rss")
+
+//- Adds the website Facebook page anchor button, given a label.
+mixin facebookPage(label)
+    a(
+        href="https://www.facebook.com/#{public._data.globals.profiles.facebook}" 
+        target="_blank" 
+        aria-label="#{label}"
+    )
+        +iconStackButton("fa-facebook")
+
+//- Adds the website Twitter feed anchor button, given a label.
+mixin twitterFeed(label)
+    a(
+        href="https://twitter.com/#{public._data.globals.profiles.twitter}"
+        target="_blank" 
+        aria-label="#{label}"
+    )
+        +iconStackButton("fa-twitter")
+
+//- Adds the website YouTube channel anchor button, given a label.
+mixin youtubeChannel(label)
+    a(
+        href="https://www.youtube.com/channel/#{public._data.globals.profiles.youtube}" 
+        target="_blank" 
+        aria-label="#{label}"
+    )
+        +iconStackButton("fa-youtube-play")
+
+//- Adds the website Google+ profile anchor button, given a label.
+mixin googlePlusProfile(label)
+    a(
+        href="https://plus.google.com/#{public._data.globals.profiles.google-plus}" 
+        target="_blank" 
+        aria-label="#{label}"
+    )
+        +iconStackButton("fa-google-plus")
+
+//- Adds the website Github profile anchor button, given a label.
+mixin githubProfile(label)
+    a(
+        href="https://github.com/#{public._data.globals.profiles.github}"
+        target="_blank" 
+        aria-label="#{label}"
+    )
+        +iconStackButton("fa-github")
+
+//- Adds the website email anchor button, given a label.
+mixin sendEmail(label)
+    a(
+        href="mailto:#{public._data.globals.profiles.mail}" 
+        target="_blank" 
+        aria-label="#{label}"
+    )
+        +iconStackButton("fa-envelope")

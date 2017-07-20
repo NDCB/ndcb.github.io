@@ -1,7 +1,7 @@
 footer#sidebar {
     @include respond-to(desktop) {
         background-color: $primary-light;
-        background-image: url("../css/res/pattern-tech.svg");
+        background-image: url("/css/res/pattern-tech.svg");
         border-right: 15rem $primary-dark solid;
     }
 }

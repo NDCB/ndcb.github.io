@@ -1,7 +1,7 @@
 {
     "globals": {
         "site_name": "NDCB",
-        "url": "ndcb.github.io",
+        "url": "https://ndcb.github.io/",
         "author": "Marc-Antoine Ouimet",
         "google_analytics": "",
         "profiles": {

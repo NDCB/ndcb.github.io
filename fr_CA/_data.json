@@ -21,6 +21,8 @@
     ],
 
     "index": {
+        "containsCode": true,
+        "containsMath": true
     },
 
     "a-propos": {

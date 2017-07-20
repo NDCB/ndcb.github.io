@@ -1,0 +1,11 @@
+//- Adds the metadata for the document title.
+mixin metaTitle(defaultTitle)
+    //- Define the meta title of the document
+    -var meta_title 
+    //- Unless a document headline is provided in _data.json, use the default headline
+    if !headline ? meta_title=defaultTitle : meta_title=headline
+    if meta_title.length > 70
+        -console.log("WARNING: " + getCurrentUrl() + " Meta title is too long (l=" + meta_title.length + ">70): " + meta_title + "\n")
+    title #{meta_title}
+    meta(property='og:title' content="#{meta_title}")
+    meta(name='twitter:title' content="#{meta_title}")
