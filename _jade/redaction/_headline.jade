@@ -1,0 +1,27 @@
+include /_jade/base/_functions
+
+//- Adds an anchor to the headline.
+mixin heading(headline)
+    a(href='##{slugify(headline)}' id='#{slugify(headline)}'): i.fa.fa-link
+    !=headline
+
+//- Displays and identifies a headline.
+    Should not be used as an inline mixin.
+    Since the headline is passed as a Javascript parameter,
+    it is subject to escape characters.
+mixin h(level, headline)
+    case level
+        when 1
+            h1: +heading(headline)
+        when 2
+            h2: +heading(headline)
+        when 3
+            h3: +heading(headline)
+        when 4
+            h4: +heading(headline)
+        when 5
+            h5: +heading(headline)
+        when 6
+            h6: +heading(headline)
+        default
+            -console.log("ERROR: Invalid headline level " + level + ' "' + headline + '" at ' + getCurrentUrl())
