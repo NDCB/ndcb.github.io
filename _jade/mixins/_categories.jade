@@ -10,4 +10,4 @@ mixin linkCategories(root, rootUrl)
                 //- root[category.slug]._data must exist
                 if (root[category.slug]._data.categories)
                     i.fa.fa-fw.fa-caret-down.toggler(collapsed)
-                    +linkCategories(root[category.slug], category.slug)
+                    +linkCategories(root[category.slug], url + category.slug)
