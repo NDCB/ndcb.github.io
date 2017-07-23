@@ -6,15 +6,20 @@
 
 -
     function slugify(text) {
-        text = text.toLowerCase();
-        text = text.replace(/\u0027/g, ' '); //- Replace apostrophes
-        text = text.replace(/\u002C/g, ''); //- Remove commas
-        text = text.replace(/[\u00E0-\u00E5]/gi, 'a') //- Repalce accented as
-        text = text.replace(/[\u00E8-\u00EB]/gi, 'e') //- Repalce accented es
-        text = text.replace(/[\u00EC-\u00EF]/gi, 'i') //- Repalce accented is
-        text = text.replace(/[\u00F2-\u00F6]/gi, 'o') //- Repalce accented os
-        text = text.replace(/[\u00F9-\u00FC]/gi, 'u') //- Repalce accented us
-        text = text.trim().replace(/  +/g, ' ') //- Remove excess spaces
-        text = text.replace(/ /g, '-') //- Replace spaces with dashes
-        return text;
+        if (text){
+            text = text.toLowerCase();
+            text = text.replace(/\u0027/g, ' '); //- Replace apostrophes
+            text = text.replace(/\u002C/g, ''); //- Remove commas
+            text = text.replace(/[\u00E0-\u00E5]/gi, 'a') //- Repalce accented as
+            text = text.replace(/[\u00E8-\u00EB]/gi, 'e') //- Repalce accented es
+            text = text.replace(/[\u00EC-\u00EF]/gi, 'i') //- Repalce accented is
+            text = text.replace(/[\u00F2-\u00F6]/gi, 'o') //- Repalce accented os
+            text = text.replace(/[\u00F9-\u00FC]/gi, 'u') //- Repalce accented us
+            text = text.trim().replace(/  +/g, ' ') //- Remove excess spaces
+            text = text.replace(/ /g, '-') //- Replace spaces with dashes
+            return text;
+        } else {
+            console.log("Undefined text to slugify @" + current.path)
+            return "s"
+        }
     }
