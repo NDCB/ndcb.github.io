@@ -1,0 +1,37 @@
+//- Constructs the breadcrumb navigation of the current page, given 
+    a beginning root in the data.
+mixin breadcrumbs(root)
+    -
+        let headlines = [];
+        let url = [];
+        let path = current.path;
+        //- For each parts in the current path
+        for(i = 0; i < path.length; i++){
+            //- If there are defined categories at the root
+            if (root._data.categories){
+                let categories = root._data.categories;
+                for(j = 0; j < categories.length; j++){
+                    //- If a category matches the part of the path
+                    if (path[i] == categories[j].slug){
+                        //- Build the url
+                        let constructPath = public._data.globals.url;
+                        for (k = 0; k < path.length; k++){
+                            constructPath += path[k] + "/";
+                            //- If the end is reached
+                            if (path[k] == categories[j].slug){
+                                break;
+                            }
+                        }
+                        //- Save data
+                        headlines.push(categories[j].headline);
+                        url.push(constructPath);
+                        //- Move the root deeper
+                        root = root[categories[j].slug];
+                    }
+                }
+            }
+        }
+    nav.breadcrumbs
+        ol
+            each crumb, index in headlines
+                li: a(href!=url[index]) #{headlines[index]}
