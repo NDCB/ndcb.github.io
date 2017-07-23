@@ -17,21 +17,27 @@
     
     "locales": [
         {
-            "fr_CA": {
-                "country_name": "Canada",
-                "country_code": "CA",
-                "language_name": "Français",
-                "language_code": "fr"
-            }
+            "slug": "fr_CA",
+            "country_name": "Canada",
+            "language_name": "Français"
         },
 
         {
-            "en_CA": {
-                "country_name": "Canada",
-                "country_code": "CA",
-                "language_name": "English",
-                "language_code": "en"
-            }
+            "slug": "en_CA",
+            "country_name": "Canada",
+            "language_name": "English"
         }
-    ]
+    ],
+
+    "index": {
+        "changefreq": "daily"
+    },
+
+    "sitemap": {
+        "layout": false
+    },
+
+    "404": {
+
+    }
 }
