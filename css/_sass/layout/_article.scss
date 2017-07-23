@@ -24,7 +24,7 @@ main {
         }
         span.mjx-chtml.MJXc-display {
             overflow-y: hidden;
-            overflow-x: scroll;
+            overflow-x: auto;
             @include respond-to(tablet-portrait) {
                 overflow: hidden;
             }
