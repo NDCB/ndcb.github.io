@@ -1,0 +1,84 @@
+doctype xml
+urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+    -
+        /**
+            Given a root node with attributes ._contents and ._data,
+            and a url to that node, returns the sitemap items contained
+            within that node.
+        */
+        function getContents(root, url) {
+            urlset = [];
+            if (root._contents){
+                for(i = 0; i < root._contents.length; i++){
+                    let file = root._contents[i];
+                    if(file.includes(".html")){
+                        var item = {};
+                        item.loc = url + file + '/';
+                        file = file.replace(".html", "");
+                        if (root._data[file]){
+                            let data = root._data[file];
+                            if (data.lastmod){
+                                item.lastmod = data.lastmod;
+                            }
+                            if (data.changefreq){
+                                item.changefreq = data.changefreq;
+                            } else {
+                                item.changefreq = "monthly";
+                            }
+                        }
+                        urlset.push(item);
+                    }
+                }
+            }
+            return urlset;
+        }
+
+        /**
+            Given a category root node with the attribute ._data.categories,
+            recursively returns the sitemap items contained within it.
+        */
+        function getCategoryContents(root, url) {
+            urlset = getContents(root, url);
+            if (root._data.categories){
+                let categories = root._data.categories;
+                for (i = 0; i < categories.length; i++){
+                    let slug = categories[i].slug;
+                    let category = root[slug];
+                    urlset = urlset.concat(
+                        getCategoryContents(category, url + slug + "/")
+                    );
+                }
+            }
+            return urlset;
+        }
+
+        /**
+            Fetches all sitemap elements accross the locales of the website
+            declared in public._data.locales and their subsequent categories.
+        */
+        function fetchUrlset() {
+            let data = public._data;
+            let url = data.globals.url;
+            urlset = getContents(public, url);
+            for (i = 0; i < data.locales.length; i++){
+                let slug = data.locales[i].slug;
+                let locale = public[slug];
+                urlset = urlset.concat(
+                    getCategoryContents(locale, url + slug + "/")
+                );
+            }
+            return urlset;
+        }
+
+        urlset = fetchUrlset();
+        
+    //- Build sitemap
+    for url, index in urlset
+        url
+            loc.
+                #{url.loc}
+            if url.lastmod
+                lastmod.
+                    #{url.lastmod}
+            changefreq.
+                #{url.changefreq}
