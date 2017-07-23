@@ -2,8 +2,7 @@
     a beginning root in the data.
 mixin breadcrumbs(root)
     -
-        let headlines = [];
-        let url = [];
+        let breadcrumbs = [];
         let path = current.path;
         //- For each parts in the current path
         for(i = 0; i < path.length; i++){
@@ -23,15 +22,19 @@ mixin breadcrumbs(root)
                             }
                         }
                         //- Save data
-                        headlines.push(categories[j].headline);
-                        url.push(constructPath);
+                        breadcrumb = {
+                            headline:categories[j].headline, 
+                            url:constructPath
+                        };
+                        breadcrumbs.push(breadcrumb);
                         //- Move the root deeper
                         root = root[categories[j].slug];
                     }
                 }
             }
         }
-    nav.breadcrumbs
-        ol
-            each crumb, index in headlines
-                li: a(href!=url[index]) #{headlines[index]}
+    if breadcrumbs.length > 1
+        nav.breadcrumbs
+            ol
+                each breadcrumb, index in breadcrumbs
+                    li: a(href!=breadcrumbs[index].url) #{breadcrumbs[index].headline}
