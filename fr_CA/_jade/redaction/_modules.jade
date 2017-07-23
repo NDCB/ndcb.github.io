@@ -1,0 +1,83 @@
+//- Counter variables.
+-var definitionNo = 0
+-var exampleNo = 0
+-var theoremNo = 0
+-var exerciseNo = 0
+
+//- Default counter values for proofs and solutions.
+-var proofNo = 0
+-var solutionNo = 0
+
+//- Adds a numbered definition block.
+    Usage:
+    +definition()
+        p A function is ...
+mixin definition()
+    -definitionNo++
+    section.module.definition
+        header Définition #{definitionNo}<i class="fa fa-fw fa-caret-up toggler"></i>
+        article
+            block
+            
+//- Adds a numbered example block.
+    Usage:
+    +example()
+        p Given the values of ...        
+mixin example()
+    -exampleNo++
+    section.module.example
+        header Exemple #{exampleNo}<i class="fa fa-fw fa-caret-up toggler"></i>
+        article
+            block
+
+//- Adds a numbered theorem block.
+    Usage:
+    +theorem()
+        p Given the values of ...
+mixin theorem()
+    -proofNo = 0
+    -theoremNo++
+    section.module.theorem
+        header Théorème #{theoremNo}<i class="fa fa-fw fa-caret-up toggler"></i>
+        article
+            block
+
+//- Adds a numbered proof block.
+    Should only be featured in a theorem block.
+    Usage:
+    +theorem()
+        p ...
+        +proof()
+            p ... 
+mixin proof()
+    -proofNo++
+    section.module.proof
+        header Preuve #{proofNo}<i class="fa fa-fw fa-caret-up toggler"></i>
+        article
+            block
+
+//- Adds a numbered exercise block.
+    Usage:
+    +exercise()
+        p Solve the following ...
+mixin exercise()
+    -solutionNo = 0
+    -exerciseNo++
+    section.module.exercise
+        header Exercice #{exerciseNo}<i class="fa fa-fw fa-caret-up toggler"></i>
+        article
+            block
+
+//- Adds a numbered solution block.
+    Should only be featured in an exercise block.
+    Usage:
+    +exercise()
+        p ...
+        +solution()
+            p ...
+mixin solution()
+    -solutionNo++
+    section.module.solution
+        header Solution #{solutionNo}<i class="fa fa-fw fa-caret-up toggler" collapsed></i>
+        article
+            block
