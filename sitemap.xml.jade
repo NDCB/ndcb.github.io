@@ -1,6 +1,26 @@
 doctype xml
 urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     -
+        console.log("Processing sitemap...");
+
+        var ignoreFiles = [
+            "404.html"
+        ];
+
+        /**
+            Checks whether or not the provided file name is among the files
+            to ignore in the sitemap.
+        */
+        function isIgnored(fileName) {
+            let ignore = false;
+            for (p = 0; p < ignoreFiles.length; p++){
+                if (fileName === ignoreFiles[p]){
+                    ignore = true;
+                }
+            }
+            return ignore;
+        }
+
         /**
             Given a root node with attributes ._contents and ._data,
             and a url to that node, returns the sitemap items contained
@@ -11,22 +31,24 @@ urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
             if (root._contents){
                 for(i = 0; i < root._contents.length; i++){
                     let file = root._contents[i];
-                    if(file.includes(".html")){
-                        var item = {};
-                        item.loc = url + file + '/';
-                        file = file.replace(".html", "");
-                        if (root._data[file]){
-                            let data = root._data[file];
-                            if (data.lastmod){
-                                item.lastmod = data.lastmod;
+                    if (file.includes(".html")){
+                        if (!isIgnored(file)){
+                            var item = {};
+                            item.loc = url + file + '/';
+                            file = file.replace(".html", "");
+                            if (root._data[file]){
+                                let data = root._data[file];
+                                if (data.lastmod){
+                                    item.lastmod = data.lastmod;
+                                }
+                                if (data.changefreq){
+                                    item.changefreq = data.changefreq;
+                                } else {
+                                    item.changefreq = "monthly";
+                                }
                             }
-                            if (data.changefreq){
-                                item.changefreq = data.changefreq;
-                            } else {
-                                item.changefreq = "monthly";
-                            }
+                            urlset.push(item);
                         }
-                        urlset.push(item);
                     }
                 }
             }
