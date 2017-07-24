@@ -1,0 +1,71 @@
+include /_jade/base/_functions
+
+-var figureNo = 0
+
+//- Adds a numbered image block. An image may be fetched from external sources.
+    Usage:
+    +fig(src, alt).
+        Caption ...
+mixin img(src, alt)
+    -figureNo++
+    figure(id!="figure-" + figureNo)
+        img(src!=src, alt!=alt)
+        figcaption
+            header Figure #{figureNo}:
+            span
+                block
+
+-
+    var imageFolderName = "img";
+
+    /**
+        Determines whether or not a figure exists in the 
+        img._data.images relative to the current page root.
+    */
+    function figureExists(fileName) {
+        let root = getCurrentRoot();
+        let images = root[imageFolderName]._data.images;
+        for (var i = 0; i < images.length; i++){
+            if (fileName === images[i].fileName){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+        Fetches the alternative text from the 
+        img._data.images relative to the current page root.
+    */
+    function fetchAlt(fileName) {
+        let root = getCurrentRoot();
+        let images = root[imageFolderName]._data.images;
+        for (var i = 0; i < images.length; i++){
+            if (fileName === images[i].fileName){
+                if (images[i].alt){
+                    return images[i].alt;
+                }
+            }
+        }
+        console.log("Warning: Undefined alt attribute of image " + fileName + " at " + getCurrentUrl());
+        return null;
+    }
+
+//- Adds a numbered figure block. Figures may only exist in the 
+    img._data.images relative to the current page root and their
+    attributes should be defined.
+mixin fig(fileName)
+    -figureNo++
+    figure(id!="figure-" + figureNo)
+        if (figureExists(fileName))
+            img(src!=imageFolderName + "/" + fileName, alt!=fetchAlt(fileName))
+            figcaption
+                header Figure #{figureNo}:
+                span
+                    block
+        else
+            img(src!=imageFolderName + "/" + fileName)
+            figcaption
+                header Figure #{figureNo}:
+                span
+                    block
