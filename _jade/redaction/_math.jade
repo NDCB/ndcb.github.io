@@ -27,7 +27,9 @@ mixin e()
         \end{align*}
 mixin eq()
     != displayed_math_prefix
+    != "\\begin{align*}"
     block
+    != "\\end{align*}"
     != displayed_math_suffix
 
 //- Delimits a labeled displayed MathJax equation.
