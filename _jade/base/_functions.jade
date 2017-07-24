@@ -1,25 +1,42 @@
-//- Returns the Url of the current document.
 -
+    /**
+        Retrieves the URL of the current document.
+    */
     function getCurrentUrl() {
         return public._data.globals.url + current.path.join('/');
     }
 
--
+    /**
+        Retrieves the root node of the current document in the 
+        flexible metadata structure.
+    */
+    function getCurrentRoot() {
+        let path = current.path;
+        let root = public;
+        for (var i = 0; i < path.length - 1; i++){
+            root = root[path[i]];
+        }
+        return root;
+    }
+
+    /**
+        Slugifies a text for URLs.
+    */
     function slugify(text) {
         if (text){
             text = text.toLowerCase();
             text = text.replace(/\u0027/g, ' '); //- Replace apostrophes
             text = text.replace(/\u002C/g, ''); //- Remove commas
-            text = text.replace(/[\u00E0-\u00E5]/gi, 'a') //- Repalce accented as
-            text = text.replace(/[\u00E8-\u00EB]/gi, 'e') //- Repalce accented es
-            text = text.replace(/[\u00EC-\u00EF]/gi, 'i') //- Repalce accented is
-            text = text.replace(/[\u00F2-\u00F6]/gi, 'o') //- Repalce accented os
-            text = text.replace(/[\u00F9-\u00FC]/gi, 'u') //- Repalce accented us
+            text = text.replace(/[\u00E0-\u00E5]/gi, 'a') //- Replace accented as
+            text = text.replace(/[\u00E8-\u00EB]/gi, 'e') //- Replace accented es
+            text = text.replace(/[\u00EC-\u00EF]/gi, 'i') //- Replace accented is
+            text = text.replace(/[\u00F2-\u00F6]/gi, 'o') //- Replace accented os
+            text = text.replace(/[\u00F9-\u00FC]/gi, 'u') //- Replace accented us
             text = text.trim().replace(/  +/g, ' ') //- Remove excess spaces
             text = text.replace(/ /g, '-') //- Replace spaces with dashes
             return text;
         } else {
             console.log("Undefined text to slugify @" + current.path)
-            return "s"
+            return null;
         }
     }
