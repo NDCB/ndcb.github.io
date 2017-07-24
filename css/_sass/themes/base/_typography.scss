@@ -1,9 +1,6 @@
 body {
 	font-family: $font-roboto;
-	font-size: 12pt;
-	@include respond-to(print) {
-		font-size: 14pt;
-	}
+	font-size: 14pt;
 }
 
 h1,

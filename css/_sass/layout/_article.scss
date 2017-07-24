@@ -17,7 +17,14 @@ main {
         @include flex-align-items(stretch);
     }
     article {
-        display: block;
+        display: block; 
+        figure {
+            margin: 0;
+            @include respond-to(print) {
+                width: 50%;
+                margin: auto;
+            }
+        }
         img {
             width: 100%;
             height: auto;
@@ -29,7 +36,10 @@ main {
                 overflow: hidden;
             }
             @include respond-to(print) {
-                overflow: hidden;
+                overflow: auto;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
             }
         }
         >header>h1 {

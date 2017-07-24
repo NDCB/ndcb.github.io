@@ -10,7 +10,7 @@
     h1 {
         background-color: $primary-color;
     }
-    a {
+    /*a {
         &:link {
             color: $primary-color;
         }
@@ -18,7 +18,7 @@
         &:visited {
             color: $secondary-color;
         }
-    }
+    }*/
     section#contributors {
         img {
             border-color: $secondary-color;
