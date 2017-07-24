@@ -13,8 +13,8 @@ urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
         */
         function isIgnored(fileName) {
             let ignore = false;
-            for (p = 0; p < ignoreFiles.length; p++){
-                if (fileName === ignoreFiles[p]){
+            for (var i = 0; i < ignoreFiles.length; i++){
+                if (fileName === ignoreFiles[i]){
                     ignore = true;
                 }
             }
@@ -29,7 +29,7 @@ urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
         function getContents(root, url) {
             urlset = [];
             if (root._contents){
-                for(i = 0; i < root._contents.length; i++){
+                for(var i = 0; i < root._contents.length; i++){
                     let file = root._contents[i];
                     if (file.includes(".html")){
                         if (!isIgnored(file)){
@@ -63,7 +63,7 @@ urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
             urlset = getContents(root, url);
             if (root._data.categories){
                 let categories = root._data.categories;
-                for (i = 0; i < categories.length; i++){
+                for (var i = 0; i < categories.length; i++){
                     let slug = categories[i].slug;
                     let category = root[slug];
                     urlset = urlset.concat(
@@ -82,7 +82,7 @@ urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
             let data = public._data;
             let url = data.globals.url;
             urlset = getContents(public, url);
-            for (i = 0; i < data.locales.length; i++){
+            for (var i = 0; i < data.locales.length; i++){
                 let slug = data.locales[i].slug;
                 let locale = public[slug];
                 urlset = urlset.concat(
@@ -93,6 +93,7 @@ urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
         }
 
         urlset = fetchUrlset();
+        console.log("Sitemap processed.");
         
     //- Build sitemap
     for url, index in urlset
