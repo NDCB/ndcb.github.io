@@ -12,10 +12,13 @@
     Usage:
     +definition()
         p A function is ...
-mixin definition()
+mixin definition(title)
     -definitionNo++
-    section.module.definition
-        header Définition #{definitionNo}<i class="fa fa-fw fa-caret-up toggler"></i>
+    section.module.definition(id!="definition-" + definitionNo)
+        header Définition #{definitionNo}
+            if title
+                span : #{title}
+            <i class="fa fa-fw fa-caret-up toggler"></i>
         article
             block
             
@@ -23,10 +26,13 @@ mixin definition()
     Usage:
     +example()
         p Given the values of ...        
-mixin example()
+mixin example(title)
     -exampleNo++
-    section.module.example
-        header Exemple #{exampleNo}<i class="fa fa-fw fa-caret-up toggler"></i>
+    section.module.example(id!="example-" + exampleNo)
+        header Exemple #{exampleNo}
+            if title
+                span : #{title}
+            <i class="fa fa-fw fa-caret-up toggler"></i>
         article
             block
 
@@ -34,11 +40,14 @@ mixin example()
     Usage:
     +theorem()
         p Given the values of ...
-mixin theorem()
+mixin theorem(title)
     -proofNo = 0
     -theoremNo++
-    section.module.theorem
-        header Théorème #{theoremNo}<i class="fa fa-fw fa-caret-up toggler"></i>
+    section.module.theorem(id!="theorem-" + theoremNo)
+        header Théorème #{theoremNo}
+            if title
+                span : #{title}
+            <i class="fa fa-fw fa-caret-up toggler"></i>
         article
             block
 
@@ -49,10 +58,13 @@ mixin theorem()
         p ...
         +proof()
             p ... 
-mixin proof()
+mixin proof(title)
     -proofNo++
-    section.module.proof
-        header Preuve #{proofNo}<i class="fa fa-fw fa-caret-up toggler"></i>
+    section.module.proof(id!="proof-" + proofNo)
+        header Preuve #{proofNo}
+            if title
+                span : #{title}
+            <i class="fa fa-fw fa-caret-up toggler"></i>
         article
             block
 
@@ -60,11 +72,14 @@ mixin proof()
     Usage:
     +exercise()
         p Solve the following ...
-mixin exercise()
+mixin exercise(title)
     -solutionNo = 0
     -exerciseNo++
-    section.module.exercise
-        header Exercice #{exerciseNo}<i class="fa fa-fw fa-caret-up toggler"></i>
+    section.module.exercise(id!="exercise-" + exerciseNo)
+        header Exercice #{exerciseNo}
+            if title
+                span : #{title}
+            <i class="fa fa-fw fa-caret-up toggler"></i>
         article
             block
 
@@ -75,9 +90,12 @@ mixin exercise()
         p ...
         +solution()
             p ...
-mixin solution()
+mixin solution(title)
     -solutionNo++
-    section.module.solution
-        header Solution #{solutionNo}<i class="fa fa-fw fa-caret-up toggler" collapsed></i>
+    section.module.solution(id!="solution-" + solutionNo)
+        header Solution #{solutionNo}
+            if title
+                span : #{title}
+            <i class="fa fa-fw fa-caret-up toggler" collapsed></i>
         article
             block
