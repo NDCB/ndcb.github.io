@@ -1,13 +1,11 @@
 section {
-    &.module {
-        header {
-            color: white;
-            font-family: $font-arimo;
-        }
+    &.module > header {
+        color: white;
+        font-family: $font-arimo;
     }
     @mixin module($border-color) {
         border-color: $border-color;
-        header {
+        > header {
             background-color: $border-color;
         }
     }
