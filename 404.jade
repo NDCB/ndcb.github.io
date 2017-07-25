@@ -1,2 +1,23 @@
-h1 404
-h3 Whoops. Looks like what you're looking for can't be found.
+doctype html
+html
+    head
+        link(rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css")
+        link(rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+        link(rel="stylesheet" href="/css/404.css")
+    body
+        header: img(src="/res/404.svg")
+        p Malaise. Ce que vous cherchez n'a pas pu être trouvé. 
+            i.fa.fa-fw.fa-unlink
+        p Si vous pensez qu'il s'agit d'une erreur, n'hésitez pas à nous contacter. 
+            a(href!=public._data.globals.profiles.mail)
+                i.fa.fa-fw.fa-envelope
+        a(onclick="window.history.back()") <i class="fa fa-fw fa-backward"></i> Cliquez ici pour revenir en arrière.
+
+        hr
+
+        p Whoops. Looks like what you're looking for can't be found. 
+            i.fa.fa-fw.fa-unlink
+        p If you believe this is an error, be sure to contact us. 
+            a(href!=public._data.globals.profiles.mail)
+                i.fa.fa-fw.fa-envelope
+        a(onclick="window.history.back()") <i class="fa fa-fw fa-backward"></i> Click here to go back one page.
