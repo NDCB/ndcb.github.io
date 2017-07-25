@@ -1,11 +1,52 @@
+include /_jade/base/_functions
+
 //- Adds the metadata for the document title.
+    A default title may be provided, but may cause
+    certain documents to share the same name.
 mixin metaTitle(defaultTitle)
-    //- Define the meta title of the document
-    -var meta_title 
-    //- Unless a document headline is provided in _data.json, use the default headline
-    if !headline ? meta_title=defaultTitle : meta_title=headline
-    if meta_title.length > 70
-        -console.log("WARNING: " + getCurrentUrl() + " Meta title is too long (l=" + meta_title.length + ">70): " + meta_title + "\n")
-    title #{meta_title}
-    meta(property='og:title' content="#{meta_title}")
-    meta(name='twitter:title' content="#{meta_title}")
+    -
+        /**
+            Fetches the title of the current document.
+        */
+        function fetchDocumentTitle(defaultTitle) {
+            var metadata = fetchDocumentMetadata();
+            if (metadata) {
+                if (metadata.headline) {
+                    return metadata.headline;
+                }
+            } else {
+                return defaultTitle;
+            }
+        }
+
+        var documentTitle = fetchDocumentTitle(defaultTitle);
+    if documentTitle
+        +assignTitle(documentTitle)
+    else if defaultTitle
+        +assignTitle(defaultTitle)
+    else
+        -
+            console.log(
+                "Warning: Could not locate the document title for " 
+                + getCurrentRelativePath()
+            );
+
+//- Assigns the title of the document.
+mixin assignTitle(title)
+    if title.length > 70
+        -
+            console.log(
+                "Warning: Document title exceeds 70 characters "
+                + "(current length: " + title.length + ")" 
+                + " for document at " + getCurrentRelativePath()
+            );
+    //- Add meta tags
+    title!=title
+    meta(
+        property='og:title' 
+        content!=title
+    )
+    meta(
+        name='twitter:title' 
+        content!=title
+    )

@@ -1,9 +1,18 @@
 //- Adds meta properties for a Twitter card image.
 //- Adds Twitter image metadata. 
 mixin twitterimage(url)
-    meta(name='twitter:image' content="#{url}")
+    meta(
+        name='twitter:image' 
+        content!=url
+    )
 
 //- Adds Twitter Card metadata.
-meta(name='twitter:card' content="summary")
+meta(
+    name='twitter:card' 
+    content="summary"
+)
 //- Reference to the website Twitter profile
-meta(name='twitter:site' content="#{public._data.globals.profiles.twitter}")
+meta(
+    name='twitter:site' 
+    content!=public._data.globals.profiles.twitter
+)

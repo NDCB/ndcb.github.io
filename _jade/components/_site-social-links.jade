@@ -1,4 +1,4 @@
-include /_jade/mixins/_icon-stack-button
+include /_jade/mixins/helper/_icon-stack-button
 
 //- Adds the website RSS feed anchor button, given a label.
 mixin rssFeed(label)
@@ -7,7 +7,7 @@ mixin rssFeed(label)
         target='_blank'
         aria-label="#{label}"
     )
-        +iconStackButton("fa-rss")
+        +iconStackButton("fa-rss", "fa-square")
 
 //- Adds the website Facebook page anchor button, given a label.
 mixin facebookPage(label)
@@ -16,7 +16,7 @@ mixin facebookPage(label)
         target="_blank" 
         aria-label="#{label}"
     )
-        +iconStackButton("fa-facebook")
+        +iconStackButton("fa-facebook", "fa-square")
 
 //- Adds the website Twitter feed anchor button, given a label.
 mixin twitterFeed(label)
@@ -25,7 +25,7 @@ mixin twitterFeed(label)
         target="_blank" 
         aria-label="#{label}"
     )
-        +iconStackButton("fa-twitter")
+        +iconStackButton("fa-twitter", "fa-square")
 
 //- Adds the website YouTube channel anchor button, given a label.
 mixin youtubeChannel(label)
@@ -34,7 +34,7 @@ mixin youtubeChannel(label)
         target="_blank" 
         aria-label="#{label}"
     )
-        +iconStackButton("fa-youtube-play")
+        +iconStackButton("fa-youtube-play", "fa-square")
 
 //- Adds the website Google+ profile anchor button, given a label.
 mixin googlePlusProfile(label)
@@ -43,7 +43,7 @@ mixin googlePlusProfile(label)
         target="_blank" 
         aria-label="#{label}"
     )
-        +iconStackButton("fa-google-plus")
+        +iconStackButton("fa-google-plus", "fa-square")
 
 //- Adds the website Github profile anchor button, given a label.
 mixin githubProfile(label)
@@ -52,7 +52,7 @@ mixin githubProfile(label)
         target="_blank" 
         aria-label="#{label}"
     )
-        +iconStackButton("fa-github")
+        +iconStackButton("fa-github", "fa-square")
 
 //- Adds the website email anchor button, given a label.
 mixin sendEmail(label)
@@ -61,4 +61,4 @@ mixin sendEmail(label)
         target="_blank" 
         aria-label="#{label}"
     )
-        +iconStackButton("fa-envelope")
+        +iconStackButton("fa-envelope", "fa-square")

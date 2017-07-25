@@ -1,12 +1,20 @@
 {
+    "pages": {
+        "index": {
+            "headline": "",
+            "description": "",
+            "changefreq": "weekly"
+        }
+    },
+
     "globals": {
-        "site_name": "NDCB",
+        "siteName": "NDCB",
         "url": "https://ndcb.github.io/",
         "author": "Marc-Antoine Ouimet",
-        "google_analytics": "",
+        "googleAnalytics": "",
         "profiles": {
             "facebook": "notesdecoursblog",
-            "facebook_app_id": "885678258252305",
+            "facebookAppId": "885678258252305",
             "twitter": "_NDCB",
             "youtube": "UCrIqCoxkk_ExpfppCyELyYg",
             "google-plus": "b/117658749192198190558/117658749192198190558",
@@ -15,29 +23,16 @@
         }
     },
     
-    "locales": [
-        {
-            "slug": "fr_CA",
-            "country_name": "Canada",
-            "language_name": "Français"
-        },
-
-        {
-            "slug": "en_CA",
-            "country_name": "Canada",
-            "language_name": "English"
+    "locales": {
+        "fr_CA": {
+            "languageName": "Français",
+            "countryName": "Canada",
+            "languageCode": "fr",
+            "countryCode": "CA"
         }
-    ],
-
-    "index": {
-        "changefreq": "daily"
     },
 
     "sitemap": {
         "layout": false
-    },
-
-    "404": {
-
     }
 }

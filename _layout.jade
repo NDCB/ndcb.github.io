@@ -1,0 +1,80 @@
+include /_jade/base/_functions
+
+-console.log("Processing " + getCurrentRelativePath());
+
+-var thumbnailUrl = public._data.globals.url + "res/thumbnails/thumbnail-dark.png"
+
+doctype html
+html(lang!=getCurrentHtmlLocale())
+    head(
+        prefix!=
+            "og: http://ogp.me/ns# " 
+            + "fb: http://ogp.me/ns/fb# " 
+            + "article: http://ogp.me/ns/article#"
+            + "website: http://ogp.me/ns/website#"
+    )
+        //- og:url, og:site_name, fb:app_id, twitter:card, twitter:site
+        include /_jade/mixins/head/_head
+
+        //- title, og:title, twitter:title
+        +metaTitle(public._data.globals.siteName)
+
+        //- description, og:description, twitter:description
+        if getCurrentLocaleRoot()
+            +metaDescription(getCurrentLocaleRoot()._data.globals.description)
+
+        //- og:locale
+        if getCurrentOgLocale()
+            meta(
+                property='og:locale' 
+                content!=getCurrentOgLocale()
+            )
+
+        //- og:type
+        if currentIsArticle()
+            meta(
+                property='og:type' 
+                content="article"
+            )
+        else
+            meta(
+                property='og:type' 
+                content="website"
+            )
+
+        //- Meta thumbnails
+        block metaThumbnails
+            +ogimage(thumbnailUrl, "png", 300, 300)
+            +twitterimage(thumbnailUrl)
+
+        //- Favicon
+        include /_jade/base/_favicon
+
+        //- Stylesheets
+        block stylesheets
+            include /_jade/base/_stylesheets
+            //- TODO: Fetch in new structure...
+            if containsCode 
+                include /_jade/components/_prism-stylesheets
+    body
+        include /_jade/redaction/_redaction
+        .wrapper
+            block content
+                main.grey
+                    article
+                        header
+                            //- TODO: Fetch in new structure...
+                            +h(1, headline)
+                        != yield
+            include _jade/layout/_navigation
+            include /_jade/layout/_sidebar
+        //- TODO: Conditional fetch...
+        include _jade/layout/_footer
+        block scripts
+            include /_jade/components/_scripts
+            //- TODO: Fetch in new structure...
+            if containsMath
+                include /_jade/components/_mathjax
+            //- TODO: Fetch in new structure...
+            if containsCode 
+                include /_jade/components/_prism-scripts

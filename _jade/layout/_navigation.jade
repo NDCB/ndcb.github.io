@@ -1,7 +1,10 @@
+//- Standard navigation structure.
 header#main-navigation
     nav
         header
             block navigation-header
+                a(href='/'): img#logo(src="/res/logo.svg")
+                //- Hamburger icon
                 i.fa.fa-navicon.toggler
-        ul
-            block navigation-list
+        block navigation-items
+            include /_jade/mixins/layout/_main-navigation

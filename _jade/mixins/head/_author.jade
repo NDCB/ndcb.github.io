@@ -1,7 +1,0 @@
-//- Adds the metadata for a document author.
-mixin metaAuthor(defaultAuthor)
-    //- Define the meta author
-    -var meta_author
-    //- Unless the document author is provided in _data.json, use the default author
-    if !author ? meta_author = defaultAuthor : meta_author = author
-    meta(property='author' content="#{meta_author}")

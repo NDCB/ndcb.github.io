@@ -1,12 +1,49 @@
+include /_jade/base/_functions
+
 //- Adds the metadata for a document description.
+    A default description may be provided, but may cause
+    certain documents to share the same description.
 mixin metaDescription(defaultDescription)
-    //- Define the meta description of the document
-    -var meta_description
-    //- Unless a document summary is provided in _data.json, use the default description
-    if !description ? meta_description = defaultDescription : meta_description = description
-    //- Warning of the recommended length of the description
-    if meta_description.length > 155
-        -console.log("WARNING: " + getCurrentRelativePath() + " Meta description is too long (l=" + meta_description.length + ">155): " + meta_description + "\n")
-    meta(property='description' content="#{meta_description}")
-    meta(property='og:description' content="#{meta_description}")
-    meta(name='twitter:description' content="#{meta_description}")
+    -
+        /**
+            Fetches the description of the current document.
+        */
+        function fetchDocumentDescription(defaultDescription) {
+            var metadata = fetchDocumentMetadata();
+            if (metadata) {
+                if (metadata.description) {
+                    return metadata.description;
+                }
+            } else {
+                return defaultDescription;
+            }
+        }
+
+        var documentDescription = fetchDocumentDescription(defaultDescription);
+    if documentDescription
+        if documentDescription.length > 155
+            -
+                console.log(
+                    "Warning: Document description exceeds 155 characters "
+                    + "(current length: " + documentDescription.length + ")" 
+                    + " for document at " + getCurrentRelativePath()
+                );
+        //- Add meta tags
+        meta(
+            property='description' 
+            content!=documentDescription
+        )
+        meta(
+            property='og:description' 
+            content!=documentDescription
+        )
+        meta(
+            name='twitter:description' 
+            content!=documentDescription
+        )
+    else
+        -
+            console.log(
+                    "Warning: Could not locate the document description for " 
+                    + getCurrentRelativePath()
+            );

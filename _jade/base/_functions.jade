@@ -3,7 +3,8 @@
         Retrieves the URL of the current document.
     */
     function getCurrentUrl() {
-        return public._data.globals.url + current.path.join('/');
+        let url = public._data.globals.url;
+        return url + current.path.join('/');
     }
 
     /**
@@ -14,16 +15,124 @@
     }
 
     /**
+        Returns the base name of the current document file.
+    */
+    function getFileBaseName() {
+        return current.path[current.path.length - 1];
+    }
+
+    /**
+        Scans through the articles of the root's data for
+        a slug matching the name of the current document and
+        returns the article metadata if there is a match.
+    */
+    function fetchArticleMetadata() {
+        let currentRoot = getCurrentRoot();
+        let articles = currentRoot._data.articles;
+        if (articles) {
+            let fileName = getFileBaseName();
+            if (articles[fileName]){
+                return articles[fileName];
+            }
+        }
+    }
+
+    /**
+        Scans through the pages of the root's data for
+        a slug matching the name of the current document and
+        returns the page metadata if there is a match.
+    */
+    function fetchPageMetadata() {
+        let currentRoot = getCurrentRoot();
+        let pages = currentRoot._data.pages;
+        if (pages) {
+            let fileName = getFileBaseName();
+            if (pages[fileName]){
+                return pages[fileName];
+            }
+        }
+    }
+
+    /**
+        Scans through the articles and pages of the root's data
+        for a slug matching the name of the current document and
+        returns its metadata if there is a match.
+    */
+    function fetchDocumentMetadata() {
+        let articleMeta = fetchArticleMetadata();
+        let pageMeta = fetchPageMetadata();
+        if (articleMeta) {
+            return articleMeta;
+        } else if (pageMeta) {
+            return pageMeta;
+        } else {
+            console.log(
+                "Warning: Could not locate document " 
+                + "metadata at " + getCurrentRelativePath()
+            );
+        }
+    }
+
+    /**
+        Determines whether or not the current document is an article.
+    */
+    function currentIsArticle() {
+        let articleMeta = fetchArticleMetadata();
+        if (articleMeta) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
         Retrieves the root node of the current document in the 
         flexible metadata structure.
     */
     function getCurrentRoot() {
         let path = current.path;
         let root = public;
-        for (var i = 0; i < path.length - 1; i++){
+        for (let i = 0; i < path.length - 1; i++){
             root = root[path[i]];
         }
         return root;
+    }
+
+    /**
+        Retrieves the root node of the locale of the current
+        document.
+    */
+    function getCurrentLocaleRoot() {
+        let path = current.path;
+        if (path.length > 1) {
+            return public[path[0]];
+        }
+    }
+
+    /**
+        Retrieves the HTML lang parameter of the current document.
+    */
+    function getCurrentHtmlLocale() {
+        let path = current.path;
+        if (path.length > 1){
+            let locale = public._data.locales[path[0]];
+            if (locale) {
+                return locale.languageCode + '-' + locale.countryCode;
+            }
+        }
+    }
+
+    /**
+        Retrieves the og:locale of the current document.
+    */
+    function getCurrentOgLocale() {
+        let path = current.path;
+        if (path.length > 1){
+            let locale = public._data.locales[path[0]];
+            if (locale) {
+                return locale.languageCode + '_' + locale.countryCode;
+            }
+        }
     }
 
     /**
@@ -32,18 +141,29 @@
     function slugify(text) {
         if (text){
             text = text.toLowerCase();
-            text = text.replace(/\u0027/g, ' '); //- Replace apostrophes
-            text = text.replace(/\u002C/g, ''); //- Remove commas
-            text = text.replace(/[\u00E0-\u00E5]/gi, 'a') //- Replace accented as
-            text = text.replace(/[\u00E8-\u00EB]/gi, 'e') //- Replace accented es
-            text = text.replace(/[\u00EC-\u00EF]/gi, 'i') //- Replace accented is
-            text = text.replace(/[\u00F2-\u00F6]/gi, 'o') //- Replace accented os
-            text = text.replace(/[\u00F9-\u00FC]/gi, 'u') //- Replace accented us
-            text = text.trim().replace(/  +/g, ' ') //- Remove excess spaces
-            text = text.replace(/ /g, '-') //- Replace spaces with dashes
+            //- Replace apostrophes
+            text = text.replace(/\u0027/g, ' '); 
+            //- Remove commas
+            text = text.replace(/\u002C/g, ''); 
+            //- Replace accented as
+            text = text.replace(/[\u00E0-\u00E5]/gi, 'a') 
+            //- Replace accented es
+            text = text.replace(/[\u00E8-\u00EB]/gi, 'e') 
+            //- Replace accented is
+            text = text.replace(/[\u00EC-\u00EF]/gi, 'i') 
+            //- Replace accented os
+            text = text.replace(/[\u00F2-\u00F6]/gi, 'o')
+            //- Replace accented us
+            text = text.replace(/[\u00F9-\u00FC]/gi, 'u') 
+            //- Remove excess spaces
+            text = text.trim().replace(/  +/g, ' ')
+            //- Replace spaces with dashes
+            text = text.replace(/ /g, '-') 
             return text;
         } else {
-            console.log("Undefined text to slugify @" + current.path)
-            return null;
+            console.log(
+                "Warning: Undefined text to slugify " 
+                + getCurrentRelativePath()
+            );
         }
     }

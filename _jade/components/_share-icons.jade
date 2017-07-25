@@ -1,4 +1,4 @@
-include /_jade/mixins/_icon-stack-button
+include /_jade/mixins/helper/_icon-stack-button
 
 //- Facebook share icon
 li: a.social-share-popup.facebook(
@@ -6,7 +6,7 @@ li: a.social-share-popup.facebook(
     target='_blank'
     rel="nofollow"
     )
-    +iconStackButton("fa-facebook")
+    +iconStackButton("fa-facebook", "fa-square")
 
 //- Twitter share icon
 li: a.social-share-popup.twitter(
@@ -14,7 +14,7 @@ li: a.social-share-popup.twitter(
     target='_blank'
     rel="nofollow"
     )
-    +iconStackButton("fa-twitter")
+    +iconStackButton("fa-twitter", "fa-square")
 
 //- Google+ share icon
 li: a.social-share-popup.google-plus(
@@ -22,7 +22,7 @@ li: a.social-share-popup.google-plus(
     target='_blank'
     rel="nofollow"
     )
-    +iconStackButton("fa-google-plus")
+    +iconStackButton("fa-google-plus", "fa-square")
 
 //- Reddit share icon
 li: a.social-share-popup.reddit(
@@ -30,7 +30,7 @@ li: a.social-share-popup.reddit(
     target='_blank'
     rel="nofollow"
     )
-    +iconStackButton("fa-reddit")
+    +iconStackButton("fa-reddit", "fa-square")
 
 //- Whatsapp share icon
 li: a.whatsapp(
@@ -38,4 +38,4 @@ li: a.whatsapp(
     target='_blank'
     rel="nofollow"
     )
-    +iconStackButton("fa-whatsapp")
+    +iconStackButton("fa-whatsapp", "fa-square")

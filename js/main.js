@@ -72,13 +72,3 @@ $(window).resize(function () {
         $('#main-navigation i.fa-navicon').parent().siblings('ul').slideDown(0);
     }
 });
-
-/*
-var options = {
-    color: '#e67e22',
-    generator: "hexagons"
-}
-var pattern = GeoPattern.generate('Computer Science', options);
-$('h1').css('background-image', pattern.toDataUrl());
-console.log(pattern.toDataUrl());
-*/

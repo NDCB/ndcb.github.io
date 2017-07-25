@@ -2,6 +2,7 @@ include /_jade/base/_functions
 #disqus_thread
 script(defer type="text/javascript").
     var disqus_config = function () {
+        //TODO: Test normal function declaration
         this.page.url = "#{getCurrentUrl()}";
     };
     (function() {
