@@ -5,16 +5,16 @@ mixin breadcrumbs(root)
         let breadcrumbs = [];
         let path = current.path;
         //- For each parts in the current path
-        for(i = 0; i < path.length; i++){
+        for(var i = 0; i < path.length; i++){
             //- If there are defined categories at the root
             if (root._data.categories){
                 let categories = root._data.categories;
-                for(j = 0; j < categories.length; j++){
+                for(var j = 0; j < categories.length; j++){
                     //- If a category matches the part of the path
                     if (path[i] == categories[j].slug){
                         //- Build the url
-                        let constructPath = public._data.globals.url;
-                        for (k = 0; k < path.length; k++){
+                        let constructPath = "/";
+                        for (var k = 0; k < path.length; k++){
                             constructPath += path[k] + "/";
                             //- If the end is reached
                             if (path[k] == categories[j].slug){

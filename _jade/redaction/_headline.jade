@@ -32,4 +32,4 @@ mixin h(level, headline)
             when 6
                 h6: +heading(headline)
             default
-                -console.log("ERROR: Invalid headline level " + level + ' "' + headline + '" at ' + getCurrentUrl())
+                -console.log("ERROR: Invalid headline level " + level + ' "' + headline + '" at ' + getCurrentRelativePath())

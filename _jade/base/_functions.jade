@@ -7,6 +7,13 @@
     }
 
     /**
+        Retrieves the relative path of the current document.
+    */
+    function getCurrentRelativePath() {
+        return "/" + current.path.join('/');
+    }
+
+    /**
         Retrieves the root node of the current document in the 
         flexible metadata structure.
     */

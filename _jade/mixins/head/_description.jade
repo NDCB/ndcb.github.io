@@ -6,7 +6,7 @@ mixin metaDescription(defaultDescription)
     if !description ? meta_description = defaultDescription : meta_description = description
     //- Warning of the recommended length of the description
     if meta_description.length > 155
-        -console.log("WARNING: " + getCurrentUrl() + " Meta description is too long (l=" + meta_description.length + ">155): " + meta_description + "\n")
+        -console.log("WARNING: " + getCurrentRelativePath() + " Meta description is too long (l=" + meta_description.length + ">155): " + meta_description + "\n")
     meta(property='description' content="#{meta_description}")
     meta(property='og:description' content="#{meta_description}")
     meta(name='twitter:description' content="#{meta_description}")
