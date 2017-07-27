@@ -66,7 +66,7 @@
         } else if (pageMeta) {
             return pageMeta;
         } else {
-            console.log(
+            console.warn(
                 "Warning: Could not locate document " 
                 + "metadata at " + getCurrentRelativePath()
             );
@@ -110,6 +110,71 @@
     }
 
     /**
+        Fetches the URL of the thumbnail of the current document.
+    */
+    function fetchCurrentThumbnailUrl() {
+        let url;
+        let path = current.path;
+        let root = public;
+        for (let i = 0; i < path.length - 1; i++){
+            root = root[path[i]];
+            if (root._data) {
+                if (root._data.categories) {
+                    let categories = root._data.categories;
+                    if (categories[path[i + 1]]) {
+                        let category = categories[path[i + 1]];
+                        if (category.thumbnail) {
+                            url = public._data.globals.url 
+                            + "res/thumbnails/" 
+                            + category.thumbnail;
+                        }
+                    }
+                }
+            }
+        }
+        return url;
+    }
+
+    /**
+        Fetches the color class of the main component of this document
+        based on the attribute of the category in the hierarchy. 
+    */
+    function fetchCurrentMainColorClass(defaultColorClass) {
+        let colorClass = defaultColorClass;
+        let path = current.path;
+        let root = public;
+        for (let i = 0; i < path.length - 1; i++){
+            root = root[path[i]];
+            if (root._data) {
+                if (root._data.categories) {
+                    let categories = root._data.categories;
+                    if (categories[path[i + 1]]) {
+                        let category = categories[path[i + 1]];
+                        if (category.colorClass) {
+                            colorClass = category.colorClass; 
+                        }
+                    }
+                }
+            }
+        }
+        return colorClass;
+    }
+
+    /**
+        Retrieves the variables of the locale of the current document.
+    */
+    function fetchCurrentLocaleVariables() {
+        let path = current.path;
+        let locales = public._data.locales;
+        if (path.length > 1) {
+            let locale = locales[path[0]];
+            if (locale) {
+                return locale.variables;
+            }
+        }
+    }
+
+    /**
         Retrieves the HTML lang parameter of the current document.
     */
     function getCurrentHtmlLocale() {
@@ -132,6 +197,91 @@
             if (locale) {
                 return locale.languageCode + '_' + locale.countryCode;
             }
+        }
+    }
+
+    /**
+        Fetches all the articles of the site.
+    */
+    function fetchAllArticles() {
+        let articles = [];
+        let locales = public._data.locales;
+        for (let slug in locales) {
+            articles = articles.concat(
+                fetchArticles(
+                    public[slug], 
+                    '/' + slug + '/',
+                    slug
+                )
+            );
+        }
+        return articles;
+    }
+
+    /**
+        Recursively fetches all articles accross the categories of
+        a node.
+    */
+    function fetchArticles(root, path, locale) {
+        let articles = [];
+        if (root._data.articles) {
+            let localArticles = root._data.articles;
+            for (let slug in localArticles) {
+                let article = localArticles[slug];
+                articles.push({
+                    info: article,
+                    path: path + slug,
+                    locale: locale
+                });
+            }
+        }
+        if (root._data.categories) {
+            let categories = root._data.categories;
+            for (slug in categories) {
+                articles = articles.concat(
+                    fetchArticles(
+                        root[slug], 
+                        path + slug + '/',
+                        locale
+                    )
+                );
+            }
+        }
+        return articles;
+    }
+
+    /**
+        Parses date in the YYYY-MM-DD format to a localized
+        format.
+    */
+    function stringDate(dateString, localeCode) {
+        if (dateString) {
+            let date = new Date(dateString);
+            let locales = public._data.locales;
+            let locale = locales[localeCode];
+            let variables = locale.variables;
+            let months = variables.time.months;
+            let languageCode = locale.languageCode;
+            let result;
+            switch (languageCode) {
+                case "fr":
+                    result = date.getDate() 
+                    + ' ' 
+                    + months[date.getMonth()].toLowerCase()
+                    + ' '
+                    + date.getFullYear();
+                    break;
+                case "en":
+                    result = months[date.getMonth()]
+                    + ' '
+                    + date.getDate()
+                    + ", "
+                    + date.getFullYear();
+                    break;
+            }
+            return result;
+        } else {
+            return '';
         }
     }
 
@@ -161,8 +311,8 @@
             text = text.replace(/ /g, '-') 
             return text;
         } else {
-            console.log(
-                "Warning: Undefined text to slugify " 
+            console.error(
+                "Error: Undefined text to slugify " 
                 + getCurrentRelativePath()
             );
         }
