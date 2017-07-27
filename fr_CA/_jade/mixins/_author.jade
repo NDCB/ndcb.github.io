@@ -1,8 +1,0 @@
-//- Define the meta author
--var persons = public.fr_CA._data.persons
--var meta_author
-if author
-    each person, slug in persons
-        if author = slug
-            -meta_author = person.fullName
-    meta(property='author' content="#{meta_author}")

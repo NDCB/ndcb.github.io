@@ -250,45 +250,13 @@
         return articles;
     }
 
-    function fetchAboutPageUrl(localeCode) {
-        let locale = public[localeCode];
-        if (locale) {
-            for (page in locale._data.pages) {
-                if (locale._data.pages[page].aboutPage) {
-                    return '/' + localeCode + '/' + page;
-                }
-            }
-        }
-    }
-
-    function linkPerson(localeCode, personId) {
-        return fetchAboutPageUrl(localeCode) + '#' + personId;
-    }
-
-    function getPersonFullName(localeCode, personId) {
-        let locale = public[localeCode];
-        let data = locale._data;
-        let persons = data.persons;
-        if (persons) {
-            for (person in persons) {
-                if (person === personId) {
-                    let info = persons[person];
-                    return info.fullName;
-                }
-            }
-        }
-    }
-
     /**
         Parses date in the YYYY-MM-DD format to a localized
         format.
     */
     function stringDate(dateString, localeCode) {
         if (dateString) {
-            let date = dateString.split('-');
-            for (var i = 0; i < date.length; i++) {
-                date[i] = parseInt(date[i]);
-            }
+            let date = new Date(dateString);
             let locales = public._data.locales;
             let locale = locales[localeCode];
             let variables = locale.variables;
@@ -297,17 +265,11 @@
             let result;
             switch (languageCode) {
                 case "fr":
-                    let day;
-                    if (date[2] === 1) {
-                        day = "1er";
-                    } else {
-                        day = date[2];
-                    }
-                    result = day 
+                    result = date.getDate() 
                     + ' ' 
-                    + months[date[1] - 1].toLowerCase()
+                    + months[date.getMonth()].toLowerCase()
                     + ' '
-                    + date[0];
+                    + date.getFullYear();
                     break;
                 case "en":
                     result = months[date.getMonth()]

@@ -1,7 +1,7 @@
 doctype xml
 urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     -
-        console.info("Processing sitemap...");
+        console.log("Processing sitemap...");
 
         var ignoreFiles = [
             "404.html"
@@ -93,7 +93,7 @@ urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
         }
 
         urlset = fetchUrlset();
-        console.info("Sitemap processed.");
+        console.log("Sitemap processed.");
         
     //- Build sitemap
     for url, index in urlset

@@ -16,7 +16,7 @@ mixin img(src, alt)
                 block
 
 -
-    var imageFolderName = "figures";
+    var imageFolderName = "img";
 
     /**
         Determines whether or not a figure exists in the 
@@ -47,7 +47,7 @@ mixin img(src, alt)
                 }
             }
         }
-        console.warn("Warning: Undefined alt attribute of image " + fileName + " at " + getCurrentRelativePath());
+        console.log("Warning: Undefined alt attribute of image " + fileName + " at " + getCurrentRelativePath());
         return null;
     }
 

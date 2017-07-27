@@ -10,12 +10,6 @@ ol#articles{
             background-color: $primary-light;
         }
     }
-    li:first-child {
-        @extend .pop-out-top;
-    }
-    li:last-child {
-        @extend .pop-out-bottom;
-    }
     ul {
         list-style: none;
         padding: 0;
@@ -28,9 +22,6 @@ ol#articles{
                     content: ",\00a0";
                 }
             }
-        }
-        &.meta {
-            padding: 1rem;
         }
     }
 }

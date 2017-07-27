@@ -1,7 +1,0 @@
-include /fr_CA/_jade/base/_functions
-
--var aboutPageUrl = "/fr_CA/" + "a-propos";
-
-mixin linkPerson(id)
-    -var author = fetchPersonName(id)
-    a(href!=aboutPageUrl id!=id) #{author}

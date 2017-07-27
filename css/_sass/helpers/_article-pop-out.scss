@@ -37,9 +37,3 @@
         margin-bottom: -$main-tablet-padding;
     }
 }
-
-.pop-out-full {
-    @extend .pop-out;
-    @extend .pop-out-top;
-    @extend .pop-out-bottom;
-}

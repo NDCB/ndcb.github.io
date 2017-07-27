@@ -3,16 +3,13 @@
         "index": {
             "headline": "Notes de cours blog",
             "description": "",
-            "changefreq": "weekly",
-            "icon": "home"
+            "changefreq": "weekly"
         },
 
         "a-propos": {
             "headline": "À propos",
             "description": "",
-            "changefreq": "monthly",
-            "aboutPage": true,
-            "icon": "info-circle"
+            "changefreq": "monthly"
         }
     },
 
@@ -22,9 +19,7 @@
 
     "categories": {
         "mathematiques": {
-            "headline": "Mathématiques",
-            "thumbnail": "thumbnail-blue.png",
-            "colorClass": "blue"
+            "headline": "Mathématiques"
         }
     },
 
