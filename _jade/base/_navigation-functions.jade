@@ -1,0 +1,89 @@
+include /_jade/base/_functions
+
+-
+    /**
+        Lists all available locales and their links
+        regardless of the current document.
+    */
+    function listLocales() {
+        let locales = public._data.locales;
+        let navigation = [];
+        for (let slug in locales) {
+            let locale = locales[slug];
+            let headline = locale.languageName + ' ' + locale.countryName;
+            navigation.push({
+                url: '/' + slug,
+                headline: headline,
+                countryCode: locale.countryCode.toLowerCase()
+            });
+        }
+        return navigation;
+    }
+
+    /**
+        Lists all main pages and their url available from 
+        the current document. No main pages are returned 
+        if the current document isn't in one of the 
+        locales.
+    */
+    function listMainPages() {
+        let currentLocale = getCurrentLocaleRoot();
+        let navigation = [];
+        if (currentLocale) {
+            let pages = currentLocale._data.pages;
+            let path = '/' + current.path[0] + '/';
+            for (let slug in pages) {
+                let page = pages[slug];
+                let headline = page.headline;
+                navigation.push({
+                    url: path + slug,
+                    headline: headline,
+                    icon: page.icon
+                });
+            }
+            return navigation;
+        }
+    }
+
+    /**
+        Lists all categories and their url available from 
+        the current document. No categories are returned 
+        if the current document isn't in one of the 
+        locales.
+    */
+    function listCategories() {
+        let currentLocale = getCurrentLocaleRoot();
+        if (currentLocale) {
+            let path = '/' + current.path[0] + '/';
+            return fetchCategories(currentLocale, path);
+        }
+    }
+
+    /**
+        Recursively fetches the categories and their url 
+        from a root node at a given path.
+    */
+    function fetchCategories(root, path) {
+        let navigation = [];
+        let categories = root._data.categories;
+        for (slug in categories) {
+            let category = categories[slug];
+            let categoryUrl = path + slug;
+            let categoryHeadline = category.headline;
+            if (root[slug]._data.categories) {
+                root = root[slug];
+                path = path + slug + '/';
+                navigation.push({
+                    url: categoryUrl,
+                    headline: categoryHeadline,
+                    categories: fetchCategories(root, path)
+                });
+            } else {
+                navigation.push({
+                    url: categoryUrl,
+                    headline: categoryHeadline
+                });
+            }
+        }
+        return navigation;
+    }

@@ -1,0 +1,61 @@
+-
+    /**
+        Retrieves the breadcrumbs of the current document.
+    */
+    function fetchBreadcrumbs() {
+        let breadcrumbs = [];
+        let path = current.path;
+        if (path.length > 1) {
+            //- Access locale
+            let root = public[path[0]];
+            let steps = path.length - 3;
+            //- Traverse categories
+            for (let i = 1; i < path.length - 1; i++) {
+                if (root._data) {
+                    if (root._data.categories) {
+                        let categories = root._data.categories;
+                        breadcrumbs.push({
+                            headline: categories[path[i]].headline,
+                            url: parentFolderPath(steps)
+                        });
+                        steps--;
+                        //- Move root deeper
+                        root = root[path[i]];
+                    } else {
+                        console.error(
+                            "Error: Undefined categories in "
+                            + path[i]
+                            + " for document "
+                            + getCurrentRelativePath()
+                        );
+                    }
+                } else {
+                    console.error(
+                        "Error: Missing _data.json in "
+                        + path[i]
+                        + " for document "
+                        + getCurrentRelativePath()
+                    );
+                }
+            }
+            return breadcrumbs;
+        }
+    }
+
+    /**
+        Constructs the relative path to parent directories
+        given the level of folders to go back from.
+    */
+    function parentFolderPath(steps) {
+        let path = "";
+        //- Back to root of current folder
+        if (steps === 0) {
+            path = "./";
+        } else {
+            //- Move backwards
+            for (let i = 0 ; i < steps; i++) {
+                path += "../";
+            }
+        }
+        return path;
+    } 
