@@ -1,0 +1,20 @@
+include /_jade/base/_functions
+include /_jade/base/_navigation-functions
+
+-var pages = listMainPages();
+
+li: a © 2016-
+    !=new Date().getFullYear()
+-
+    let variables = fetchCurrentLocaleVariables();
+    let sourceUrl = public._data.globals.sourceUrl;
+if variables && variables.footer && variables.footer.source
+    li: a(href!=sourceUrl target="_blank")
+        i.fa.fa-fw(class!="fa-" + variables.footer.source.icon)
+        !=variables.footer.source.headline
+if pages
+    each page in pages
+        li: a(href!=page.url)
+            if page.icon
+                i.fa.fa-fw(class!="fa-" + page.icon)
+            !=page.headline

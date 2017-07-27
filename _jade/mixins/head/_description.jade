@@ -13,17 +13,20 @@ mixin metaDescription(defaultDescription)
             if (metadata) {
                 if (metadata.description) {
                     return metadata.description;
+                } else {
+                    console.info(
+                        "Info: Using default description for " + getCurrentRelativePath()
+                    );
                 }
-            } else {
-                return defaultDescription;
             }
+            return defaultDescription;
         }
 
         var documentDescription = fetchDocumentDescription(defaultDescription);
     if documentDescription
         if documentDescription.length > 155
             -
-                console.log(
+                console.warn(
                     "Warning: Document description exceeds 155 characters "
                     + "(current length: " + documentDescription.length + ")" 
                     + " for document at " + getCurrentRelativePath()
@@ -43,7 +46,7 @@ mixin metaDescription(defaultDescription)
         )
     else
         -
-            console.log(
-                    "Warning: Could not locate the document description for " 
+            console.error(
+                    "Error: Could not locate the document description for " 
                     + getCurrentRelativePath()
             );

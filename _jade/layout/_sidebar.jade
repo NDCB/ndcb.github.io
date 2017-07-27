@@ -1,4 +1,6 @@
 include /_jade/base/_functions
+-
+    var documentMetadata = fetchDocumentMetadata();
 
 //- Standard sidebar structure.
 footer#sidebar
@@ -7,3 +9,5 @@ footer#sidebar
             ul
                 block sidebar-content-share
                     include /_jade/components/_share-icons
+                    if documentMetadata && documentMetadata.allowComments
+                        include /_jade/components/_comment-icon

@@ -48,6 +48,9 @@ header#main-navigation {
                 display: inline-block;
                 width: $anchor-width;
                 padding: 1rem;
+                i {
+                    margin-right: 1em;
+                }
             }
             i.toggler {
                 position: absolute;

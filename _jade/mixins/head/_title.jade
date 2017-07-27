@@ -10,24 +10,26 @@ mixin metaTitle(defaultTitle)
         */
         function fetchDocumentTitle(defaultTitle) {
             var metadata = fetchDocumentMetadata();
-            if (metadata) {
-                if (metadata.headline) {
-                    return metadata.headline;
-                }
+            if (metadata && metadata.headline) {
+                return metadata.headline;
             } else {
-                return defaultTitle;
+                console.info(
+                    "Info: Using default title for " + getCurrentRelativePath()
+                );
             }
+            return defaultTitle;
         }
 
         var documentTitle = fetchDocumentTitle(defaultTitle);
+        
     if documentTitle
         +assignTitle(documentTitle)
     else if defaultTitle
         +assignTitle(defaultTitle)
     else
         -
-            console.log(
-                "Warning: Could not locate the document title for " 
+            console.error(
+                "Error: Could not locate the document title for " 
                 + getCurrentRelativePath()
             );
 
@@ -35,7 +37,7 @@ mixin metaTitle(defaultTitle)
 mixin assignTitle(title)
     if title.length > 70
         -
-            console.log(
+            console.warn(
                 "Warning: Document title exceeds 70 characters "
                 + "(current length: " + title.length + ")" 
                 + " for document at " + getCurrentRelativePath()

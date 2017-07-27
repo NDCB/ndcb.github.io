@@ -1,0 +1,11 @@
+include /_jade/base/_functions
+include /_jade/base/_breadcrumbs-functions
+
+//- Constructs the breadcrumb navigation of the current page.
+-var breadcrumbs = fetchBreadcrumbs();
+//- Standard breadcrumbs structure
+if breadcrumbs && breadcrumbs.length > 0
+    nav.breadcrumbs
+        ol
+            each breadcrumb, index in breadcrumbs
+                li: a(href!=breadcrumbs[index].url)!=breadcrumbs[index].headline

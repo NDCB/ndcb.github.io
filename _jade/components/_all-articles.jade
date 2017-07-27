@@ -1,0 +1,18 @@
+include /_jade/base/_functions
+include /_jade/components/_article-summary
+
+-
+    var articles = fetchAllArticles();
+    //- Sort articles from most recently pusblished to least recently published
+    articles.sort(
+        function(a, b) {
+            let publicationA = Date.parse(a.info.published);
+            let publicationB = Date.parse(b.info.published);
+            //Descending order
+            return -(publicationA - publicationB);
+        }
+    );
+
+ol#articles
+    each article in articles
+        +articleSummary(article)

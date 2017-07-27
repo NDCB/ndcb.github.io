@@ -1,64 +1,99 @@
 include /_jade/mixins/helper/_icon-stack-button
+include /_jade/base/_functions
 
-//- Adds the website RSS feed anchor button, given a label.
-mixin rssFeed(label)
-    a(
-        href="/feed" 
-        target='_blank'
-        aria-label="#{label}"
-    )
-        +iconStackButton("fa-rss", "fa-square")
+-
+    /**
+        Fetches the titles of social links in the variables
+        of the current locale.
+    */
+    function fetchSocialTitles() {
+        var variables = fetchCurrentLocaleVariables();
+        if (variables) {
+            if (variables.footer) {
+                if (variables.footer.socialTitle) {
+                    return variables.footer.socialTitle;
+                } else {
+                    console.warn(
+                        "Warning: Undefined footer.socialTitle "
+                        + "property in " 
+                        + getCurrentOgLocale() 
+                        + " variables."
+                    );
+                }
+            } else {
+                console.warn(
+                    "Warning: Undefined footer property in " 
+                    + getCurrentOgLocale() 
+                    + " variables."
+                );
+            }
+        }
+    }
 
-//- Adds the website Facebook page anchor button, given a label.
-mixin facebookPage(label)
-    a(
-        href="https://www.facebook.com/#{public._data.globals.profiles.facebook}" 
-        target="_blank" 
-        aria-label="#{label}"
-    )
-        +iconStackButton("fa-facebook", "fa-square")
+    var titles = fetchSocialTitles();
+    var backgroundIcon = "fa-square";
 
-//- Adds the website Twitter feed anchor button, given a label.
-mixin twitterFeed(label)
-    a(
-        href="https://twitter.com/#{public._data.globals.profiles.twitter}"
-        target="_blank" 
-        aria-label="#{label}"
-    )
-        +iconStackButton("fa-twitter", "fa-square")
+mixin socialLink(label, href, icon)
+    if href && icon
+        if label
+            li: a(
+                href!=href
+                target='_blank'
+                aria-label!=label
+            )
+                +iconStackButton(icon, backgroundIcon)
+        else
+            li: a(
+                href!=href
+                target='_blank'
+            )
+                +iconStackButton(icon, backgroundIcon)
+    else
+        -
+            console.warn(
+                "Warning: Undefined href and/or icon in social links."
+            );
 
-//- Adds the website YouTube channel anchor button, given a label.
-mixin youtubeChannel(label)
-    a(
-        href="https://www.youtube.com/channel/#{public._data.globals.profiles.youtube}" 
-        target="_blank" 
-        aria-label="#{label}"
-    )
-        +iconStackButton("fa-youtube-play", "fa-square")
 
-//- Adds the website Google+ profile anchor button, given a label.
-mixin googlePlusProfile(label)
-    a(
-        href="https://plus.google.com/#{public._data.globals.profiles.google-plus}" 
-        target="_blank" 
-        aria-label="#{label}"
+if titles
+    //- RSS feed icon
+    +socialLink(
+        titles.rss, 
+        "/feed", 
+        "fa-rss"
     )
-        +iconStackButton("fa-google-plus", "fa-square")
 
-//- Adds the website Github profile anchor button, given a label.
-mixin githubProfile(label)
-    a(
-        href="https://github.com/#{public._data.globals.profiles.github}"
-        target="_blank" 
-        aria-label="#{label}"
+    //- Facebook page icon
+    +socialLink(
+        titles.facebook, 
+        "https://www.facebook.com/" + public._data.globals.profiles.facebook, 
+        "fa-facebook"
     )
-        +iconStackButton("fa-github", "fa-square")
 
-//- Adds the website email anchor button, given a label.
-mixin sendEmail(label)
-    a(
-        href="mailto:#{public._data.globals.profiles.mail}" 
-        target="_blank" 
-        aria-label="#{label}"
+    //- Twitter feed icon
+    +socialLink(
+        titles.twitter, 
+        "https://twitter.com/" + public._data.globals.profiles.twitter, 
+        "fa-twitter"
     )
-        +iconStackButton("fa-envelope", "fa-square")
+
+    //- Google+ profile icon
+    +socialLink(
+        titles.googlePlus, 
+        "https://plus.google.com/" + public._data.globals.profiles.googlePlus, 
+        "fa-google-plus"
+    )
+
+    //- Github profile icon
+    +socialLink(
+        titles.github, 
+        "https://github.com/" + public._data.globals.profiles.github, 
+        "fa-github"
+    )
+
+    //- Email icon
+    +socialLink(
+        titles.email, 
+        "mailto:" + public._data.globals.profiles.mail, 
+        "fa-envelope"
+    )

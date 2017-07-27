@@ -1,8 +1,14 @@
 include /_jade/base/_functions
 
--console.log("Processing " + getCurrentRelativePath());
+-console.info("Processing " + getCurrentRelativePath());
 
--var thumbnailUrl = public._data.globals.url + "res/thumbnails/thumbnail-dark.png"
+-
+    var thumbnailUrl = fetchCurrentThumbnailUrl();
+    if (!thumbnailUrl) {
+        thumbnailUrl = public._data.globals.url + "res/thumbnails/thumbnail-dark.png"
+    }
+
+    var documentMetadata = fetchDocumentMetadata();
 
 doctype html
 html(lang!=getCurrentHtmlLocale())
@@ -38,14 +44,15 @@ html(lang!=getCurrentHtmlLocale())
             )
         else
             meta(
-                property='og:type' 
+                property='og:type'
                 content="website"
             )
 
         //- Meta thumbnails
-        block metaThumbnails
-            +ogimage(thumbnailUrl, "png", 300, 300)
-            +twitterimage(thumbnailUrl)
+        if thumbnailUrl
+            block metaThumbnails
+                +ogimage(thumbnailUrl, "png", 300, 300)
+                +twitterimage(thumbnailUrl)
 
         //- Favicon
         include /_jade/base/_favicon
@@ -53,28 +60,38 @@ html(lang!=getCurrentHtmlLocale())
         //- Stylesheets
         block stylesheets
             include /_jade/base/_stylesheets
-            //- TODO: Fetch in new structure...
-            if containsCode 
+            if !getCurrentLocaleRoot()
+                link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.8.0/css/flag-icon.min.css")
+            if documentMetadata && documentMetadata.containsCode
                 include /_jade/components/_prism-stylesheets
     body
         include /_jade/redaction/_redaction
         .wrapper
             block content
-                main.grey
+                main(class!=fetchCurrentMainColorClass("grey"))
                     article
                         header
-                            //- TODO: Fetch in new structure...
-                            +h(1, headline)
+                            if documentMetadata && documentMetadata.headline
+                                +h(1, documentMetadata.headline)
+                            include /_jade/components/_breadcrumbs
                         != yield
-            include _jade/layout/_navigation
+                        if documentMetadata && documentMetadata.allowComments
+                            include /_jade/components/_disqus
+            include /_jade/layout/_navigation
             include /_jade/layout/_sidebar
-        //- TODO: Conditional fetch...
-        include _jade/layout/_footer
+
+        //- Footer
+        if getCurrentLocaleRoot()
+            include  /_jade/layout/_footer
+
+        //- Scripts
         block scripts
             include /_jade/components/_scripts
-            //- TODO: Fetch in new structure...
-            if containsMath
-                include /_jade/components/_mathjax
-            //- TODO: Fetch in new structure...
-            if containsCode 
-                include /_jade/components/_prism-scripts
+            //- MathJax
+            if documentMetadata
+                if documentMetadata.containsMath
+                    include /_jade/components/_mathjax
+            //- Prism
+            if documentMetadata
+                if documentMetadata.containsCode 
+                    include /_jade/components/_prism-scripts

@@ -1,41 +1,44 @@
+include /_jade/base/_functions
 include /_jade/mixins/helper/_icon-stack-button
+
+-var backgroundIconClass = "fa-square";
 
 //- Facebook share icon
 li: a.social-share-popup.facebook(
-    href="//www.facebook.com/sharer/sharer.php?u=#{getCurrentUrl()}" 
-    target='_blank'
-    rel="nofollow"
+        href!="//www.facebook.com/sharer/sharer.php?u=" + getCurrentUrl()
+        target='_blank'
+        rel="nofollow"
     )
-    +iconStackButton("fa-facebook", "fa-square")
+    +iconStackButton("fa-facebook", backgroundIconClass)
 
 //- Twitter share icon
 li: a.social-share-popup.twitter(
-    href="//twitter.com/intent/tweet?url=#{getCurrentUrl()}&via=#{public._data.globals.profiles.twitter}" 
-    target='_blank'
-    rel="nofollow"
+        href!="//twitter.com/intent/tweet?url=" + getCurrentUrl() + "&via=" + public._data.globals.profiles.twitter 
+        target='_blank'
+        rel="nofollow"
     )
-    +iconStackButton("fa-twitter", "fa-square")
+    +iconStackButton("fa-twitter", backgroundIconClass)
 
 //- Google+ share icon
 li: a.social-share-popup.google-plus(
-    href="//plus.google.com/share?url=#{getCurrentUrl()}" 
-    target='_blank'
-    rel="nofollow"
+        href!="//plus.google.com/share?url=" + getCurrentUrl()
+        target='_blank'
+        rel="nofollow"
     )
-    +iconStackButton("fa-google-plus", "fa-square")
+    +iconStackButton("fa-google-plus", backgroundIconClass)
 
 //- Reddit share icon
 li: a.social-share-popup.reddit(
-    href="//www.reddit.com/submit?url=#{getCurrentUrl()}" 
-    target='_blank'
-    rel="nofollow"
+        href!="//www.reddit.com/submit?url=" + getCurrentUrl()
+        target='_blank'
+        rel="nofollow"
     )
-    +iconStackButton("fa-reddit", "fa-square")
+    +iconStackButton("fa-reddit", backgroundIconClass)
 
 //- Whatsapp share icon
 li: a.whatsapp(
-    href="whatsapp://send?text=#{getCurrentUrl()}" 
-    target='_blank'
-    rel="nofollow"
+        href!="whatsapp://send?text=" + getCurrentUrl()
+        target='_blank'
+        rel="nofollow"
     )
-    +iconStackButton("fa-whatsapp", "fa-square")
+    +iconStackButton("fa-whatsapp", backgroundIconClass)

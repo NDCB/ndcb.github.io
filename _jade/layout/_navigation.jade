@@ -1,10 +1,47 @@
+include /_jade/base/_functions
+
+-
+    /**
+        Fetches the alternative text of the logo based on
+        the locale of the current document.
+    */
+    function fetchLogoAlt() {
+        let variables = fetchCurrentLocaleVariables();
+        if (variables) {
+            if (variables.mainNavigation) {
+                if (variables.mainNavigation.logoAlt) {
+                    return variables.mainNavigation.logoAlt;
+                } else {
+                    console.warn(
+                        "Warning: Undefined mainNavigation.logoAlt "
+                        + "property in " 
+                        + getCurrentOgLocale() 
+                        + " variables."
+                    );
+                }
+            } else {
+                console.warn(
+                    "Warning: Undefined mainNavigation property in " 
+                    + getCurrentOgLocale() 
+                    + " variables."
+                );
+            }
+        }
+    }
+
+    var logoAlt = fetchLogoAlt();
+
 //- Standard navigation structure.
 header#main-navigation
     nav
         header
             block navigation-header
-                a(href='/'): img#logo(src="/res/logo.svg")
+                a(href='/')
+                    if logoAlt
+                        img#logo(src="/res/logo.svg" alt!=logoAlt)
+                    else
+                        img#logo(src="/res/logo.svg")
                 //- Hamburger icon
                 i.fa.fa-navicon.toggler
         block navigation-items
-            include /_jade/mixins/layout/_main-navigation
+            include /_jade/components/_main-navigation
