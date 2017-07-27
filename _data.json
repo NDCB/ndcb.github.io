@@ -3,21 +3,23 @@
         "index": {
             "headline": "",
             "description": "",
-            "changefreq": "weekly"
+            "changefreq": "weekly",
+            "containsCode": true
         }
     },
 
     "globals": {
         "siteName": "NDCB",
         "url": "https://ndcb.github.io/",
-        "author": "Marc-Antoine Ouimet",
+        "copyrightYear": "2016",
         "googleAnalytics": "",
+        "sourceUrl": "https://github.com/NDCB/ndcb.github.io-source",
         "profiles": {
             "facebook": "notesdecoursblog",
             "facebookAppId": "885678258252305",
             "twitter": "_NDCB",
             "youtube": "UCrIqCoxkk_ExpfppCyELyYg",
-            "google-plus": "b/117658749192198190558/117658749192198190558",
+            "googlePlus": "b/117658749192198190558/117658749192198190558",
             "github": "NDCB",
             "mail": "ouimetmarcantoine@gmail.com"
         }
@@ -28,7 +30,60 @@
             "languageName": "Français",
             "countryName": "Canada",
             "languageCode": "fr",
-            "countryCode": "CA"
+            "countryCode": "CA",
+            "variables": {
+                "time": {
+                    "months": [
+                        "Janvier",
+                        "Février",
+                        "Mars",
+                        "Avril",
+                        "Mai",
+                        "Juin",
+                        "Juillet",
+                        "Août",
+                        "Septembre",
+                        "Octobre",
+                        "Novembre",
+                        "Décembre"
+                    ]
+                },
+                "metaPrompts": {
+                    "published": "Publié",
+                    "modified": "Dernière modification",
+                    "writtenBy": "Écrit par"
+                },
+                "modules": {
+                    "definition": "Définition",
+                    "example": "Exemple",
+                    "theorem": "Théorème",
+                    "proof": "Preuve",
+                    "exercise": "Exercice",
+                    "solution": "Solution"
+                },
+                "mainNavigation": {
+                    "logoAlt": "Retour au choix de localité"
+                },
+                "footer": {
+                    "source": {
+                        "headline": "Code source",
+                        "icon": "code-fork"
+                    },
+                    "socialTitle": {
+                        "rss": "Flux RSS",
+                        "facebook": "Page Facebook",
+                        "twitter": "Flux Twitter",
+                        "googlePlus": "Profil Google+",
+                        "github": "Profil Github",
+                        "email": "Contacter via email"
+                    }
+                },
+                "sidebar": {
+                    "shareTitle": {
+
+                    }
+                }
+            }
         }
     },
 
