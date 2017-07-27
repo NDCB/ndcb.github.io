@@ -1,0 +1,28 @@
+include /_jade/base/_functions
+
+-
+    var persons = public.fr_CA._data.persons;
+
+    function fetchPersonName(id) {
+        if (persons[id]){
+            return persons[id].fullName;
+        } else {
+            console.warn("Warning: Undefined person at id " + id);
+        }
+    }
+
+    var months = [
+        "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"
+    ];
+
+    /**
+        Returns a date in the format YYYY-MM-DD in a string.
+    */
+    function getDate(date){
+        if (date) {
+            var data = date.split('-');
+            return data[2] + " " + months[--data[1]] + " " + data[0];
+        } else {
+            console.warn("Warning: Undefined date at " + getCurrentRelativePath());
+        }
+    }

@@ -1,0 +1,28 @@
+extends ../_layout
+
+include /_jade/mixins/head/_head
+
+include /_jade/redaction/_redaction
+
+include /_jade/mixins/_breadcrumbs
+
+-var thumbnailUrl = "/res/thumbnails/thumbnail-blue.png"
+
+//- @Override
+block og:image
+    +ogimage(thumbnailUrl, "png", 300, 300)
+
+//- @Override
+block twitter:image
+    +twitterimage(thumbnailUrl)
+
+//- @Override
+block content
+    main.blue
+        article
+            header
+                +h(1, headline)
+                +breadcrumbs(public.fr_CA)
+            != yield
+            if allowComments
+                include /_jade/components/_disqus

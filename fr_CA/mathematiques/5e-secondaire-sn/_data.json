@@ -1,8 +1,8 @@
 {
     "pages": {
         "index": {
-            "headline": "",
-            "description": "",
+            "headline": "Test",
+            "description": "Test",
             "changefreq": "weekly"
         }
     },

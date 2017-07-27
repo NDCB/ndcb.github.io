@@ -1,7 +1,7 @@
 mixin articleSummary(article)
     li: section.article-summary
             header
-                a(href!=article.path)!=article.info.headline
+                h2: a(href!=article.path)!=article.info.headline
             !=article.info.description
             footer
                 ul.meta
@@ -15,13 +15,13 @@ mixin articleSummary(article)
                         li
                             !=promptPublished + ": "
                             time(datetime!=article.info.published)!=stringDate(article.info.published, article.locale)
-                    if article.info.published
+                    if article.info.lastmod
                         li 
                             !=promptModified + ": "
-                            time(datetime!=article.info.modified)!=stringDate(article.info.modified, article.locale)
+                            time(datetime!=article.info.lastmod)!=stringDate(article.info.lastmod, article.locale)
                     if article.info.authors
                         li: !=promptAuthor + ": "
                             ul.authors
                                 each author in article.info.authors
                                     li
-                                        !=author
+                                        a(href!=linkPerson(article.locale, author))!=getPersonFullName(article.locale, author)

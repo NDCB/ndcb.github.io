@@ -1,0 +1,30 @@
+include /_jade/base/_functions
+include /fr_CA/_jade/mixins/_date
+include /fr_CA/_jade/mixins/_link-person
+
+-
+    var root = getCurrentRoot();
+    fetchArticleMeta();
+
+ol#articles
+    each item, slug in root._data
+        if slug != "index" && slug != "categories"
+            //-if item.published
+                li: section.preview-article
+                    header
+                        a(href!=slug) #{item.headline}
+                    != item.description
+                    footer
+                        ul.meta
+                            li Publié: #[+writeDate(item.published)]
+                            li Dernière modification: #[+writeDate(item.lastmod)]
+                            li Écrit par: #[+linkPerson(item.author)]
+            li: section.preview-article
+                header
+                    a(href!=slug) #{item.headline}
+                != item.description
+                footer
+                    ul.meta
+                        li Publié: #[+writeDate(item.published)]
+                        li Dernière modification: #[+writeDate(item.lastmod)]
+                        li Écrit par: #[+linkPerson(item.author)]
