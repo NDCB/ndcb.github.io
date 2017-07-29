@@ -5,7 +5,7 @@ include /_jade/base/_breadcrumbs-functions
 -var breadcrumbs = fetchBreadcrumbs();
 //- Standard breadcrumbs structure
 if breadcrumbs && breadcrumbs.length > 0
-    nav.breadcrumbs
+    nav#breadcrumbs
         ol
             each breadcrumb, index in breadcrumbs
                 li: a(href!=breadcrumbs[index].url)!=breadcrumbs[index].headline

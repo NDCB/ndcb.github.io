@@ -1,8 +1,9 @@
 -
     /**
-        Retrieves the breadcrumbs of the current document.
-    */
+     * Retrieves the breadcrumbs of the current document.
+     */
     function fetchBreadcrumbs() {
+        //TODO: Reach figures folder
         let breadcrumbs = [];
         let path = current.path;
         if (path.length > 1) {
@@ -43,9 +44,10 @@
     }
 
     /**
-        Constructs the relative path to parent directories
-        given the level of folders to go back from.
-    */
+     * Constructs the relative path to parent directories given the level of 
+     * folders to go back from.
+     * @param {Number} steps the steps to go back from based on repositories.
+     */
     function parentFolderPath(steps) {
         let path = "";
         //- Back to root of current folder

@@ -2,9 +2,8 @@ include /_jade/base/_functions
 
 -
     /**
-        Lists all available locales and their links
-        regardless of the current document.
-    */
+     * Lists all available locales and their links regardless of the current document.
+     */
     function listLocales() {
         let locales = public._data.locales;
         let navigation = [];
@@ -21,11 +20,10 @@ include /_jade/base/_functions
     }
 
     /**
-        Lists all main pages and their url available from 
-        the current document. No main pages are returned 
-        if the current document isn't in one of the 
-        locales.
-    */
+     * Lists all main pages and their url available from the current document.
+     * No main pages are returned if the current document isn't in one of 
+     * the locales.
+     */
     function listMainPages() {
         let currentLocale = getCurrentLocaleRoot();
         let navigation = [];
@@ -46,11 +44,10 @@ include /_jade/base/_functions
     }
 
     /**
-        Lists all categories and their url available from 
-        the current document. No categories are returned 
-        if the current document isn't in one of the 
-        locales.
-    */
+     * Lists all categories and their url available from the current document.
+     * No categories are returned if the current document isn't in one of 
+     * the locales.
+     */
     function listCategories() {
         let currentLocale = getCurrentLocaleRoot();
         if (currentLocale) {
@@ -60,9 +57,11 @@ include /_jade/base/_functions
     }
 
     /**
-        Recursively fetches the categories and their url 
-        from a root node at a given path.
-    */
+     * Recursively fetches the categories and their url from a root node at a 
+     * given path.
+     * @param {Object} root the root of the category.
+     * @param {String} path the path of the category.
+     */
     function fetchCategories(root, path) {
         let navigation = [];
         let categories = root._data.categories;

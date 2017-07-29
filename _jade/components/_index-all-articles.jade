@@ -12,7 +12,14 @@ include /_jade/components/_article-summary
             return -(publicationA - publicationB);
         }
     );
-
-ol#articles
-    each article in articles
-        +articleSummary(article)
+//- Article listing structure
+if articles.length > 0
+    ol#articles
+        each article in articles
+            +articleSummary(article)
+else
+    -
+        console.warning(
+            "Warning: No articles were found at "
+            + getCurrentRelativePath()
+        );

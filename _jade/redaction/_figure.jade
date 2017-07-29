@@ -1,0 +1,54 @@
+include /_jade/base/_functions
+
+-var figureNo = 0;
+
+//-Retrieve the appropriate locale variables
+-
+    let localeFigureVariables = fetchCurrentLocaleVariables();
+    let figures;
+    if (localeFigureVariables && localeFigureVariables.modules) {
+        figures = localeFigureVariables.modules.figures;
+    } else {
+        console.error(
+            "Error: Could not retrieve the locale variables at "
+            + getCurrentRelativePath()
+        );
+    }
+
+//- Adds a numbered image block. An image may be fetched from external sources.
+mixin img(src, alt)
+    -figureNo++
+    figure(id!="figure-" + figureNo)
+        img(src!=src, alt!=alt)
+        figcaption
+            header!=figures.figure + ' ' + figureNo
+            span!=": "
+                block
+
+//- Adds a numbered figure block.
+mixin fig(fileName)
+    -
+        figureNo++
+        let src = figures.folder + '/' + fileName;
+
+        function fetchAlt() {
+            let alt;
+            let currentRoot = getCurrentRoot();
+            let figuresRoot = currentRoot[figures.folder];
+            if (figures._data && figures._data.figures) {
+                let figures = figures._data.figures;
+                for (let localFigure in figures) {
+                    if (localFigure === fileName) {
+                        let figure = figures[figure];
+                        alt = figure.alt;
+                    }
+                }
+            }
+            return alt;
+        }
+    figure(id!="figure-" + figureNo)
+        img(src!=src, alt!=alt)
+        figcaption
+            header!=figures.figure + ' ' + figureNo
+            span!=": "
+                block

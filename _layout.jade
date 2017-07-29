@@ -5,7 +5,8 @@ include /_jade/base/_functions
 -
     var thumbnailUrl = fetchCurrentThumbnailUrl();
     if (!thumbnailUrl) {
-        thumbnailUrl = public._data.globals.url + "res/thumbnails/thumbnail-dark.png"
+        thumbnailUrl = public._data.globals.url 
+        + "/res/thumbnails/thumbnail-dark.png";
     }
 
     var documentMetadata = fetchDocumentMetadata();
@@ -60,9 +61,13 @@ html(lang!=getCurrentHtmlLocale())
         //- Stylesheets
         block stylesheets
             include /_jade/base/_stylesheets
+            //- If the current document is not within a locale
             if !getCurrentLocaleRoot()
-                link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.8.0/css/flag-icon.min.css")
+                //- Adds flags stylesheet
+                include /_jade/components/_flag-icons-stylesheet
+            //- If the current document contains code
             if documentMetadata && documentMetadata.containsCode
+                //- Add Prism stylesheets
                 include /_jade/components/_prism-stylesheets
     body
         include /_jade/redaction/_redaction
@@ -87,11 +92,11 @@ html(lang!=getCurrentHtmlLocale())
         //- Scripts
         block scripts
             include /_jade/components/_scripts
-            //- MathJax
-            if documentMetadata
-                if documentMetadata.containsMath
-                    include /_jade/components/_mathjax
-            //- Prism
-            if documentMetadata
-                if documentMetadata.containsCode 
-                    include /_jade/components/_prism-scripts
+            //- If the current document contains math
+            if documentMetadata && documentMetadata.containsMath
+                //- Add MathJax scripts
+                include /_jade/components/_mathjax
+            //- If the current document contains code
+            if documentMetadata && documentMetadata.containsCode 
+                //- Add Prism scripts
+                include /_jade/components/_prism-scripts

@@ -1,27 +1,29 @@
 mixin articleSummary(article)
-    li: section.article-summary
-            header
-                a(href!=article.path)!=article.info.headline
-            !=article.info.description
-            footer
-                ul.meta
-                    -
-                        var locale = public._data.locales[article.locale];
-                        var variables = locale.variables;
-                        var promptPublished = variables.metaPrompts.published;
-                        var promptModified = variables.metaPrompts.modified;
-                        var promptAuthor = variables.metaPrompts.writtenBy;
-                    if article.info.published
+    if article.info.published
+        li: section.article-summary
+                header
+                    h2: a(href!=article.path)!=article.info.headline
+                !=article.info.description
+                footer
+                    ul.meta
+                        -
+                            var locale = public._data.locales[article.locale];
+                            var variables = locale.variables;
+                            var promptPublished = variables.metaPrompts.published;
+                            var promptModified = variables.metaPrompts.modified;
+                            var promptAuthor = variables.metaPrompts.writtenBy;
                         li
                             !=promptPublished + ": "
-                            time(datetime!=article.info.published)!=stringDate(article.info.published, article.locale)
-                    if article.info.published
-                        li 
-                            !=promptModified + ": "
-                            time(datetime!=article.info.modified)!=stringDate(article.info.modified, article.locale)
-                    if article.info.authors
-                        li: !=promptAuthor + ": "
-                            ul.authors
-                                each author in article.info.authors
-                                    li
-                                        !=author
+                            time(datetime!=article.info.published)
+                                !=stringDate(article.info.published, article.locale)
+                        if article.info.lastmod
+                            li 
+                                !=promptModified + ": "
+                                time(datetime!=article.info.lastmod)!=stringDate(article.info.lastmod, article.locale)
+                        if article.info.authors
+                            li: !=promptAuthor + ": "
+                                ul.authors
+                                    each author in article.info.authors
+                                        li
+                                            a(href!=linkPerson(article.locale, author))
+                                                !=getPersonFullName(article.locale, author)

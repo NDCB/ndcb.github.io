@@ -1,3 +1,5 @@
+include /_jade/base/_functions
+
 //- Counter variables.
 -var definitionNo = 0
 -var exampleNo = 0
@@ -8,6 +10,19 @@
 -var proofNo = 0
 -var solutionNo = 0
 
+//-Retrieve the appropriate locale variables
+-
+    let localeModulesVariables = fetchCurrentLocaleVariables();
+    let modules;
+    if (localeModulesVariables) {
+        modules = localeModulesVariables.modules;
+    } else {
+        console.error(
+            "Error: Could not retrieve the locale variables at "
+            + getCurrentRelativePath()
+        );
+    }
+
 //- Adds a numbered definition block.
     Usage:
     +definition()
@@ -15,13 +30,13 @@
 mixin definition(title)
     -definitionNo++
     section.module.definition(id!="definition-" + definitionNo)
-        header Définition #{definitionNo}
+        header!=modules.definition + ' ' + definitionNo
             if title
-                span : #{title}
-            <i class="fa fa-fw fa-caret-up toggler"></i>
+                span!=": " + title
+            i.fa.fa-fw.fa-caret-up.toggler
         article
             block
-            
+           
 //- Adds a numbered example block.
     Usage:
     +example()
@@ -29,10 +44,10 @@ mixin definition(title)
 mixin example(title)
     -exampleNo++
     section.module.example(id!="example-" + exampleNo)
-        header Exemple #{exampleNo}
+        header!=modules.example + ' ' + exampleNo
             if title
-                span : #{title}
-            <i class="fa fa-fw fa-caret-up toggler"></i>
+                span!=": " + title
+            i.fa.fa-fw.fa-caret-up.toggler
         article
             block
 
@@ -44,10 +59,10 @@ mixin theorem(title)
     -proofNo = 0
     -theoremNo++
     section.module.theorem(id!="theorem-" + theoremNo)
-        header Théorème #{theoremNo}
+        header!=modules.theorem + ' ' + theoremNo
             if title
-                span : #{title}
-            <i class="fa fa-fw fa-caret-up toggler"></i>
+                span!=": " + title
+            i.fa.fa-fw.fa-caret-up.toggler
         article
             block
 
@@ -61,10 +76,10 @@ mixin theorem(title)
 mixin proof(title)
     -proofNo++
     section.module.proof(id!="proof-" + proofNo)
-        header Preuve #{proofNo}
+        header!=modules.proof + ' ' + proofNo
             if title
-                span : #{title}
-            <i class="fa fa-fw fa-caret-up toggler"></i>
+                span!=": " + title
+            i.fa.fa-fw.fa-caret-up.toggler
         article
             block
 
@@ -76,10 +91,10 @@ mixin exercise(title)
     -solutionNo = 0
     -exerciseNo++
     section.module.exercise(id!="exercise-" + exerciseNo)
-        header Exercice #{exerciseNo}
+        header!=modules.exercise + ' ' + exerciseNo
             if title
-                span : #{title}
-            <i class="fa fa-fw fa-caret-up toggler"></i>
+                span!=": " + title
+            i.fa.fa-fw.fa-caret-up.toggler
         article
             block
 
@@ -93,9 +108,9 @@ mixin exercise(title)
 mixin solution(title)
     -solutionNo++
     section.module.solution(id!="solution-" + solutionNo)
-        header Solution #{solutionNo}
+        header!=modules.solution + ' ' + solutionNo
             if title
-                span : #{title}
-            <i class="fa fa-fw fa-caret-up toggler" collapsed></i>
+                span!=": " + title
+            i.fa.fa-fw.fa-caret-up.toggler
         article
             block
