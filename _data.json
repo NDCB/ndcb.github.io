@@ -10,9 +10,10 @@
 
     "globals": {
         "siteName": "NDCB",
-        "url": "https://ndcb.github.io/",
+        "url": "https://ndcb.github.io",
         "copyrightYear": "2016",
         "googleAnalytics": "",
+        "bingWebmaster": "B8D87AA1707EE0650C1630A563C064FF",
         "sourceUrl": "https://github.com/NDCB/ndcb.github.io-source",
         "profiles": {
             "facebook": "notesdecoursblog",
@@ -59,7 +60,12 @@
                     "theorem": "Théorème",
                     "proof": "Preuve",
                     "exercise": "Exercice",
-                    "solution": "Solution"
+                    "solution": "Solution",
+                    "figures": {
+                        "figure": "Figure",
+                        "folder": "figures"
+                    },
+                    "tableOfContents": "Table des matières"
                 },
                 "mainNavigation": {
                     "logoAlt": "Retour au choix de localité"
@@ -87,7 +93,7 @@
         }
     },
 
-    "sitemap": {
+    "sitemap.xml": {
         "layout": false
     }
 }

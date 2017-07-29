@@ -1,0 +1,13 @@
+#table-of-contents {
+    margin-top: 1rem;
+    header {
+        font-family: $font-arimo;
+    }
+    nav > ol {
+        padding: 0;
+    }
+    ol {
+        margin: 0;
+        list-style-type: none;
+    }
+}

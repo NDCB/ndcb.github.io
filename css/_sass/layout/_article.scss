@@ -15,7 +15,24 @@ main {
         @include flex-align-items(stretch);
     }
     article {
-        display: block; 
+        //display: block;
+        @include flex-display();
+        @include flex-direction(column);
+        #table-of-contents {
+            @include flex-order(-1);
+        }
+        >header{
+            @include flex-order(-2);
+            >h1 {
+                margin-bottom: 0;
+                @extend .pop-out-top;
+                padding-top: 10rem;
+                padding-bottom: 1rem;
+            }
+        }
+        #breadcrumbs {
+            @include flex-order(-3);    
+        }
         figure {
             margin: 0;
             @include respond-to(print) {
@@ -39,12 +56,6 @@ main {
                     display: none;
                 }
             }
-        }
-        >header>h1 {
-            margin-bottom: 0;
-            @extend .pop-out-top;
-            padding-top: 10rem;
-            padding-bottom: 1rem;
         }
     }
 }
