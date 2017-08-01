@@ -10,10 +10,16 @@ include /_jade/base/_functions
     function pushHeadline(headline) {
         if (documentContents.length < 1) {
             documentContents.push(headline);
-        } else if (headline.level === documentContents[documentContents.length - 1].level) {
+        } else if (
+            headline.level === documentContents[
+                documentContents.length - 1
+            ].level
+        ) {
             documentContents.push(headline);
         } else {
-            let previousHeadline = documentContents[documentContents.length - 1];
+            let previousHeadline = documentContents[
+                documentContents.length - 1
+            ];
             addHeadline(previousHeadline, headline);
         }
     }
@@ -58,7 +64,7 @@ include /_jade/base/_functions
 //- Adds an anchor to the headline.
 mixin heading(headline)
     if headline
-        a(href!='#' + slugify(headline) id!=slugify(headline)): i.fa.fa-link
+        a.headline-link(href!='#' + slugify(headline) id!=slugify(headline)): i.fa.fa-link
         !=headline
 
 //- Displays and identifies a headline.
@@ -66,13 +72,7 @@ mixin heading(headline)
     Since the headline is passed as a Javascript parameter,
     it is subject to escaped characters.
 mixin h(level, headline)
-    if !level && !headline
-        -console.error("Error: Undefined heading @" + current.path);
-    else if !level && headline
-        -console.error("Error: Undefined heading level \"" + headline + "\"@" + current.path);
-    else if level && !headline
-        -console.error("Error: Undefined headline of level " + level + "@" + current.path);
-    else
+    if level && headline
         case level
             when 1
                 h1.heading: +heading(headline)
@@ -87,7 +87,15 @@ mixin h(level, headline)
             when 6
                 h6.heading: +heading(headline)
             default
-                -console.error("Error: Invalid headline level " + level + ' "' + headline + '" at ' + getCurrentRelativePath())
+                -
+                    console.error(
+                        "Error: Invalid headline level " 
+                        + level 
+                        + ' "' 
+                        + headline 
+                        + '" at ' 
+                        + getCurrentRelativePath()
+                    );
         -
             pushHeadline({
                 id: slugify(headline), 
@@ -95,13 +103,20 @@ mixin h(level, headline)
                 level: level, 
                 headlines: []
             });
-
+    else
+        -
+            console.error(
+                "Error: Undefined parameters of headline \""
+                 + headline 
+                 + "\" of level " 
+                 + level 
+                 + " at " 
+                 + getCurrentRelativePath() 
+            );
 //- Adds the table of contents of the current document. Must be used at the
     end of all headline declarations, as the script retains the mixin call 
     order.
 mixin tableOfContents() 
-    -
-        console.log(JSON.stringify(documentContents, true, '\t'))
     if documentContents && documentContents.length > 0
         section#table-of-contents
             nav

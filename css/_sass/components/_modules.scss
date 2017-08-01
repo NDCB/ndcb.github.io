@@ -1,16 +1,19 @@
 section {
+    box-sizing: border-box;
     &.module {
         border-style: solid;
-        border-width: 0.25rem;
+        border-width: 4px;
         margin-top: 1rem;
         article {
             padding: 1rem;
         }
         > header {
-            display: inline-block;
+            width: 100%;
             padding: 0.5rem;
+            float: left;
         }
         i.toggler {
+            float: right;
             @include respond-to(print) {
                 display: none;
             }

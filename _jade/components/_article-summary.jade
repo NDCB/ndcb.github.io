@@ -1,29 +1,61 @@
+-
+    function getArticleBreadcrumbs(article) {
+        let path = article.path;
+        let breadcrumbs = [];
+        let crumbs = path.split('/');
+        //Construct with locale
+        let constructPath = '/' + crumbs[1] + '/';
+        let root = public[crumbs[1]];
+        /*Loop through the path, excluding the article slug, the initial 
+        blank and the locale*/
+        for (let i = 2; i < crumbs.length - 1; i++) {
+            constructPath += crumbs[i] + '/';
+            let headline = root._data.categories[crumbs[i]].headline;
+            breadcrumbs.push({
+                path: constructPath,
+                headline: headline
+            });
+            root = root[crumbs[i]];
+        }
+        return breadcrumbs;
+    }
+
 mixin articleSummary(article)
-    if article.info.published
-        li: section.article-summary
-                header
-                    h2: a(href!=article.path)!=article.info.headline
-                !=article.info.description
-                footer
-                    ul.meta
-                        -
-                            var locale = public._data.locales[article.locale];
-                            var variables = locale.variables;
-                            var promptPublished = variables.metaPrompts.published;
-                            var promptModified = variables.metaPrompts.modified;
-                            var promptAuthor = variables.metaPrompts.writtenBy;
-                        li
-                            !=promptPublished + ": "
-                            time(datetime!=article.info.published)
-                                !=stringDate(article.info.published, article.locale)
-                        if article.info.lastmod
-                            li 
-                                !=promptModified + ": "
-                                time(datetime!=article.info.lastmod)!=stringDate(article.info.lastmod, article.locale)
-                        if article.info.authors
-                            li: !=promptAuthor + ": "
-                                ul.authors
-                                    each author in article.info.authors
-                                        li
-                                            a(href!=linkPerson(article.locale, author))
-                                                !=getPersonFullName(article.locale, author)
+    //-TODO: Uncomment, indent
+    //-if article.info.published
+    -console.log(JSON.stringify(article, true, '\t'))
+    -getArticleBreadcrumbs(article)
+    li: section.article-summary
+            header
+                h2: a(href!=article.path)!=article.info.headline
+                -let breadcrumbs = getArticleBreadcrumbs(article);
+                if breadcrumbs
+                    nav.breadcrumbs
+                        ul
+                            for breadcrumb in breadcrumbs
+                                li: a(href!=breadcrumb.path)!=breadcrumb.headline
+            !=article.info.description
+            footer
+                ul.meta
+                    -
+                        var locale = public._data.locales[article.locale];
+                        var variables = locale.variables;
+                        var promptPublished = variables.metaPrompts.published;
+                        var promptModified = variables.metaPrompts.modified;
+                        var promptAuthor = variables.metaPrompts.writtenBy;
+                    li
+                        !=promptPublished + ": "
+                        time(datetime!=article.info.published)
+                            !=stringDate(article.info.published, article.locale)
+                    if article.info.lastmod
+                        li 
+                            !=promptModified + ": "
+                            time(datetime!=article.info.lastmod)
+                                !=stringDate(article.info.lastmod, article.locale)
+                    if article.info.authors
+                        li: !=promptAuthor + ": "
+                            ul.authors
+                                each author in article.info.authors
+                                    li
+                                        a(href!=linkPerson(article.locale, author))
+                                            !=getPersonFullName(article.locale, author)

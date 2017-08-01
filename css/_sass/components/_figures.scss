@@ -1,4 +1,9 @@
 figure {
+    margin-top: 1rem;
+    @include respond-to(print) {
+        width: 50%;
+        margin: auto;
+    }
     figcaption {
         header {
             display: inline-block;

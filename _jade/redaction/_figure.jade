@@ -9,9 +9,10 @@ include /_jade/base/_functions
     if (localeFigureVariables && localeFigureVariables.modules) {
         figures = localeFigureVariables.modules.figures;
     } else {
-        console.error(
-            "Error: Could not retrieve the locale variables at "
-            + getCurrentRelativePath()
+        console.warn(
+            "Warning: Could not retrieve the locale variables at "
+            + getCurrentRelativePath() 
+            + ", figures are unusable"
         );
     }
 

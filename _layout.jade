@@ -80,8 +80,18 @@ html(lang!=getCurrentHtmlLocale())
                                 +h(1, documentMetadata.headline)
                             include /_jade/components/_breadcrumbs
                         != yield
-                        if documentMetadata && documentMetadata.allowComments
-                            include /_jade/components/_disqus
+                        footer
+                            //- Authors
+                            if documentMetadata && documentMetadata.Authors
+                                include /_jade/components/_list-authors
+                            //- Share icons
+                            section
+                                nav.share.inline-items
+                                    ul
+                                        include /_jade/components/_share-icons
+                            //- Disqus
+                            if documentMetadata && documentMetadata.allowComments
+                                include /_jade/components/_disqus
             include /_jade/layout/_navigation
             include /_jade/layout/_sidebar
 

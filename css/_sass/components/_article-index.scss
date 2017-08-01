@@ -2,6 +2,9 @@ ol#articles{
     list-style: none;
     padding: 0;
     margin: 0;
+    h2 {
+        margin-bottom: 0;
+    }
     > li {
         padding-top: 1rem;
         padding-bottom: 1rem; 
@@ -9,6 +12,17 @@ ol#articles{
         &:nth-child(even){
             background-color: $primary-light;
         }
+        &:nth-child(odd){
+            .breadcrumbs {
+                background-color: white;
+            }
+        }
+    }
+    >li:first-child {
+        @extend .pop-out-top;
+    }
+    >li:last-child {
+        @extend .pop-out-bottom;
     }
     ul {
         list-style: none;
@@ -22,6 +36,9 @@ ol#articles{
                     content: ",\00a0";
                 }
             }
+        }
+        &.meta {
+            padding: 1rem;
         }
     }
 }

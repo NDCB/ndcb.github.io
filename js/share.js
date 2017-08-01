@@ -25,7 +25,7 @@ function windowPopup(url, width, height) {
  * Event handler for click events on social share pop-up 
  * anchors.
  */
-$("a.social-share-popup").on("click", function(e) {
-  e.preventDefault();
+$("a.social-share-popup").on("click", function(event) {
+  event.preventDefault();
   windowPopup($(this).attr("href"), 500, 500);
 });
