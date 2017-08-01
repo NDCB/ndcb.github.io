@@ -1,0 +1,130 @@
+{
+    "pages": {
+        "index": {
+            "headline": "Figures concernant les coniques",
+            "description": "Un ensemble de figures explicative concernant les coniques.",
+            "changefreq": "weekly"
+        }
+    },
+
+    "figures": {
+        "cercle-canonique.svg": {
+            "alt": "Graphe d'un cercle d'équation canonique dans le plan cartésien",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "cercle-centre-o.svg": {
+            "alt": "Graphe d'un cercle centré à l'origine",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+        
+        "construction-du-cercle.svg": {
+            "alt": "La construction du cercle en tant que conique",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-intersection-cercle-droite-deux-solutions.svg": {
+            "alt": "Exemple d'intersection d'un cercle et d'une droite en deux points",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        }, 
+
+        "exemple-intersection-cercle-droite-une-solution.svg": {
+            "alt": "Exemple d'intersection d'un cercle et d'une droite en un point",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-intersection-cercle-droite-aucune-solution.svg": {
+            "alt": "Exemple d'intersection d'un cercle et d'une droite sans solution",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "preuve-perpendicularite-droite-tangente-cercle.svg": {
+            "alt": "Construction d'une preuve de la perpendicularité de la droite tangente à un cercle",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "construction-equation-generale-droite-tangente-cercle.svg": {
+            "alt": "Construction de l'équation générale d'une droite tangente à un cercle",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-determiner-equation-cercle-tangente.svg": {
+            "alt": "Exemple de détermination de l'équation d'un cercle à partir de l'équation de sa tangente, le point de tangence et une coordonnée du centre du cercle",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-equation-droite-tangente-cercle.svg": {
+            "alt": "Exemple de détermination de l'équation de la droite tangente à un cercle connaissant son centre et le point de tangence",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-determiner-equation-cercle-deux-tangentes.svg": {
+            "alt": "Exemple de détermination de l'équation d'un cercle tangent en deux points distincts sur deux droites sécantes",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "inequation-cercle-plus-petit-que-rayon.svg": {
+            "alt": "Graphe de la région délimitée par l'inéquation de relation plus petite que le rayon d'un cercle canonique",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "inequation-cercle-plus-petit-ou-egal-au-rayon.svg": {
+            "alt": "Graphe de la région délimitée par l'inéquation de relation plus petite que ou égale au rayon d'un cercle canonique",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "inequation-cercle-plus-grand-que-rayon.svg": {
+            "alt": "Graphe de la région délimitée par l'inéquation de relation plus grande que le rayon d'un cercle canonique",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },        
+        
+        "inequation-cercle-plus-grand-ou-egal-au-rayon.svg": {
+            "alt": "Graphe de la région délimitée par l'inéquation de relation plus grande que ou égale au rayon d'un cercle canonique",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+        
+        "exemple-point-compris-inequation-interieur-cercle.svg": {
+            "alt": "Exemple d'un point compris dans l'inéquation d'un cercle décrivant son intérieur",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-point-non-compris-inequation-circonference-cercle.svg": {
+            "alt": "Exemple d'un point non-compris dans l'inéquation d'un cercle ne comprenant pas sa circonférence",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        }
+    }
+}
