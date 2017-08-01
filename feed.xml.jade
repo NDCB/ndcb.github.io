@@ -1,0 +1,16 @@
+include /_jade/base/_functions
+
+doctype xml
+rss(version="2.0")
+    channel
+        title!=public._data.globals.siteName
+        link!=public._data.globals.url
+    -
+        console.info("Processing RSS feed");
+        var items = fetchAllArticles();
+    for item in items
+        if item.info
+            item
+                title!=item.info.headline
+                link!=public._data.globals.url + item.path
+                description!=item.info.description

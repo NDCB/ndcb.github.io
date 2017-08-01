@@ -10,7 +10,7 @@ urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
         var urlset = articles.concat(pages);
 
     //- Standard sitemap structure
-    for url, index in urlset
+    for url in urlset
         url
             loc!=public._data.globals.url + url.path
             if url.info && url.info.lastmod

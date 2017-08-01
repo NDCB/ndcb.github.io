@@ -95,5 +95,9 @@
 
     "sitemap.xml": {
         "layout": false
+    },
+
+    "feed.xml": {
+        "layout": false
     }
 }
