@@ -12,6 +12,7 @@ mixin socialLink(label, href, icon)
             li: a(
                 href!=href
                 target='_blank'
+                rel='nofollow noopener'
                 aria-label!=label
             )
                 +iconStackButton(icon, backgroundIcon)
