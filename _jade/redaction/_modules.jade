@@ -1,4 +1,29 @@
-include /_jade/base/_functions
+-const MAXIMUM_DIFFICULTY = 5.0;
+
+//- Adds a star rating from 0.0 to MAXIMUM_DIFFICULTY. Supports half stars.
+    @param {Number} difficulty the difficulty from 0 to 5 to display.
+mixin difficulty(difficulty)
+    if difficulty < 0 || difficulty > 5
+        -
+            throw new Error(
+                "Invalid difficulty " 
+                + difficulty 
+                + ", must be between 0 and " 
+                + MAXIMUM_DIFFICULTY 
+                + " inclusively"
+            );
+    -difficulty = difficulty ? 2 * difficulty : 0;
+    -let emptyStarsCount = 2 * MAXIMUM_DIFFICULTY - difficulty;
+    while difficulty >= 2
+        i.fa.fa-fw.fa-star
+        -difficulty -= 2;
+    if difficulty > 0
+        i.fa.fa-fw.fa-star-half-o
+    if emptyStarsCount % 2 != 0
+        -emptyStarsCount--;
+    while emptyStarsCount > 0
+        i.fa.fa-fw.fa-star-o
+        -emptyStarsCount -= 2;
 
 //- Counter variables.
 -var definitionNo = 0
@@ -12,34 +37,32 @@ include /_jade/base/_functions
 
 //-Retrieve the appropriate locale variables
 -
-    let localeModulesVariables = fetchCurrentLocaleVariables();
     let modules;
-    if (localeModulesVariables) {
-        modules = localeModulesVariables.modules;
-    } else {
-        console.warn(
-            "Warning: Could not retrieve the locale variables at "
-            + getCurrentRelativePath() 
-            + ", modules are unusable."
-        );
+    if (Current.locale()) {
+        let localeVariables = Current.locale().variables;
+        modules = localeVariables.modules;
     }
 
 //- Adds a numbered definition block.
+    @param {String} title the title of the definition.
     Usage:
     +definition()
         p A function is ...
 mixin definition(title)
-    -definitionNo++
-    section.module.definition(id!="definition-" + definitionNo)&attributes(attributes)
-        header!=modules.definition + ' ' + definitionNo
-            if title
-                span!=": " + title
-            i.fa.fa-fw.fa-caret-up.toggler
-        article
-            block
+    if Current.locale()
+        -definitionNo++
+        section.module.definition(
+            id!="definition-" + definitionNo
+        )&attributes(attributes)
+            header!=modules.definition + ' ' + definitionNo
+                if title
+                    span!=": " + title
+                i.fa.fa-fw.fa-caret-up.toggler
+            article
+                block
 
 //- Adds a reference to a definition in the current document.
-    The step is relative to declaration of the reference, meaning that
+    The step is relative to the declaration of the reference, meaning that
     a step of 0 is the latest module declared and a step of 1 is the 
     following module.
 mixin refDefinition(step)
@@ -48,21 +71,25 @@ mixin refDefinition(step)
         block
            
 //- Adds a numbered example block.
+    @param {String} title the title of the example.
     Usage:
     +example()
         p Given the values of ...        
 mixin example(title)
-    -exampleNo++
-    section.module.example(id!="example-" + exampleNo)&attributes(attributes)
-        header!=modules.example + ' ' + exampleNo
-            if title
-                span!=": " + title
-            i.fa.fa-fw.fa-caret-up.toggler
-        article
-            block
+    if Current.locale()
+        -exampleNo++
+        section.module.example(
+            id!="example-" + exampleNo
+        )&attributes(attributes)
+            header!=modules.example + ' ' + exampleNo
+                if title
+                    span!=": " + title
+                i.fa.fa-fw.fa-caret-up.toggler
+            article
+                block
 
 //- Adds a reference to an example in the current document.
-    The step is relative to declaration of the reference, meaning that
+    The step is relative to the declaration of the reference, meaning that
     a step of 0 is the latest module declared and a step of 1 is the 
     following module.
 mixin refExample(step)
@@ -71,22 +98,26 @@ mixin refExample(step)
         block
 
 //- Adds a numbered theorem block.
+    @param {String} title the title of the theorem.
     Usage:
     +theorem()
         p Given the values of ...
 mixin theorem(title)
-    -proofNo = 0
-    -theoremNo++
-    section.module.theorem(id!="theorem-" + theoremNo)&attributes(attributes)
-        header!=modules.theorem + ' ' + theoremNo
-            if title
-                span!=": " + title
-            i.fa.fa-fw.fa-caret-up.toggler
-        article
-            block
+    if Current.locale()
+        -proofNo = 0
+        -theoremNo++
+        section.module.theorem(
+            id!="theorem-" + theoremNo
+        )&attributes(attributes)
+            header!=modules.theorem + ' ' + theoremNo
+                if title
+                    span!=": " + title
+                i.fa.fa-fw.fa-caret-up.toggler
+            article
+                block
 
 //- Adds a reference to a theorem in the current document.
-    The step is relative to declaration of the reference, meaning that
+    The step is relative to the declaration of the reference, meaning that
     a step of 0 is the latest module declared and a step of 1 is the 
     following module.
 mixin refTheorem(step)
@@ -96,23 +127,27 @@ mixin refTheorem(step)
 
 //- Adds a numbered proof block. Proofs are collapsed by default.
     Should only be featured in a theorem block.
+    @param {String} title the title of the proof.
     Usage:
     +theorem()
         p ...
         +proof()
             p ... 
 mixin proof(title)
-    -proofNo++
-    section.module.proof(id!="proof-" + proofNo collapsed='')&attributes(attributes)
-        header!=modules.proof + ' ' + proofNo
-            if title
-                span!=": " + title
-            i.fa.fa-fw.fa-caret-up.toggler
-        article
-            block
+    if Current.locale()
+        -proofNo++
+        section.module.proof(
+            id!="proof-" + proofNo aria-expanded="false"
+        )&attributes(attributes)
+            header!=modules.proof + ' ' + proofNo
+                if title
+                    span!=": " + title
+                i.fa.fa-fw.fa-caret-down.toggler
+            article
+                block
 
 //- Adds a reference to a proof in the current document.
-    The step is relative to declaration of the reference, meaning that
+    The step is relative to the declaration of the reference, meaning that
     a step of 0 is the latest module declared and a step of 1 is the 
     following module.
 mixin refProof(step)
@@ -121,22 +156,32 @@ mixin refProof(step)
         block
 
 //- Adds a numbered exercise block.
+    @param {Number} difficulty the difficulty of the exercise on a scale from 
+    0 to 5 with 0.5 steps.
+    @param {String} title the title of the exercise.
     Usage:
     +exercise()
         p Solve the following ...
-mixin exercise(title)
-    -solutionNo = 0
-    -exerciseNo++
-    section.module.exercise(id!="exercise-" + exerciseNo)&attributes(attributes)
-        header!=modules.exercise + ' ' + exerciseNo
-            if title
-                span!=": " + title
-            i.fa.fa-fw.fa-caret-up.toggler
-        article
-            block
+mixin exercise(difficulty, title)
+    if Current.locale()
+        -solutionNo = 0
+        -exerciseNo++
+        section.module.exercise(
+            id!="exercise-" + exerciseNo
+        )&attributes(attributes)
+            header!=modules.exercise + ' ' + exerciseNo + ' '
+                span.difficulty(
+                    data-difficulty!=difficulty + '/' + MAXIMUM_DIFFICULTY
+                )
+                    +difficulty(difficulty)
+                if title
+                    span!=": " + title
+                i.fa.fa-fw.fa-caret-up.toggler
+            article
+                block
 
 //- Adds a reference to an exercise in the current document.
-    The step is relative to declaration of the reference, meaning that
+    The step is relative to the declaration of the reference, meaning that
     a step of 0 is the latest module declared and a step of 1 is the 
     following module.
 mixin refExercise(step)
@@ -146,23 +191,28 @@ mixin refExercise(step)
 
 //- Adds a numbered solution block. Solutions are collapsed by default.
     Should only be featured in an exercise block.
+    @param {String} title the title of the solution.
     Usage:
     +exercise()
         p ...
         +solution()
             p ...
 mixin solution(title)
-    -solutionNo++
-    section.module.solution(id!="solution-" + solutionNo collapsed='')&attributes(attributes)
-        header!=modules.solution + ' ' + solutionNo
-            if title
-                span!=": " + title
-            i.fa.fa-fw.fa-caret-down.toggler
-        article
-            block
+    if Current.locale()
+        -solutionNo++
+        section.module.solution(
+            id!="solution-" + solutionNo 
+            aria-expanded="false"
+        )&attributes(attributes)
+            header!=modules.solution + ' ' + solutionNo
+                if title
+                    span!=": " + title
+                i.fa.fa-fw.fa-caret-down.toggler
+            article
+                block
 
 //- Adds a reference to a solution in the current document.
-    The step is relative to declaration of the reference, meaning that
+    The step is relative to the declaration of the reference, meaning that
     a step of 0 is the latest module declared and a step of 1 is the 
     following module.
 mixin refSolution(step)

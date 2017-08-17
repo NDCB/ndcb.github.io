@@ -1,18 +1,13 @@
-//- MathJax delimiters.
--var inline_math_prefix = "\\("
--var inline_math_suffix = "\\)"
-
--var displayed_math_prefix = "$$"
--var displayed_math_suffix = "$$"
+include ../plugins/_mathjax-scripts
 
 //- Delimits an inline MathJax expression.
     Usage:
     p.
         The difference of square ... #[+e() x^2-1=(x-1)(x+1)]
 mixin e()
-    != inline_math_prefix
+    != inlineMathPrefix
     block
-    != inline_math_suffix
+    != inlineMathSuffix
 
 //- Delimits a displayed MathJax expression.
     Should not be used as an inline mixin.
@@ -26,32 +21,32 @@ mixin e()
         \\&=x^3+6x^2+12x+8
         \end{align*}
 mixin eq()
-    != displayed_math_prefix
+    != displayedMathPrefix
     != "\\begin{align*}"
     block
     != "\\end{align*}"
-    != displayed_math_suffix
+    != displayedMathSuffix
 
 //- Delimits a labeled displayed MathJax equation.
     Should not be used as an inline mixin.
     Usage:
     +leq("quadratique") x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 mixin leq(label)
-    != displayed_math_prefix
+    != displayedMathPrefix
     != "\\begin{equation}"
     block
     != "\\label{" + label + "}"
     != "\\end{equation}"
-    != displayed_math_suffix
+    != displayedMathSuffix
 
 //- Delimits a MathJax equation reference.
     Usage:
     p.
         The quadratic formula #[+eqref("quadratique")] ...
 mixin eqref(label)
-    != inline_math_prefix
+    != inlineMathPrefix
     != "\\eqref{"
     != label
     != "}"
     block
-    != inline_math_suffix
+    != inlineMathSuffix

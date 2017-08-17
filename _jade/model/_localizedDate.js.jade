@@ -1,0 +1,147 @@
+-
+    class LocalizedDate {
+
+        /**
+         * Constructs a date.
+         * @param {Number} year the year of this date.
+         * @param {Number} month the month of this date, ranging from 1 (January) to 12 (December).
+         * @param {Number} day the day of this date.
+         * @param {Locale} locale the locale of this date.
+         */
+        constructor({
+            year, month, day, locale
+        }) {
+            this.raw = year + '-' + month + '-' + day;
+            this.year = year;
+            this.month = month;
+            this.day = day;
+            this.locale = locale;
+        }
+
+        /**
+         * @param {Number} value the value of the month.
+         */
+        set month(value) {
+            if (value >= 1 && value <= 12) {
+                this._month = value;
+            } else {
+                throw new Error("Invalid month " + value);
+            }
+        }
+
+        get month() {
+            return this._month;
+        }
+
+        /**
+         * @param {Number} value the value of the day.
+         */
+        set day(value) {
+            let maximumDaysInMonth = this.maximumDaysInMonth();
+            if (value >= 1 && value <= maximumDaysInMonth) {
+                this._day = value;
+            } else {
+                throw new Error(
+                    "Invalid day of " + this.year + '/' + this.month + '/' + value
+                );
+            }
+        }
+
+        get day() {
+            return this._day;
+        }
+
+        /**
+         * @returns {Number} the maximum number of days in the month of this date.
+         */
+        maximumDaysInMonth() {
+            switch (this.month) {
+                case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                    return 31;
+                case 4: case 6: case 9: case 11:
+                    return 30;
+                case 2:
+                    if (this.isLeapYear()) {
+                        return 29;
+                    } else {
+                        return 28;
+                    }
+            }
+        }
+
+        /**
+         * @returns {Boolean} whether or not the year of this date is a leap year.
+         */
+        isLeapYear() {
+            if (this.year % 4 === 0 && !this.year % 100 === 0) {
+                return true;
+            } else if (this.year % 400 === 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        /**
+         * Parses a date from a string format of YYYY-MM-DD.
+         * @param {String} token the date.
+         * @param {Locale} locale (optional) the locale of this date.
+         * @returns {LocalizedDate} the unlocalized parsed date.
+         */
+        static parse(token, locale) {
+            if (token) {
+                let tokens = token.split('-');
+                if (tokens.length === 3) {
+                    let date = new LocalizedDate({
+                        year: parseInt(tokens[0]),
+                        month: parseInt(tokens[1]),
+                        day: parseInt(tokens[2])
+                    });
+                    if (locale) {
+                        date.locale = locale;
+                    }
+                    return date;
+                } else {
+                    throw new Error("Malformed date token: " + token);
+                }
+            } else {
+                return null;
+            }
+        }
+
+        /**
+         * Writes the date in its locale.
+         * @throws {Error} if the locale of this date is undefined.
+         * @returns {String} the date in a localized string form.
+         */
+        write() {
+            if (this.locale) {
+                let language = this.locale.languageCode;
+                let variables = this.locale.variables;
+                let time = variables.time;
+                let result = '';
+                switch (language) {
+                    case "fr":
+                        if (this.day === 1) {
+                            result += "1er";
+                        } else {
+                            result += this.day;
+                        }
+                        result += ' ';
+                        result += time.months[this.month - 1].toLowerCase();
+                        result += ' ';
+                        result += this.year;
+                        return result;
+                    case "en":
+                        result += time.months[this.month - 1];
+                        result += ' ';
+                        result += this.day;
+                        result += ", ";
+                        result += this.year;
+                        return result;
+                }
+            } else {
+                throw new Error("Locale should be defined.");
+            }
+        }
+    }

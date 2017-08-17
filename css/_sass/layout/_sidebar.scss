@@ -1,4 +1,4 @@
-footer#sidebar {
+#sidebar {
     display: none;
     @include respond-to(desktop) {
         width: $desktop-sidebar-width;

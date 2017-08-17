@@ -1,0 +1,19 @@
+//- MathJax delimiters.
+-var inlineMathPrefix = "\\("
+-var inlineMathSuffix = "\\)"
+
+-var displayedMathPrefix = "$$"
+-var displayedMathSuffix = "$$"
+
+//- MathJax configuration
+script(type="text/x-mathjax-config").
+    MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
+//- MathJax script reference
+script(
+    type="text/javascript" 
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML" 
+    integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" 
+    crossorigin="anonymous"
+)

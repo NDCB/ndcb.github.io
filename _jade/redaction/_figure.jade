@@ -1,55 +1,53 @@
-include /_jade/base/_functions
-
 -var figureNo = 0;
-
-//-Retrieve the appropriate locale variables
+-var figures = Current.figures();
 -
-    let localeFigureVariables = fetchCurrentLocaleVariables();
-    let figures;
-    if (localeFigureVariables && localeFigureVariables.modules) {
-        figures = localeFigureVariables.modules.figures;
-    } else {
-        console.warn(
-            "Warning: Could not retrieve the locale variables at "
-            + getCurrentRelativePath() 
-            + ", figures are unusable"
-        );
+    var figuresVariables;
+    if (Current.locale()) {
+        let localeVariables = Current.locale().variables;
+        figuresVariables = localeVariables.modules.figures;
     }
 
 //- Adds a numbered image block. An image may be fetched from external sources.
 mixin img(src, alt)
-    -figureNo++
-    figure(id!="figure-" + figureNo)
-        img(src!=src, alt!=alt)
-        figcaption
-            header!=figures.figure + ' ' + figureNo
-            span!=": "
-                block
+    if Current.locale()
+        -figureNo++
+        figure(id!="figure-" + figureNo)
+            img(src!=src, alt!=alt)
+            figcaption
+                header!=figuresVariables.figure + ' ' + figureNo
+                span!=": "
+                    block
 
 //- Adds a numbered figure block.
 mixin fig(fileName)
-    -
-        figureNo++
-        let src = figures.folder + '/' + fileName;
-
-        function fetchAlt() {
+    if fileName && Current.locale()
+        -figureNo++
+        -
+            let src;
             let alt;
-            let currentRoot = getCurrentRoot();
-            let figuresRoot = currentRoot[figures.folder];
-            if (figures._data && figures._data.figures) {
-                let figures = figures._data.figures;
-                for (let localFigure in figures) {
-                    if (localFigure === fileName) {
-                        let figure = figures[figure];
-                        alt = figure.alt;
-                    }
+            for (let i = 0; i < figures.length; i++) {
+                let figure = figures[i];
+                if (figure.slug === fileName) {
+                    src = figure.path;
+                    alt = figure.alt;
                 }
             }
-            return alt;
-        }
-    figure(id!="figure-" + figureNo)
-        img(src!=src, alt!=alt)
-        figcaption
-            header!=figures.figure + ' ' + figureNo
-            span!=": "
-                block
+            if (!src) {
+                throw new Error(
+                    "No defined figures of file name " 
+                    + fileName 
+                    + " in "
+                    + figuresVariables.folder 
+                    + '/' 
+                    + " or in _data.json"
+                );
+            }
+            if (!alt) {
+                console.warn("No defined alternative text for figure of file name " + fileName);
+            }
+        figure(id!="figure-" + figureNo)
+            img(src!=src, alt!=alt)
+            figcaption
+                header!=figuresVariables.figure + ' ' + figureNo
+                span!=": "
+                    block

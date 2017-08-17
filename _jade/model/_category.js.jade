@@ -1,0 +1,65 @@
+-
+    class Category {
+
+        /**
+         * Constructs a category.
+         * @param {String} headline the headline of this category.
+         * @param {String} thumbnailUrl the thumbnail of this category.
+         * @param {String} themeColor the theme color of this category.
+         * @param {Category[]} categories the categories of this category.
+         * @param {Article[]} articles the articles of this category.
+         * @param {Page[]} pages the pages of this category.
+         * @param {Locale} locale the locale of this category.
+         * @param {String} path the path to this category (i.e., "/fr-CA/mathematiques/", "/fr-CA/mathematiques/5e-secondaire-sn/").
+         */
+        constructor({
+            headline, thumbnailFile, themeColor, categories, articles, pages, 
+            slug, locale, path
+        }) {
+            this.headline = headline;
+            this.thumbnailFile = thumbnailFile;
+            this.themeColor = themeColor;
+            this.categories = categories || [];
+            this.articles = articles || [];
+            this.pages = pages || [];
+            this.slug = slug;
+            this.locale = locale;
+            this.path = path;
+        }
+
+        set thumbnailFile(value) {
+            let thumbnailFiles = Site.thumbnailFiles();
+            for (let i = 0; i < thumbnailFiles.length; i++) {
+                if (value === thumbnailFiles[i]) {
+                    this._thumbnailFile = Site.globals().thumbnailsFolder + value;
+                }
+            }
+            //Default value
+            if (!this._thumbnailFile) {
+                console.warn("Warning: Unknown thumbnail file " + value + ", using default.");
+                this._thumbnailFile = Site.globals().thumbnailsFolder + "thumbnail-dark.png";
+            }
+        }
+
+        get thumbnailFile() {
+            return this._thumbnailFile;
+        }
+
+        set themeColor(value) {
+            for (let i = 0; i < COLORS.length; i++) {
+                if (value === COLORS[i]) {
+                    this._themeColor = value;
+                }
+            }
+            //Default value
+            if (!this._themeColor) {
+                console.warn("Warning: Unknown theme color " + value + ", using default.");
+                this._themeColor = "grey";
+            }
+        }
+
+        get themeColor() {
+            return this._themeColor;
+        }
+
+    }

@@ -1,0 +1,19 @@
+{
+    "pages": {
+        "index": {
+            "headline": "5e secondaire SN",
+            "description": "Trouvez des articles articles de renforcement en mathématiques 5e secondaire sciences de la nature pour exceller.",
+            "changefreq": "weekly"
+        }
+    },
+
+    "categories": {
+        "les-coniques": {
+            "headline": "Les coniques"
+        }
+    },
+
+    "test": {
+        "layout": false
+    }
+}

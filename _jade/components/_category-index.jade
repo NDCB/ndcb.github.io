@@ -1,0 +1,9 @@
+include ../model/_model.js.jade
+include _article-summary
+
+-let articles = Index.listAllArticles();
+
+ol#articles
+    for article in articles
+        if article.publicationDate
+            +articleSummary(article)

@@ -9,14 +9,6 @@ ol#articles{
         padding-top: 1rem;
         padding-bottom: 1rem; 
         @extend .pop-out;
-        &:nth-child(even){
-            background-color: $primary-light;
-        }
-        &:nth-child(odd){
-            .breadcrumbs {
-                background-color: white;
-            }
-        }
     }
     >li:first-child {
         @extend .pop-out-top;
@@ -36,9 +28,6 @@ ol#articles{
                     content: ",\00a0";
                 }
             }
-        }
-        &.meta {
-            padding: 1rem;
         }
     }
 }

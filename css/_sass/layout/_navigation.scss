@@ -6,7 +6,20 @@
         display: none;
     }
 }
-header#main-navigation {
+
+#logo {
+    float: left;
+    padding: 0.3rem;
+    height: 100%;
+    width: auto;
+    @include respond-to(desktop) {
+        height: auto;
+        width: 100%;
+        padding: 10%;
+    }
+}
+
+#primary-navigation {
     //Background container for the navigation
     z-index: 1; //Set navigation bar above MathJax equations
     @include flex-order(1);
@@ -48,12 +61,10 @@ header#main-navigation {
                 display: inline-block;
                 width: $anchor-width;
                 padding: 1rem;
-                i {
-                    margin-right: 1em;
-                }
             }
             i.toggler {
                 position: absolute;
+                top: 0.3em;
                 right: 0;
             }
         }
@@ -74,17 +85,6 @@ header#main-navigation {
             font-size: 2rem;
             @include respond-to(desktop) {
                 display: none;
-            }
-        }
-        img#logo {
-            float: left;
-            padding: 0.3rem;
-            height: 100%;
-            width: auto;
-            @include respond-to(desktop) {
-                height: auto;
-                width: 100%;
-                padding: 10%;
             }
         }
     }

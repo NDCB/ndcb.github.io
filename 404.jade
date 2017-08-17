@@ -1,16 +1,21 @@
-header: img(src="/res/404.svg")
+header
+    img(src="/res/404.svg")
 p Malaise. Ce que vous cherchez n'a pas pu être trouvé. 
     i.fa.fa-fw.fa-unlink
 p Si vous pensez qu'il s'agit d'une erreur, n'hésitez pas à nous contacter. 
-    a(href!=public._data.globals.profiles.mail)
+    a(href!="mailto:" + public._data.globals.profiles.mail)
         i.fa.fa-fw.fa-envelope
-a(onclick="window.history.back()") <i class="fa fa-fw fa-history"></i> Cliquez ici pour revenir en arrière.
+a(onclick="window.history.back()" href='') 
+    i.fa.fa-fw.fa-history
+    !="Cliquez ici pour revenir en arrière."
 
 hr
 
 p Whoops. Looks like what you're looking for can't be found. 
     i.fa.fa-fw.fa-unlink
 p If you believe this is an error, be sure to contact us. 
-    a(href!=public._data.globals.profiles.mail)
+    a(href!="mailto:" + public._data.globals.profiles.mail)
         i.fa.fa-fw.fa-envelope
-a(onclick="window.history.back()") <i class="fa fa-fw fa-history"></i> Click here to go back one page.
+a(onclick="window.history.back()" href='')
+    i.fa.fa-fw.fa-history
+    !="Click here to go back one page."

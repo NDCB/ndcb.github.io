@@ -1,13 +1,14 @@
+@mixin module($border-color) {
+    border-color: $border-color;
+    > header {
+        background: $border-color;
+    }
+}
+
 section {
     &.module > header {
         color: white;
         font-family: $font-arimo;
-    }
-    @mixin module($border-color) {
-        border-color: $border-color;
-        > header {
-            background-color: $border-color;
-        }
     }
     &.definition {
         @include module($primary-green);

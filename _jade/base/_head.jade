@@ -1,0 +1,141 @@
+head(
+    prefix!=
+        "og: http://ogp.me/ns# " 
+        + "fb: http://ogp.me/ns/fb# " 
+        + "article: http://ogp.me/ns/article# "
+        + "website: http://ogp.me/ns/website# "
+)
+    meta(
+        name="viewport" 
+        content="width=device-width, initial-scale=1.0"
+    )
+
+    //- Description
+    -let description;
+    if Current.content().description
+        -description = Current.content().description;
+    //-else TOOD: Figure out default description
+    if description
+        meta(
+            property='description'
+            content!=description
+        )
+        meta(
+            property='og:description'
+            content!=description
+        )
+        meta(
+            property='twitter:description'
+            content!=description
+        )
+        if description.length > 155
+            -
+                console.warn("Document description exceeds 155 characters.");
+                console.log("Document description length: " + description.length);
+    else 
+        -
+            console.warn("No document description provided.");
+
+    //- Authentifications
+    meta(
+        name="google-site-verification" 
+        content!=Site.auth().googleSearchConsole
+    )
+    meta(
+        name="msvalidate.01"
+        content!=Site.auth().bingWebmaster
+    )
+    meta(
+        property='fb:app_id' 
+        content!=Site.auth().facebookAppId
+    )
+
+    //- OpenGraph
+    meta(
+        property='og:url'
+        content!=Current.url()
+    )
+    meta(
+        property='og:site_name'
+        content!=Site.globals().siteName
+    )
+    if Current.locale()
+        meta(
+            property='og:locale'
+            content!=Current.localeSlug().replace('-', '_')
+        )
+    -let type;
+    if Current.isArticle()
+        -type = "article";
+    else
+        -type = "website";
+    meta(
+        property='og:type'
+        content!=type
+    )
+    
+    //- Thumbnail
+    -let thumbnailFile;
+    if Current.category() && Current.category().thumbnailFile
+        -thumbnailFile = Site.url() + Current.category().thumbnailFile;
+    else
+        -thumbnailFile = Site.url() + Site.globals().thumbnailsFolder + "thumbnail-dark.png";
+    -let thumbnailExtension = Utils.fileExtension(thumbnailFile);
+    -let thumbnailWidth = 300;
+    -let thumbnailHeight = 300;
+    meta(
+        property='og:image' 
+        content!=thumbnailFile
+    )
+    meta(
+        property='og:image:type' 
+        content!="image/" + thumbnailExtension
+    )
+    meta(
+        property='og:image:width'
+        content!=thumbnailWidth
+    )
+    meta(
+        property='og:image:height' 
+        content!=thumbnailHeight
+    )
+
+    //- Title
+    -let title;
+    if Current.content().headline
+        -title = Current.content().headline;
+    else
+        -title = Site.globals().siteName;
+    title!=title
+    meta(
+        property='og:title'
+        content!=title
+    )
+    meta(
+        property='twitter:title'
+        content!=title
+    )
+
+    //- Twitter
+    meta(
+        name='twitter:card' 
+        content="summary"
+    )
+    meta(
+        name='twitter:site' 
+        content!=Site.profiles().twitter
+    )
+    meta(
+        name='twitter:image' 
+        content!=thumbnailFile
+    )
+
+    //- Favicon
+    include _favicon
+
+    //- Stylesheets
+    include _stylesheets
+    if !Current.locale()
+        include ../plugins/_flag-icons-stylesheets
+    if Current.content().containsCode
+        include ../plugins/_prism-stylesheets

@@ -1,116 +1,157 @@
 /**
- * Initial collapse of main navigation elements.
+ * Collapses the elements of the navigation.
  */
-$(window).ready(collapseNavigationElements(), collapseModules());
-
-/**
- * Handles the slide animations for the collapsible main navigation menu.
- */
-$('#main-navigation header i.toggler').on('click', function () {
-    var duration = 'fast';
-    if (!window.matchMedia('(min-width: 768px)').matches) {
-        duration = 0;
+$(window).ready(function() {
+    $('#primary-navigation ul[aria-expanded="false"]').hide();
+    if (!isDesktopWidth()) {
+        $('#primary-navigation header i.toggler').parent().next('ul').hide();
     }
-    $(this).parent().siblings('ul').slideToggle(duration);
 });
 
 /**
- * Handles the slide animations for collapsible list elements of the main navigation.
+ * Collapses the modules.
  */
-$('#main-navigation i.toggler').on('click', function () {
-    var duration = 'fast';
-    if (!window.matchMedia('(min-width: 768px)').matches) {
-        duration = 0;
-    }
-    $(this).siblings('ul').slideToggle(duration);
+$(window).ready(function() {
+    var $moduleSection = $('section.module[aria-expanded="false"]');
+    var $moduleContent = $moduleSection.children('article');
+    toggleModule($moduleContent);
 });
 
 /**
- * Handles the rotation of carets of collapsible list elements in the main navigation.
- */
-$('#main-navigation ul i.toggler').on('click', function () {
-    $(this).toggleClass('rotate');
-});
-
-/**
- * Handles the rotation of carets of collapsible elements in the main component of the page.
- */
-$('main i.toggler').on('click', function () {
-    $(this).toggleClass('rotate');
-});
-
-/**
- * Handles the slide animation of collapsible elements of the main component of the page.
- */
-$('main i.toggler').on('click', function () {
-    var duration = 'fast';
-    if (!window.matchMedia('(min-width: 768px)').matches) {
-        duration = 0;
-    }
-    $(this).parent().siblings('article').slideToggle(duration);
-});
-
-/**
- * Collapses the lists within the main navigation whose toggle icon contains the attribute "collapsed". 
- */
-function collapseNavigationElements() {
-    if (!window.matchMedia('(min-width: 1200px)').matches) {
-        $('#main-navigation i.fa-navicon').parent().siblings('ul').slideUp(0);
-    }
-    $('#main-navigation i.fa-caret-down').addClass('rotate');
-    $('#main-navigation i.fa-caret-down[collapsed]').toggleClass('rotate').siblings('ul').slideUp(0);
-    $('main i.fa-caret-up[collapsed]').toggleClass('rotate').parent().siblings('article').slideUp(0);
-}
-
-/**
- * Collapses modules with the attribute collapsed.
- */
-function collapseModules() {
-    if ($('section.module[collapsed] article').length){
-        console.log("exists...")
-    }
-    $('section.module[collapsed] article').slideUp(0);
-}
-
-/**
- * Toggles the display of the main navigation when it switches from desktop to mobile.
+ * Updates the appearance of the primary navigation when the window resizes.
  */
 $(window).resize(function () {
-    if (!window.matchMedia('(min-width: 1200px)').matches) {
-        $('#main-navigation i.fa-navicon').parent().siblings('ul').slideUp(0);
+    let $navigationContent  = $('#primary-navigation header i.toggler')
+    .parent().next('ul');
+    var expanded = "aria-expanded";
+    if (isDesktopWidth()) {
+        $navigationContent.show();
+        $navigationContent.attr(expanded, "true");
     } else {
-        $('#main-navigation i.fa-navicon').parent().siblings('ul').slideDown(0);
+        $navigationContent.hide();
+        $navigationContent.attr(expanded, "false");
     }
 });
 
 /**
- * Scrolls smoothly between id anchors on a same document.
- * By: Chris Coyier
- * Src: https://css-tricks.com/snippets/jquery/smooth-scrolling/
+ * Handles the click event of modules' toggler icon.
  */
-$('a[href*="#"]')
-    .not('[href="#"]')
-    .not('.headline-link')
-    .click(function(event) {
-        if (
-            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
-            location.hostname == this.hostname
-        ) {
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            if (target.length) {
-                $('html, body').animate({
-                    scrollTop: target.offset().top - 60
-                }, 2000, function () {
-                    var $target = $(target);
-                    $target.focus();
-                    if ($target.is(":focus")) {
-                        return false;
-                    } else {
-                        $target.attr('tabindex', '-1');
-                        $target.focus();
-                    };
-                });
-            }
-        }
-    });
+$('section.module i.toggler').on('click', function(event) {
+    toggleModuleExpansion($(this));
+});
+
+/**
+ * Toggles the expansion of the content of a module.
+ * @param {$element} $moduleToggler the toggle icon of the module.
+ */
+function toggleModuleExpansion($moduleToggler) {
+    var expanded = "aria-expanded";
+    $moduleToggler.toggleClass('rotate');
+    var $moduleHeader = $moduleToggler.parent('header');
+    var $moduleSection = $moduleHeader.parent('section');
+    if ($moduleSection.attr(expanded) === "false") {
+        $moduleSection.attr(expanded, "true");
+    } else {
+        $moduleSection.attr(expanded, "false");
+    }
+    var $moduleContent = $moduleHeader.next('article');
+    toggleModule($moduleContent);
+}
+
+/**
+ * Toggles the content of a module.
+ * @param {$element} $moduleContent the content of the module to toggle.
+ */
+function toggleModule($moduleContent) {
+    $moduleContent.toggle();
+}
+
+/**
+ * Handles the click event of the burger icon.
+ */
+$('#primary-navigation header i.toggler').on('click', function(event) {
+    toggleNavigationExpansion($(this));
+});
+
+/**
+ * Toggles the expansion of the content of the primary navigation.
+ * @param {$element} $navigationToggler the burger icon element.
+ */
+function toggleNavigationExpansion($navigationToggler) {
+    let $navigationContent = $navigationToggler.parent().next('ul');
+    var expanded = "aria-expanded";
+    if ($navigationContent.attr(expanded) === "false") {
+        $navigationContent.attr(expanded, "true");
+    } else {
+        $navigationContent.attr(expanded, "false");
+    }
+    toggleNavigation($navigationContent);
+}
+
+/**
+ * Toggles the content of the primary navigation.
+ * @param {$element} $navigationContent the content of the navigation to toggle.
+ */
+
+function toggleNavigation($navigationContent) {
+    if (isTabletPortraitWidth()) {
+        $navigationContent.slideToggle('fast');
+    } else {
+        $navigationContent.toggle();
+    }
+}
+
+/**
+ * Handles the click event of the navigation elements.
+ */
+$('#primary-navigation ul li i.toggler').on('click', function(event) {
+    toggleNavigationElementExpansion($(this));
+});
+
+/**
+ * Toggles the expansion of the content of a navigation element.
+ * @param {$element} $navigationElementToggler the toggle icon of the navigation
+ * element.
+ */
+function toggleNavigationElementExpansion($navigationElementToggler) {
+    var expanded = "aria-expanded";
+    $navigationElementToggler.toggleClass('rotate');
+    let $navigationElementContent = $navigationElementToggler.next('ul');
+    if ($navigationElementContent.attr(expanded) === "false") {
+        $navigationElementContent.attr(expanded, "true");
+    } else {
+        $navigationElementContent.attr(expanded, "false");
+    }
+    toggleNavigationElement($navigationElementContent);
+}
+
+/**
+ * Toggles the content of a navigation element.
+ * @param {$element} $navigationElementContent the content of the navigation 
+ * element.
+ */
+function toggleNavigationElement($navigationElementContent) {
+    if (isTabletPortraitWidth()) {
+        $navigationElementContent.slideToggle('fast');
+    } else {
+        $navigationElementContent.toggle();
+    }
+}
+
+/**
+ * Returns whether or not the media has the minimum width of the tablet portrait 
+ * breakpoint.
+ * @returns {Boolean} if the media has the minimum width of a tablet.
+ */
+function isTabletPortraitWidth() {
+    return window.matchMedia('(min-width: 768px)').matches;
+}
+
+/**
+ * Returns whether or not the media has the minimum width of the desktop 
+ * computer breakpoint.
+ * @returns {Boolean} if the media has the minimum width of a desktop computer.
+ */
+function isDesktopWidth() {
+    return window.matchMedia('(min-width: 1200px)').matches;
+}

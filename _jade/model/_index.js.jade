@@ -1,0 +1,120 @@
+-
+    class Index {
+
+        /**
+         * 
+         * @param {Locale} locale 
+         * @returns {Link[]}
+         */
+        static listNavigationElements(locale) {
+            let links = [];
+            let content = Site.content();
+            for (let i = 0; i < content.locales.length; i++) {
+                let locale = content.locales[i].locale;
+                if (locale.slug === Current.locale().slug) {
+                    //Add the pages at the root of the locale
+                    for (let j = 0; j < content.locales[i].pages.length; j++) {
+                        let page = content.locales[i].pages[j];
+                        links.push(
+                            new Link({
+                                headline: page.headline,
+                                path: page.path,
+                                iconClass: page.iconClass
+                            })
+                        );
+                    }
+                    for (let j = 0; j < content.locales[i].categories.length; j++) {
+                        let category = content.locales[i].categories[j];
+                        links.push(Index.fetchNavigationLinks(category));
+                    }
+                }
+            }
+            return links;
+        }
+
+        /**
+         * 
+         * @param {Category} category 
+         * @returns {Link}
+         */
+        static fetchNavigationLinks(category) {
+            let links = [];
+            for (let i = 0; i < category.categories.length; i++) {
+                let subcategory = category.categories[i];
+                links.push(
+                    Index.fetchNavigationLinks(subcategory)
+                );
+            }
+            let link = new Link({
+                headline: category.headline,
+                path: category.path,
+                links: links
+            });
+            return link;
+        }
+
+        /**
+         * @returns {Article[]}
+         */
+        static listAllArticles() {
+            let articles = [];
+            for (let i = 0; i < Site.locales().length; i++) {
+                articles = articles.concat(
+                    Index.listArticles(Site.locales()[i])
+                );
+            }
+            return articles;
+        }
+
+        /**
+         * 
+         * @param {Locale} locale 
+         * @return {Article[]}
+         */
+        static listArticles(locale) {
+            let articles = [];
+            let categories = Site.fetchContents(locale);
+            for (let i = 0; i < categories.length; i++) {
+                articles = articles.concat(
+                    Index.fetchArticles(categories[i])
+                );
+            }
+            return articles;
+        }
+
+        /**
+         * 
+         * @param {Category} category 
+         * @return {Article[]}
+         */
+        static fetchArticles(category) {
+            let articles = category.articles;
+            for (let i = 0; i < category.categories.length; i++) {
+                articles = articles.concat(
+                    Index.fetchArticles(category.categories[i])
+                );
+            }
+            return articles;
+        }
+
+    }
+
+    class Link {
+
+        /**
+         * Constructs a link for indexes.
+         * @param {String} headline the headline of this link.
+         * @param {String} path the path of this link.
+         * @param {String} iconClass the optional icon of this link.
+         * @param {Link[]} links the array of child links of this link.
+         */
+        constructor({
+            headline, path, iconClass, links
+        }) {
+            this.headline = headline;
+            this.path = path;
+            this.iconClass = iconClass;
+            this.links = links || [];
+        }
+
+    }

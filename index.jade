@@ -1,1 +1,39 @@
-include /_jade/components/_index-all-articles
+include /_jade/model/_model.js.jade
+include /_jade/components/_article-summary
+
+-
+    let articles = Index.listAllArticles();
+
+    /**
+     * Concatenates the data of a date.
+     * @param {Date} date the date to parse.
+     * @returns {String} the stringified date.
+     */
+    function stringifyDate(date) {
+        return "" + date.year + date.month + date.day;
+    }
+
+    /**
+     * Sorts the articles from the most recently modified to the least recently
+     * modified.
+     */
+    articles.sort(function (a, b) {
+        let dateA = a.lastestModificationDate;
+        let dateB = b.lastestModificationDate;
+        if (dateA === undefined) {
+            return 1;
+        } else if (dateB === undefined) {
+            return -1;
+        } else if (dateA === dateB) {
+            return 0;
+        } else {
+            dateA = stringifyDate(dateA);
+            dateB = stringifyDate(dateB);
+            return dateA > dateB ? -1 : 1;
+        }
+    });
+
+ol#articles
+    for article in articles
+        if article.publicationDate
+            +articleSummary(article)

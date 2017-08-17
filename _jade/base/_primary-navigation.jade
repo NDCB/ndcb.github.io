@@ -1,0 +1,40 @@
+mixin linkSublinks(rootLinks)
+    ul(aria-expanded="false")
+        each link in rootLinks
+            li
+                a(href!=link.path)!=link.headline
+                if link.links.length > 0
+                    i.fa.fa-fw.fa-caret-down.toggler
+                    +linkSublinks(link.links)
+
+#primary-navigation
+    nav
+        header
+            -let link = Current.localeSlug() ? Current.localeSlug() + '/' : '';
+            a(href!='/' + link)
+                img#logo(src="/res/logo-light.svg")
+            //- Hamburger icon
+            i.fa.fa-navicon.toggler
+        ul
+            if Current.locale()
+                -let links = Index.listNavigationElements(Current.locale())
+                for link in links
+                    li
+                        -
+                            let index = "index";
+                            if (link.path.endsWith(index)) {
+                                link.path = link.path.slice(0, -index.length);
+                            }
+                        a(href!=link.path)
+                            if link.iconClass
+                                i.fa.fa-fw(class!="fa-" + link.iconClass)
+                            !=' ' + link.headline
+                        if link.links.length > 0
+                            i.fa.fa-fw.fa-caret-down.toggler
+                            +linkSublinks(link.links)
+            else
+                each locale in Site.locales()
+                    -locale.headline = locale.languageName + ' ' + locale.countryName
+                    li: a(href!='/' + locale.slug + '/') 
+                        i(class!="flag-icon flag-icon-" + locale.countryCode.toLowerCase())
+                        !=' ' + locale.headline

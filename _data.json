@@ -2,9 +2,7 @@
     "pages": {
         "index": {
             "headline": "",
-            "description": "",
-            "changefreq": "weekly",
-            "containsCode": true
+            "description": ""
         }
     },
 
@@ -12,14 +10,19 @@
         "siteName": "NDCB",
         "url": "https://ndcb.github.io",
         "copyrightYear": "2016",
-        "googleAnalytics": "",
-        "bingWebmaster": "B8D87AA1707EE0650C1630A563C064FF",
+        "auth": {
+            "googleSearchConsole": "j5wDthszLVOJrFj6TCCMO-eYVVxWpBX9O-PtNU-c-yA",
+            "googleWebmaster": "",
+            "googleAnalytics": "",
+            "bingWebmaster": "B8D87AA1707EE0650C1630A563C064FF",
+            "facebookAppId": "885678258252305"
+        },
         "sourceUrl": "https://github.com/NDCB/ndcb.github.io-source",
+        "thumbnailsFolder": "/res/thumbnails/",
+        "profilePictursFolder": "/res/profile-pictures/",
         "profiles": {
             "facebook": "notesdecoursblog",
-            "facebookAppId": "885678258252305",
             "twitter": "_NDCB",
-            "youtube": "UCrIqCoxkk_ExpfppCyELyYg",
             "googlePlus": "b/117658749192198190558/117658749192198190558",
             "github": "NDCB",
             "mail": "ouimetmarcantoine@gmail.com"
@@ -27,7 +30,7 @@
     },
     
     "locales": {
-        "fr_CA": {
+        "fr-CA": {
             "languageName": "Français",
             "countryName": "Canada",
             "languageCode": "fr",
@@ -49,11 +52,13 @@
                         "Décembre"
                     ]
                 },
-                "metaPrompts": {
-                    "published": "Publié",
-                    "modified": "Dernière modification",
+
+                "prompts": {
+                    "published": "Publié le",
+                    "modified": "Dernière modification le",
                     "writtenBy": "Écrit par"
                 },
+
                 "modules": {
                     "definition": "Définition",
                     "example": "Exemple",
@@ -65,28 +70,27 @@
                         "figure": "Figure",
                         "folder": "figures"
                     },
+
                     "tableOfContents": "Table des matières"
                 },
-                "mainNavigation": {
+
+                "primaryNavigation": {
                     "logoAlt": "Retour au choix de localité"
                 },
-                "footer": {
+
+                "secondaryNavigation": {
                     "source": {
                         "headline": "Code source",
                         "icon": "code-fork"
                     },
-                    "socialTitle": {
+                    
+                    "socialTitles": {
                         "rss": "Flux RSS",
                         "facebook": "Page Facebook",
                         "twitter": "Flux Twitter",
                         "googlePlus": "Profil Google+",
                         "github": "Profil Github",
                         "email": "Contacter via email"
-                    }
-                },
-                "sidebar": {
-                    "shareTitle": {
-
                     }
                 }
             }
@@ -98,6 +102,10 @@
     },
 
     "feed.xml": {
+        "layout": false
+    },
+
+    "test": {
         "layout": false
     }
 }

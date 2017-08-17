@@ -1,0 +1,39 @@
+include ../model/_model.js.jade
+include _article-summary
+
+-
+    let articles = Index.listArticles(Current.locale());
+
+    /**
+     * Concatenates the data of a date.
+     * @param {Date} date the date to parse.
+     * @returns {String} the stringified date.
+     */
+    function stringifyDate(date) {
+        return "" + date.year + date.month + date.day;
+    }
+
+    /**
+     * Sorts the articles from the most recently published to the least recently 
+     * published.
+     */
+    articles.sort(function (a, b) {
+        let dateA = a.publicationDate;
+        let dateB = b.publicationDate;
+        if (dateA === undefined) {
+            return 1;
+        } else if (dateB === undefined) {
+            return -1;
+        } else if (dateA === dateB) {
+            return 0;
+        } else {
+            dateA = stringifyDate(dateA);
+            dateB = stringifyDate(dateB);
+            return dateA > dateB ? -1 : 1;
+        }
+    });
+
+ol#articles
+    for article in articles
+        if article.publicationDate
+            +articleSummary(article)

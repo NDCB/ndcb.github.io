@@ -1,12 +1,12 @@
-header#main-navigation {
-    background-color: $primary-dark;
+#primary-navigation {
+    background: $primary-dark;
     color: white;
     text-transform: uppercase;
     ul {
         list-style: none;
-        background-color: $secondary-dark;
+        background: $secondary-dark;
         @include respond-to(desktop) {
-            background-color: transparent;
+            background: transparent;
         }
     }
     li a {
@@ -14,18 +14,18 @@ header#main-navigation {
         text-decoration: none;
         &:hover {
             color: $primary-yellow;
-            background-color: $primary-dark;
+            background: $primary-dark;
             border-left: 0.3rem solid $primary-yellow;
             @include respond-to(desktop) {
                 transition: all 0.1s ease-in-out;
-                background-color: $secondary-dark;
+                background: $secondary-dark;
             }
         }
     }
     header {
-        background-color: $primary-dark;
+        background: $primary-dark;
         @include respond-to(desktop) {
-            background-color: transparent;
+            background: transparent;
         }
     }
 }

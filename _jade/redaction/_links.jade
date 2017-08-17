@@ -1,0 +1,5 @@
+//- Adds an external link.
+    @param {String} href the URL of the link.
+mixin extLink(href)
+    a.external-link(href!=href target="_blank" rel="nofollow")
+        block

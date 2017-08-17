@@ -1,0 +1,13 @@
+include ../model/_model.js.jade 
+
+doctype xml
+rss(version="2.0")
+    channel
+        title!=Site.globals().siteName + " (" + Current.locale().slug + ')'
+        link!=Site.url() + Current.locale().slug + '/'
+        description!=Current.root()._data.pages.index.description
+        for article in Index.listArticles(Current.locale())
+            item
+                title!=article.headline
+                link!=article.url
+                description!=article.description

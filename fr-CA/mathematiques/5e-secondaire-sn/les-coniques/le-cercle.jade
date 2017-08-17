@@ -1,0 +1,456 @@
+include /_jade/redaction/_redaction
+
+p Le cercle en tant que section conique correspond à une tranche parallèle à la base d'un cône. C'est une figure géométrique que l'on retrouve partout dans le quotidien et qui est à l'origine de la trigonométrie.
+
+p Étudions analytiquement le cercle en tant que section conique.
+
++definition("Le lieu géométrique du cercle")
+    p Le cercle correspond à l'ensemble des points équidistants à un centre.
+
++h(2, "L'équation cartésienne du cercle")
+
+    p Partant du #[+refDefinition(0) lieu géométrique du cercle], nous pouvons illustrer sur un plan cartésien un point #[+e() \color{blue}{O=(0,0)}] centré à l'origine qui correspond au centre du cercle. On y ajoute un point #[+e() \color{orange}{P=(x,y)}] à une distance positive et non nulle #[+e() \color{red}{r}] de #[+e() \color{blue}{O}.] Cette distance #[+e() \color{red}{r}] est constante en vertu du lieu géométrique du cercle. Le cercle, quant à lui, correspond à l'ensemble des points décrits par #[+e() \color{orange}{P}] en fonction de #[+e() \color{orange}{x}] et #[+e() \color{orange}{y}.] Les points #[+e() \color{blue}{O}] et #[+e() \color{orange}{P}] décrivent en triangle rectangle avec l'horizontale, où #[+e() \color{red}{r}=\overline{\color{blue}{O}\color{orange}{P}}] correspond à l'hypoténuse. En vertu du théorème de Pythagore, il est possible d'exprimer #[+e() \color{red}{r}] à l'aide de la formule de la distance entre deux points.
+    +fig("construction-du-cercle.svg").
+        La construction du cercle en tant que conique.
+    +eq().
+        r&=\sqrt{(x_P-x_O)^2+(y_P-y_O)^2}
+        \\&=\sqrt{x_P^2+y_P^2}&&\because O = (0,0)
+        \\&=\sqrt{x^2+y^2}
+    p En élevant de part et d'autre de l'équation au carré, on obtient l'équation d'un cercle de rayon #[+e() r] centré à l'origine.
+
+    +theorem("L'équation d'un cercle centré à l'origine")
+        +leq("cercle-centre-o") x^2+y^2=r^2
+        p Où #[+e() r], #[+e() x] et #[+e() y] sont des réels, #[+e() r>0], #[+e() -r\leq x\leq r] et #[+e() -r\leq y\leq r.]
+        +fig("cercle-centre-o.svg").
+            Le cercle centré à l'origine dans le plan cartésien.
+
+    p Puisqu'un cercle découlant de l'équation #[+eqref("cercle-centre-o")] est centré à l'origine, #[+e() x] et #[+e() y] sont tous deux contraints dans l'intervalle #[+e() [-r,r].] Intuitivement, c'est parce que la distance entre un point sur la circonférence et le centre du cercle est #[+e() r], alors verticalement et horizontalement les distances maximales ne peuvent être que #[+e() r.] Pour le démontrer, il suffit d'isoler #[+e() x] ou #[+e() y] dans l'équation #[+eqref("cercle-centre-o") .]
+
+    +eq().
+        x^2+y^2&=r^2
+        \\y^2&=r^2-x^2
+        \\|y|&=\sqrt{r^2-x^2}
+        \\y&=\pm\sqrt{r^2-x^2}
+
+    p Puisque l'équation #[+e() r^2-x^2] est un radicande, il convient que #[+e() r^2-x^2\geq 0,] ce qui implique que #[+e() x^2\leq r^2.] Conséquemment, #[+e() |x|\leq r\implies -r\leq x\leq r,] d'où la définition de #[+e() x] dans l'équation #[+eqref("cercle-centre-o")] telle que #[+e() x\in[-r,r].] Similairement, pour trouver la définition de #[+e() y,] il faudra isoler #[+e() x] dans l'équation #[+eqref("cercle-centre-o") .]
+
+
+    +eq().
+        x^2+y^2&=r^2
+        \\x^2&=r^2-y^2
+        \\|x|&=\sqrt{r^2-y^2}
+        \\x&=\pm\sqrt{r^2-y^2}
+
+    p Alors, en vertu de la définition de la fonction racine carrée, le radicande #[+e() r^2-y^2] doit être positif.
+
+    +eq().
+        r^2-y^2&\geq 0
+        \\y^2&\leq r^2
+        \\|y|&\leq r
+        \\&\implies-r\leq y\leq r
+
+    p On conclut donc que #[+e() y\in[-r,r].]
+
+    +example()
+        p Quelle est l'équation canonique d'un cercle centré à l'origine et de rayon #[+e() 3]?
+        p À partir de l'équation #[+eqref("cercle-centre-o") ,] l'équation recherchée devient #[+e() x^2+y^2=3^2.]
+
+    +example()
+        p Quels sont le domaine et l'image du cercle d'équation #[+e() x^2+y^2=81]?
+        p À partir de l'équation #[+eqref("cercle-centre-o") ,] #[+e() r=\sqrt{81}=9.] Sachant que la valeur minimale de #[+e() x] est #[+e() -r] et que sa valeur maximale est #[+e() r], alors le domaine du cercle est #[+e() [-9,9].] De même, sachant que #[+e() y] est restreint entre #[+e() -r] et #[+e() r], l'image du cercle est #[+e() [-9,9].]
+
+    +h(3, "L'équation canonique du cercle")
+
+        p Si le cercle n'était pas centré à l'origine, alors il en reviendrait à dire qu'on y effectue une translation sur le plan cartésien. Pour déterminer l'équation d'un tel cercle, il faudra reprendre la formule de la distance entre deux points et redéfinir le centre du cercle. Soit #[+e() Q=(h,k)], le centre d'un cercle de rayon #[+e() r] et #[+e() P=(x,y)] décrivant l'ensemble des points sur sa circonférence, tel que #[+e() r=\overline{QP}].
+        +eq().
+            r&=\sqrt{(x_P-x_Q)^2+(y_P-y_Q)^2}
+            \\r&=\sqrt{(x-h)^2+(y-k)^2}
+        p En élevant de part et d'autre l'équation au carré, on obtient l'équation d'un cercle de rayon #[+e() r] centré en #[+e() (h,k).]
+
+        +theorem("L'équation canonique d'un cercle")
+
+            +leq("cercle-canonique") (x-h)^2+(y-k)^2=r^2
+
+            p Où #[+e() r], #[+e() h], #[+e() k], #[+e() x] et #[+e() y] sont des réels, #[+e() r>0], #[+e() h-r\leq x\leq h+r] et #[+e() k-r\leq y\leq k+r.]
+
+            +fig("cercle-canonique.svg").
+                Le cercle d'équation canonique dans le plan cartésien.
+
+        p Puisqu'un cercle découlant de l'équation #[+eqref("cercle-canonique")] est centré en #[+e() (h,k)] et de rayon #[+e() r], alors #[+e() x] doit nécessairement être contraint par translation entre #[+e() h-r] et #[+e() h+r.] Similairement, #[+e() y] est compris entre #[+e() k-r] et #[+e() k+r], les extremums verticaux du cercle. La démonstration de ces affirmations est semblable à celles que nous avons fait en ce qui a trait au cercle d'équation #[+eqref("cercle-centre-o") .] Il faudra isoler #[+e() x] et #[+e() y] dans l'équation #[+eqref("cercle-canonique") .]
+
+        +eq().
+            (x-h)^2+(y-k)^2&=r^2
+            \\(y-k)^2&=r^2-(x-h)^2
+            \\|y-k|&=\sqrt{r^2-(x-h)^2}
+            \\y-k&=\pm\sqrt{r^2-(x-h)^2}
+            \\y&=k\pm\sqrt{r^2-(x-h)^2}
+
+        p En vertu de la définition de la fonction racine carrée, le radicande #[+e() r^2-(x-h)^2] doit être positif.
+
+        +eq().
+            r^2-(x-h)^2&\geq 0
+            \\(x-h)^2&\leq r^2
+            \\|x-h|&\leq r
+            \\&\implies -r\leq x-h\leq r
+            \\&\implies h-r\leq x\leq h+r
+
+        p Alors, pour un cercle d'équation #[+eqref("cercle-canonique") ,] #[+e() x\in[h-r,h+r].] De même manière, pour trouver la définition de #[+e() y], il faudra isoler #[+e() x] dans l'équation #[+eqref("cercle-canonique") .]
+
+        +eq().
+            (x-h)^2+(y-k)^2&=r^2
+            \\(x-h)^2&=r^2-(y-k)^2
+            \\|x-h|&=\sqrt{r^2-(y-k)^2}
+            \\x-h&=\pm\sqrt{r^2-(y-k)^2}
+            \\x&=h\pm\sqrt{r^2-(y-k)^2}
+
+        p Ainsi, en vertu de la définition de la fonction racine carrée, le radicande #[+e() r^2-(y-k)^2] doit être positif.
+
+        +eq().
+            r^2-(y-k)^2&\geq 0
+            \\(y-k)^2&\leq r^2
+            \\|y-k|&\leq r
+            \\&\implies -r\leq y-k\leq r
+            \\&\implies k-r\leq y\leq k+r
+
+        p Enfin, pour un cercle d'équation #[+eqref("cercle-canonique") ,] #[+e() y\in[k-r,k+r].]
+
+        +example()
+            p Quelle est l'équation canonique d'un cercle de rayon #[+e() 4] centré au point #[+e() A=(-4,7)]?
+            p À partir de l'équation #[+eqref("cercle-canonique") ,] si #[+e() r=4] et #[+e() A=(h,k)=(-4,7)], alors l'équation du cercle devient #[+e() (x+4)^2+(y-7)^2=4^2.]
+
+        +example()
+            p Existe-t-il un point sur la circonférence d'un cercle d'équation #[+e() (x-2)^2+(y+7)^2=16] dont l'abscisse est #[+e() -2]?
+            p À partir de l'équation #[+eqref("cercle-canonique") ,] #[+e() r=\sqrt{16}=4] et #[+e() (h,k)=(2,-7).] Sachant que le domaine d'un tel cercle est #[+e() [h-r,h+r]], nous pouvons vérifier que #[+e() -2\in[-2,6].]
+
++h(2, "Le cercle dans le plan cartésien")
+
+    p Le cercle, tout comme les autres coniques, sont des équations implicites. Par conséquent, il est impossible d'isoler #[+e() x] ou #[+e() y] des équations #[+eqref("cercle-centre-o")] et #[+eqref("cercle-canonique")] de telle sorte que le résultat soit une seule fonction. Nous avons précédemment isolé #[+e() x] et #[+e() y] dans l'équation #[+eqref("cercle-canonique") .]
+
+    +eq().
+        (x-h)^2+(y-k)^2&=r^2
+        \\x&=h\pm\sqrt{r^2-(y-k)^2}
+        \\x&=\begin{cases}
+        h+\sqrt{r^2-(y-k)^2}
+        \\h-\sqrt{r^2-(y-k)^2}
+        \end{cases}
+
+    +eq().
+        (x-h)^2+(y-k)^2&=r^2
+        \\y&=k\pm\sqrt{r^2-(x-h)^2}
+        \\y&=\begin{cases}
+        k+\sqrt{r^2-(x-h)^2}
+        \\k-\sqrt{r^2-(x-h)^2}
+        \end{cases}
+
+    p Les fonctions par parties résultantes n'ont pas de domaine qui leur soit unique. En effet, un cercle ne peut pas être une fonction puisqu'il existe plusieurs valeurs d'ordonnée #[+e() y] pour une même valeur d'abscisse #[+e() x.] Cependant, les fonctions résultantes s'avèrent intéressantes: chacune d'entre elles représente une moitié du cercle. Par ce, #[+e() x=h+\sqrt{r^2-(y-k)^2}] décrit la moitié droite du cercle, #[+e() x=h-\sqrt{r^2-(y-k)^2}] décrit sa moitié gauche, #[+e() y=k+\sqrt{r^2-(x-h)^2}] décrit sa moitié haute et #[+e() y=k-\sqrt{r^2-(x-h)^2}] décrit sa moitié basse. Si nous voulions résoudre des équations impliquant des cercles, il nous faudrait considérer le couple d'équations décrivant le cercle et essentiellement effectuer deux fois les mêmes étapes de résolution, ou nous pourrions nous servir de la substitution.
+
+    +h(3, "L'intersection d'un cercle et d'une droite")
+
+        p Soit un cercle d'équation #[+eqref("cercle-canonique")] et une droite d'équation #[+e() y=mx+b\Longleftrightarrow x=\dfrac{y-b}{m}.] Lorsqu'on cherche le ou les points d'intersection entre une droite et un cercle, il suffit de substituer l'équation de la droite dans celle du cercle. Si #[+e() y=mx+b], alors il suffit de remplacer #[+e() y] par #[+e() mx+b] dans l'équation #[+eqref("cercle-canonique") .]
+        +eq().
+            (x-h)^2+(y-k)^2&=r^2
+            \\(x-h)^2+(\color{blue}{mx+b}-k)^2&=r^2&&\color{blue}{\text{Par substitution}}
+        p Si en revanche #[+e() x=\dfrac{y-b}{m}], alors il suffit de remplacer #[+e() x] par #[+e() \dfrac{y-b}{m}] dans l'équation #[+eqref("cercle-canonique") .]
+        +eq().
+            (x-h)^2+(y-k)^2&=r^2
+            \\\left(\color{blue}{\dfrac{y-b}{m}}-h\right)^2+(y-k)^2&=r^2&&\color{blue}{\text{Par substitution}}
+
+        +example()
+            p Soit un cercle d'équation #[+e() (x-5)^2+(y-2)^2=25] et une droite d'équation #[+e() y=-2x+10.] Quels sont leurs points d'intersection s'il y en a?
+            p Il suffit de substituer l'équation de la droite dans celle du cercle pour éliminer une des variables manquantes.
+            +eq().
+                (x-5)^2+(y-2)^2&=25
+                \\(x-5)^2+(\color{blue}{-2x+10}-2)^2&=25&&\color{blue}{\text{Par substitution}}
+                \\(x-5)^2+(-2x+8)^2&=25
+                \\(x^2-10x+25)+(4x^2-32x+64)&=25
+                \\5x^2-10x-32x+64&=0
+                \\5x(x-2)-32(x-2)&=0
+                \\(5x-32)(x-2)&=0
+                \\&\begin{cases}5x-32=0\\x-2=0\end{cases}
+                \\&\begin{cases}x=\dfrac{32}{5}\\x=2\end{cases}
+            p Connaissant l'abscisse des points de la solution, il ne reste plus qu'à substituer leur valeur dans l'équation de la droite.
+            +eq().
+                y&=-2x+10
+                \\&=-2\left(\color{blue}{\dfrac{32}{5}}\right)+10&&\color{blue}{\text{Par substitution}}
+                \\&=-\dfrac{64}{5}+10
+                \\&=\dfrac{50-64}{5}
+                \\&=-\dfrac{14}{5}
+            +eq().
+                y&=-2x+10
+                \\&=-2(\color{blue}{2})+10&&\color{blue}{\text{Par substitution}}
+                \\&=6
+            p Les points d'intersection entre la droite et le cercle sont donc #[+e() \left(\dfrac{32}{5},-\dfrac{14}{5}\right)] et #[+e() (2,6).]
+            +fig("exemple-intersection-cercle-droite-deux-solutions.svg").
+                Réponse à #[+refExample(0) l&#39;exemple.]
+                
+        +example()
+            p Soit un cercle d'équation #[+e() x^2+(y-1)^2=5] et une droite d'équation #[+e() y-2x=6.] Quels sont leurs points d'intersection s'il y en a?
+            p Il suffit d'isoler #[+e() x] ou #[+e() y] dans l'équation de la droite et de substituer l'équation résultante dans l'équation du cercle pour éliminer une des variables manquantes.
+            +eq().
+                y-2x&=6
+                \\y&=6+2x
+            +eq().
+                x^2+(y-1)^2&=5
+                \\x^2+(\color{blue}{6+2x}-1)^2&=5&&\color{blue}{\text{Par substitution}}
+                \\x^2+(5+2x)^2&=5
+                \\x^2+25+20x+4x^2&=5
+                \\5x^2+20x+25&=5
+                \\x^2+4x+5&=1
+                \\x^2+4x+4&=0
+                \\(x+2)^2&=0
+                \\x+2&=0
+                \\x&=-2
+            p Connaissant l'abscisse du point de la solution, il ne reste plus qu'à la substituer dans l'équation de la droite.
+            +eq().
+                y&=6+2x
+                \\y&=6+2(\color{blue}{-2})&&\color{blue}{\text{Par substitution}}
+                \\y&=2
+            p Le point d'intersection entre la droite et le cercle est donc #[+e() (-2,2).]
+            +fig("exemple-intersection-cercle-droite-une-solution.svg").
+                Réponse à #[+refExample(0) l&#39;exemple.]
+                
+        +example()
+            p Soit un cercle d'équation #[+e() x^2+(y-5)^2=4] et une droite d'équation #[+e() y=x+1.] Quels sont leurs points d'intersection s'il y en a?
+            p Il suffit de substituer l'équation de la droite dans celle du cercle pour éliminer une des variables manquantes.
+            +eq().
+                x^2+(y-5)^2&=4
+                \\x^2+(\color{blue}{x+1}-5)^2&=4&&\color{blue}{\text{Par substitution}}
+                \\x^2+(x-4)^2&=4
+                \\x^2+x^2-8x+16&=4
+                \\2x^2-8x+12&=0
+                \\x^2-4x+6&=0
+                \\x&=\dfrac{4\pm\sqrt{(-4)^2-4\cdot 1\cdot 6}}{2\cdot 1}
+                \\&=\dfrac{4\pm\sqrt{16-24}}{2}
+                \\&=\dfrac{4\pm\sqrt{-8}}{2}
+            p Puisque le discriminant de l'équation #[+e() x^2-4x+6=0] est négatif, il n'y a pas de solutions à l'équation. Par conséquent, il n'y a pas de point d'intersection entre le cercle et la droite. 
+            +fig("exemple-intersection-cercle-droite-aucune-solution.svg").
+                Réponse à #[+refExample(0) l&#39;exemple.]
+
+    +h(3, "La droite tangente à un cercle")
+
+        +definition("Les droites tangentes")
+            p Une droite tangente à une courbe n'a qu'un point d'intersection avec la courbe dans un voisinage local.
+        p Les droites tangentes à n'importe quel cercle sont particulières. Soit un cercle quelconque et un segment de droite reliant son centre à un point sur sa circonférence. Une droite ne pourra être tangente à ce point sur la circonférence que si la droite et le segment de droite sont perpendiculaires.
+
+        +theorem("La droite tangente à un cercle")
+            p Une droite tangente en un point #[+e() P] sur la circonférence d'un cercle centré en #[+e() Q] est perpendiculaire au segment de droite #[+e() \overline{QP}.]
+            +proof()
+                p Soit le centre #[+e() Q=(h,k)] d'un cercle de rayon #[+e() r]. Soit #[+e() P], un point sur une droite d'équation #[+e() y=k-r]. Le point #[+e() P] ne peut être le point de tangence entre le cercle et la droite que si le segment #[+e() \overline{QP}] est perpendiculaire à la droite, là où #[+e() \overline{QP}=r,] sa valeur minimale. En effet, pour tous #[+e() P] différents du point de tangence, il existe une distance #[+e() r&lt;\overline{QP}.]
+                +fig("preuve-perpendicularite-droite-tangente-cercle.svg").
+                    Construction de la preuve #{proofNo}.
+
+        p En vertu du #[+refTheorem(0) théorème précédent], il sera possible de déterminer l'équation générale de la droite tangente à un cercle. Considérons un cercle d'équation canonique #[+eqref("cercle-canonique")] et un point #[+e() P=(x_P,y_P)] sur sa circonférence. Rappelons-nous aussi que pour une droite d'équation #[+e() y=m_1x+b,] le taux de variation d'une droite qui lui est perpendiculaire est #[+e() m_2=-\dfrac{1}{m_1}.] L'équation d'une droite de taux de variation #[+e() m] passant par #[+e() P] est #[+e() y-y_P=m(x-x_P).] Alors, il est possible de trouver l'équation #[+e() y-y_P=m_2(x-x_P)] de la droite tangente au cercle d'équation #[+eqref("cercle-canonique")] au point #[+e() P] en partant du centre du cercle #[+e() (h,k).]
+        +fig("construction-equation-generale-droite-tangente-cercle.svg").
+            La construction de l'équation générale de la droite tangente en #[+e() P] au cercle d'équation canonique #[+eqref("cercle-canonique") .]
+        +eq().
+            m_2&=-\dfrac{1}{m_1}
+            \\&=-\dfrac{1}{\dfrac{\Delta y}{\Delta x}}
+            \\&=-\dfrac{1}{\dfrac{y_P-k}{x_P-h}}
+            \\&=-\dfrac{x_P-h}{y_P-k}
+        +eq().
+            y-y_P=m_2(x-x_P)
+        p En substituant l'équation de #[+e() m_2] dans la dernière équation, on obtient l'équation générale d'une droite tangente en #[+e() P] à un cercle canonique.
+
+        +theorem("L'équation générale d'une droite tangente à un cercle canonique")
+            p Pour un cercle d'équation canonique #[+eqref("cercle-canonique")] centré en #[+e() (h,k)] et un point de tangence #[+e() P=(x_P,y_P)], l'équation de la droite tangente s'exprime
+            +leq("tangente-generale-cercle").
+                y=-\dfrac{x_P-h}{y_P-k}(x-x_P)+y_P.
+
+        +example()
+            p Soit un cercle centré en #[+e() Q=(-3,-2)] et le point #[+e() P=(-1,2)]. Quelle est l'équation de la droite tangente au cercle au point #[+e() P]?
+            p Sachant que la droite tangente à un cercle est perpendiculaire au rayon reliant son centre au point de tangence, alors il faut trouver le taux de variation #[+e() m_1] de la droite #[+e() \overline{QP}.]
+            +eq().
+                m_1&=\dfrac{\Delta y}{\Delta x}
+                \\&=\dfrac{y_P-y_Q}{x_P-x_Q}
+                \\&=\dfrac{2--2}{-1--3}
+                \\&=\dfrac{4}{2}
+                \\&=2
+            p Connaissant la relation entre les taux de variation de droites perpendiculaires #[+e() m_1=-\dfrac{1}{m_2},] et l'équation d'une droite passant par un point #[+e() (x_1,y_1)] étant #[+e() y-y_1=m(x-x_1),] l'équation de la droite tangente au cercle devient
+            +eq().
+                y-y_P&=m_2(x-x_P)
+                \\y-2&=-\dfrac{1}{2}(x--1)
+                \\y&=-\dfrac{1}{2}(x+1)+2
+                \\&=-\dfrac{1}{2}x+\dfrac{3}{2}.
+            +fig("exemple-equation-droite-tangente-cercle.svg").
+                Réponse à #[+refExample(0) l&#39;exemple.]
+
+        +example()
+            p Soit une droite d'équation #[+e() 2x+3y=30] tangente à un cercle centré en #[+e() Q=(4,k).] Si le point de tangence entre la droite et le cercle est #[+e() P=(6,6),] quelle est l'équation du cercle?
+            p Le premier élément du problème que nous cherchons est la valeur de #[+e() k]. En vertu de la perpendicularité de la droite tangente au cercle par rapport au segment reliant le point de tangence et le centre du cercle, alors #[+e() \overline{QP}] est perpendiculaire à la droite #[+e() 2x+3y=30]. Réécrivons la droite sous forme canonique #[+e() y=m_2x+b.]
+            +eq().
+                2x+3y&=30
+                \\3y&=-2x+30
+                \\y&=-\dfrac{2}{3}x+10
+            p La droite perpendiculaire #[+e() y=m_1x+b] à cette dernière s'obtient à partir de la relation entre leur taux de variation et du point #[+e() P.]
+            +eq().
+                m_1&=-\dfrac{1}{m_2}
+                \\&=-\dfrac{1}{-\dfrac{2}{3}}
+                \\&=\dfrac{3}{2}
+            +eq().
+                y-y_1&=m(x-x_1)
+                \\y-6&=m_1(x-6)
+                \\y&=\dfrac{3}{2}(x-6)+6
+                \\&=\dfrac{3}{2}x-9+6
+                \\&=\dfrac{3}{2}x-3
+            p Cette droite intersecte le point de tangence #[+e() P] ainsi que le centre du cercle #[+e() Q=(4, k).]
+            +eq().
+                y&=\dfrac{3}{2}x-3
+                \\&=\dfrac{3}{2}\cdot\color{blue}{4}-3&&\color{blue}{\text{Par substitution}}
+                \\&=6-3
+                \\&=3
+            p Alors, #[+e() Q=(4, 3).] Le second élément du problème qu'il nous faut trouver à présent est la valeur du rayon #[+e() r=\overline{QP},] ou plutôt #[+e() r^2] pour l'équation du cercle.
+            +eq().
+                r&=\sqrt{(x_P-x_Q)^2+(y_P-y_Q)^2}
+                \\r^2&=(x_P-x_Q)^2+(y_P-y_Q)^2
+                \\&=(6-4)^2+(6-3)^2
+                \\&=4+9
+                \\&=13
+            p À partir de l'équation canonique du cercle #[+eqref("cercle-canonique") ,] la réponse devient
+            +eq().
+                (x-4)^2+(y-3)^2=13.
+            +fig("exemple-determiner-equation-cercle-tangente.svg").
+                Réponse à #[+refExample(0) l&#39;exemple.]
+
+        +example()
+            p Quelle est l'équation du cercle tangent à la droite #[+e() y=\dfrac{3}{4}x+\dfrac{7}{4}] en #[+e() P=(3,4)] et tangent à la droite #[+e() 4x-3y=49] en #[+e() M=(10,-3)?]
+            p La droite perpendiculaire à une droite tangente à un cercle intersecte son centre. Connaissant l'équation de deux droites tangentes, l'intersection de leur droite perpendiculaire partant de leur point de tangence auront pour solution le centre du cercle. Il faut trouver les équations de ces droites perpendiculaires.
+            
+            p Pour déterminer l'équation de la droite perpendiculaire à #[+e() y=\dfrac{3}{4}x+\dfrac{7}{4}] passant par le point #[+e() P=(3,4):]
+            +eq().
+                \\m_1&=-\dfrac{1}{m_2}&&\text{Soit }m_2=\dfrac{3}{4}
+                \\&=-\dfrac{1}{\dfrac{3}{4}}
+                \\&=-\dfrac{4}{3}
+            +eq().
+                y-y_P&=m_1(x-x_P)
+                \\y-4&=-\dfrac{4}{3}(x-3)
+                \\y&=-\dfrac{4}{3}(x-3)+4
+                \\&=-\dfrac{4}{3}x+4+4
+                \\&=-\dfrac{4}{3}x+8.
+
+            p Pour déterminer l'équation de la droite perpendiculaire à #[+e() 4x-3y=49] passant par le point #[+e() M=(10,-3):]
+            +eq().
+                4x-3y&=49
+                \\-3y&=-4x+49
+                \\y&=\dfrac{4}{3}x-\dfrac{49}{3}
+            +eq().
+                \\m_1&=-\dfrac{1}{m_2}&&\text{Soit }m_2=\dfrac{4}{3}
+                \\&=-\dfrac{1}{\dfrac{4}{3}}
+                \\&=-\dfrac{3}{4}
+            +eq().
+                y-y_M&=m_1(x-x_M)
+                \\y--3&=-\dfrac{3}{4}(x-10)
+                \\y+3&=-\dfrac{3}{4}x+\dfrac{30}{4}
+                \\y&=-\dfrac{3}{4}x+\dfrac{15}{2}-3
+                \\&=-\dfrac{3}{4}x+\dfrac{15-6}{2}
+                \\&=-\dfrac{3}{4}x+\dfrac{9}{2}.
+
+            p Il faut désormais résoudre le système d'équations linéaires #[+e() \begin{cases}y=-\dfrac{4}{3}x+8\\y=-\dfrac{3}{4}x+\dfrac{9}{2}\end{cases}.]
+            +eq().
+                -\dfrac{4}{3}x+8&=-\dfrac{3}{4}x+\dfrac{9}{2}&&\text{Par comparaison}
+                \\\dfrac{3}{4}x-\dfrac{4}{3}x&=\dfrac{9}{2}-8
+                \\\dfrac{9-16}{12}x&=\dfrac{9-16}{2}
+                \\\dfrac{-7}{12}x&=\dfrac{-7}{2}
+                \\x&=\dfrac{-7}{2}\cdot\dfrac{12}{-7}
+                \\&=6
+            +eq().
+                y&=-\dfrac{4}{3}x+8
+                \\&=-\dfrac{4}{3}\cdot \color{blue}{6}+8&&\color{blue}{\text{Par substitution}}
+                \\&=-8+8
+                \\&=0
+            p Alors, les coordonnées du centre du cercle sont #[+e() Q=(6,0).] Il faut maintenant trouver la valeur de son rayon #[+e() r], qui équivaut à la longueur des segments #[+e() \overline{QP}] et #[+e() \overline{QM}.]
+            +eq().
+                r&=\overline{QP}
+                \\&=\sqrt{(x_P-x_Q)^2+(y_P-y_Q)^2}
+                \\r^2&=(3-6)^2+(4-0)^2
+                \\&=9+16
+                \\&=25
+            p À partir de l'équation canonique du cercle #[+eqref("cercle-canonique") ,] la réponse devient
+            +eq().
+                (x-6)^2+y^2=25
+            +fig("exemple-determiner-equation-cercle-deux-tangentes.svg").
+                Réponse à #[+refExample(0) l&#39;exemple.]
+
+    +h(3, "Les inéquations et le cercle")
+
+        p Le #[+refDefinition(-1) lieu géométrique du cercle] permet aussi de décrire une région délimitée du plan cartésien par le biais d'une inéquation. Plutôt que de servir du signe de l'égalité dans l'équation canonique du cercle #[+eqref("cercle-canonique") ,] on emploiera alors #[+e() &lt;] ou #[+e() &gt;] qui excluent la circonférence du cercle, ou encore #[+e() \leq] ou #[+e() \geq] qui incluent la circonférence du cercle. Cependant, pour comprendre quel signe décrit quelle région dans le plan cartésien, il faut considérer la valeur du rayon du cercle. Partons de l'équation d'un cercle centré à l'origine #[+eqref("cercle-centre-o")] sans le signe d'égalité.
+        +eq().
+            x^2+y^2\:\Box\:r^2
+        p Si la relation #[+e() \Box] était une égalité avec #[+e() r^2,] alors l'équation décrirait l'ensemble des points équidistants au centre #[+e() O] par la distance #[+e() r.] Si nous considérions des valeurs plus petites que #[+e() r,] alors nous nous retrouverions à décrire la région délimitée à l'intérieur du cercle de rayon #[+e() r.] En revanche, si nous considérions des valeurs plus grandes que #[+e() r,] alors nous décririons l'ensemble du plan cartésien à l'exception de la région délimitée à l'intérieur du cercle de rayon #[+e() r].
+
+        .row
+            .col-sm-6
+                +fig("inequation-cercle-plus-petit-que-rayon.svg").
+                    Le graphe de l'inéquation #[+e() (x-h)^2+(y-k)^2&lt;r^2,] qui décrit la région délimitée à l'intérieur du cercle en excluant sa circonférence.
+            .col-sm-6
+                +fig("inequation-cercle-plus-petit-ou-egal-au-rayon.svg").
+                    Le graphe de l'inéquation #[+e() (x-h)^2+(y-k)^2\leq r^2,] qui décrit la région délimitée à l'intérieur du cercle en incluant sa circonférence.
+        .row
+            .col-sm-6
+                +fig("inequation-cercle-plus-grand-que-rayon.svg").
+                    Le graphe de l'inéquation #[+e() (x-h)^2+(y-k)^2&gt;r^2,] qui décrit la région délimitée à l'extérieur du cercle en excluant sa circonférence.
+            .col-sm-6
+                +fig("inequation-cercle-plus-grand-ou-egal-au-rayon.svg").
+                    Le graphe de l'inéquation #[+e() (x-h)^2+(y-k)^2\geq r^2,] qui décrit la région délimitée à l'extérieur du cercle en incluant sa circonférence.
+
+        p Un truc pour déterminer la région délimitée par l'inéquation d'un cercle est de l'évaluer au point #[+e() Q=(h,k),] le centre du cercle. Ce faisant, si l'inéquation est vérifiée, c'est-à-dire qu'elle est vraie pour le couple #[+e() (x,y)] donné, alors l'inéquation comprend l'intérieur du cercle. Autrement, elle comprend son extérieur.
+
+        +example()
+            p Le point #[+e() P=(-7,-1)] est-il compris dans la région délimitée par l'inéquation #[+e() (x+5)^2+(y+3)^2\leq 20?]
+            p Il suffit d'insérer les coordonnées du point #[+e() P] dans l'inéquation pour voir si le couple de valeurs #[+e() (x,y)] la vérifie.
+            +eq().
+                (x+5)^2+(y+3)^2&\stackrel{?}{\leq}20 &&\text{Soit }(x,y)=(-7,-1)
+                \\(-7+5)^2+(-1+3)^2&\stackrel{?}{\leq}20
+                \\(-2)^2+(2)^2&\stackrel{?}{\leq}20
+                \\8&\leq 20
+            p Alors oui, le point #[+e() P=(-7,-1)] est compris dans la région de l'inéquation #[+e() (x+5)^2+(y+3)^2\leq 20.]
+            +fig("exemple-point-compris-inequation-interieur-cercle.svg").
+                Réponse à #[+refExample(0) l&#39;exemple.]
+
+        +example()
+            p Le point #[+e() P=(-3,8)] est-il compris dans la région délimitée par l'inéquation #[+e() (x-1)^2+(y-6)^2&lt;20?]
+            p Il suffit d'insérer les coordonnées du point #[+e() P] dans l'inéquation pour voir si le couple de valeurs #[+e() (x,y)] la vérifie.
+            +eq().
+                (x-1)^2+(y-6)^2&\stackrel{?}{&lt;}20 &&\text{Soit }(x,y)=(-3,8)
+                \\(-3-1)^2+(8-6)^2&\stackrel{?}{&lt;}20
+                \\(-4)^2+(2)^2&\stackrel{?}{&lt;}20
+                \\20&\nless 20
+            p Alors non, le point #[+e() P=(-3,8)] n'est pas compris dans la région de l'inéquation #[+e() (x-1)^2+(y-6)^2&lt;20.]
+            +fig("exemple-point-non-compris-inequation-circonference-cercle.svg").
+                Réponse à #[+refExample(0) l&#39;exemple.]
+
++h(2, "La forme générale de l'équation d'un cercle")
+
+    p La forme générale de l'équation d'un cercle consiste au développement de son équation canonique #[+eqref("cercle-canonique").]
+    +eq().
+        (x-h)^2+(y-k)^2&=r^2
+        \\x^2-2xh+h^2+y^2-2yk+k^2-r^2&=0
+        \\x^2+y^2-2hx-2ky+h^2+k^2-r^2&=0
+    p Ce faisant, l'équation prend la forme
+    +leq("cercle-generale").
+        Ax^2+Bxy+Cy^2+Dx+Ey+F=0
+    p qui caractérise toutes les coniques. L'équation générale ne décrit un cercle que lorsque #[+e() B=0] et #[+e() A=C,] duquel cas on pourrait annuler leur valeur en divisant de part et d'autre l'équation par #[+e() A] ce qui nous laisserait avec un coefficient de #[+e() 1] pour les termes #[+e() x^2] et #[+e() y^2.] Cela revient à dire que le discriminant #[+e() \Delta = B^2-4AC] doit être négatif et que #[+e() A=C.] Du développement que nous avons fait plus tôt, on remarque que #[+e() D=-2h,] #[+e() E=-2k] et #[+e() F=h2+k2-r^2.] Il ne vaut pas la peine de mémoriser ces coefficients.
+    p Le problème plus intéressant qui surgit lorsqu'on se sert de la forme générale de l'équation d'un cercle c'est d'en dégager la forme canonique. Pour ce faire, il faudra factoriser l'équation #[+eqref("cercle-generale").] On aura recours à la complétion du carré, comme nous verrons dans les exemples numériques.
+
+    +example()
+        p Quelle est l'équation canonique #[+eqref("cercle-canonique")] d'un cercle d'équation #[+e() x^2+y^2+10x-6y=2?]
+        p On aura recours à la complétion du carré pour factoriser l'équation. Il ne faut pas oublier de répliquer les ajouts que l'on fait de part et d'autre de l'équation.
+        +eq().
+            x^2+y^2+10x-6y&=2
+            \\x^2+10x+y^2-6y&=2
+            \\x^2+10x+\left(\dfrac{10}{2}\right)^2+y^2-6y+\left(\dfrac{-6}{2}\right)^2&=2+\left(\dfrac{10}{2}\right)^2+\left(\dfrac{-6}{2}\right)^2
+            \\(x+5)^2+(y-3)^2&=2+(5)^2+(-3)^2
+            \\(x+5)^2+(y-3)^2&=2+25+9
+            \\(x+5)^2+(y-3)^2&=36
+        p La réponse est donc un cercle d'équation #[+e() (x+5)^2+(y-3)^2=36.]
+
+    +example()
+        p Exprimez l'équation du cercle #[+e() (x-2)^2+(y-5)^2=2] sous sa forme générale #[+eqref("cercle-generale").]
+        p Il faudra développer l'équation pour en dégager l'équation générale du cercle.
+        +eq().
+            (x-2)^2+(y-5)^2&=2
+            \\x^2-4x+4+y^2-10y+25&=2
+            \\x^2+y^2-4x-10y+4+25-2&=0
+            \\x^2+y^2-4x-10y+27&=0
+        p La réponse est donc #[+e() x^2+y^2-4x-10y+27=0.]
+
++tableOfContents()

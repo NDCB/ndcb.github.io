@@ -1,21 +1,7 @@
-include /_jade/base/_functions
+include /_jade/model/_model.js.jade
 
 doctype xml
-urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
-    -
-        console.info("Processing sitemap");
-
-        var articles = fetchAllArticles();
-        var pages = fetchAllPages();
-        var urlset = articles.concat(pages);
-
-    //- Standard sitemap structure
-    for url in urlset
-        url
-            loc!=public._data.globals.url + url.path
-            if url.info && url.info.lastmod
-                lastmod!=url.info.lastmod
-            if url.info && url.info.changefreq
-                changefreq!=url.info.changefreq
-            else 
-                changefreq!="monthly"
+sitemapindex(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+    for locale in Site.locales()
+        sitemap
+            loc!=Site.url() + locale.path + "sitemap.xml"

@@ -1,0 +1,85 @@
+-
+    class Person {
+
+        /**
+         * Constructs a person.
+         * @param {String} fullName the full name of this person.
+         * @param {String} bio the biography of this person.
+         * @param {Object} profiles the social profiles of this person.
+         * @param {String} id the identification string of this person.
+         * @param {Locale} locale the locale of this person.
+         * @param {String} path the path to the card of this person.
+         */
+        constructor({
+            fullName, bio, profiles, id, locale, path
+        }) {
+            this.fullName = fullName;
+            this.bio = bio;
+            this.profiles = profiles || {};
+            this.id = id;
+            this.locale = locale;
+            this.path = path;
+        }
+
+        /**
+         * @returns {String} the path to the profile picture of this person.
+         */
+        get profilePictureFile() {
+            return Site.globals().profilePictursFolder + this.id + ".jpg";
+        }
+
+        /**
+         * Returns the property of this person's profiles of the given title.
+         * @param {String} title the title of the profile. 
+         * @returns {Null|String} the URL to the queried profile of this person.
+         */
+        profile(title) {
+            return this.profiles[title];
+        }
+
+        /**
+         * Fetches a person from their ID among an array of persons.
+         * @param {String} personId the identification string of the person to fetch.
+         * @param {Person[]} persons the persons from which to fetch the queried person.
+         * @return {Person} the fetched person.
+         * @throws {Error} if there is no person of the given ID in the array.
+         */
+        static fetchPerson(personId, persons) {
+            let person;
+            for (let i = 0; i < persons.length; i++) {
+                if (personId === persons[i].id) {
+                    return persons[i];
+                }
+            }
+            throw new Error("No person of id " + personId + " defined in persons.");
+        }
+
+        /**
+         * Parses a person given their ID among the persons of a locale given its slug.
+         * @param {String} personId the identification string of the person to parse.
+         * @param {String} localeSlug the slug of the locale from which to parse the person.
+         */
+        static parsePerson(personId, localeSlug) {
+            let locale = Locale.parse(localeSlug);
+            let person = Person.fetchPerson(personId, locale.persons);
+            person.locale = locale;
+            person.path = locale.aboutPage.path + '#' + personId;
+            return person;
+        }
+
+        /**
+         * Parses persons given their ID among the persons of a locale given its slug.
+         * @param {String[]} personsId the identification string of the persons to parse.
+         * @param {String} localeSlug the slug of the locale from which to parse the persons.
+         */
+        static parsePersons(personsId, localeSlug) {
+            let persons = [];
+            for (let index in personsId) {
+                let personId = personsId[index];
+                persons.push(
+                    Person.parsePerson(personId, localeSlug)
+                );
+            }
+            return persons;
+        }
+    }

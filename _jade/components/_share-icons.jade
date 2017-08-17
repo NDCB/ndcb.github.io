@@ -1,11 +1,14 @@
-include /_jade/base/_functions
-include /_jade/mixins/helper/_icon-stack-button
+//- Stacks an icon of a given class above a square.
+mixin iconStackButton(foregroundIconClass, backgroundIconClass)
+    span.fa-stack
+        i.fa.fa-stack-2x(class!=backgroundIconClass)
+        i.fa.fa-stack-1x.fa-inverse(class!=foregroundIconClass)
 
 -var backgroundIconClass = "fa-square";
 
 //- Facebook share icon
 li: a.social-share-popup.facebook(
-        href!="//www.facebook.com/sharer/sharer.php?u=" + getCurrentUrl()
+        href!="//www.facebook.com/sharer/sharer.php?u=" + Current.url()
         target='_blank'
         rel="nofollow"
     )
@@ -13,7 +16,7 @@ li: a.social-share-popup.facebook(
 
 //- Twitter share icon
 li: a.social-share-popup.twitter(
-        href!="//twitter.com/intent/tweet?url=" + getCurrentUrl() + "&via=" + public._data.globals.profiles.twitter 
+        href!="//twitter.com/intent/tweet?url=" + Current.url() + "&via=" + public._data.globals.profiles.twitter 
         target='_blank'
         rel="nofollow"
     )
@@ -21,7 +24,7 @@ li: a.social-share-popup.twitter(
 
 //- Google+ share icon
 li: a.social-share-popup.google-plus(
-        href!="//plus.google.com/share?url=" + getCurrentUrl()
+        href!="//plus.google.com/share?url=" + Current.url()
         target='_blank'
         rel="nofollow"
     )
@@ -29,16 +32,16 @@ li: a.social-share-popup.google-plus(
 
 //- Reddit share icon
 li: a.social-share-popup.reddit(
-        href!="//www.reddit.com/submit?url=" + getCurrentUrl()
+        href!="//www.reddit.com/submit?url=" + Current.url()
         target='_blank'
         rel="nofollow"
     )
     +iconStackButton("fa-reddit", backgroundIconClass)
 
-//- Whatsapp share icon
-li: a.whatsapp(
-        href!="whatsapp://send?text=" + getCurrentUrl()
-        target='_blank'
-        rel="nofollow"
-    )
-    +iconStackButton("fa-whatsapp", backgroundIconClass)
+if Current.isArticle() && Current.content().allowsComments
+    //- Comment icon
+    li: a.comment(
+            href="#disqus_thread"
+            rel="nofollow"
+        )
+        +iconStackButton("fa-comment", backgroundIconClass)

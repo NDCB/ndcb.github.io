@@ -1,0 +1,102 @@
+{
+    "pages": {
+        "index": {
+            "headline": "Les coniques",
+            "description": "Tout ce qu'il y a à savoir sur les courbes planes que sont les sections coniques.",
+            "changefreq": "weekly"
+        }
+    },
+
+    "articles": {
+        "les-lieux-geometriques": {
+            "headline": "Les lieux géométriques",
+            "description": "Les lieux géométriques sont des ensembles de points satisfaisant des conditions particulières.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ],
+            "containsMath": true,
+            "allowsComments": true,
+            "publicationDate": "2017-07-15",
+            "lastestModificationDate": "2017-07-15",
+            "changefreq": "monthly"
+        },
+        
+        "le-cercle": {
+            "headline": "Le cercle",
+            "description": "Le cercle est une section conique correspondant à l'ensemble des points équidistants à un centre.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ],
+            "containsMath": true,
+            "allowsComments": true,
+            "publicationDate": "2017-07-14",
+            "lastestModificationDate": "2017-07-14",
+            "changefreq": "monthly"
+        },
+
+        "lellipse": {
+            "headline": "L'ellipse",
+            "description": "L'ellipse est une section conique correspondant à l'ensemble des points dont la somme des distances à deux points fixes est constante.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ],
+            "containsMath": true,
+            "allowsComments": true,
+            "publicationDate": "2017-02-18",
+            "lastestModificationDate": "2017-03-14",
+            "changefreq": "monthly"
+        },
+
+        "lhyperbole": {
+            "headline": "L'hyperbole",
+            "description": "L'hyperbole est une section conique correspondant à l'ensemble des points dont la différence des distances à deux points fixes est constante.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ],
+            "containsMath": true,
+            "allowsComments": true,
+            "publicationDate": "2017-01-14",
+            "lastestModificationDate": "2017-07-14",
+            "changefreq": "monthly"
+        },
+
+        "la-parabole": {
+            "headline": "La parabole",
+            "description": "La parabole est une section conique correspondant à l'ensemble des points équidistants à un point fixe et à une droite directrice.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ],
+            "containsMath": true,
+            "allowsComments": true,
+            "publicationDate": "2017-07-14",
+            "lastestModificationDate": "2017-07-14",
+            "changefreq": "monthly"
+        },
+
+        "resume-des-coniques": {
+            "headline": "Résumé des coniques",
+            "description": "L'ensemble des notions importantes concernant les coniques.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ],
+            "containsMath": true,
+            "allowsComments": true,
+            "publicationDate": "2017-07-14",
+            "lastestModificationDate": "2017-07-14",
+            "changefreq": "monthly"
+        },
+
+        "exercices-sur-les-coniques": {
+            "headline": "Exercices sur les coniques",
+            "description": "Plusieurs exercices de renforcement sur les coniques.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ],
+            "containsMath": true,
+            "allowsComments": true,
+            "publicationDate": "2017-07-14",
+            "lastestModificationDate": "2017-07-14",
+            "changefreq": "monthly"
+        }
+    }
+}

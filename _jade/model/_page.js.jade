@@ -1,0 +1,80 @@
+-
+    class Page {
+
+        /**
+         * Constructs a page.
+         * @param {String} headline the headline of this page.
+         * @param {String} description the description of this page.
+         * @param {String} iconClass the Fontawesome icon class associated with this page.
+         * @param {Boolean} isAboutPage whether or not this page is the about page, containing the cards of the persons involved in the website for the given locale.
+         * @param {String} changeFrequency the change frequency of this page (i.e., "always", "hourly", "daily", "weekly", "monthly", "yearly", "never").
+         * @param {String} slug the slug of this page.
+         * @param {Object} locale the locale of this page.
+         * @param {String} path the path of this page.
+         */
+        constructor({
+            headline, description, iconClass, isAboutPage, changeFrequency,
+            slug, locale, path
+        }) {
+            this.headline = headline;
+            this.description = description;
+            this.iconClass = iconClass;
+            this.isAboutPage = isAboutPage || false;
+            this.changeFrequency = changeFrequency || "monthly";
+            this.slug = slug;
+            if (locale) {
+                this.locale = locale;
+            }
+            this.path = path;
+        }
+
+        /**
+         * @param {String} value the new change frequency of this page.
+         */
+        set changeFrequency(value) {
+            let valid  = false;
+            for (let i = 0; i < CHANGE_FREQUENCIES.length; i++) {
+                let CHANGE_FREQUENCY = CHANGE_FREQUENCIES[i];
+                if (CHANGE_FREQUENCY === value) {
+                    valid = true;
+                }
+            }
+            if (valid) {
+                this._changeFrequency = value;
+            } else if (!value) {
+                this._changeFrequency = "monthly";
+            } else {
+                throw new Error("Invalid change frequency " + value);
+            }
+        }
+
+        get changeFrequency() {
+            return this._changeFrequency;
+        }
+
+        /**
+         * @param {String} value the slug of the new locale of this page (i.e., fr-CA, en-US).
+         */
+        set locale(value) {
+            let locale = Locale.parse(value);
+            this._locale = locale;
+        }
+
+        get locale() {
+            return this._locale;
+        }
+
+        /**
+         * Returns the breadcrumbs of the current page.
+         * @returns {Breadcrumb[]} the breadcrumbs.
+         */
+        get breadcrumbs() {
+            return Breadcrumbs.parse(
+                Utils.parsePathFragments(this.path)
+            );
+        }
+
+        get url() {
+            return Site.globals().url + path;
+        }
+    }

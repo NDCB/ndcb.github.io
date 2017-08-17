@@ -11,10 +11,9 @@
 @import '_sass/layout/_navigation';
 @import '_sass/layout/_sidebar';
 
+@import '_sass/components/_authors';
 @import '_sass/components/_article-index';
 @import '_sass/components/_breadcrumbs';
-@import '_sass/components/_comments';
-@import '_sass/components/_contributors';
 @import '_sass/components/_headings';
 @import '_sass/components/_modules';
 @import '_sass/components/_prism';
@@ -29,9 +28,9 @@
 @import '_sass/themes/layout/_navigation';
 @import '_sass/themes/layout/_sidebar';
 
+@import '_sass/themes/components/_authors';
 @import '_sass/themes/components/_article-index';
 @import '_sass/themes/components/_breadcrumbs';
-@import '_sass/themes/components/_contributors';
 @import '_sass/themes/components/_headings';
 @import '_sass/themes/components/_modules';
 @import '_sass/themes/components/_share-icons';

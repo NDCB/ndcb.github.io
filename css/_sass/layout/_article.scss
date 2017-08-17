@@ -1,8 +1,39 @@
+#content {
+    @include flex-display();
+    @include flex-direction(column);
+    #table-of-contents {
+        @include flex-order(-1);
+    }
+}
+
+#metadata {
+    @include flex-display();
+    @include flex-wrap(wrap);
+    @include flex-direction(column);
+    @include respond-to(tablet-portrait) {
+        @include flex-direction(row);
+    }
+    font-size: 0.8rem;
+    float: right;
+    margin-top: $mobile-navigation-bar-height;
+    @include respond-to(desktop) {
+        margin-top: 0;
+    }
+    span {
+        line-height: 1;
+        margin-left: 0.5rem;
+        margin-bottom: 0.5rem;
+        padding: 0.3rem;
+        @include respond-to(tablet-portrait) {
+            padding: 0.5rem;
+        }
+    }
+}
+
 main {
     overflow-x: hidden;
     width: 100%;
     min-height: 100vh;
-    margin-top: $mobile-navigation-bar-height;
     padding: $main-mobile-padding;
     @include flex-order(2);
     @include flex-grow(6);
@@ -11,33 +42,24 @@ main {
     }
     @include respond-to(desktop) {
         width: $desktop-main-width;
-        margin-top: 0;
         @include flex-align-items(stretch);
     }
     article {
         display: block;
-        @include flex-display();
-        @include flex-direction(column);
-        #table-of-contents {
-            @include flex-order(-1);
-        }
         >header{
-            @include flex-order(-2);
+            @extend .pop-out-top;
+            padding-top: 2rem;
             >h1 {
-                margin-bottom: 0;
-                @extend .pop-out-top;
-                padding-top: 10rem;
+                margin-top: 10rem;
                 padding-bottom: 1rem;
+                margin-bottom: 0;
             }
-        }
-        #breadcrumbs {
-            @include flex-order(-3);    
         }
         img {
             width: 100%;
             height: auto;
         }
-        span.mjx-chtml.MJXc-display {
+        .MJXc-display {
             overflow: auto;
             overflow-y: hidden;
             @include respond-to(print) {

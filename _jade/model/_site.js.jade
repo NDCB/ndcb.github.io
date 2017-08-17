@@ -1,0 +1,206 @@
+-
+    class Site {
+
+        /**
+         * Returns the list of locale objects of this website.
+         * @returns {Locale[]} the locales of this website.
+         */
+        static locales() {
+            var locales = [];
+            let localesMetadata = ROOT._data.locales || [];
+            for (let localeSlug in localesMetadata) {
+                let localeMetadata = localesMetadata[localeSlug];
+                locales.push(
+                    new Locale(localeMetadata)
+                );
+            }
+            return locales;
+        }
+
+        /**
+         * Retrieves the globals object of this site.
+         * @returns {Object} the globals defined in the JSON data defined at the root of the website.
+         */
+        static globals() {
+            return ROOT._data.globals;
+        }
+
+        /**
+         * @returns {Object} the authentification variables of this site.
+         */
+        static auth() {
+            return Site.globals().auth;
+        }
+
+        /**
+         * @returns {Object} the social profile identifiers of this site.
+        */
+        static profiles() {
+            return Site.globals().profiles;
+        }
+
+        /**
+         * Retrieves the uniform resource locator (URL) of this site.
+         * @returns {String} the URL of this site.
+         */
+        static url() {
+            return Site.globals().url;
+        }
+
+        static thumbnailFiles() {
+            return ROOT.res.thumbnails._contents;
+        }
+
+        /**
+         * Retrieves all the content of the website.
+         */
+        static content() {
+            let root = {};
+            root.pages = Site.fetchPages(ROOT._data, null);
+            let content = [];
+            let locales = Site.locales();
+            for (let i = 0; i < locales.length; i++) {
+                let locale = locales[i];
+                let localeRoot = locale.root;
+                let localePages = [];
+                for (let pageSlug in localeRoot._data.pages) {
+                    let pageData = localeRoot._data.pages[pageSlug];
+                    pageData.slug = pageSlug;
+                    pageData.path = '/' + locale.slug + '/' + pageSlug;
+                    localePages.push(
+                        new Page(pageData)
+                    );
+                }
+                content.push({
+                    headline: locale.slug,
+                    locale: locale,
+                    categories: Site.fetchContents(locales[i]),
+                    articles: localeRoot._data.articles,
+                    pages: localePages
+                });
+            }
+            root.locales = content;
+            return root;
+        }
+
+        /**
+         * Retrieves the content of a given locale.
+         * @param {Locale} locale the locale of the categories.
+         * @returns {Category[]} the categories of the locale.
+         */
+        static fetchContents(locale) {
+            let categories = [];
+            let localeRoot = locale.root;
+            let localeCategoriesMetadata = localeRoot._data.categories;
+            for (let categorySlug in localeCategoriesMetadata) {
+                categories.push(
+                    this.fetchContent({
+                        root: localeRoot,
+                        slug: categorySlug,
+                        path: locale.path,
+                        locale: locale
+                    })
+                );
+            }
+            return categories;
+        }
+
+        /**
+         * Recursively retrieves the content of the category at the specified root.
+         * @param {Object} root the root of the category metadata (i.e., the root of the locale in the case of primary categories, the root of the parent category in the case of subcategories).
+         * @param {String} slug the slug of the category.
+         * @param {String} path the path to the root of the category metadata.
+         * @param {Locale} locale the locale of this category.
+         * @param {String} previousThumbnailFile the previous thumbnail file of the category at the specified root.
+         * @param {String} previousThemeColor the previous theme color of the category at the specified root.
+         */
+        static fetchContent({
+            root, slug, path, locale, previousThumbnailFile, previousThemeColor
+        }) {
+            let rootCategoriesMetadata = root._data.categories;
+            //Retrieve category metadata
+            let categoryMetadata = rootCategoriesMetadata[slug];
+            let categoryPath = path + slug + '/';
+            if (!categoryMetadata.thumbnailFile) {
+                categoryMetadata.thumbnailFile = previousThumbnailFile;
+            }
+            if (!categoryMetadata.themeColor) {
+                categoryMetadata.themeColor = previousThemeColor;
+            }
+            //Move root
+            root = root[slug];
+            let categoryData = root._data;
+            //Retrieve subcategories
+            let categoryCategories = [];
+            let subcategoriesMetadata = root._data.categories;
+            for (let subcategorySlug in subcategoriesMetadata) {
+                categoryCategories.push(
+                    Site.fetchContent({
+                        root: root,
+                        slug: subcategorySlug,
+                        path: categoryPath,
+                        locale: locale,
+                        previousThumbnailFile: categoryMetadata.thumbnailFile,
+                        previousThemeColor: categoryMetadata.themeColor
+                    })
+                );
+            }
+            let category = new Category(categoryMetadata);
+            category.articles = Site.fetchArticles(categoryData, categoryPath, locale);
+            category.pages = Site.fetchPages(categoryData, categoryPath, locale);
+            category.categories = categoryCategories;
+            category.slug = slug;
+            category.locale = locale;
+            category.path = categoryPath;
+            return category;
+        }
+
+        /**
+         * Fetches the articles in a raw category.
+         * @param {Object} categoryData the raw category data.
+         * @param {String} categoryPath the path to the given category.
+         * @param {Locale} locale the locale of the given category.
+         */
+        static fetchArticles(categoryData, categoryPath, locale) {
+            let categoryArticles = [];
+            if (categoryData.articles) {
+                let articlesMetadata = categoryData.articles;
+                for (let articleSlug in articlesMetadata) {
+                    let articleMetadata = articlesMetadata[articleSlug];
+                    articleMetadata.slug = articleSlug;
+                    articleMetadata.locale = locale.slug;
+                    articleMetadata.path = categoryPath + articleSlug;
+                    categoryArticles.push(
+                        new Article(articleMetadata)
+                    );
+                }
+            }
+            return categoryArticles;
+        }
+
+        /**
+         * Fetches the pages in a raw category.
+         * @param {Object} categoryData the raw category data.
+         * @param {String} categoryPath the path to the given category.
+         * @param {Locale} locale the locale of the given category.
+         */
+        static fetchPages(categoryData, categoryPath, locale) {
+            let categoryPages = [];
+            if (categoryData.pages) {
+                let pagesMetadata = categoryData.pages;
+                for (let pageSlug in pagesMetadata) {
+                    let pageMetadata = pagesMetadata[pageSlug];
+                    pageMetadata.slug = pageSlug;
+                    if (locale) {
+                        pageMetadata.locale = locale.slug;
+                    }
+                    pageMetadata.path = categoryPath ? categoryPath + pageSlug : '/' + pageSlug;
+                    categoryPages.push(
+                        new Page(pageMetadata)
+                    );
+                }
+            }
+            return categoryPages;
+        }
+
+    }

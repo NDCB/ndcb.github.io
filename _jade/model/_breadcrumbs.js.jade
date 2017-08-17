@@ -1,0 +1,53 @@
+-
+    class Breadcrumb {
+
+        /**
+         * Constructs a breadcrumb.
+         * @param {String} path the path of this breadcrumb.
+         * @param {String} headline the headline of this breadcrumb. 
+         */
+        constructor({
+            path, headline
+        }) {
+            this.path = path;
+            this.headline = headline;
+        }
+    }
+
+    class Breadcrumbs {
+
+        /**
+         * Retrieves the breadcrumbs of a specified document.
+         * @param {String[]} pathFragments the path fragments of the document from which to parse the breadcrumbs.
+         * @return {Breadcrumb[]} the breadcrumbs of the given path fragments.
+         */
+        static parse(pathFragments) {
+            let breadcrumbs = [];
+            if (pathFragments.length > 1) {
+                let locale = Locale.parse(pathFragments[0]);
+                let path = '/' + locale.slug + '/';
+                let root = ROOT[pathFragments[0]];
+                for (let i = 1; i < pathFragments.length - 1; i++) {
+                    let pathFragment = pathFragments[i];
+                    let headline;
+                    let categoriesMetadata = root._data.categories;
+                    for (let categorySlug in categoriesMetadata) {
+                        if (pathFragment === categorySlug) {
+                            let categoryMetadata = categoriesMetadata[categorySlug];
+                            headline = categoryMetadata.headline;
+                        }
+                    }
+                    path += pathFragment + '/';
+                    breadcrumbs.push(
+                        new Breadcrumb({
+                            path: path,
+                            headline: headline
+                        })
+                    );
+                    root = root[pathFragment];
+                }
+            }
+            return breadcrumbs;
+        }
+
+    }

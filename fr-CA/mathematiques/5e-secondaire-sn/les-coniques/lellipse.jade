@@ -1,0 +1,177 @@
+include /_jade/redaction/_redaction
+
+p L'ellipse en tant que section conique correspond à une tranche oblique d'un cône. C'est un ensemble de points particulier qui, contrairement au cercle, comprend deux points importants nommés foyers. L'ellipse est une figure géométrique remarquable qui permet de modéliser l'orbite des planètes.
+
+p Étudions analytiquement l'ellipse en tant que section conique.
+
++definition("Le lieu géométrique de l'ellipse")
+    p L'ellipse correspond à l'ensemble des points dont la somme des distances à deux points fixes, appelés foyers, est constante.
+
++h(2, "L'équation cartésienne de l'ellipse")
+
+    p Partant du #[+refDefinition(0) lieu géométrique de l&#39;ellipse] posons les points distincts #[+e() F_1] et #[+e() F_2] comme foyers et le point #[+e() P=(x,y)] sur le périmètre de l'ellipse. Soit #[+e() 2c,] la distance #[+e() \overline{F_1F_2}] entre les deux foyers. En vertu du théorème de Pythagore, il est possible d'exprimer les distances #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] à l'aide de la formule de la distance entre deux points. Pour simplifier les démarches, posons #[+e() O=(0,0)] comme le point milieu du segment #[+e() \overline{F_1F_2},] et l'ordonnée des foyers à #[+e() 0,] de telle sorte que #[+e() F_1=(-c,0)] et #[+e() F_2=(c,0).] Considérons les coordonnées de #[+e() P] lorsqu'il se retrouve dans l'axe décrit par la droite #[+e() \overline{F_1F_2},] en ce sens lorsque #[+e() y=0.] S'il existe un point #[+e() P=(x,0)] sur le périmètre de l'ellipse tel que #[+e() x\in[-c,c],] alors il est impossible que #[+e() y] soit différent de #[+e() 0] pour l'ensemble des points respectant le #[+refDefinition(0) lieu géométrique de l&#39;ellipse] puisque la somme des distances #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] augmenterait. Par conséquent, pour #[+e() P=(x,0)] sur le périmètre de l'ellipse, #[+e() x\in&#93;-\infty,-c[\cup]c,\infty&#91;.]
+
+    +fig().
+        //TODO
+
+    p À la suite de notre construction, soit #[+e() d\gt 0.] Si #[+e() x=c+d,] de sorte que #[+e() x\gt c,] le point #[+e() P=(x,0)] se retrouve à droite du foyer #[+e() F_2.] Ce faisant, #[+e() \overline{PF_1}=x_P-x_{F_1}=c+d--c=2c+d,] et #[+e() \overline{PF_2}=x_P-x_{F_2}=c+d-c=d.] Par conséquent, la somme des distances entre le point #[+e() P] et les foyers #[+e() F_1] et #[+e() F_2,] qui est constante, vaut #[+e() 2c+d+d=2c+2d.] Considérons maintenant les coordonnées du point #[+e() P=(x,y)] lorsqu'il se retrouve dans l'axe perpendiculaire à celui décrit par #[+e() \overline{F_1F_2}] au point milieu #[+e() O,] en ce sens lorsque #[+e() x=0.] Si #[+e() y=0,] alors #[+e() \overline{PF_1}+\overline{PF_2}=2c\lt 2c+2d.] Conséquemment, #[+e() y] doit forcément être différent de #[+e() 0,] ce qui veut dire qu'il faudra construire des triangles rectangles isométriques #[+e() \triangle F_1OP] et #[+e() \triangle F_2OP] pour décrire les segments #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] à l'aide de leur hypoténuse. Soit #[+e() b,] la longueur de la petite cathète, qui se trouve sur l'axe des ordonnées, et soit #[+e() a,] la longueur d'une des hypoténuses. Le théorème de Pythagore stipule pour cette situation que #[+e() c^2+b^2=a^2.] En vertu du #[+refDefinition(0) lieu géométrique de l&#39;ellipse,] #[+e() \overline{PF_1}+\overline{PF_2}=2a=2c+2d.] Par conséquent, #[+e() 2a] correspond à la longueur du grand axe de l'ellipse, reliant les points #[+e() (-c-d, 0)] et #[+e() (c+d,0)]. La valeur de #[+e() 2b,] quant à elle, correspond à la longueur du petit axe de l'ellipse.
+
+    +fig().
+        //TODO
+
+    p Nous venons de prouver que toutes ellipses comprennent des dimensions horizontale #[+e() 2a] et verticale #[+e() 2b] non-nulles, et que #[+e() \overline{PF_1}+\overline{PF_2}=2a] si #[+e() 2a] est leur plus grand axe. En récapitulatif, soit #[+e() P=(x,y),] #[+e() F_1=(-c,0),] #[+e() F_2=(c,0)] et #[+e() c^2+b^2=a^2.] Il ne reste plus qu'à travailler l'équation du lieu géométrique pour en dégager celle d'une ellipse.
+
+    +eq().
+        2a&=\overline{PF_1}+\overline{PF_2}
+        \\&=\sqrt{(x_P-x_{F_1})^2+(y_P-y_{F_1})^2}+\sqrt{(x_P-x_{F_2})^2+(y_P-y_{F_2})^2}
+        \\&=\sqrt{(x--c)^2+(y-0)^2}+\sqrt{(x-c)^2+(y-0)^2}
+        \\2a&=\sqrt{(x+c)^2+y^2}+\sqrt{(x-c)^2+y^2}
+        \\\sqrt{(x-c)^2+y^2}&=2a-\sqrt{(x+c)^2+y^2}
+        \\\left(\sqrt{(x-c)^2+y^2}\right)^2&=\left(2a-\sqrt{(x+c)^2+y^2}\right)^2
+        \\(x-c)^2+y^2&=4a^2-4a\sqrt{(x+c)^2+y^2}+(x+c)^2+y^2
+        \\(x-c)^2-(x+c)^2&=4a^2-4a\sqrt{(x+c)^2+y^2}
+        \\-4cx&=4a\left(a-\sqrt{(x+c)^2+y^2}\right)
+        \\\dfrac{-c}{a}x-a&=\sqrt{(x+c)^2+y^2}
+        \\\left(\sqrt{(x+c)^2+y^2}\right)^2&=\left(\dfrac{-c}{a}x-a\right)^2
+        \\(x+c)^2+y^2&=\dfrac{c^2}{a^2}x^2+2a\dfrac{c}{a}x+a^2
+        \\x^2+2cx+c^2+y^2&=\dfrac{c^2}{a^2}x^2+2cx+a^2
+        \\x^2+c^2+y^2&=\dfrac{c^2}{a^2}x^2+a^2
+        \\a^2x^2+a^2c^2+a^2y^2&=c^2x^2+a^4
+        \\a^2x^2-c^2x^2+a^2y^2&=a^4-a^2c^2
+        \\x^2(a^2-c^2)+a^2y^2&=a^2(a^2-c^2)
+        \\b^2x^2+a^2y^2&=a^2b^2\because c^2+b^2=a^2
+
+    p En divisant de part et d'autre l'équation par #[+e() a^2b^2,] on obtient l'équation d'une ellipse centrée à l'origine.
+
+    +theorem("L'équation d'une ellipse centrée à l'origine")
+        +leq("ellipse-centre-o") \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1
+        p Où #[+e() x,] #[+e() y,] #[+e() a] et #[+e() b] sont des réels, #[+e() a\gt 0,] #[+e() b\gt 0,] #[+e() a\neq b,] #[+e() -a\leq x\leq a] et #[+e() -b\leq y\leq b.]
+        +fig().
+            //TODO
+    
+    p Les paramètres #[+e() a] et #[+e() b] de l'équation #[+eqref("ellipse-centre-o")] sont positifs et non-nuls puisqu'ils correspondent à des grandeurs géométriques de l'ellipse. Il faut que #[+e() a] soit différent de #[+e() b,] puisque dans le cas contraire, l'équation décrirait un cercle d'équation #[+e() x^2+y^2=r^2.]
+    
+    p Une ellipse définie par l'équation #[+eqref("ellipse-centre-o")] est centrée à l'origine. Il va donc de soi que son domaine soit #[+e() [-a,a]] puisqu'il s'agit de l'intervalle où on retrouve l'axe horizontal de l'ellipse de longueur #[+e() 2a.] Pour le démontrer, il suffit d'isoler #[+e() y] dans l'équation #[+eqref("ellipse-centre-o").]
+
+    +eq().
+        \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}&=1
+        \\\dfrac{y^2}{b^2}&=1-\dfrac{x^2}{a^2}
+        \\y^2&=b^2\left(1-\dfrac{x^2}{a^2}\right)
+        \\|y|&=\sqrt{b^2\left(1-\dfrac{x^2}{a^2}\right)}
+        \\|y|&=\sqrt{b^2}\sqrt{1-\dfrac{x^2}{a^2}}\because b\gt 0
+        \\y&=\pm b\sqrt{1-\dfrac{x^2}{a^2}}
+
+    p Puisque l'équation #[+e() 1-\dfrac{x^2}{a^2}] est un radicande, il convient que #[+e() 1-\dfrac{x^2}{a^2}\geq 0,] ce qui implique que #[+e() \dfrac{x^2}{a^2}\leq 1,] et donc que #[+e() x^2\leq a^2.] Ce faisant, #[+e() |x|\leq a\implies -a\leq x\leq a,] d'où la définition de #[+e() x] dans l'équation #[+eqref("ellipse-centre-o")] telle que #[+e() x\in[-a,a].] Similairement, pour trouver la définition de #[+e() y,] il faudra isoler #[+e() x] dans l'équation #[+eqref("ellipse-centre-o").]
+
+    +eq().
+        \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}&=1
+        \\\dfrac{x^2}{a^2}&=1-\dfrac{y^2}{b^2}
+        \\x^2&=a^2\left(1-\dfrac{y^2}{b^2}\right)
+        \\|x|&=\sqrt{a^2\left(1-\dfrac{y^2}{b^2}\right)}
+        \\|x|&=\sqrt{a^2}\sqrt{1-\dfrac{y^2}{b^2}}\because a\gt 0
+        \\x&=\pm a\sqrt{1-\dfrac{y^2}{b^2}}
+
+    p Alors, en vertu de la définition de la fonction racine carrée, le radicande #[+e() 1-\dfrac{y^2}{b^2}] doit être positif.
+
+    +eq().
+        1-\dfrac{y^2}{b^2}&\geq 0
+        \\\dfrac{y^2}{b^2}&\leq 1
+        \\y^2&\leq b^2
+        \\|y|&\leq b
+        \\&\implies -b\leq y\leq b
+
+    p On conclut donc que #[+e() y\in[-b,b].]
+
+    +example()
+        //TODO
+
+    +example()
+        //TODO
+
+    +h(3, "L'équation canonique de l'ellipse")
+
+        p Si l'ellipse n'était pas centrée à l'origine, l'ensemble des points aurait subit une translation horizontale de #[+e() h] unités et une translation verticale de #[+e() k] unités. Il en reviendrait à dire que les foyers #[+e() F_1] et #[+e() F_2] auraient pour coordonnées #[+e() F_1=(-c+h,k)] et #[+e() F_2=(c+h,k)] dans notre preuve plus haute. Dégager l'équation d'une ellipse à partir de l'équation #[+e() 2a=\overline{PF_1}+\overline{PF_2}] serait fastidieux, mais de manière analogue à ce que nous avons déjà fait.
+
+        p En revanche, si nous considérons une ellipse comme un cercle ayant subit une mise à l'échelle dont le ratio est différent de #[+e() 1:1] (c'est-à-dire que le cercle est étiré ou horizontalement ou verticalement), alors l'équation canonique de l'ellipse paraît intuitive.
+
+        +theorem("L'équation canonique d'une ellipse")
+            +leq("ellipse-canonique") \dfrac{(x-h)^2}{a^2}+\dfrac{(y-k)^2}{b^2}=1
+            p Où #[+e() x,] #[+e() y,] #[+e() a,] #[+e() b,] #[+e() h] et #[+e() k] sont des réels, #[+e() a\gt 0,] #[+e() b\gt 0,] #[+e() a\neq b,] #[+e() h-a\leq x\leq h+a] et #[+e() k-b\leq y\leq k+b.]
+            +fig().
+                //TODO
+
+        p Les contraintes sur les paramètres des équations #[+eqref("ellipse-centre-o")] et #[+eqref("ellipse-canonique")] sont similaires. Par la composition des fonctions, il est possible de substituer #[+e() x\leftarrow x-h] dans l'équation #[+eqref("ellipse-centre-o")] pour conclure que #[+e() -a\leq x-h\leq a\implies h-a\leq x\leq h+a.] Similairement, en substituant #[+e() y\leftarrow y-k] dans l'équation #[+eqref("ellipse-centre-o") ,] la contrainte sur les ordonnées de l'ellipse s'exprime #[+e() -b\leq y-k\leq b\implies k-b\leq y\leq k+b.] Il en revient à appliquer la translation de l'ellipse sur #[+e() P=(x,y).]
+
+        p Autrement, nous pouvons déduire les intervalles de définition de #[+e() x] et #[+e() y] en les isolant dans l'équation #[+eqref("ellipse-canonique") .]
+
+        +eq().
+            \dfrac{(x-h)^2}{a^2}+\dfrac{(y-k)^2}{b^2}&=1
+            \\\dfrac{(y-k)^2}{b^2}&=1-\dfrac{(x-h)^2}{a^2}
+            \\(y-k)^2&=b^2\left(1-\dfrac{(x-h)^2}{a^2}\right)
+            \\|y-k|&=\sqrt{b^2\left(1-\dfrac{(x-h)^2}{a^2}\right)}
+            \\|y-k|&=\sqrt{b^2}\sqrt{1-\dfrac{(x-h)^2}{a^2}}
+            \\y-k&=\pm b\sqrt{1-\dfrac{(x-h)^2}{a^2}}\because b\gt 0
+            \\y&=k\pm b\sqrt{1-\dfrac{(x-h)^2}{a^2}}
+        
+        p En vertu de la définition de la fonction racine carrée, le radicande #[+e() 1-\dfrac{(x-h)^2}{a^2}] doit être positif.
+
+        +eq().
+            1-\dfrac{(x-h)^2}{a^2}&\geq 0
+            \\\dfrac{(x-h)^2}{a^2}&\leq 1
+            \\(x-h)^2&\leq a^2
+            \\|x-h|&\leq a
+            \\&\implies -a\leq x-h\leq a
+            \\&\implies h-a\leq x\leq h+a
+
+        p Alors, pour une ellipse d'équation #[+eqref("ellipse-canonique") ,] #[+e() x\in[h-a, h+a].] De même manière, pour trouver la définition de #[+e() y,] il faudra isoler #[+e() x] dans l'équation  #[+eqref("ellipse-canonique") .]
+
+        +eq().
+            \dfrac{(x-h)^2}{a^2}+\dfrac{(y-k)^2}{b^2}&=1
+            \\\dfrac{(x-h)^2}{a^2}&=1-\dfrac{(y-k)^2}{b^2}
+            \\(x-h)^2&=a^2\left(1-\dfrac{(y-k)^2}{b^2}\right)
+            \\|x-h|&=\sqrt{a^2\left(1-\dfrac{(y-k)^2}{b^2}\right)}
+            \\|x-h|&=\sqrt{a^2}\sqrt{1-\dfrac{(y-k)^2}{b^2}}
+            \\x-h&=\pm a\sqrt{1-\dfrac{(y-k)^2}{b^2}}\because a\gt 0
+            \\x&=h\pm a\sqrt{1-\dfrac{(y-k)^2}{b^2}}
+
+        p Ainsi, en vertu de la définition de la racine carrée, le radicande #[+e() 1-\dfrac{(y-k)^2}{b^2}] doit être positif.
+
+        +eq().
+            1-\dfrac{(y-k)^2}{b^2}&\geq 0
+            \\\dfrac{(y-k)^2}{b^2}&\leq 1
+            \\(y-k)^2&\leq b^2
+            \\|y-k|&\leq b
+            \\&\implies -b\leq y-k\leq b
+            \\&\implies k-b\leq y\leq k+b
+
+        p Enfin, pour une ellipse d'équation #[+eqref("ellipse-canonique") ,] #[+e() y\in[k-b,k+b].]
+
+        +example()
+            //TODO
+        
+        +example()
+            //TODO
+
++h(2, "L'ellipse dans le plan cartésien")
+
+    +h(3, "Les ellipses horizontales et verticales")
+
+        +definition("Une ellipse horizontale")
+            p Une ellipse d'équation #[+eqref("ellipse-centre-o")] ou #[+eqref("ellipse-canonique")] est dite horizontale si #[+e() a\gt b,] c'est-à-dire que le grand axe de l'ellipse est l'horizontal. 
+            +fig().
+                //TODO
+
+        +definition("Une ellipse verticale")
+            p Une ellipse d'équation #[+eqref("ellipse-centre-o")] ou #[+eqref("ellipse-canonique")] est dite verticale si #[+e() a\lt b,] c'est-à-dire que le grand axe de l'ellipse est le vertical. 
+            +fig().
+                //TODO    
+
+    +h(3, "L'intersection d'une ellipse et d'un droite")
+
+    +h(3, "Le latus rectum de l'ellipse")
+
+    +h(3, "Les inéquations et l'ellipse")
+
++h(2, "La forme générale de l'équation d'une ellipse")
+
++tableOfContents()

@@ -1,0 +1,18 @@
+//-https://developers.google.com/search/docs/data-types/breadcrumbs
+mixin breadcrumbs(breadcrumbs)
+    if breadcrumbs.length > 0
+        nav.breadcrumbs
+            ol(itemscope itemtype="http://schema.org/BreadcrumbList")
+                for breadcrumb, index in breadcrumbs
+                    li(
+                        itemscope 
+                        itemprop="itemListElement" 
+                        itemtype="http://schema.org/ListItem"
+                    )
+                        a(
+                            itemscope 
+                            itemtype="http://schema.org/Thing" 
+                            itemprop="item" href!=breadcrumb.path
+                        )
+                            span(itemprop="name")!=breadcrumb.headline
+                        meta(itemprop="position" content!=index + 1)

@@ -1,0 +1,239 @@
+-
+    class Current {
+
+        /**
+         * @returns {String} the headline of this current document.
+         */
+        static headline() {
+            return Current.content().headline;
+        }
+
+        /**
+         * @returns {Article|Page} the structured content of this current document.
+         */
+        static content() {
+            let locale = Current.locale();
+            if (locale) {
+                let category = Current.category();
+                for (let i = 0; i < category.articles.length; i++) {
+                    let article = category.articles[i];
+                    if (Current.slug() === article.slug) {
+                        return article;
+                    }
+                }
+                for (let i = 0; i < category.pages.length; i++) {
+                    let page = category.pages[i];
+                    if (Current.slug() === page.slug) {
+                        return page;
+                    }
+                }
+            } else {
+                //Document at the root of the website
+                let pages = Site.content().pages;
+                for (let i = 0; i < pages.length; i++) {
+                    let page = pages[i];
+                    if (Current.slug() === page.slug) {
+                        return page;
+                    }
+                }
+                return new Page({
+                    headline: Site.globals().siteName
+                });
+            }
+        }
+
+        /**
+         * Retrieves the category of the current document.
+         * @returns {Category} the structured category of this current document.
+         */
+        static category() {
+            let locale = Current.locale();
+            if (locale) {
+                let contents = {};
+                contents.categories = Site.fetchContents(locale);
+                contents.pages = Site.fetchPages(locale.root._data, locale.path, locale);
+                contents.articles = Site.fetchArticles(locale.root._data, locale.path, locale);
+                let categoryFragments = Current.categoryFragments();
+                for (let i = 0; i < categoryFragments.length; i++) {
+                    let categorySlug = categoryFragments[i];
+                    for (let j = 0; j < contents.categories.length; j++) {
+                        let category = contents.categories[j];
+                        if (categorySlug === category.slug) {
+                            contents = category;
+                        }
+                    }
+                }
+                return contents;
+            }
+            return null;
+        }
+
+        static categoryFragments() {
+            let pathFragments = Current.pathFragments();
+            if (Current.locale()) {
+                let categoryFragments = pathFragments.slice(1, -1)
+                return categoryFragments || [];
+            }
+            return [];
+        }
+
+        /**
+         * @returns {String} the slug of this current document.
+         */
+        static slug() {
+            let pathFragments = Current.pathFragments();
+            let lastIndex = pathFragments.length - 1;
+            return pathFragments[lastIndex];
+        }
+
+        /**
+         * @returns {Object} the root folder data of this current document.
+         */
+        static root() {
+            let pathFragments = Current.pathFragments();
+            let root = ROOT;
+            for (let i = 0; i < pathFragments.length - 1; i++) {
+                root = root[pathFragments[i]];
+            }
+            return root;
+        }
+
+        static parentRoot() {
+            let pathFragments = Current.pathFragments();
+            if (pathFragments.length > 2) {
+                let root = ROOT;
+                for (let i = 0; i < pathFragments.length - 2; i++) {
+                    root = root[pathFragments[i]];
+                }
+                return root;
+            } else {
+                return null;
+            }
+        }
+
+        /**
+         * @returns {String} the slug of the category of this current document.
+         */
+        static categorySlug() {
+            let categorySlug = "";
+            let pathFragments = Current.pathFragments();
+            if (pathFragments.length > 1) {
+                categorySlug = pathFragments[pathFragments.length - 2];
+            }
+            return categorySlug;
+        }
+
+        /**
+         * @returns {String} the path of the category of this current document.
+         */
+        static categoryPath() {
+            let path = '/';
+            let pathFragments = Current.pathFragments();
+            if (pathFragments.length > 1) {
+                path += pathFragments.slice(0, -1).join('/') + '/';
+            }
+            return path;
+        }
+
+        /**
+         * @returns {Boolean} whether or not this current document is an article.
+         */
+        static isArticle() {
+            let data = Current.root()._data;
+            if (data.articles) {
+                return data.articles[Current.slug()] ? true : false;
+            }
+            return false;
+        }
+
+        /**
+         * @returns {Boolean} whether or not this current document is a page.
+         */
+        static isPage() {
+            let data = Current.root()._data;
+            if (data.pages) {
+                return data.pages[Current.slug()] ? true : false;
+            }
+            return false;
+        }
+
+        /**
+         * @returns {String} the path of this current document.
+         */
+        static path() {
+            return '/' + Current.pathFragments().join('/');
+        }
+
+        /**
+         * @returns {String} the uniform resource locator (URL) of this current document.
+         */
+        static url() {
+            return Site.url() + Current.path();
+        }
+
+        /**
+         * @returns {String[]} the path fragments of this current document.
+         */
+        static pathFragments() {
+            return current.path;
+        }
+
+        /**
+         * @returns {Locale} the locale of this current document.
+         */
+        static locale() {
+            let locale;
+            let pathFragments = Current.pathFragments();
+            if (pathFragments.length > 1) {
+                return Locale.parse(pathFragments[0]);
+            }
+            return locale;
+        }
+
+        /**
+         * @returns {String} the slug of the current document's locale.
+         */
+        static localeSlug() {
+            let locale = Current.locale();
+            if (locale) {
+                return locale.slug;
+            }
+        }
+
+        /**
+         * @returns {Figure[]} the available figures for the current document.
+         */
+        static figures() {
+            let figures = [];
+            if (Current.locale()) {
+                let root = Current.root();
+                let folder = Current.locale().variables.modules.figures.folder;
+                if (root[folder]) {
+                    let figuresRoot = root[folder];
+                    let figuresMetadata = figuresRoot._data.figures;
+                    for (let figureSlug in figuresMetadata) {
+                        let figureMetadata = figuresMetadata[figureSlug];
+                        figureMetadata.slug = figureSlug;
+                        figureMetadata.locale = Current.locale().slug;
+                        //Construct path
+                        let figurePath = Current.pathFragments().slice(0, -1);
+                        figurePath.push(folder);
+                        figurePath.push(figureSlug);
+                        figureMetadata.path = '/' + figurePath.join('/');
+                        let figure = new Figure(figureMetadata);
+                        figures.push(figure);
+                    }
+
+                }
+            }
+            return figures;
+        }
+
+        /**
+         * @returns {Breadcrumb[]} the breadcrumbs of the current document.
+         */
+        static breadcrumbs() {
+            return Breadcrumbs.parse(Current.pathFragments());
+        }
+        
+    }

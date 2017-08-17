@@ -1,0 +1,22 @@
+footer#secondary-navigation
+    -
+        let secondaryNavigation;
+        if (Current.locale()) {
+            let localeVariables = Current.locale().variables;
+            secondaryNavigation = localeVariables.secondaryNavigation;
+        }
+    nav
+        ul.links
+            li!= '© ' + new Date().getFullYear() + ' ' + Site.globals().siteName
+            li: a(href!=Site.globals().sourceUrl)
+                i.fa.fa-fw(class!="fa-" + secondaryNavigation.source.icon)
+                !=secondaryNavigation.source.headline
+            -let links = Index.listNavigationElements(Current.locale())
+            for link in links
+                if link.links.length == 0
+                    li: a(href!=link.path)
+                        if link.iconClass
+                            i.fa.fa-fw(class!="fa-" + link.iconClass)
+                        !=' ' + link.headline
+    ul.social-links
+        include ../components/_site-social-links

@@ -1,112 +1,69 @@
-include /_jade/base/_functions
-
--console.info("Processing " + getCurrentRelativePath());
-
--
-    var thumbnailUrl = fetchCurrentThumbnailUrl();
-    if (!thumbnailUrl) {
-        thumbnailUrl = public._data.globals.url 
-        + "/res/thumbnails/thumbnail-dark.png";
-    }
-
-    var documentMetadata = fetchDocumentMetadata();
+include /_jade/model/_model.js.jade
+-let timestamp = new Date().toTimeString();
+-console.log(timestamp + " Processing " + Current.path())
 
 doctype html
-html(lang!=getCurrentHtmlLocale())
-    head(
-        prefix!=
-            "og: http://ogp.me/ns# " 
-            + "fb: http://ogp.me/ns/fb# " 
-            + "article: http://ogp.me/ns/article#"
-            + "website: http://ogp.me/ns/website#"
-    )
-        //- og:url, og:site_name, fb:app_id, twitter:card, twitter:site
-        include /_jade/mixins/head/_head
-
-        //- title, og:title, twitter:title
-        +metaTitle(public._data.globals.siteName)
-
-        //- description, og:description, twitter:description
-        if getCurrentLocaleRoot()
-            +metaDescription(getCurrentLocaleRoot()._data.globals.description)
-
-        //- og:locale
-        if getCurrentOgLocale()
-            meta(
-                property='og:locale' 
-                content!=getCurrentOgLocale()
-            )
-
-        //- og:type
-        if currentIsArticle()
-            meta(
-                property='og:type' 
-                content="article"
-            )
-        else
-            meta(
-                property='og:type'
-                content="website"
-            )
-
-        //- Meta thumbnails
-        if thumbnailUrl
-            block metaThumbnails
-                +ogimage(thumbnailUrl, "png", 300, 300)
-                +twitterimage(thumbnailUrl)
-
-        //- Favicon
-        include /_jade/base/_favicon
-
-        //- Stylesheets
-        block stylesheets
-            include /_jade/base/_stylesheets
-            //- If the current document is not within a locale
-            if !getCurrentLocaleRoot()
-                //- Adds flags stylesheet
-                include /_jade/components/_flag-icons-stylesheet
-            //- If the current document contains code
-            if documentMetadata && documentMetadata.containsCode
-                //- Add Prism stylesheets
-                include /_jade/components/_prism-stylesheets
+html(lang!=Current.localeSlug())
+    include /_jade/base/_head
     body
-        include /_jade/redaction/_redaction
         .wrapper
-            block content
-                main(class!=fetchCurrentMainColorClass("grey"))
-                    article
+            -
+                let themeColor;
+                if (Current.category()) {
+                    themeColor = Current.category().themeColor;
+                }
+                if (!themeColor) {
+                    themeColor = "grey";
+                }
+            main(class!=themeColor)
+                if Current.isArticle()
+                    article(itemscope itemtype="http://schema.org/Article")
                         header
-                            if documentMetadata && documentMetadata.headline
-                                +h(1, documentMetadata.headline)
-                            include /_jade/components/_breadcrumbs
-                        != yield
-                        footer
-                            //- Authors
-                            if documentMetadata && documentMetadata.Authors
-                                include /_jade/components/_list-authors
-                            //- Share icons
-                            section
-                                nav.share.inline-items
-                                    ul
-                                        include /_jade/components/_share-icons
-                            //- Disqus
-                            if documentMetadata && documentMetadata.allowComments
-                                include /_jade/components/_disqus
-            include /_jade/layout/_navigation
-            include /_jade/layout/_sidebar
+                            include /_jade/components/_metadata
+                            h1.heading(id!=Utils.slugify(Current.headline()))
+                                a.headline-link(
+                                    href!='#' + Utils.slugify(Current.headline()) 
+                                ): i.fa.fa-link
+                                span(itemprop="headline")!=Current.headline()
+                            include /_jade/base/_breadcrumbs
+                            +breadcrumbs(Current.breadcrumbs())
+                        section#content(itemprop="mainEntityOfPage")
+                            !=yield
+                        include /_jade/components/_authors
+                        if Current.content().allowsComments
+                            include /_jade/plugins/_disqus-scripts
+                else if Current.isPage()
+                    article
+                        if Current.headline()
+                            header
+                                h1.heading
+                                    a.headline-link(
+                                        href!='#' + Utils.slugify(Current.headline()) 
+                                        id!=Utils.slugify(Current.headline())
+                                    ): i.fa.fa-link
+                                    span(itemprop="headline")!=Current.headline()
+                                include /_jade/base/_breadcrumbs
+                                +breadcrumbs(Current.breadcrumbs())
+                        !=yield
+                else 
+                    !=yield
+            //-Left sidebar
+            include /_jade/base/_primary-navigation
 
-        //- Footer
-        if getCurrentLocaleRoot()
-            include  /_jade/layout/_footer
+            //-Right sidebar
+            #sidebar
+                nav.share
+                    ul
+                        include /_jade/components/_share-icons
 
-        //- Scripts
-        block scripts
-            include /_jade/components/_scripts
-            //- If the current document contains math
-            if documentMetadata && documentMetadata.containsMath
-                //- Add MathJax scripts
-                include /_jade/components/_mathjax
-            //- If the current document contains code
-            if documentMetadata && documentMetadata.containsCode 
-                //- Add Prism scripts
-                include /_jade/components/_prism-scripts
+        //-Footer navigation
+        if Current.locale()
+            include /_jade/base/_secondary-navigation
+
+        //-Scripts
+        include /_jade/base/_scripts
+        if Current.isArticle()
+            if Current.content().containsMath
+                include /_jade/plugins/_mathjax-scripts
+            if Current.content().containsCode
+                include /_jade/plugins/_prism-scripts

@@ -1,3 +1,15 @@
-ol#article{
-    
+ol#articles{
+    > li {
+        &:nth-child(even){
+            background: $primary-light;
+        }
+        &:nth-child(odd){
+            .breadcrumbs {
+                background: white;
+            }
+        }
+    }
+    a {
+        text-decoration: none;
+    }
 }

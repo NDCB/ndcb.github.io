@@ -1,6 +1,9 @@
-footer#secondary-navigation{
-    background-color: $secondary-dark;
+#secondary-navigation{
+    background: $secondary-dark;
     color: $primary-light;
+    .links {
+        color: $secondary-grey;
+    }
     a {
         text-decoration: none;
         color: $secondary-grey;

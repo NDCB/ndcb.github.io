@@ -1,0 +1,16 @@
+.authors {
+    padding: 3rem;
+    header {
+        text-align: center;
+        span {
+            font-family: $font-arimo;
+            font-size: 1.5rem;
+            display: block;
+        }
+    }
+    img {
+        height: 10rem;
+        width: auto;
+        border-radius: 100%;
+    }
+}

@@ -1,0 +1,134 @@
+-
+    class Locale {
+
+        /**
+         * Constructs a locale.
+         * @param {String} languageName the full name of the language of this locale.
+         * @param {String} languageCode the language code of this locale (i.e., fr, en).
+         * @param {String} countryName the full name of the country of this locale.
+         * @param {String} countryCode the country code of this locale (i.e., CA, US).
+         */
+        constructor({
+            languageName, languageCode, countryName, countryCode
+        }) {
+            this.languageName = languageName || languageCode;
+            this.languageCode = languageCode;
+            this.countryName = countryName || countryCode;
+            this.countryCode = countryCode;
+        }
+        
+        /**
+         * Returns the LCID (locale identifier) of this locale (i.e., fr-CA, en-CA).
+         * @return {String} the LCID of this locale.
+         */
+        get slug() {
+            return this.languageCode + '-' + this.countryCode;
+        }
+
+        /**
+         * Returns the root object of this locale.
+         * @throws {Error} if the website's public root is undefined.
+         * @returns {Object} the locale root folder.
+         */
+        get root() {
+            return ROOT[this.slug];
+        }
+
+        /**
+         * Returns the path to this locale.
+         * @returns {String} the the relative path to the contents of this locale on the website.
+         */
+        get path() {
+            return '/' + this.slug + '/';
+        }
+
+        /**
+         * @returns {String} the uniform resource locator (URL) of this locale's root folder.
+         */
+        get url() {
+            return Site.url() + this.path;
+        }
+
+        /**
+         * Returns the variables of this locale.
+         * @returns {Object} the localized variables of this locale.
+         */
+        get variables() {
+            return ROOT._data.locales[this.slug].variables;
+        }
+
+        /**
+         * Returns the array of persons of this locale.
+         * @throws {Error} if there is no persons metadata declaration in this locale.
+         * @returns {Person[]} the array of defined persons of this locale.
+         */
+        get persons() {
+            let persons = [];
+            let localeRoot = this.root;
+            let localePersonsMetadata = localeRoot._data.persons;
+            if (localePersonsMetadata) {
+                for (let personSlug in localePersonsMetadata) {
+                    let personMetadata = localePersonsMetadata[personSlug];
+                    persons.push(
+                        new Person({
+                            fullName: personMetadata.fullName, 
+                            bio: personMetadata.bio, 
+                            profiles: personMetadata.profiles, 
+                            id: personSlug, 
+                            locale: this, 
+                            path: this.aboutPage.path + '#' + personSlug
+                        })
+                    );
+                }
+            } else {
+                throw new Error("No persons are defined in this locale.");
+            }
+            return persons;
+        }
+
+        /**
+         * Returns the about page of this locale.
+         * @throws {Error} if there are no defined pages in the root of this locale.
+         * @throws {Error} if there is no about page defined in the root of this locale.
+         * @returns {Page} the about page of this locale.
+         */
+        get aboutPage() {
+            let aboutPage;
+            let localeRoot = this.root;
+            let localePagesMetadata = localeRoot._data.pages;
+            if (localePagesMetadata) {
+                for (let pageSlug in localePagesMetadata) {
+                    let pageMetadata = localePagesMetadata[pageSlug];
+                    if (pageMetadata.isAboutPage === true) {
+                        aboutPage = new Page(pageMetadata);
+                        aboutPage.locale = this.slug;
+                        aboutPage.path = this.path + pageSlug;
+                    }
+                }
+            } else {
+                throw new Error("No pages are defined at the root of this locale.");
+            }
+            if (aboutPage) {
+                return aboutPage;
+            } else {
+                throw new Error("No about page is defined at the root of this locale.");
+            }
+        }
+
+        /**
+         * Returns the locale of the given slug token.
+         * @param {String} token the token to be parsed (i.e., fr-CA, en-US).
+         * @throws {Error} if no matching locale could be found.
+         * @returns {Locale} the parsed locale.
+         */
+        static parse(token) {
+            let locales = Site.locales();
+            for (let i = 0; i < locales.length; i++) {
+                let locale = locales[i];
+                if (locale.slug === token) {
+                    return locale;
+                }
+            }
+            throw new Error("Could not parse locale with token: " + token);
+        }
+    }

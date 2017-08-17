@@ -4,20 +4,16 @@ h3,
 h4,
 h5,
 h6 {
-    &.heading {
-        a {
-            display: none;
-            @include respond-to(tablet-portrait) {
-                $transition-time: 0.2s;
-                display: block;
-                i.fa {
-                    font-size: 0.7em;
-                    vertical-align: middle;
-                    margin-left: -1.2em;
-                    margin-top: 0.3em;
-                    display: inline-block;
-                    position: absolute;
-                }
+    &.heading a {
+        display: none;
+        @include respond-to(tablet-portrait) {
+            $transition-time: 0.2s;
+            display: inline-block;
+            i {
+                $icon-size: 0.7em;
+                font-size: $icon-size;
+                margin-left: -($icon-size) - 0.5em;
+                float: left;
             }
         }
     }

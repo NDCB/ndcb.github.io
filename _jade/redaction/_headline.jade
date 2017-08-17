@@ -1,7 +1,11 @@
-include /_jade/base/_functions
+include ../model/_model.js.jade
+
+-var sectionIndices = [0, 0, 0, 0, 0, 0];
 
 -var documentContents = [];
 
+
+//- TODO: Refactor to a class...
 -
     /**
      * Pushes a headline in the structure of the table of contents.
@@ -49,85 +53,111 @@ include /_jade/base/_functions
      * locale of the current document.
      */
     function fetchTableOfContentsHeader() {
-        let variables = fetchCurrentLocaleVariables();
-        if (variables.modules && variables.modules.tableOfContents) {
-            return variables.modules.tableOfContents;
-        } else {
-            console.warn(
-                "Warning: Could not fetch the header " 
-                + "variables.modules.tableOfContents of the table of contents " 
-                + "in the locale variables for " + getCurrentRelativePath()
-            );
+        if (Current.locale()) {
+            let localeVariables = Current.locale().variables;
+            return localeVariables.modules.tableOfContents;
         }
+    }
+
+    /**
+     * Returns the identification number of the current article 
+     */
+    function articleId() {
+        let articles = Current.category().articles;
+        for (let i = 0; i < articles.length; i++) {
+            let article = articles[i];
+            if (article.slug === Current.slug()) {
+                return ++i;
+            }
+        }
+    }
+
+    /**
+     * Computes the identification string of the section given its level.
+     */
+    function sectionId(level) {
+        sectionIndices[--level]++;
+        for (let i = ++level; i < sectionIndices.length; i++) {
+            sectionIndices[i] = 0;
+        }
+        let id = sectionIndices[0];
+        let i = 1;
+        while (sectionIndices[i] != 0) {
+            id += '.' + sectionIndices[i];
+            i++;
+        }
+        return id;
     }
 
 //- Adds an anchor to the headline.
 mixin heading(headline)
     if headline
-        a.headline-link(href!='#' + slugify(headline) id!=slugify(headline)): i.fa.fa-link
+        a.headline-link(
+            href!='#' + Utils.slugify(headline)
+        ): i.fa.fa-link
         !=headline
+
+mixin headline(level, headline)
+    case level
+        when 1
+            h1.heading(id!=Utils.slugify(headline)): +heading(headline)
+        when 2
+            h2.heading(id!=Utils.slugify(headline)): +heading(headline)
+        when 3
+            h3.heading(id!=Utils.slugify(headline)): +heading(headline)
+        when 4
+            h4.heading(id!=Utils.slugify(headline)): +heading(headline)
+        when 5
+            h5.heading(id!=Utils.slugify(headline)): +heading(headline)
+        when 6
+            h6.heading(id!=Utils.slugify(headline)): +heading(headline)
+        default
+            -throw new Error("Invalid level " + level + " for headline " + headline);
 
 //- Displays and identifies a headline.
     Should not be used as an inline mixin.
     Since the headline is passed as a Javascript parameter,
     it is subject to escaped characters.
-mixin h(level, headline)
+mixin h(level, headline, id)
     if level && headline
-        case level
-            when 1
-                h1.heading: +heading(headline)
-            when 2
-                h2.heading: +heading(headline)
-            when 3
-                h3.heading: +heading(headline)
-            when 4
-                h4.heading: +heading(headline)
-            when 5
-                h5.heading: +heading(headline)
-            when 6
-                h6.heading: +heading(headline)
-            default
-                -
-                    console.error(
-                        "Error: Invalid headline level " 
-                        + level 
-                        + ' "' 
-                        + headline 
-                        + '" at ' 
-                        + getCurrentRelativePath()
-                    );
         -
             pushHeadline({
-                id: slugify(headline), 
+                id: Utils.slugify(headline), 
                 headline: headline, 
                 level: level, 
                 headlines: []
             });
+        if Current.isArticle()
+            -sectionIndices[0] = articleId();
+            section(id!=sectionId(level))
+                +headline(level, headline)
+                block
+        else
+            section(id!=id)
+                +headline(level, headline)
+                block
     else
-        -
-            console.error(
-                "Error: Undefined parameters of headline \""
-                 + headline 
-                 + "\" of level " 
-                 + level 
-                 + " at " 
-                 + getCurrentRelativePath() 
-            );
+        -throw new Error("Undefined headline parameters")
+
 //- Adds the table of contents of the current document. Must be used at the
     end of all headline declarations, as the script retains the mixin call 
     order.
 mixin tableOfContents() 
-    if documentContents && documentContents.length > 0
-        section#table-of-contents
-            nav
-                header!=fetchTableOfContentsHeader()
-                +listTableOfContents(documentContents)
+    if Current.locale()
+        if documentContents && documentContents.length > 0
+            section#table-of-contents
+                nav(
+                    itemscope="itemscope" 
+                    itemtype="http://www.schema.org/SiteNavigationElement"
+                )
+                    header!=fetchTableOfContentsHeader()
+                    ol: +listTableOfContents(documentContents)
 
 //- Recursively lists the elements of the table of contents given the root from
     which to start.
 mixin listTableOfContents(root)
-    ol
-        each content in root
-            li: a(href!='#' + content.id)!=content.headline
+    each content in root
+        li(itemprop="name")
+            a(href!='#' + content.id itemprop="url")!=content.headline
             if content.headlines && content.headlines.length > 0
-                +listTableOfContents(content.headlines)
+                ol: +listTableOfContents(content.headlines)

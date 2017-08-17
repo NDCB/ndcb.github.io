@@ -1,0 +1,62 @@
+//-Retrieve the appropriate locale variables
+-
+    var prompts;
+    if (Current.locale()) {
+        let localeVariables = Current.locale().variables;
+        prompts = localeVariables.prompts;
+    }
+
+section#metadata
+    //-Publication date
+    if Current.content().publicationDate
+        span#publicationDate!=prompts.published + ' '
+            time(
+                datetime!=Current.content().publicationDate.raw
+                itemprop="datePublished"
+            )!=Current.content().publicationDate.write()
+
+    //-Latest modification date
+    if Current.content().lastestModificationDate
+        span#lastestModificationDate!=prompts.modified + ' '
+            time(
+                datetime!=Current.content().lastestModificationDate.raw
+                itemprop="dateModified"
+            )!=Current.content().lastestModificationDate.write()
+
+    //-Thumbnail
+    -let thumbnailFile;
+    if Current.category() && Current.category().thumbnailFile
+        -thumbnailFile = Site.url() + Current.category().thumbnailFile;
+    else
+        -thumbnailFile = Site.url() + Site.globals().thumbnailsFolder + "thumbnail-dark.png";
+    -let thumbnailWidth = 300;
+    -let thumbnailHeight = 300;
+    div#articleImage(itemprop="image" itemscope itemtype="http://schema.org/ImageObject")
+        meta(itemprop="url" content!=thumbnailFile)
+        meta(itemprop="height" content!=thumbnailHeight)
+        meta(itemprop="width" content!=thumbnailWidth)
+    
+    //-Publisher
+    div#publisher(itemprop="publisher" itemscope itemtype="http://schema.org/Organization")
+        meta(itemprop="name" content!=Site.globals().siteName)
+        meta(itemprop="url" content!=Site.globals().url)
+        for profile, property in Site.globals().profiles
+            -let sameAs;
+            case property
+                when "facebook"
+                    -sameAs = "https://www.facebook.com/";
+                when "twitter"
+                    -sameAs = "https://twitter.com/";
+                when "googlePlus"
+                    -sameAs = "https://plus.google.com/";
+                when "youtube"
+                    -sameAs = "https://www.youtube.com/channel/";
+                when "github"
+                    -sameAs = "https://github.com/";
+            if sameAs
+                meta(itemprop="sameAs" content!=sameAs + profile)
+        div#publisher-logo(itemprop="logo" itemscope itemtype="http://schema.org/ImageObject")
+            //-https://developers.google.com/search/docs/data-types/articles
+            meta(itemprop="url" content!=Site.url() + "/res/publisher-logo.png")
+            meta(itemprop="width" content="600")
+            meta(itemprop="height" content="60")

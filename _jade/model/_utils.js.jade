@@ -1,0 +1,105 @@
+-
+    /**
+     * Workaround strict mode reserved words to access the Harp public hierarchy. 
+     */
+    const ROOT = public;
+
+    /**
+     * The array of all theme colors.
+     */
+    const COLORS = [
+        "turquoise",
+        "green",
+        "blue",
+        "purple",
+        "dark",
+        "yellow",
+        "orange",
+        "red",
+        "light",
+        "grey"
+    ];
+
+    /**
+     * The array of all valid document change frequencies.
+     */
+    const CHANGE_FREQUENCIES = [
+        "always",
+        "hourly",
+        "daily",
+        "weekly",
+        "monthly",
+        "yearly",
+        "never"
+    ];
+
+    /**
+     * Utility methods.
+     */
+    class Utils {
+
+        /**
+         * Slugifies a text for URLs.
+         * @param {String} text the text to be slugified.
+         * @returns {String} the slugified text.
+         */
+        static slugify(text) {
+            text = text.toLowerCase();
+            //- Remove apostrophes
+            text = text.replace(/\u0027/g, '');
+            //- Remove commas, periods, question marks and exclamation points
+            text = text.replace(/\u002C|\u002E|\u003F|\u0021/g, '');
+            //- Replace accented 'a's
+            text = text.replace(/[\u00E0-\u00E5]/gi, 'a');
+            //- Replace accented 'e's
+            text = text.replace(/[\u00E8-\u00EB]/gi, 'e');
+            //- Replace accented 'i's
+            text = text.replace(/[\u00EC-\u00EF]/gi, 'i');
+            //- Replace accented 'o's
+            text = text.replace(/[\u00F2-\u00F6]/gi, 'o');
+            //- Replace accented 'u's
+            text = text.replace(/[\u00F9-\u00FC]/gi, 'u');
+            //- Remove excess spaces
+            text = text.trim().replace(/  +/g, ' ');
+            //- Replace spaces with dashes
+            text = text.replace(/ /g, '-');
+            return text;
+        }
+
+        /**
+         * Parses the path fragments from a given path.
+         * @param {String} path the path to interpret.
+         * @return {String[]} the path fragments. 
+         */
+        static parsePathFragments(path) {
+            path = path.replace(/^\//,""); //remove first /
+            path = path.replace(/\/$/,""); //remove last /
+            return path.split('/');
+        }
+
+        /**
+         * Formats the JSON of the given object.
+         * @param {Object} object the object to format.
+         */
+        static stringify(object) {
+            return JSON.stringify(object, true, '\t');
+        }
+
+        /**
+         * Logs the formatted JSON of the given object.
+         * @param {Object} object the object to be displayed.
+         */
+        static display(object) {
+            console.log(Utils.stringify(object));
+        }
+
+        static fileExtension(fileName) {
+            let extension;
+            if (fileName) {
+                extension = fileName.match(/\.[0-9a-z]+$/i);
+                extension = extension[0].replace('.', '');
+            }
+            return extension;
+        }
+
+    }

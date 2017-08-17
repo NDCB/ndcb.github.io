@@ -1,0 +1,139 @@
+-
+    class Article {
+
+        /**
+         * Constructs an article.
+         * @param {String} headline the headline of this article.
+         * @param {String} description the description of this article.
+         * @param {String[]} authors the array of author's identification string of this article.
+         * @param {LocalizedDate} publicationDate the publication date of this article in the format YYYY-MM-DD.
+         * @param {LocalizedDate} lastestModificationDate the latest modification date of this article in the format YYYY-MM-DD.
+         * @param {String} changeFrequency the change frequency of this article (i.e., "always", "hourly", "daily", "weekly", "monthly", "yearly", "never").
+         * @param {Boolean} containsMath whether or not this article contains math.
+         * @param {Boolean} containsCode whether or not this article contains code.
+         * @param {Boolean} allowsComments whether or not this allows comments.
+         * @param {String} slug the slug of this article.
+         * @param {Locale} locale the locale of this article.
+         * @param {String} path the path of this article.
+         */
+        constructor({
+            headline, description, authors, publicationDate, 
+            lastestModificationDate, changeFrequency, containsMath, containsCode,
+            allowsComments, slug, locale, path 
+        }) {
+            this.locale = locale;
+            this.headline = headline;
+            this.description = description;
+            this.authors = authors || [];
+            this.publicationDate = publicationDate;
+            this.lastestModificationDate = lastestModificationDate;
+            this.changeFrequency = changeFrequency;
+            this.containsMath = containsMath || false;
+            this.containsCode = containsCode || false;
+            this.allowsComments = allowsComments || false;
+            this.slug = slug;
+            this.path = path;
+        }
+
+        /**
+         * @param {String} value the new change frequency of this article.
+         */
+        set changeFrequency(value) {
+            const DEFAULT_CHANGE_FREQUENCY = "monthly";
+            let valid  = false;
+            for (let i = 0; i < CHANGE_FREQUENCIES.length; i++) {
+                let CHANGE_FREQUENCY = CHANGE_FREQUENCIES[i];
+                if (CHANGE_FREQUENCY === value) {
+                    valid = true;
+                }
+            }
+            if (valid) {
+                this._changeFrequency = value;
+            } else if (!value) {
+                this._changeFrequency = DEFAULT_CHANGE_FREQUENCY;
+            } else {
+                throw new Error("Invalid change frequency " + value);
+            }
+        }
+
+        get changeFrequency() {
+            return this._changeFrequency;
+        }
+
+        /**
+         * @param {String} value the slug of the new locale of this article (i.e., fr-CA, en-US).
+         */
+        set locale(value) {
+            let locale = Locale.parse(value);
+            if (this.publicationDate) {
+                this.publicationDate.locale = locale;
+            }
+            if (this.lastestModificationDate) {
+                this.lastestModificationDate.locale = locale;
+            }
+            this._locale = locale;
+        }
+
+        get locale() {
+            return this._locale;
+        }
+
+        /** 
+         * @param {String} value the string representation of the new publication date of this article in the format YYYY-MM-DD.
+         */
+        set publicationDate(value) {
+            if (value) {
+                let date = LocalizedDate.parse(value);
+                date.locale = this.locale;
+                this._publicationDate = date;
+            }
+        }
+
+        get publicationDate() {
+            return this._publicationDate;
+        }
+
+        /** 
+         * @param {String} value the string representation of the new latest modification date of this article in the format YYYY-MM-DD.
+         */
+        set lastestModificationDate(value) {
+            if (value) {
+                let date = LocalizedDate.parse(value);
+                date.locale = this.locale;
+                this._lastestModificationDate = date;
+            }
+        }
+
+        get lastestModificationDate() {
+            return this._lastestModificationDate;
+        }
+
+        /**
+         * @param {String[]} value the new identification strings of the authors of this article.
+         */
+        set authors(value) {
+            let authors = [];
+            if (value) {
+                authors = Person.parsePersons(value, this.locale.slug);
+            }
+            this._authors = authors;
+        }
+
+        get authors() {
+            return this._authors;
+        }
+
+        /**
+         * Returns the breadcrumbs of this article.
+         * @returns {Breadcrumb[]} the breadcrumbs.
+         */
+        get breadcrumbs() {
+            return Breadcrumbs.parse(
+                Utils.parsePathFragments(this.path)
+            );
+        }
+
+        get url() {
+            return Site.url() + this.path;
+        }
+    }

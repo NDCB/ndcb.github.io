@@ -16,14 +16,14 @@ h6 {
                 -webkit-transition: $transition;
                 &:hover {
                     color: $primary-dark !important;
-                    i.fa {
+                    i {
                         $rotation: rotate(-15deg);
                         -ms-transform: $rotation;
                         -webkit-transform: $rotation;
                         transform: $rotation;
                     }
                 }
-                i.fa {
+                i {
                     $transition: transform $transition-time cubic-bezier(0.895, 0.03, 0.685, 0.22);
                     transition: $transition;
                     -webkit-transition: $transition;
