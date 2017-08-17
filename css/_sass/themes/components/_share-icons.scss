@@ -3,8 +3,10 @@ $color-twitter: #55acee;
 $color-google-plus: #dd4b39;
 $color-reddit: #ff5700;
 $color-comment: #64DD17;
+$color-github: #171515;
+$color-email: #ffa500;
 
-.share a {
+.social a {
     $transition: color 0.1s ease-in-out;
     @include respond-to(desktop){
         transition: $transition;
@@ -42,6 +44,18 @@ $color-comment: #64DD17;
         color: $color-comment;
         i:hover {
             color: $color-comment;
+        }
+    }
+    &.github {
+        color: $color-github;
+        i:hover {
+            color: $color-github;
+        }
+    }
+    &.email {
+        color: $color-email;
+        i:hover {
+            color: $color-email;
         }
     }
     &:hover {

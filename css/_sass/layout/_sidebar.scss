@@ -16,11 +16,15 @@
     }
 }
 
-nav.share ul {
+nav.social ul, ul.social {
     list-style-type: none;
     padding: 0;
     margin: 0;
     font-size: 1.5rem;
+}
+
+ul.social li {
+    display: inline-block;
 }
 
 nav.inline-items {

@@ -1,0 +1,60 @@
+include /_jade/redaction/_redaction
+
+mixin iconStackButton(foregroundIconClass, backgroundIconClass)
+    span.fa-stack
+        i.fa.fa-stack-2x(class!=backgroundIconClass)
+        i.fa.fa-stack-1x.fa-inverse(class!=foregroundIconClass)
+
+-var backgroundIconClass = "fa-circle";
+
+mixin personOverview(personId)
+    -
+        var person;
+        let persons = Current.locale().persons;
+        for (let i = 0; i < persons.length; i++) {
+            if (persons[i].id === personId) {
+                person = persons[i];
+            }
+        }
+        if (!person) {
+            throw new Error("Undefined person of id " + personId);
+        }
+    section(
+        id!=person.id 
+        itemscope 
+        itemtype="http://schema.org/Person"
+    )
+        h2(itemprop="name")!=person.fullName
+        blockquote
+            img.profile-picture(
+                itemprop="image" 
+                src!=person.profilePictureFile 
+                alt!=person.fullName
+            )
+            block
+        meta(itemprop="url" content!=Site.url() + person.path)
+        ul.social
+            for link, profile in person.profiles
+                li: a(
+                    itemprop="sameAs" 
+                    class!=profile 
+                    href!=link 
+                    target="_blank" 
+                    rel="nofollow"
+                )
+                    case profile
+                        when "facebook"
+                            +iconStackButton("fa-facebook", backgroundIconClass)
+                        when "twitter"
+                            +iconStackButton("fa-twitter", backgroundIconClass)
+                        when "github"
+                            +iconStackButton("fa-github", backgroundIconClass)
+                        when "email"
+                            +iconStackButton("fa-envelope", backgroundIconClass)
+                        default
+                            !=profile.toUpperCase()
+#persons
+    +personOverview("marc-antoine-ouimet")
+        p À l’heure actuelle, je suis un élève en sciences informatiques et mathématiques #[+extLink("http://bdeb.qc.ca/etudiants/programmes-preuniversitaires/sciences-informatiques-et-mathematiques/") (200.C0)] au collège Bois-de-Boulogne. Je tâchais d'aider mes camarades de classe sur les pages Facebook que nous faisions pour nos groupes.
+        p Ce genre de camaraderie n'existe pas aux études de niveau Cégep. Cela dit, je persévère à écrire des articles instructifs sur la matière que j'apprends dans mes domaines favoris. C'est d'ailleurs pour moi une occasion de réinvestir mes acquis en préparation à mes examens.
+        p Je suis un enthousiaste d'imagerie de synthèse et d'intelligence artificielle. Je suis débutant en Java, et moyen en ce qui concerne les technologies du web. Il n'empêche que je suis une personne ressource en ce qui concerne l'informatique en général.

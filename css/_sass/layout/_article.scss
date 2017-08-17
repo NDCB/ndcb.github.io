@@ -30,6 +30,34 @@
     }
 }
 
+#persons {
+    section {
+        background: $primary-light;
+        border-left: 1rem solid $secondary-light;
+        margin-top: 2rem;
+        padding: 1rem;
+    }
+    img.profile-picture {
+        float: right;
+        height: 10rem;
+        width: auto;
+        margin-top: -0.5rem;
+        border-radius: 100%;
+    }
+    blockquote {
+        quotes: '"';
+        margin: 0;
+    }
+    blockquote:before {
+        color: $secondary-light;
+        content: open-quote;
+        font-size: 4rem;
+        margin: 0.5rem;
+        margin-top: -0.5rem;
+        float: left;
+    }
+}
+
 main {
     overflow-x: hidden;
     width: 100%;

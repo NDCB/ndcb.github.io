@@ -30,7 +30,7 @@ article {
 }
 
 //Adds an icon indicative of external links
-#content a.external-link[target="_blank"]:after {
+main a.external-link[target="_blank"]:after {
     content: ' \f08e';
     font-family: FontAwesome;
 }
