@@ -34,6 +34,7 @@ mixin eq()
 
 //- Delimits a labeled displayed MathJax equation.
     Should not be used as an inline mixin.
+    @param {String} label the identification label of the numbered equation.
     Usage:
     +leq("quadratique") x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 mixin leq(label)
@@ -45,6 +46,7 @@ mixin leq(label)
     != displayedMathSuffix
 
 //- Delimits a MathJax equation reference.
+    @param {String} label the identification label of the referenced equation.
     Usage:
     p.
         The quadratic formula #[+eqref("quadratique")] ...

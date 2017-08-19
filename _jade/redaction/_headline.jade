@@ -1,9 +1,8 @@
+//- Initial counter variables for section headers 1 through 6.
 -var sectionIndices = [0, 0, 0, 0, 0, 0];
-
+//- The array representative of the contents of the current document.
+    Used to interpret the table of contents.
 -var documentContents = [];
-
-
-//- TODO: Refactor to a class...
 -
     /**
      * Pushes a headline in the structure of the table of contents.
@@ -88,6 +87,7 @@
     }
 
 //- Adds an anchor to the headline.
+    @param {String} headline the headline of the heading.
 mixin heading(headline)
     if headline
         a.headline-link(
@@ -95,6 +95,9 @@ mixin heading(headline)
         ): i.fa.fa-link
         !=headline
 
+//- Adds a heading of the given level.
+    @param {Number} level the level of the heading.
+    @param {String} headline the headline of the heading.
 mixin headline(level, headline)
     case level
         when 1
@@ -112,10 +115,12 @@ mixin headline(level, headline)
         default
             -throw new Error("Invalid level " + level + " for headline " + headline);
 
-//- Displays and identifies a headline.
-    Should not be used as an inline mixin.
-    Since the headline is passed as a Javascript parameter,
-    it is subject to escaped characters.
+//- Displays and identifies a headline. Should not be used as an inline mixin.
+    Since the headline is passed as a Javascript parameter, it is subject to 
+    escaped characters.
+    @param {Number} level the level of the heading.
+    @param {String} headline the headline of the heading.
+    @param {String} id (optional) overriding id of the heading.
 mixin h(level, headline, id)
     if level && headline
         -
@@ -153,6 +158,7 @@ mixin tableOfContents()
 
 //- Recursively lists the elements of the table of contents given the root from
     which to start.
+    @param {Object} root the root element in the table of contents.
 mixin listTableOfContents(root)
     each content in root
         li(itemprop="name")

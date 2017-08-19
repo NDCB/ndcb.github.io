@@ -1,5 +1,6 @@
 include ../base/_breadcrumbs
 
+//- Retrieve the localized variables for the prompts
 -
     var prompts;
     if (Current.locale()) {
@@ -11,35 +12,42 @@ include ../base/_breadcrumbs
             modified: ''
         };
     }
+
+//- Creates a summary of a given article.
+    @param {Article} article the article to summarize.
 mixin articleSummary(article) 
-    li: section.article-summary
+    section.article-summary
         header
+            //- Link to the article
             h2: a(href!=article.path)!=article.headline
+            //- Retrieve the breadcrumbs of the article
             -
                 let breadcrumbs = Breadcrumbs.parse(
                     Utils.parsePathFragments(article.path)
                 );
+            //- Display the breadcrumbs
             if breadcrumbs
                 +breadcrumbs(breadcrumbs)
         span.description!=article.description
-        footer
-            ul.meta
-                if article.publicationDate
-                    li.publicationDate
-                        i.fa.fa-fw.fa-calendar-plus-o
-                        !=prompts.published + ' '
-                        time(
-                            datetime!=article.publicationDate.raw 
-                        )!=article.publicationDate.write()
-                if article.lastestModificationDate
-                    li.lastestModificationDate
-                        i.fa.fa-fw.fa-calendar-check-o
-                        !=prompts.modified + ' '
-                        time(
-                            datetime!=article.lastestModificationDate.raw 
-                        )!=article.lastestModificationDate.write()
-                if article.authors.length > 0
-                    li
-                        ul.authors
-                            for author in article.authors
-                                li.author: a(href!=author.path)!=author.fullName
+        footer: ul.meta
+            //- Add the publication date of the article
+            if article.publicationDate
+                li.publicationDate
+                    i.fa.fa-fw.fa-calendar-plus-o
+                    !=prompts.published + ' '
+                    time(
+                        datetime!=article.publicationDate.raw 
+                    )!=article.publicationDate.write()
+            //- Add the latest modification date of the article
+            if article.lastestModificationDate
+                li.lastestModificationDate
+                    i.fa.fa-fw.fa-calendar-check-o
+                    !=prompts.modified + ' '
+                    time(
+                        datetime!=article.lastestModificationDate.raw 
+                    )!=article.lastestModificationDate.write()
+            //- Link to the authors of the article
+            if article.authors.length > 0
+                li: ul.authors
+                    for author in article.authors
+                        li.author: a(href!=author.path)!=author.fullName

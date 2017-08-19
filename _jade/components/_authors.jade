@@ -1,3 +1,5 @@
+//- Provides the listing of the authors of the current document. Used at the end
+    of articles.
 section.authors
     hr
     for author in Current.content().authors
@@ -7,13 +9,16 @@ section.authors
             itemscope
             itemtype="http://schema.org/Person"
         )
-            header
-                a(href!=author.path itemprop="url")
-                    img(
-                        itemprop="image" 
-                        src!=author.profilePictureFile 
-                        alt!=author.fullName
-                    )
-                    span(itemprop="name")!=author.fullName
+            //- Link to the author
+            header: a(href!=author.path itemprop="url")
+                //- Add the profile picture of the author
+                img(
+                    itemprop="image" 
+                    src!=author.profilePictureFile 
+                    alt!=author.fullName
+                )
+                //- Add the name of the author
+                span(itemprop="name")!=author.fullName
+            //- Add the biography of the author
             p!=author.bio
         hr

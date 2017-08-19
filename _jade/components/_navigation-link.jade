@@ -1,0 +1,10 @@
+//- Anchors a link.
+    @param {Link} link the link to display.
+mixin anchorLink(link)
+    a(href!=link.path)
+        //- If the link has a defined FontAwesome icon class
+        if link.iconClass
+            i.fa.fa-fw(class!="fa-" + link.iconClass)
+            !=' ' + link.headline
+        else
+            !=link.headline

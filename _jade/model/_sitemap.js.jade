@@ -2,53 +2,6 @@
     class Sitemap {
 
         /**
-         * @param {Locale} locale the locale of the sitemap urlset to fetch.
-         * @returns {String[]} the array of URLs in the given locale.
-         */
-        static urlset(locale) {
-            //TODO: Fetch urlset with changefrequency...
-            //TODO: Should fix flattenedArticles...
-            //https://support.google.com/webmasters/answer/183668?hl=en&ref_topic=4581190
-
-
-            /*
-            let urlset = [];
-            let locales = SITE.locales;
-            for (let i = 0; i < locales.length; i++) {
-                let locale = locales[i];
-                let path = locale.url;
-                let root = locale.root;
-                urlset = urlset.concat(
-                    Sitemap.fetchContent(root, path)
-                );
-            }
-            return urlset;
-            */
-        }
-
-        /*
-        static fetchContent(root, path) {
-            let urlset = [];
-            let contents = root._contents;
-            for (let index in contents) {
-                urlset.push(
-                    path + contents[index]
-                );
-            }
-            let categories = root._data.categories;
-            for (let categorySlug in categories) {
-                urlset = urlset.concat(
-                    Sitemap.fetchContent(
-                        root[categorySlug],
-                        path + categorySlug + '/'
-                    )
-                );
-            }
-            return urlset;
-        }
-        */
-
-        /**
          * https://support.google.com/webmasters/answer/75712
          * @returns {String[]} the array of URLs to localized sitemaps. 
          */

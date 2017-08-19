@@ -1,46 +1,58 @@
+include ../components/_navigation-link
+
+//- Recursively creates a nested list of all links contained within a given 
+    link.
+    @param {Link[]} rootLinks the list of child links from the root link.
 mixin linkSublinks(rootLinks)
+    //- Hide the links by default
     ul(aria-expanded="false")
         each link in rootLinks
             li
-                a(href!=link.path)!=link.headline
+                +anchorLink(link)
+                //- If the current link had child links
                 if link.links.length > 0
                     i.fa.fa-fw.fa-caret-down.toggler
                     +linkSublinks(link.links)
 
+//- Provides the primary navigation of the current document
 #primary-navigation
     nav
+        //- The header of the primary navigation
         header
+            //- Compute the link of the logo
             -let link = Current.localeSlug() ? Current.localeSlug() + '/' : '';
-            a(href!='/' + link)
-                img#logo(src="/res/logo-light.svg")
-            //- Hamburger icon
+            a(href!='/' + link): img#logo(src="/res/logo-light.svg" alt="Logo")
+            //- Primary navigation toggler icon
             i.fa.fa-navicon.toggler
+        //- The primary navigation's content, hidden by default
         ul(aria-expanded="false")
             if Current.locale()
+                //- List primary pages and categories 
                 -let links = Index.listNavigationElements(Current.locale())
                 for link in links
                     li
+                        //- Remove unnecessary trailing "index"
                         -
-                            let index = "index";
-                            if (link.path.endsWith(index)) {
-                                link.path = link.path.slice(0, -index.length);
+                            const INDEX = "index";
+                            if (link.path.endsWith(INDEX)) {
+                                link.path = link.path.slice(0, -INDEX.length);
                             }
-                        a(href!=link.path)
-                            if link.iconClass
-                                i.fa.fa-fw(class!="fa-" + link.iconClass)
-                            !=' ' + link.headline
+                        +anchorLink(link)
                         if link.links.length > 0
+                            //- Recursively list child links
                             i.fa.fa-fw.fa-caret-down.toggler
                             +linkSublinks(link.links)
             else
+                //- List locales
                 each locale in Site.locales()
+                    //- Compute the displayed headline of the locale
                     -
                         locale.headline = locale.languageName 
                             + ' ' 
                             + locale.countryName
                     li: a(href!='/' + locale.slug + '/') 
+                        //- Add the flag icon of the locale
                         i(
                             class!="flag-icon flag-icon-" 
-                            + locale.countryCode.toLowerCase()
-                        )
-                        !=' ' + locale.headline
+                                + locale.countryCode.toLowerCase()
+                        )!=' ' + locale.headline

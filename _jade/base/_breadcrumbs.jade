@@ -1,7 +1,12 @@
-//-https://developers.google.com/search/docs/data-types/breadcrumbs
+//- Creates a structured display of given breadcrumb objects that allow for
+    a hierarchical navigation through the folders of the website.
+    @see https://developers.google.com/search/docs/data-types/breadcrumbs
+    @param {Breadcrumb[]} the breadcrumbs to display.
 mixin breadcrumbs(breadcrumbs)
+    //- If there are breadcrumbs to display
     if breadcrumbs.length > 0
         nav.breadcrumbs
+            //- List breadcrumbs in their given order
             ol(itemscope itemtype="http://schema.org/BreadcrumbList")
                 for breadcrumb, index in breadcrumbs
                     li(

@@ -1,5 +1,6 @@
 //- Displays inline code, given a Prism language class.
     Warning: Special characters should be escaped.
+    @param {String} language the language of the inline code.
     Usage:
     p.
         To print a string ... #[+code("java") System.out.println("Example");]
@@ -10,6 +11,7 @@ mixin code(language)
 //- Displays a block of preformatted code, given a Prism language class.
     Should not be used as an inline mixin.
     Warning: Special characters should be escaped.
+    @param {String} language the language of the displayed code.
     Usage:
     +codeBlock("java").
         public static void main(String[] args){
@@ -20,7 +22,10 @@ mixin codeBlock(language)
         code(class!="language-" + language)
             block
 
-//- Displays a block of external code, given a Prism language class and a source.
+//- Displays a block of external code, given a Prism language class and a 
+    source file.
+    @param {String} language the language of the displayed code.
+    @param {String} source the path to the source file of the code.
     Usage:
     +externalCode("java", "/test.java")
 mixin externalCode(language, source)

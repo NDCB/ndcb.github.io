@@ -2,6 +2,7 @@ include ../model/_model.js.jade
 include _article-summary
 
 -
+    //Retrieve the articles of the current locale
     let articles = Index.listArticles(Current.locale());
 
     /**
@@ -33,7 +34,10 @@ include _article-summary
         }
     });
 
+//- Provides a listing of all available articles from the locale of the current
+    document.
 ol#articles
     for article in articles
+        //- If the article is published
         if article.publicationDate
-            +articleSummary(article)
+            li: +articleSummary(article)

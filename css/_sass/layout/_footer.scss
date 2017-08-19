@@ -19,15 +19,17 @@
     }
     ul {
         list-style-type: none;
-        padding: 1rem;
+        padding: 0;
         margin: 0;
+        &.links {
+            padding: 1rem;
+        }
         @include flex-display();
         @include flex-justify-content(center);
         @include flex-wrap(wrap);
     }
     li {
-        display: inline-block;
-        margin-right: 1rem;
+        padding: 0.5rem;
         &:nth-last-child() {
             margin-right: 0;
         }

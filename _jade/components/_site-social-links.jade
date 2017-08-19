@@ -1,3 +1,4 @@
+//- Fetch the titles for the aria-label property of the social media icons.
 -
     var titles;
     if (Current.locale()) {
@@ -6,6 +7,10 @@
     }
     var backgroundIcon = "fa-square";
 
+//- Adds a linked icon to a social media.
+    @param {String} label the value of the aria-label property of the icon.
+    @param {String} href the link of the icon.
+    @param {String} icon the FontAwesom icon class of the social media.
 mixin socialLink(label, href, icon)
     if href && icon
         if label
@@ -23,45 +28,47 @@ mixin socialLink(label, href, icon)
             )
                 +iconStackButton(icon, backgroundIcon)
 
+//- Provides the social media links at the footer of the website.
 if titles
-    //- RSS feed icon
-    +socialLink(
-        titles.rss, 
-        '/' + Current.localeSlug() + "/feed.xml", 
-        "fa-rss"
-    )
+    ul
+        //- RSS feed icon
+        li: +socialLink(
+            titles.rss, 
+            '/' + Current.localeSlug() + "/feed.xml", 
+            "fa-rss"
+        )
 
-    //- Facebook page icon
-    +socialLink(
-        titles.facebook, 
-        "https://www.facebook.com/" + Site.profiles().facebook, 
-        "fa-facebook"
-    )
+        //- Facebook page icon
+        li: +socialLink(
+            titles.facebook, 
+            "https://www.facebook.com/" + Site.profiles().facebook, 
+            "fa-facebook"
+        )
 
-    //- Twitter feed icon
-    +socialLink(
-        titles.twitter, 
-        "https://twitter.com/" + Site.profiles().twitter, 
-        "fa-twitter"
-    )
+        //- Twitter feed icon
+        li: +socialLink(
+            titles.twitter, 
+            "https://twitter.com/" + Site.profiles().twitter, 
+            "fa-twitter"
+        )
 
-    //- Google+ profile icon
-    +socialLink(
-        titles.googlePlus, 
-        "https://plus.google.com/" + Site.profiles().googlePlus, 
-        "fa-google-plus"
-    )
+        //- Google+ profile icon
+        li: +socialLink(
+            titles.googlePlus, 
+            "https://plus.google.com/" + Site.profiles().googlePlus, 
+            "fa-google-plus"
+        )
 
-    //- Github profile icon
-    +socialLink(
-        titles.github, 
-        "https://github.com/" + Site.profiles().github, 
-        "fa-github"
-    )
+        //- Github profile icon
+        li: +socialLink(
+            titles.github, 
+            "https://github.com/" + Site.profiles().github, 
+            "fa-github"
+        )
 
-    //- Email icon
-    +socialLink(
-        titles.email, 
-        "mailto:" + Site.profiles().mail, 
-        "fa-envelope"
-    )
+        //- Email icon
+        li: +socialLink(
+            titles.email, 
+            "mailto:" + Site.profiles().mail, 
+            "fa-envelope"
+        )

@@ -1,47 +1,54 @@
 //- Stacks an icon of a given class above a square.
+    @param {String} foregroundIconClass the FontAwesome class of the foreground 
+    icon.
+    @param {String} backgroundIconClass the FontAwesome class of the background 
+    icon.
 mixin iconStackButton(foregroundIconClass, backgroundIconClass)
     span.fa-stack
         i.fa.fa-stack-2x(class!=backgroundIconClass)
         i.fa.fa-stack-1x.fa-inverse(class!=foregroundIconClass)
 
+//- Adds a share icon given the name of the social media and the link to the
+    sharing modal window.
+    @param {String} foregroundIconClass the FontAwesome class of the foreground 
+    icon.
+    @param {String} link the link to the share module.
+mixin shareIcon(socialMedia, link)
+    a.social-share-popup(
+        class!=socialMedia
+        href!=link
+        target='_blank'
+        rel="nofollow"
+    ): +iconStackButton("fa-" + socialMedia, backgroundIconClass)
+
+//- Default background icon class
 -var backgroundIconClass = "fa-square";
 
-//- Facebook share icon
-li: a.social-share-popup.facebook(
-        href!="//www.facebook.com/sharer/sharer.php?u=" + Current.url()
-        target='_blank'
-        rel="nofollow"
+//- Provides the listing of share icons and social links in the sidebar.
+ul
+    //- Facebook share icon
+    li: +shareIcon(
+        "facebook", "//www.facebook.com/sharer/sharer.php?u=" + Current.url()
     )
-    +iconStackButton("fa-facebook", backgroundIconClass)
-
-//- Twitter share icon
-li: a.social-share-popup.twitter(
-        href!="//twitter.com/intent/tweet?url=" + Current.url() + "&via=" + public._data.globals.profiles.twitter 
-        target='_blank'
-        rel="nofollow"
+    
+    //- Twitter share icon
+    li: +shareIcon(
+        "twitter", "//twitter.com/intent/tweet?url=" + Current.url() 
+        + "&via=" + public._data.globals.profiles.twitter
     )
-    +iconStackButton("fa-twitter", backgroundIconClass)
 
-//- Google+ share icon
-li: a.social-share-popup.google-plus(
-        href!="//plus.google.com/share?url=" + Current.url()
-        target='_blank'
-        rel="nofollow"
+    //- Google+ share icon
+    li: +shareIcon(
+        "google-plus", "//plus.google.com/share?url=" + Current.url()
     )
-    +iconStackButton("fa-google-plus", backgroundIconClass)
 
-//- Reddit share icon
-li: a.social-share-popup.reddit(
-        href!="//www.reddit.com/submit?url=" + Current.url()
-        target='_blank'
-        rel="nofollow"
-    )
-    +iconStackButton("fa-reddit", backgroundIconClass)
+    //- Reddit share icon
+    li: +shareIcon("reddit", "//www.reddit.com/submit?url=" + Current.url())
 
-if Current.isArticle() && Current.content().allowsComments
-    //- Comment icon
-    li: a.comment(
-            href="#disqus_thread"
-            rel="nofollow"
-        )
-        +iconStackButton("fa-comment", backgroundIconClass)
+    //- If comments are allowed on the current document
+    if Current.isArticle() && Current.content().allowsComments
+        //- Comment icon
+        li: a.comment(
+                href="#disqus_thread"
+            )
+            +iconStackButton("fa-comment", backgroundIconClass)

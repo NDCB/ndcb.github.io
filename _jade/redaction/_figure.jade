@@ -1,5 +1,8 @@
+//- Initial counter value of the figures
 -var figureNo = 0;
+//- The list of figures accessible from the current referencing document
 -var figures = Current.figures();
+//- Retrieve the localized variables for the modules
 -
     var figuresVariables;
     if (Current.locale()) {
@@ -8,6 +11,8 @@
     }
 
 //- Adds a numbered image block. An image may be fetched from external sources.
+    @param {String} src the source URL of the image.
+    @param {String} alt the alternative text of the image.
 mixin img(src, alt)
     if Current.locale()
         -figureNo++
@@ -18,10 +23,14 @@ mixin img(src, alt)
                 span!=": "
                     block
 
-//- Adds a numbered figure block.
+//- Adds a numbered figure block. The figure should be declared in the localized 
+    figures folder at the root of the referencing document.
+    @param {String} fileName the name of the file of the figure with its 
+    extension.
 mixin fig(fileName)
     if fileName && Current.locale()
         -figureNo++
+        //- Retrieve the source and the alternative text of the figure
         -
             let src;
             let alt;
@@ -36,10 +45,7 @@ mixin fig(fileName)
                 throw new Error(
                     "No defined figures of file name " 
                     + fileName 
-                    + " in "
-                    + figuresVariables.folder 
-                    + '/' 
-                    + " or in _data.json"
+                    + " in _data.json"
                 );
             }
             if (!alt) {

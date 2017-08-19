@@ -1,9 +1,12 @@
 include ../model/_model.js.jade
 include _article-summary
 
+//- Retrieve the articles contained in this category and its subcategories
 -let articles = Index.listAllArticles();
 
+//- Provides the listing of all available articles from this category.
 ol#articles
     for article in articles
+        //- If the article is published
         if article.publicationDate
-            +articleSummary(article)
+            li: +articleSummary(article)

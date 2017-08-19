@@ -1,12 +1,15 @@
 include ../model/_model.js.jade 
 
+//- Provides a RSS feed of the current locale.
 doctype xml
 rss(version="2.0")
     channel
-        title!=Site.globals().siteName + " (" + Current.locale().slug + ')'
+        title!=Site.globals().siteName + " [" + Current.locale().slug + ']'
         link!=Current.locale().url
         description!=Current.root()._data.pages.index.description
+        //- List all articles
         for article in Index.listArticles(Current.locale())
+            //- If the article is published
             if article.publicationDate
                 item
                     title!=article.headline

@@ -1,4 +1,8 @@
+include ../components/_navigation-link
+
+//- Provides the secondary navigation of the current document
 footer#secondary-navigation
+    //- Retrieve the localized variables of the secondary navigation
     -
         let secondaryNavigation;
         if (Current.locale()) {
@@ -6,17 +10,20 @@ footer#secondary-navigation
             secondaryNavigation = localeVariables.secondaryNavigation;
         }
     nav
+        //- Leftmost links
         ul.links
+            //- Copyright year
             li!= '© ' + new Date().getFullYear() + ' ' + Site.globals().siteName
+            //- Source of the website
             li: a(href!=Site.globals().sourceUrl)
                 i.fa.fa-fw(class!="fa-" + secondaryNavigation.source.icon)
                 !=secondaryNavigation.source.headline
+            //- Retrieve the root links found on the primary navigation
             -let links = Index.listNavigationElements(Current.locale())
             for link in links
+                //- List links from the first level which do not have children
                 if link.links.length == 0
-                    li: a(href!=link.path)
-                        if link.iconClass
-                            i.fa.fa-fw(class!="fa-" + link.iconClass)
-                        !=' ' + link.headline
+                    li: +anchorLink(link)
+    //- Rightmost links
     ul.social-links
         include ../components/_site-social-links

@@ -6,8 +6,9 @@
         prompts = localeVariables.prompts;
     }
 
+//- Provides additional metadata for articles.
 section#metadata
-    //-Publication date
+    //- The publication date of the article
     if Current.content().publicationDate
         span#publicationDate!=prompts.published + ' '
             time(
@@ -15,7 +16,7 @@ section#metadata
                 itemprop="datePublished"
             )!=Current.content().publicationDate.write()
 
-    //-Latest modification date
+    //- The latest modification date of the article
     if Current.content().lastestModificationDate
         span#lastestModificationDate!=prompts.modified + ' '
             time(
@@ -23,21 +24,29 @@ section#metadata
                 itemprop="dateModified"
             )!=Current.content().lastestModificationDate.write()
 
-    //-Thumbnail
+    //- Retrieve the location of the thumbnail file
     -let thumbnailFile;
     if Current.category() && Current.category().thumbnailFile
         -thumbnailFile = Site.url() + Current.category().thumbnailFile;
     else
-        -thumbnailFile = Site.url() + Site.globals().thumbnailsFolder + "thumbnail-dark.png";
+        -
+            thumbnailFile = Site.url() 
+                + Site.globals().thumbnailsFolder 
+                + "thumbnail-dark.png";
     -let thumbnailWidth = 300;
     -let thumbnailHeight = 300;
-    div#articleImage(itemprop="image" itemscope itemtype="http://schema.org/ImageObject")
+    //- The article image
+    div#articleImage(
+        itemprop="image" itemscope itemtype="http://schema.org/ImageObject"
+    )
         meta(itemprop="url" content!=thumbnailFile)
         meta(itemprop="height" content!=thumbnailHeight)
         meta(itemprop="width" content!=thumbnailWidth)
     
-    //-Publisher
-    div#publisher(itemprop="publisher" itemscope itemtype="http://schema.org/Organization")
+    //- The article publisher
+    div#publisher(
+        itemprop="publisher" itemscope itemtype="http://schema.org/Organization"
+    )
         meta(itemprop="name" content!=Site.globals().siteName)
         meta(itemprop="url" content!=Site.globals().url)
         for profile, property in Site.globals().profiles
@@ -55,7 +64,10 @@ section#metadata
                     -sameAs = "https://github.com/";
             if sameAs
                 meta(itemprop="sameAs" content!=sameAs + profile)
-        div#publisher-logo(itemprop="logo" itemscope itemtype="http://schema.org/ImageObject")
+        //- THe article publisher logo
+        div#publisher-logo(
+            itemprop="logo" itemscope itemtype="http://schema.org/ImageObject"
+        )
             //-https://developers.google.com/search/docs/data-types/articles
             meta(itemprop="url" content!=Site.url() + "/res/publisher-logo.png")
             meta(itemprop="width" content="600")

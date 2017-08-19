@@ -1,8 +1,10 @@
 include ../model/_model.js.jade
 
+//- Provides a sitemap of the current locale.
 doctype xml
 urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     for article in Index.listArticles(Current.locale())
+        //- If the article is published
         if article.publicationDate
             url
                 loc!=article.url

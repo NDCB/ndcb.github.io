@@ -1,3 +1,4 @@
+//- Provides the head element of the current document.
 head(
     prefix!=
         "og: http://ogp.me/ns# " 
@@ -5,6 +6,7 @@ head(
         + "article: http://ogp.me/ns/article# "
         + "website: http://ogp.me/ns/website# "
 )
+    //- Mandatory tag for mobile scaling
     meta(
         name="viewport" 
         content="width=device-width, initial-scale=1.0"
@@ -14,7 +16,6 @@ head(
     -let description;
     if Current.content().description
         -description = Current.content().description;
-    //-else TOOD: Figure out default description
     if description
         meta(
             property='description'
@@ -31,7 +32,9 @@ head(
         if description.length > 155
             -
                 console.warn("Document description exceeds 155 characters.");
-                console.log("Document description length: " + description.length);
+                console.log(
+                    "Document description length: " + description.length
+                );
     else 
         -
             console.warn("No document description provided.");
@@ -79,7 +82,11 @@ head(
     if Current.category() && Current.category().thumbnailFile
         -thumbnailFile = Site.url() + Current.category().thumbnailFile;
     else
-        -thumbnailFile = Site.url() + Site.globals().thumbnailsFolder + "thumbnail-dark.png";
+        //- Compute the default thumbnail image location
+        -
+            thumbnailFile = Site.url() 
+                + Site.globals().thumbnailsFolder 
+                + "thumbnail-dark.png";
     -let thumbnailExtension = Utils.fileExtension(thumbnailFile);
     -let thumbnailWidth = 300;
     -let thumbnailHeight = 300;
@@ -135,7 +142,11 @@ head(
 
     //- Stylesheets
     include _stylesheets
+
+    //- Flag icons stylesheets
     if !Current.locale()
         include ../plugins/_flag-icons-stylesheets
+
+    //- Prism stylesheets
     if Current.content().containsCode
         include ../plugins/_prism-stylesheets
