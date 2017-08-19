@@ -11,13 +11,13 @@ p Étudions analytiquement l'ellipse en tant que section conique.
 
     p Partant du #[+refDefinition(0) lieu géométrique de l&#39;ellipse] posons les points distincts #[+e() F_1] et #[+e() F_2] comme foyers et le point #[+e() P=(x,y)] sur le périmètre de l'ellipse. Soit #[+e() 2c,] la distance #[+e() \overline{F_1F_2}] entre les deux foyers. En vertu du théorème de Pythagore, il est possible d'exprimer les distances #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] à l'aide de la formule de la distance entre deux points. Pour simplifier les démarches, posons #[+e() O=(0,0)] comme le point milieu du segment #[+e() \overline{F_1F_2},] et l'ordonnée des foyers à #[+e() 0,] de telle sorte que #[+e() F_1=(-c,0)] et #[+e() F_2=(c,0).] Considérons les coordonnées de #[+e() P] lorsqu'il se retrouve dans l'axe décrit par la droite #[+e() \overline{F_1F_2},] en ce sens lorsque #[+e() y=0.] S'il existe un point #[+e() P=(x,0)] sur le périmètre de l'ellipse tel que #[+e() x\in[-c,c],] alors il est impossible que #[+e() y] soit différent de #[+e() 0] pour l'ensemble des points respectant le #[+refDefinition(0) lieu géométrique de l&#39;ellipse] puisque la somme des distances #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] augmenterait. Par conséquent, pour #[+e() P=(x,0)] sur le périmètre de l'ellipse, #[+e() x\in&#93;-\infty,-c[\cup]c,\infty&#91;.]
 
-    +fig().
-        //TODO
+    +fig("construction-de-lellipse-dimension-axes-non-nulle.svg").
+        Première partie de la construction de la preuve de l'équation de l'ellipse, illustrant que l'ellipse doit avoir des dimensions horizontales et verticales non nulles.
 
-    p À la suite de notre construction, soit #[+e() d\gt 0.] Si #[+e() x=c+d,] de sorte que #[+e() x\gt c,] le point #[+e() P=(x,0)] se retrouve à droite du foyer #[+e() F_2.] Ce faisant, #[+e() \overline{PF_1}=x_P-x_{F_1}=c+d--c=2c+d,] et #[+e() \overline{PF_2}=x_P-x_{F_2}=c+d-c=d.] Par conséquent, la somme des distances entre le point #[+e() P] et les foyers #[+e() F_1] et #[+e() F_2,] qui est constante, vaut #[+e() 2c+d+d=2c+2d.] Considérons maintenant les coordonnées du point #[+e() P=(x,y)] lorsqu'il se retrouve dans l'axe perpendiculaire à celui décrit par #[+e() \overline{F_1F_2}] au point milieu #[+e() O,] en ce sens lorsque #[+e() x=0.] Si #[+e() y=0,] alors #[+e() \overline{PF_1}+\overline{PF_2}=2c\lt 2c+2d.] Conséquemment, #[+e() y] doit forcément être différent de #[+e() 0,] ce qui veut dire qu'il faudra construire des triangles rectangles isométriques #[+e() \triangle F_1OP] et #[+e() \triangle F_2OP] pour décrire les segments #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] à l'aide de leur hypoténuse. Soit #[+e() b,] la longueur de la petite cathète, qui se trouve sur l'axe des ordonnées, et soit #[+e() a,] la longueur d'une des hypoténuses. Le théorème de Pythagore stipule pour cette situation que #[+e() c^2+b^2=a^2.] En vertu du #[+refDefinition(0) lieu géométrique de l&#39;ellipse,] #[+e() \overline{PF_1}+\overline{PF_2}=2a=2c+2d.] Par conséquent, #[+e() 2a] correspond à la longueur du grand axe de l'ellipse, reliant les points #[+e() (-c-d, 0)] et #[+e() (c+d,0)]. La valeur de #[+e() 2b,] quant à elle, correspond à la longueur du petit axe de l'ellipse.
+    p À la suite de notre construction, soit #[+e() d\gt 0.] Si #[+e() x=c+d,] de sorte que #[+e() x\gt c,] le point #[+e() P=(x,0)] se retrouve à droite du foyer #[+e() F_2.] Ce faisant, #[+e() \overline{PF_1}=x_P-x_{F_1}=c+d--c=2c+d,] et #[+e() \overline{PF_2}=x_P-x_{F_2}=c+d-c=d.] Par conséquent, la somme des distances entre le point #[+e() P] et les foyers #[+e() F_1] et #[+e() F_2,] qui est constante, vaut #[+e() 2c+d+d=2c+2d.] Considérons maintenant les coordonnées du point #[+e() P=(x,y)] lorsqu'il se retrouve dans l'axe perpendiculaire à celui décrit par #[+e() \overline{F_1F_2}] au point milieu #[+e() O,] en ce sens lorsque #[+e() x=0.] Si #[+e() y=0,] alors #[+e() \overline{PF_1}+\overline{PF_2}=2c\lt 2c+2d.] Conséquemment, #[+e() y] doit forcément être différent de #[+e() 0,] ce qui veut dire qu'il faudra construire des triangles rectangles en #[+e() O] isométriques #[+e() \triangle F_1OP] et #[+e() \triangle F_2OP] pour décrire les segments #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] à l'aide de leur hypoténuse. Soit #[+e() b,] la longueur de la petite cathète, qui se trouve sur l'axe des ordonnées, et soit #[+e() a,] la longueur d'une des hypoténuses. Le théorème de Pythagore stipule pour cette situation que #[+e() c^2+b^2=a^2.] En vertu du #[+refDefinition(0) lieu géométrique de l&#39;ellipse,] #[+e() \overline{PF_1}+\overline{PF_2}=2a=2c+2d.] Par conséquent, #[+e() 2a] correspond à la longueur du grand axe de l'ellipse, reliant les points #[+e() (-c-d, 0)] et #[+e() (c+d,0)]. La valeur de #[+e() 2b,] quant à elle, correspond à la longueur du petit axe de l'ellipse.
 
-    +fig().
-        //TODO
+    +fig("construction-de-lellipse-relation-de-pythagore.svg").
+        Seconde partie de la construction de la preuve de l'équation de l'ellipse, illustrant la relation de Pythagore reliant les composantes de l'ellipse.
 
     p Nous venons de prouver que toutes ellipses comprennent des dimensions horizontale #[+e() 2a] et verticale #[+e() 2b] non-nulles, et que #[+e() \overline{PF_1}+\overline{PF_2}=2a] si #[+e() 2a] est leur plus grand axe. En récapitulatif, soit #[+e() P=(x,y),] #[+e() F_1=(-c,0),] #[+e() F_2=(c,0)] et #[+e() c^2+b^2=a^2.] Il ne reste plus qu'à travailler l'équation du lieu géométrique pour en dégager celle d'une ellipse.
 
@@ -46,11 +46,11 @@ p Étudions analytiquement l'ellipse en tant que section conique.
     +theorem("L'équation d'une ellipse centrée à l'origine")
         +leq("ellipse-centre-o") \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1
         p Où #[+e() x,] #[+e() y,] #[+e() a] et #[+e() b] sont des réels, #[+e() a\gt 0,] #[+e() b\gt 0,] #[+e() a\neq b,] #[+e() -a\leq x\leq a] et #[+e() -b\leq y\leq b.]
-        +fig().
-            //TODO
+        +fig("ellipse-centre-o.svg").
+            L'ellipse centrée à l'origine dans le plan cartésien.
     
     p Les paramètres #[+e() a] et #[+e() b] de l'équation #[+eqref("ellipse-centre-o")] sont positifs et non-nuls puisqu'ils correspondent à des grandeurs géométriques de l'ellipse. Il faut que #[+e() a] soit différent de #[+e() b,] puisque dans le cas contraire, l'équation décrirait un cercle d'équation #[+e() x^2+y^2=r^2.]
-    
+
     p Une ellipse définie par l'équation #[+eqref("ellipse-centre-o")] est centrée à l'origine. Il va donc de soi que son domaine soit #[+e() [-a,a]] puisqu'il s'agit de l'intervalle où on retrouve l'axe horizontal de l'ellipse de longueur #[+e() 2a.] Pour le démontrer, il suffit d'isoler #[+e() y] dans l'équation #[+eqref("ellipse-centre-o").]
 
     +eq().
@@ -61,7 +61,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
         \\|y|&=\sqrt{b^2}\sqrt{1-\dfrac{x^2}{a^2}}\because b\gt 0
         \\y&=\pm b\sqrt{1-\dfrac{x^2}{a^2}}
 
-    p Puisque l'équation #[+e() 1-\dfrac{x^2}{a^2}] est un radicande, il convient que #[+e() 1-\dfrac{x^2}{a^2}\geq 0,] ce qui implique que #[+e() \dfrac{x^2}{a^2}\leq 1,] et donc que #[+e() x^2\leq a^2.] Ce faisant, #[+e() |x|\leq a\implies -a\leq x\leq a,] d'où la définition de #[+e() x] dans l'équation #[+eqref("ellipse-centre-o")] telle que #[+e() x\in[-a,a].] Similairement, pour trouver la définition de #[+e() y,] il faudra isoler #[+e() x] dans l'équation #[+eqref("ellipse-centre-o").]
+    p Puisque l'expression #[+e() 1-\dfrac{x^2}{a^2}] est un radicande, il convient que #[+e() 1-\dfrac{x^2}{a^2}\geq 0,] ce qui implique que #[+e() \dfrac{x^2}{a^2}\leq 1,] et donc que #[+e() x^2\leq a^2.] Ce faisant, #[+e() |x|\leq a\implies -a\leq x\leq a,] d'où la définition de #[+e() x] dans l'équation #[+eqref("ellipse-centre-o")] telle que #[+e() x\in[-a,a].] Similairement, pour trouver la définition de #[+e() y,] il faudra isoler #[+e() x] dans l'équation #[+eqref("ellipse-centre-o").]
 
     +eq().
         \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}&=1
@@ -83,22 +83,24 @@ p Étudions analytiquement l'ellipse en tant que section conique.
     p On conclut donc que #[+e() y\in[-b,b].]
 
     +example()
-        //TODO
+        p Quelle est l'équation d'une ellipse centrée à l'origine si la longueur de son axe horizontal est #[+e() 8] et celle de son axe vertical est #[+e() 4?]
+        p À partir de l'équation #[+eqref("ellipse-centre-o") ,] #[+e() 2a=8\implies a=4] et #[+e() 2b=4\implies b=2.] Par conséquent, l'équation de l'ellipse est #[+e() \dfrac{x^2}{4^2}+\dfrac{y^2}{2^2}=1.]
 
     +example()
-        //TODO
+        p Existe-t-il un point sur la circonférence de l'ellipse d'équation #[+e() \dfrac{x^2}{9}+\dfrac{y^2}{16}=1] dont l'ordonnée vaut #[+e() 3?]
+        p À partir de l'équation #[+eqref("ellipse-centre-o") ,] #[+e() b=\sqrt{16}=4.] Puisqu'une ellipse d'équation #[+eqref("ellipse-centre-o")] a pour image #[+e() [-b,b],] alors il est tout à fait possible que pour un point #[+e() P=(x,y)] sur le périmètre de l'ellipse #[+e() y=3\in[-4,4].]
 
     +h(3, "L'équation canonique de l'ellipse")
 
         p Si l'ellipse n'était pas centrée à l'origine, l'ensemble des points aurait subit une translation horizontale de #[+e() h] unités et une translation verticale de #[+e() k] unités. Il en reviendrait à dire que les foyers #[+e() F_1] et #[+e() F_2] auraient pour coordonnées #[+e() F_1=(-c+h,k)] et #[+e() F_2=(c+h,k)] dans notre preuve plus haute. Dégager l'équation d'une ellipse à partir de l'équation #[+e() 2a=\overline{PF_1}+\overline{PF_2}] serait fastidieux, mais de manière analogue à ce que nous avons déjà fait.
 
-        p En revanche, si nous considérons une ellipse comme un cercle ayant subit une mise à l'échelle dont le ratio est différent de #[+e() 1:1] (c'est-à-dire que le cercle est étiré ou horizontalement ou verticalement), alors l'équation canonique de l'ellipse paraît intuitive.
+        p En revanche, si nous considérons une ellipse comme un cercle ayant subit une mise à l'échelle dont le ratio est différent de #[+e() 1:1] (c'est-à-dire que le cercle ait été étiré ou horizontalement ou verticalement), alors l'équation canonique de l'ellipse paraît intuitive.
 
         +theorem("L'équation canonique d'une ellipse")
             +leq("ellipse-canonique") \dfrac{(x-h)^2}{a^2}+\dfrac{(y-k)^2}{b^2}=1
             p Où #[+e() x,] #[+e() y,] #[+e() a,] #[+e() b,] #[+e() h] et #[+e() k] sont des réels, #[+e() a\gt 0,] #[+e() b\gt 0,] #[+e() a\neq b,] #[+e() h-a\leq x\leq h+a] et #[+e() k-b\leq y\leq k+b.]
-            +fig().
-                //TODO
+            +fig("ellipse-canonique.svg").
+                L'ellipse d'équation canonique dans le plan cartésien.
 
         p Les contraintes sur les paramètres des équations #[+eqref("ellipse-centre-o")] et #[+eqref("ellipse-canonique")] sont similaires. Par la composition des fonctions, il est possible de substituer #[+e() x\leftarrow x-h] dans l'équation #[+eqref("ellipse-centre-o")] pour conclure que #[+e() -a\leq x-h\leq a\implies h-a\leq x\leq h+a.] Similairement, en substituant #[+e() y\leftarrow y-k] dans l'équation #[+eqref("ellipse-centre-o") ,] la contrainte sur les ordonnées de l'ellipse s'exprime #[+e() -b\leq y-k\leq b\implies k-b\leq y\leq k+b.] Il en revient à appliquer la translation de l'ellipse sur #[+e() P=(x,y).]
 
@@ -147,26 +149,160 @@ p Étudions analytiquement l'ellipse en tant que section conique.
         p Enfin, pour une ellipse d'équation #[+eqref("ellipse-canonique") ,] #[+e() y\in[k-b,k+b].]
 
         +example()
-            //TODO
+            p Une ellipse d'équation #[+e() \dfrac{(x-3)^2}{25}+\dfrac{(y+2)^2}{9}] subit une translation horizontale de #[+e() 3u] et une translation verticale de #[+e() -6u.] Quelle est l'équation de l'ellipse transformée?
+            p À partir de l'équation #[+eqref("ellipse-canonique") ,] le centre de l'ellipse de base est #[+e() Q=(3,-2).] Le centre de l'ellipse transformée #[+e() Q^\prime] correspond donc à #[+e() (6,-8).] Ce faisant, son équation devient #[+e() \dfrac{(x-6)^2}{25}+\dfrac{(y+8)^2}{9}.]
         
         +example()
-            //TODO
+            p Quels sont le domaine et l'image d'une ellipse d'équation #[+e() \dfrac{(x+3)^2}{4}+\dfrac{(y-2)^2}{9}?]
+            p À partir de l'équation #[+eqref("ellipse-canonique") ,] le centre de l'ellipse correspond au point #[+e() Q=(-3,2).] La longueur de l'axe horizontal de l'ellipse vaut #[+e() 2a=2\sqrt{4}=4,] et la longueur de son axe vertical vaut #[+e() 2b=2\sqrt{9}=6.] Par conséquent, le domaine de l'ellipse est #[+e() [-5,-1]] et son image est #[+e() [-1,5].]
 
 +h(2, "L'ellipse dans le plan cartésien")
 
+    p L'équation de l'ellipse est implicite tout comme celle du cercle. Par conséquent, la résolution de problèmes impliquant les ellipses nécessitera la substitution, la comparaison ou la réduction. Cela dit, les ellipses décrites par les équations #[+eqref("ellipse-centre-o")] et #[+eqref("ellipse-canonique")] sont distinctes lorsque #[+e() a&gt;b] et #[+e() a&lt;b.]
+
     +h(3, "Les ellipses horizontales et verticales")
 
-        +definition("Une ellipse horizontale")
-            p Une ellipse d'équation #[+eqref("ellipse-centre-o")] ou #[+eqref("ellipse-canonique")] est dite horizontale si #[+e() a\gt b,] c'est-à-dire que le grand axe de l'ellipse est l'horizontal. 
-            +fig().
-                //TODO
+        +definition("Les ellipses horizontales")
+            p Une ellipse d'équation #[+eqref("ellipse-centre-o")] ou #[+eqref("ellipse-canonique")] est dite horizontale si #[+e() a\gt b,] c'est-à-dire que la longueur de son grand axe, et celle de la somme des distances entre un point #[+e() P] sur son périmètre et ses foyers #[+e() F_1] et #[+e() F_2], vaut #[+e() 2a]. 
+            +fig("ellipse-horizontale.svg").
+                Exemple d'ellipse horizontale.
 
-        +definition("Une ellipse verticale")
-            p Une ellipse d'équation #[+eqref("ellipse-centre-o")] ou #[+eqref("ellipse-canonique")] est dite verticale si #[+e() a\lt b,] c'est-à-dire que le grand axe de l'ellipse est le vertical. 
-            +fig().
-                //TODO    
+        +definition("Les ellipses verticales")
+            p Une ellipse d'équation #[+eqref("ellipse-centre-o")] ou #[+eqref("ellipse-canonique")] est dite verticale si #[+e() a\lt b,]  c'est-à-dire que la longueur de son grand axe, et celle de la somme des distances entre un point #[+e() P] sur son périmètre et ses foyers #[+e() F_1] et #[+e() F_2], vaut #[+e() 2b]. 
+            +fig("ellipse-verticale.svg").
+                Exemple d'ellipse verticale.  
 
-    +h(3, "L'intersection d'une ellipse et d'un droite")
+        p Si #[+e() c] correspond à la distance entre le centre de l'ellipse et les foyers #[+e() F_1] et #[+e() F_2,] alors sa définition est influencée par la relation entre #[+e() a] et #[+e() b.] En effet, en ce qui concerne les ellipses horizontales et verticales, les foyers se retrouvent sur le grand axe.
+
+        p Considérons une ellipse horizontale d'équation #[+eqref("ellipse-canonique")] telle que #[+e() Q=(h,k)] et #[+e() a&gt;b.] Si #[+e() P=(h, k+b),] le point le plus haut de l'ellipse, alors les triangles #[+e() \triangle QPF_1] et #[+e() \triangle QPF_2] sont rectangles, et leur hypoténuse correspond à la valeur de #[+e() a,] soit la demie de la longueur du grand axe. En vertu du théorème de Pythagore, il convient que #[+e() b^2+c^2=a^2,] ce qui implique que #[+e() c^2=a^2-b^2.]
+
+        +fig("ellipse-horizontale-relation-de-pythagore.svg").
+            La relation de Pythagore dans une ellipse horizontale.
+
+        p Considérons maintenant une ellipse verticale d'équation #[+eqref("ellipse-canonique")] telle que #[+e() Q=(h,k)] et #[+e() a&lt;b.] Si #[+e() P=(h-a, k),] le point le plus à gauche de l'ellipse, alors les triangles #[+e() \triangle QPF_1] et #[+e() \triangle QPF_2] sont aussi rectangles. Leur hypoténuse correspond cependant à #[+e() b] puisque l'axe le plus grand est vertical. Dans ce cas-ci, en vertu du théorème de Pythagore, #[+e() a^2+c^2=b^2,] ce revient à dire que #[+e() c^2=b^2-a^2.]
+
+        +fig("ellipse-verticale-relation-de-pythagore.svg").
+            La relation de Pythagore dans une ellipse verticale.
+
+        p À partir de ces raisonnements, sachant que #[+e() c^2=a^2-b^2] pour les ellipses horizontales et #[+e() c^2=b^2-a^2] pour les ellipses verticales, nous pouvons conclure que #[+e() c^2] correspond à la différence positive entre #[+e() a^2] et #[+e() b^2.] En effet, #[+e() c] est une grandeur géométrique, c'est-à-dire qu'elle est positive, alors #[+e() c^2\gt0.] On peut conclure que #[+e() c^2=|a^2-b^2|,] et en extrayant la racine de part et d'autre de l'équation, on obtient une formule pour la distance entre le centre d'une ellipse et l'un ou l'autre de ses foyers dans l'équation #[+eqref("ellipse-centre-o")] ou #[+eqref("ellipse-canonique") .]
+
+        +leq("distance-centre-foyer") c=\sqrt{|a^2-b^2|}
+
+        +example()
+            p Quelles sont les coordonnées des foyers #[+e() F_1] et #[+e() F_2] d'une ellipse d'équation #[+e() \dfrac{(x-7)^2}{32}+\dfrac{(y-6)^2}{16}=1?]
+
+            p À partir de l'équation #[+eqref("ellipse-canonique") ,] nous pouvons constater que #[+e() \dfrac{(x-7)^2}{32}+\dfrac{(y-6)^2}{16}=1] décrit une ellipse horizontale centrée en #[+e() Q=(7,6)], puisque #[+e() a^2=32\implies a=4\sqrt{2}] et #[+e() b^2=16\implies b=4,] ce qui implique que #[+e() a&gt;b.] Par conséquent, les foyers #[+e() F_1] et #[+e() F_2] se retrouvent sur l'axe horizontal de l'ellipse, ce qui implique que le segment de droite #[+e() \overline{F_1F_2}] est horizontal. Il en revient à dire que #[+e() F_1=(h-c,k)] et #[+e() F_2=(h+c,k),] puisque #[+e() \overline{F_1Q}=\overline{QF_2}=c.] À partir de la formule #[+eqref("distance-centre-foyer") ,]
+
+            +eq().
+                c&=\sqrt{|a^2-b^2|}
+                \\&=\sqrt{|32-16|}
+                \\&=\sqrt{16}
+                \\&=4
+
+            p Par conséquent, #[+e() F_1=(h-c,k)=(3,6)] et #[+e() F_2=(h+c,k)=(11,6).]
+
+            +fig("exemple-determiner-coordonnees-foyers-ellipse-horizontale.svg").
+                Réponse à #[+refExample(0) l&#39;exemple.]
+
+        +example()
+            p Quelle est l'équation canonique d'une ellipse dont les foyers sont #[+e() F_1=(-5,6)] et #[+e() F_2=(-5,-4)] si #[+e() a=3?]
+
+            p Le segment de droite #[+e() \overline{F_1F_2}] est vertical puisque #[+e() x_{F_1}=x_{F_2},] ce qui implique que l'ellipse est verticale. Par conséquent, #[+e() a&lt;b.] Le point milieu des foyers #[+e() F_1] et #[+e() F_2] correspond au centre #[+e() Q=(h,k)] de l'ellipse. Alors, #[+e() Q=\left(-5,\dfrac{y_{F_1}+y_{F_2}}{2}\right)=(-5,1).]
+
+            p Sachant que #[+e() c] correspond à la distance entre l'un ou l'autre des foyers et #[+e() Q,] alors #[+e() c=5.] Il sera possible de déterminer la valeur de #[+e() a] à l'aide de la formule #[+eqref("distance-centre-foyer").]
+
+            +eq().
+                c&=\sqrt{|a^2-b^2|}
+                \\c^2&=|a^2-b^2|
+                \\-c^2&=a^2-b^2\because a&gt;b
+                \\-c^2-a^2&=-b^2
+                \\b^2&=c^2+a^2
+                \\b&=\sqrt{c^2+a^2}
+                \\&=\sqrt{5^2+3^2}
+                \\&=\sqrt{34}
+
+            P Enfin, à partir de l'équation #[+eqref("ellipse-canonique") ,] l'équation de l'ellipse est #[+e() \dfrac{(x+5)^2}{9}+\dfrac{(y-1)^2}{34}=1.]
+
+            +fig("exemple-determiner-equation-ellipse-coordonnees-foyers.svg").
+                Réponse à #[+refExample(0) l&#39;exemple.]
+
+
+    +h(3, "L'intersection d'une ellipse et d'une droite")
+
+        p Soit une ellipse d'équation #[+eqref("ellipse-canonique")] et une droite d'équation #[+e() y=mx+b\Longleftrightarrow x=\dfrac{y-b}{m}.] Lorsqu'on cherche le ou les points d'intersection entre une droite et une ellipse, il suffit de substituer l'équation de la droite dans celle de l'ellipse. Si #[+e() y=mx+b,] alors il suffit de remplacer #[+e() y] par #[+e() mx+b] dans l'équation #[+eqref("ellipse-canonique") .]
+        +eq().
+            \dfrac{(x-h)^2}{a^2}+\dfrac{(y-k)^2}{b^2}&=1
+            \\\dfrac{(x-h)^2}{a^2}+\dfrac{(\color{blue}{mx+b}-k)^2}{b^2}=1&&\color{blue}{\text{Par substitution}}
+        p Si en revanche #[+e() x=\dfrac{y-b}{m},] alors il suffit de remplacer #[+e() x] par #[+e() \dfrac{y-b}{m}] dans l'équation #[+eqref("ellipse-canonique") .]
+        +eq().
+            \dfrac{(x-h)^2}{a^2}+\dfrac{(y-k)^2}{b^2}&=1
+            \\\dfrac{\left(\color{blue}{\dfrac{y-b}{m}}-h\right)^2}{a^2}+\dfrac{(y-k)^2}{b^2}&=1&&\color{blue}{\text{Par substitution}}
+
+        +example()
+            p Quels sont les points d'intersection entre l'ellipse d'équation #[+e() \dfrac{x^2}{45}+\dfrac{(y-4)^2}{9}=1] et la droite d'équation #[+e() y=-\dfrac{2}{5}x+4] s'il y en a?
+
+            p Il suffit de substituer l'équation de la droite dans celle de l'ellipse pour éliminer une des variables manquantes.
+            +eq().
+                \dfrac{x^2}{45}+\dfrac{(y-4)^2}{9}&=1
+                \\\dfrac{x^2}{45}+\dfrac{\left(\color{blue}{-\dfrac{2}{5}x+4}-4\right)^2}{9}&=1&&\color{blue}{\text{Par substitution}}
+                \\\dfrac{x^2}{45}+\dfrac{\left(-\dfrac{2}{5}x\right)^2}{9}&=1
+                \\\dfrac{x^2}{45}+\dfrac{1}{9}\left(-\dfrac{2}{5}\right)^2x^2&=1
+                \\\dfrac{x^2}{45}+\dfrac{1}{9}\cdot\dfrac{4}{25}x^2&=1
+                \\x^2\left(\dfrac{1}{45}+\dfrac{4}{9\cdot 25}\right)&=1
+                \\x^2\left(\dfrac{5}{225}+\dfrac{4}{225}\right)&=1
+                \\x^2\left(\dfrac{9}{225}\right)&=1
+                \\x^2&=\dfrac{225}{9}
+                \\|x|&=\dfrac{15}{3}
+                \\\begin{cases}x=5\\x=-5\end{cases}
+            p Connaissant les valeurs d'abscisses des points d'intersection entre la droite et l'ellipse, il ne reste plus qu'à les substituer dans l'équation de la droite.
+            +eq().
+                y&=-\dfrac{2}{5}x+4
+                \\&=-\dfrac{2}{5}\cdot\color{blue}{5}+4&&\color{blue}{\text{Par substitution}}
+                \\&=2
+            +eq().
+                y&=-\dfrac{2}{5}x+4
+                \\&=-\dfrac{2}{5}\cdot\color{blue}{-5}+4&&\color{blue}{\text{Par substitution}}
+                \\&=6
+            p Les points d'intersection entre la droite et l'ellipse sont donc #[+e() (-5,6)] et #[+e() (5,2).]
+            +fig("exemple-intersection-ellipse-droite-deux-solutions.svg").
+                Réponse à #[+refExample(0) l&#39;exemple.]
+
+        +example()
+            p Quelles sont les coordonnées du point de tangence #[+e() P] de la droite #[+e() y=\dfrac{1}{2}x+\dfrac{17}{2}] et de l'ellipse d'équation #[+e() \dfrac{(x-4)^2}{9}+\dfrac{(y-6)^2}{18}=1?]
+            p Sachant que #[+e() P] est un point de tangence, il ne devrait y avoir qu'un seul point d'intersection entre la droite et l'ellipse. Il faut substituer l'équation de la droite dans celle de l'ellipse.
+
+            +eq().
+                \dfrac{(x-4)^2}{9}+\dfrac{(y-6)^2}{18}&=1
+                \\\dfrac{(x-4)^2}{9}+\dfrac{\left(\color{blue}{\dfrac{1}{2}x+\dfrac{17}{2}}-6\right)^2}{18}&=1&&\color{blue}{\text{Par substitution}}
+                \\\dfrac{(x-4)^2}{9}+\dfrac{\left(\dfrac{1}{2}x+\dfrac{5}{2}\right)^2}{18}&=1
+                \\\dfrac{(x-4)^2}{9}+\dfrac{\left(\dfrac{1}{2}(x+5)\right)^2}{18}&=1
+                \\\dfrac{(x-4)^2}{9}+\dfrac{(x+5)^2}{72}&=1
+                \\72\dfrac{(x-4)^2}{9}+(x+5)^2&=72
+                \\8(x-4)^2+(x+5)^2&=72
+                \\8(x^2-8x+16)+(x^2+10x+25)&=72
+                \\9x^2-54x+81&=0
+                \\9(x^2-6x+9)&=0
+                \\(x-3)^2&=0
+                \\x&=3
+
+            p Il ne reste plus qu'à substituer l'abscisse du point de tangence dans l'équation de la tangente pour trouver son ordonnée.
+
+            +eq().
+                y&=\dfrac{1}{2}x+\dfrac{17}{2}
+                \\&=\dfrac{1}{2}\cdot \color{blue}{3}+\dfrac{17}{2}&&\color{blue}{\text{Par substitution}}
+                \\&=\dfrac{1}{2}\cdot 3+\dfrac{17}{2}
+                \\&=\dfrac{20}{2}
+                \\&=10
+
+            p Alors, le point de tangence entre la droite et l'ellipse est #[+e() P=(3,10).]
+
+            +fig("exemple-intersection-ellipse-droite-une-solution.svg").
+                Réponse à #[+refExample(0) l&#39;exemple.]
+
+        +example()
+            //TODO
+            //+fig("").
+                Réponse à #[+refExample(0) l&#39;exemple.]
 
     +h(3, "Le latus rectum de l'ellipse")
 

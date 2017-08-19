@@ -11,6 +11,7 @@ h4,
 h5,
 h6 {
 	font-family: $font-arimo;
+	line-height: normal;
 }
 
 @mixin font-sizing($size, $mobile-offset){

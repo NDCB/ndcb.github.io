@@ -35,15 +35,11 @@
         min-height: $mobile-navigation-bar-height;
         position: fixed;
         width: 100%;
+        //display: none;
         @extend .vertical-scroll;
         @include respond-to(desktop) {
             z-index: 2; //Set navigation content below footer
             width: $desktop-navigation-width;
-            padding-bottom: 5rem;
-        }
-        > ul {
-            float: left;
-            width: 100%;
             padding-bottom: 5rem;
         }
         ul {

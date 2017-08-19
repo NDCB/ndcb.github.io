@@ -15,7 +15,7 @@ mixin linkSublinks(rootLinks)
                 img#logo(src="/res/logo-light.svg")
             //- Hamburger icon
             i.fa.fa-navicon.toggler
-        ul
+        ul(aria-expanded="false")
             if Current.locale()
                 -let links = Index.listNavigationElements(Current.locale())
                 for link in links
@@ -34,7 +34,13 @@ mixin linkSublinks(rootLinks)
                             +linkSublinks(link.links)
             else
                 each locale in Site.locales()
-                    -locale.headline = locale.languageName + ' ' + locale.countryName
+                    -
+                        locale.headline = locale.languageName 
+                            + ' ' 
+                            + locale.countryName
                     li: a(href!='/' + locale.slug + '/') 
-                        i(class!="flag-icon flag-icon-" + locale.countryCode.toLowerCase())
+                        i(
+                            class!="flag-icon flag-icon-" 
+                            + locale.countryCode.toLowerCase()
+                        )
                         !=' ' + locale.headline

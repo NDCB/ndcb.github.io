@@ -11,7 +11,9 @@
         constructor({
             year, month, day, locale
         }) {
-            this.raw = year + '-' + month + '-' + day;
+            let monthString = month > 10 ? '' + month : '0' + month;
+            let dayString = day > 10 ? '' + day : '0' + day;
+            this.raw = year + '-' + monthString + '-' + dayString;
             this.year = year;
             this.month = month;
             this.day = day;

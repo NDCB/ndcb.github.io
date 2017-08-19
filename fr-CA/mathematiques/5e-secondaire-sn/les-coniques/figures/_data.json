@@ -131,6 +131,90 @@
             "authors": [
                 "marc-antoine-ouimet"
             ]
+        },
+
+        "exemple-determiner-coordonnees-foyers-ellipse-horizontale.svg": {
+            "alt": "Exemple de détermination des coordonnées des foyers d'une ellipse horizontale en connaissant son équation canonique.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-determiner-equation-ellipse-coordonnees-foyers.svg": {
+            "alt": "Exemple de détermination de l'équation canonique d'une ellipse verticale à partir des coordonnées de ses foyers et de la grandeur de son axe horizontal.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "construction-de-lellipse-dimension-axes-non-nulle.svg": {
+            "alt": "Première partie de la construction de l'ellipse prouvant que la dimension des axes de l'ellipse doit être non nulle.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "construction-de-lellipse-relation-de-pythagore.svg": {
+            "alt": "Seconde partie de la construction de l'ellipse prouvant que la somme des distances du point sur le périmètre de l'ellipse et ses foyers correspond à la longueur de son plus grand axe.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-intersection-ellipse-droite-deux-solutions.svg": {
+            "alt": "Exemple de d'intersection entre une droite et une ellipse horizontale en deux points.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "ellipse-centre-o.svg": {
+            "alt": "Graphe d'une ellipse centrée à l'origine.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "ellipse-canonique.svg": {
+            "alt": "Graphe d'une ellipse d'équation canonique dans le plan cartésien.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "ellipse-horizontale.svg": {
+            "alt": "Graphe d'une ellipse horizontale dans le plan cartésien.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "ellipse-verticale.svg": {
+            "alt": "Graphe d'une ellipse verticale dans le plan cartésien.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "ellipse-horizontale-relation-de-pythagore.svg": {
+            "alt": "Graphe d'une ellipse horizontale et de la relation de Pythagore qui s'y trouve dans le plan cartésien.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "ellipse-verticale-relation-de-pythagore.svg": {
+            "alt": "Graphe d'une ellipse verticale et de la relation de Pythagore qui s'y trouve dans le plan cartésien.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-intersection-ellipse-droite-une-solution.svg": {
+            "alt": "Exemple de d'intersection entre une droite et une ellipse horizontale en un point.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
         }
     }
 }

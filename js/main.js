@@ -1,150 +1,140 @@
 /**
- * Collapses the elements of the navigation.
+ * The attribute for collapsible elements.
  */
-$(window).ready(function() {
-    $('#primary-navigation ul[aria-expanded="false"]').hide();
-    if (!isDesktopWidth()) {
-        $('#primary-navigation header i.toggler').parent().next('ul').hide();
-    }
-});
+var expanded = "aria-expanded";
 
-/**
- * Collapses the modules.
- */
-$(window).ready(function() {
-    var $moduleSection = $('section.module[aria-expanded="false"]');
-    var $moduleContent = $moduleSection.children('article');
-    toggleModule($moduleContent);
-});
-
-/**
- * Updates the appearance of the primary navigation when the window resizes.
- */
-$(window).resize(function () {
-    let $navigationContent  = $('#primary-navigation header i.toggler')
-    .parent().next('ul');
-    var expanded = "aria-expanded";
-    if (isDesktopWidth()) {
-        $navigationContent.show();
-        $navigationContent.attr(expanded, "true");
-    } else {
-        $navigationContent.hide();
-        $navigationContent.attr(expanded, "false");
-    }
-});
+//Modules
 
 /**
  * Handles the click event of modules' toggler icon.
  */
-$('section.module i.toggler').on('click', function(event) {
+$('section.module i.toggler').on('click', function () {
     toggleModuleExpansion($(this));
 });
 
 /**
  * Toggles the expansion of the content of a module.
- * @param {$element} $moduleToggler the toggle icon of the module.
+ * @param {jQuery} moduleToggler the toggle icon of the module.
  */
-function toggleModuleExpansion($moduleToggler) {
-    var expanded = "aria-expanded";
-    $moduleToggler.toggleClass('rotate');
-    var $moduleHeader = $moduleToggler.parent('header');
-    var $moduleSection = $moduleHeader.parent('section');
-    if ($moduleSection.attr(expanded) === "false") {
-        $moduleSection.attr(expanded, "true");
+function toggleModuleExpansion(moduleToggler) {
+    moduleToggler.toggleClass('rotate');
+    var moduleContent = moduleToggler.parent('header').next('article');
+    if (moduleContent.attr(expanded) === "false") {
+        moduleContent.attr(expanded, "true");
     } else {
-        $moduleSection.attr(expanded, "false");
+        moduleContent.attr(expanded, "false");
     }
-    var $moduleContent = $moduleHeader.next('article');
-    toggleModule($moduleContent);
+}
+
+//Primary navigation
+
+/**
+ * The toggler icon for the primary navigation.
+ */
+var navigationToggler = $('#primary-navigation header i.toggler');
+
+/**
+ * The content of the primary navigation.
+ */
+var navigationContent = navigationToggler.parent().next('ul');
+
+/**
+ * Updates the display of the primary navigation's content when the window
+ * resizes.
+ */
+$(window).on('resize', updateNavigationDisplay());
+
+/**
+ * Initial update of the display of the primary navigation's content.
+ */
+$(updateNavigationDisplay());
+
+/**
+ * Updates the display of the primary navigation's content based on the width 
+ * of the device.
+ */
+function updateNavigationDisplay() {
+    if (isDesktopWidth()) {
+        navigationContent.show();
+        navigationContent.attr(expanded, "true");
+    } else {
+        navigationContent.hide();
+        navigationContent.attr(expanded, "false");
+    }
 }
 
 /**
- * Toggles the content of a module.
- * @param {$element} $moduleContent the content of the module to toggle.
+ * Handles the click event of the primary navigation's toggler icon.
  */
-function toggleModule($moduleContent) {
-    $moduleContent.toggle();
-}
-
-/**
- * Handles the click event of the burger icon.
- */
-$('#primary-navigation header i.toggler').on('click', function(event) {
-    toggleNavigationExpansion($(this));
+navigationToggler.on('click', function () {
+    toggleNavigationExpansion();
 });
 
 /**
  * Toggles the expansion of the content of the primary navigation.
- * @param {$element} $navigationToggler the burger icon element.
  */
-function toggleNavigationExpansion($navigationToggler) {
-    let $navigationContent = $navigationToggler.parent().next('ul');
-    var expanded = "aria-expanded";
-    if ($navigationContent.attr(expanded) === "false") {
-        $navigationContent.attr(expanded, "true");
+function toggleNavigationExpansion() {
+    toggleElementAnimated(navigationContent);
+    if (navigationContent.attr(expanded) === "false") {
+        navigationContent.attr(expanded, "true");
     } else {
-        $navigationContent.attr(expanded, "false");
-    }
-    toggleNavigation($navigationContent);
-}
-
-/**
- * Toggles the content of the primary navigation.
- * @param {$element} $navigationContent the content of the navigation to toggle.
- */
-
-function toggleNavigation($navigationContent) {
-    if (isTabletPortraitWidth()) {
-        $navigationContent.slideToggle('fast');
-    } else {
-        $navigationContent.toggle();
+        navigationContent.attr(expanded, "false");
     }
 }
 
 /**
  * Handles the click event of the navigation elements.
  */
-$('#primary-navigation ul li i.toggler').on('click', function(event) {
+$('#primary-navigation ul li i.toggler').on('click', function () {
     toggleNavigationElementExpansion($(this));
 });
 
 /**
  * Toggles the expansion of the content of a navigation element.
- * @param {$element} $navigationElementToggler the toggle icon of the navigation
+ * @param {jQuery} navigationElementToggler the toggle icon of the navigation
  * element.
  */
-function toggleNavigationElementExpansion($navigationElementToggler) {
-    var expanded = "aria-expanded";
-    $navigationElementToggler.toggleClass('rotate');
-    let $navigationElementContent = $navigationElementToggler.next('ul');
-    if ($navigationElementContent.attr(expanded) === "false") {
-        $navigationElementContent.attr(expanded, "true");
+function toggleNavigationElementExpansion(navigationElementToggler) {
+    navigationElementToggler.toggleClass('rotate');
+    var navigationElementContent = navigationElementToggler.next('ul');
+    toggleElementAnimated(navigationElementContent);
+    if (navigationElementContent.attr(expanded) === "false") {
+        navigationElementContent.attr(expanded, "true");
     } else {
-        $navigationElementContent.attr(expanded, "false");
+        navigationElementContent.attr(expanded, "false");
     }
-    toggleNavigationElement($navigationElementContent);
 }
 
+//Util
+
 /**
- * Toggles the content of a navigation element.
- * @param {$element} $navigationElementContent the content of the navigation 
- * element.
+ * Toggles a given element with an animation if the device's scrren is wide 
+ * enough.
+ * @param {jQuery} element the element to toggle.
  */
-function toggleNavigationElement($navigationElementContent) {
+function toggleElementAnimated(element) {
     if (isTabletPortraitWidth()) {
-        $navigationElementContent.slideToggle('fast');
+        if (element.attr(expanded) === "false") {
+            element.slideDown('fast');
+        } else {
+            element.slideUp('fast');
+        }
     } else {
-        $navigationElementContent.toggle();
+        if (element.attr(expanded) === "false") {
+            element.show();
+        } else {
+            element.hide();
+        }
     }
 }
 
 /**
- * Returns whether or not the media has the minimum width of the tablet portrait 
+ * Returns whether or not the media has the minimum width of the tabvar portrait 
  * breakpoint.
  * @returns {Boolean} if the media has the minimum width of a tablet.
  */
 function isTabletPortraitWidth() {
-    return window.matchMedia('(min-width: 768px)').matches;
+    return $(window).width() >= 768;
 }
 
 /**
@@ -153,5 +143,5 @@ function isTabletPortraitWidth() {
  * @returns {Boolean} if the media has the minimum width of a desktop computer.
  */
 function isDesktopWidth() {
-    return window.matchMedia('(min-width: 1200px)').matches;
+    return $(window).width() >= 1200;
 }

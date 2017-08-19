@@ -137,13 +137,13 @@ mixin proof(title)
     if Current.locale()
         -proofNo++
         section.module.proof(
-            id!="proof-" + proofNo aria-expanded="false"
+            id!="proof-" + theoremNo + '.' + proofNo
         )&attributes(attributes)
             header!=modules.proof + ' ' + proofNo
                 if title
                     span!=": " + title
                 i.fa.fa-fw.fa-caret-down.toggler
-            article
+            article(aria-expanded="false")
                 block
 
 //- Adds a reference to a proof in the current document.
@@ -201,14 +201,13 @@ mixin solution(title)
     if Current.locale()
         -solutionNo++
         section.module.solution(
-            id!="solution-" + solutionNo 
-            aria-expanded="false"
+            id!="solution-" + exerciseNo + '.' + solutionNo
         )&attributes(attributes)
             header!=modules.solution + ' ' + solutionNo
                 if title
                     span!=": " + title
                 i.fa.fa-fw.fa-caret-down.toggler
-            article
+            article(aria-expanded="false")
                 block
 
 //- Adds a reference to a solution in the current document.

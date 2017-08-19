@@ -46,3 +46,7 @@
 .wrapper {
 	@include flex-display();
 }
+
+[aria-expanded="false"] {
+	display: none;
+}
