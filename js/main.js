@@ -42,7 +42,9 @@ var navigationContent = navigationToggler.parent().next('ul');
  * Updates the display of the primary navigation's content when the window
  * resizes.
  */
-$(window).on('resize', updateNavigationDisplay());
+$(window).on('resize', function() {
+    updateNavigationDisplay();
+});
 
 /**
  * Initial update of the display of the primary navigation's content.
