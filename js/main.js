@@ -8,7 +8,7 @@ var expanded = "aria-expanded";
 /**
  * Handles the click event of modules' toggler icon.
  */
-$('section.module i.toggler').on('click', function () {
+$('.module i.toggler').on('click', function () {
     toggleModuleExpansion($(this));
 });
 
@@ -18,7 +18,7 @@ $('section.module i.toggler').on('click', function () {
  */
 function toggleModuleExpansion(moduleToggler) {
     moduleToggler.toggleClass('rotate');
-    var moduleContent = moduleToggler.parent('header').next('article');
+    var moduleContent = moduleToggler.parent('header').next('.content');
     if (moduleContent.attr(expanded) === "false") {
         moduleContent.attr(expanded, "true");
     } else {

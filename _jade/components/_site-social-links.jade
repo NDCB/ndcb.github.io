@@ -14,7 +14,7 @@
 mixin socialLink(label, href, icon)
     if href && icon
         if label
-            li: a(
+            a(
                 href!=href
                 target='_blank'
                 rel='nofollow noopener'
@@ -22,7 +22,7 @@ mixin socialLink(label, href, icon)
             )
                 +iconStackButton(icon, backgroundIcon)
         else
-            li: a(
+            a(
                 href!=href
                 target='_blank'
             )
@@ -30,7 +30,7 @@ mixin socialLink(label, href, icon)
 
 //- Provides the social media links at the footer of the website.
 if titles
-    ul
+    ul.social-links
         //- RSS feed icon
         li: +socialLink(
             titles.rss, 

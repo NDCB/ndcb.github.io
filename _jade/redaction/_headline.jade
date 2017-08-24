@@ -3,6 +3,9 @@
 //- The array representative of the contents of the current document.
     Used to interpret the table of contents.
 -var documentContents = [];
+
+-var currentHeadlineLevel = 1;
+
 -
     /**
      * Pushes a headline in the structure of the table of contents.
@@ -99,21 +102,25 @@ mixin heading(headline)
     @param {Number} level the level of the heading.
     @param {String} headline the headline of the heading.
 mixin headline(level, headline)
-    case level
-        when 1
-            h1.heading(id!=Utils.slugify(headline)): +heading(headline)
-        when 2
-            h2.heading(id!=Utils.slugify(headline)): +heading(headline)
-        when 3
-            h3.heading(id!=Utils.slugify(headline)): +heading(headline)
-        when 4
-            h4.heading(id!=Utils.slugify(headline)): +heading(headline)
-        when 5
-            h5.heading(id!=Utils.slugify(headline)): +heading(headline)
-        when 6
-            h6.heading(id!=Utils.slugify(headline)): +heading(headline)
-        default
-            -throw new Error("Invalid level " + level + " for headline " + headline);
+    if headline
+        case level
+            when 1
+                h1.heading(id!=Utils.slugify(headline)): +heading(headline)
+            when 2
+                h2.heading(id!=Utils.slugify(headline)): +heading(headline)
+            when 3
+                h3.heading(id!=Utils.slugify(headline)): +heading(headline)
+            when 4
+                h4.heading(id!=Utils.slugify(headline)): +heading(headline)
+            when 5
+                h5.heading(id!=Utils.slugify(headline)): +heading(headline)
+            when 6
+                h6.heading(id!=Utils.slugify(headline)): +heading(headline)
+            default
+                -
+                    throw new Error(
+                        "Invalid level " + level + " for headline " + headline
+                    );
 
 //- Displays and identifies a headline. Should not be used as an inline mixin.
     Since the headline is passed as a Javascript parameter, it is subject to 
@@ -123,6 +130,7 @@ mixin headline(level, headline)
     @param {String} id (optional) overriding id of the heading.
 mixin h(level, headline, id)
     if level && headline
+        -currentHeadlineLevel = level;
         -
             pushHeadline({
                 id: Utils.slugify(headline), 
@@ -148,7 +156,7 @@ mixin h(level, headline, id)
 mixin tableOfContents() 
     if Current.locale()
         if documentContents && documentContents.length > 0
-            section#table-of-contents
+            div#table-of-contents(role="navigation")
                 nav(
                     itemscope="itemscope" 
                     itemtype="http://www.schema.org/SiteNavigationElement"

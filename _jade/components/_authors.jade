@@ -1,13 +1,23 @@
+//- Retrieve the localized variables for the prompts
+-
+    var prompts;
+    if (Current.locale()) {
+        let localeVariables = Current.locale().variables;
+        prompts = localeVariables.prompts;
+    }
+
 //- Provides the listing of the authors of the current document. Used at the end
     of articles.
-section.authors
+div.authors#authors(role="region" aria-labelledby="authors")
     hr
     for author in Current.content().authors
-        section(
+        div(
             id!=author.id 
             itemprop="author"
             itemscope
             itemtype="http://schema.org/Person"
+            role="region" 
+            aria-labelledby!=author.id
         )
             //- Link to the author
             header: a(href!=author.path itemprop="url")

@@ -1,8 +1,7 @@
 {
     "pages": {
         "index": {
-            "headline": "",
-            "description": ""
+            "headline": "NDCB"
         }
     },
 
@@ -12,8 +11,7 @@
         "copyrightYear": "2016",
         "auth": {
             "googleSearchConsole": "j5wDthszLVOJrFj6TCCMO-eYVVxWpBX9O-PtNU-c-yA",
-            "googleWebmaster": "",
-            "googleAnalytics": "",
+            "googleAnalytics": "UA-102987614-1",
             "bingWebmaster": "B8D87AA1707EE0650C1630A563C064FF",
             "facebookAppId": "885678258252305"
         },
@@ -98,14 +96,6 @@
     },
 
     "sitemap.xml": {
-        "layout": false
-    },
-
-    "feed.xml": {
-        "layout": false
-    },
-
-    "test": {
         "layout": false
     }
 }

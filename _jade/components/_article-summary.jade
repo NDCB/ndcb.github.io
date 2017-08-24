@@ -9,7 +9,8 @@ include ../base/_breadcrumbs
     } else {
         prompts = {
             published: '',
-            modified: ''
+            modified: '',
+            writtenBy: ''
         };
     }
 
@@ -32,7 +33,7 @@ mixin articleSummary(article)
         footer: ul.meta
             //- Add the publication date of the article
             if article.publicationDate
-                li.publicationDate
+                li: span.publicationDate
                     i.fa.fa-fw.fa-calendar-plus-o
                     !=prompts.published + ' '
                     time(
@@ -40,7 +41,7 @@ mixin articleSummary(article)
                     )!=article.publicationDate.write()
             //- Add the latest modification date of the article
             if article.lastestModificationDate
-                li.lastestModificationDate
+                li: span.lastestModificationDate
                     i.fa.fa-fw.fa-calendar-check-o
                     !=prompts.modified + ' '
                     time(
@@ -48,6 +49,7 @@ mixin articleSummary(article)
                     )!=article.lastestModificationDate.write()
             //- Link to the authors of the article
             if article.authors.length > 0
-                li: ul.authors
-                    for author in article.authors
-                        li.author: a(href!=author.path)!=author.fullName
+                li: div!=prompts.writtenBy + ' '
+                    ul.authors
+                        for author in article.authors
+                            li.author: a(href!=author.path)!=author.fullName

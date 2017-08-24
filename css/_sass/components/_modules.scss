@@ -1,16 +1,19 @@
-section.module {
+.module {
     border-style: solid;
     border-width: 4px;
     margin-top: 1rem;
-    article {
+    .content {
         padding: 1rem;
     }
     > header {
         width: 100%;
         padding: 0.5rem;
+        position: relative;
     }
     i.toggler {
-        float: right;
+        position: absolute;
+        top: 0.5em;
+        right: 0;
         @include respond-to(print) {
             display: none;
         }

@@ -7,7 +7,7 @@
     }
 
 //- Provides additional metadata for articles.
-section#metadata
+div#metadata(role="region" aria-labelledby="metadata")
     //- The publication date of the article
     if Current.content().publicationDate
         span#publicationDate!=prompts.published + ' '

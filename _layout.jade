@@ -27,7 +27,7 @@ html(lang!=Current.localeSlug())
                                 span(itemprop="headline")!=Current.headline()
                             include /_jade/base/_breadcrumbs
                             +breadcrumbs(Current.breadcrumbs())
-                        section#content(itemprop="mainEntityOfPage")
+                        div#content(itemprop="mainEntityOfPage" role="main")
                             !=yield
                         include /_jade/components/_authors
                         if Current.content().allowsComments
@@ -41,12 +41,14 @@ html(lang!=Current.localeSlug())
                                         href!='#' + Utils.slugify(Current.headline()) 
                                         id!=Utils.slugify(Current.headline())
                                     ): i.fa.fa-link
-                                    span(itemprop="headline")!=Current.headline()
+                                    span!=Current.headline()
                                 include /_jade/base/_breadcrumbs
                                 +breadcrumbs(Current.breadcrumbs())
-                        !=yield
+                        div#content(role="main")
+                            !=yield
                 else 
-                    !=yield
+                    div#content(role="main")
+                        !=yield
             //-Left sidebar
             include /_jade/base/_primary-navigation
 
