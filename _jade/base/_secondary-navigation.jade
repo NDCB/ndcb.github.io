@@ -18,6 +18,10 @@ footer#secondary-navigation
             li: a(href!=Site.globals().sourceUrl)
                 i.fa.fa-fw(class!="fa-" + secondaryNavigation.source.icon)
                 !=secondaryNavigation.source.headline
+            //- Privacy Policy
+            li: a(href="/privacy-policy")
+                i.fa.fa-fw.fa-gavel
+                !=secondaryNavigation.privacyPolicy
             //- Retrieve the root links found on the primary navigation
             -let links = Index.listNavigationElements(Current.locale())
             for link in links
