@@ -2,7 +2,7 @@ include ../model/_model.js.jade
 include _article-summary
 
 //- Retrieve the articles contained in this category and its subcategories
--let articles = Index.listAllArticles();
+-let articles = Index.fetchArticles(Current.category());
 
 //- Provides the listing of all available articles from this category.
 ol#articles
