@@ -74,6 +74,9 @@
     header {
         height: $mobile-navigation-bar-height;
         width: 100%;
+        @include respond-to(desktop) {
+            height: auto;
+        }
         i.toggler {
             float: right;
             z-index: 10;
