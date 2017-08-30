@@ -1,10 +1,144 @@
 include /_jade/redaction/_redaction
 
+p L'hyperbole en tant que section conique correspond à une tranche perpendiculaire à la base d'un de deux cônes placés en sablier. C'est un ensemble de points à deux branches caractérisés par deux points importants nommés foyers. L'hyperbole, et son solide de révolution l'hyperboloïde, ont des applications concrètes en optique.
+
+p Étudions analytiquement l'hyperbole en tant que section conique.
+
++definition("Le lieu géométrique de l'hyperbole")
+    p L'hyperbole correspond à l'ensemble des points dont la différence des distances à deux points fixes, appelés foyers, est constante.
+
 +h(2, "L'équation cartésienne de l'hyperbole")
+
+    p La preuve de la formule de l'hyperbole est similaire à celle de l'ellipse. Partant du #[+refDefinition(0) lieu géométrique de l&#39;hyperbole] posons les points distincts #[+e() F_1] et #[+e() F_2] comme foyers et le point #[+e() P=(x,y)] sur la courbe de l'hyperbole. Soit #[+e() 2c] la distance #[+e() \overline{F_1F_2}] entre les deux foyers, telle que #[+e() c\gt 0]. En vertu du théorème de Pythagore, il est possible d'exprimer les distances #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] à l'aide de la formule de la distance entre deux points. Pour simplifier les démarches, posons #[+e() O=(0,0)] comme le point milieu du segment #[+e() \overline{F_1F_2},] et l'ordonnée des foyers à #[+e() 0,] se sorte que #[+e() F_1=(-c,0)] et #[+e() F_2=(c,0).] S'il existe un point #[+e() P=(x,0)] sur la courbe de l'hyperbole tel que #[+e() x\in&#93;-\infty,-c&#93;\cup&#91;c,\infty&#91;,] alors il est impossible que #[+e() y] soit différent de #[+e() 0] pour l'ensemble des points respectant le #[+refDefinition(0) lieu géométrique de l&#39;hyperbole] puisque la différence des distances #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] diminuerait. Par conséquent, pour #[+e() P=(x,0)] sur la courbe de l'hyperbole, #[+e() x\in&#93;-c,c&#91;.] En d'autres mots, il ne peut pas exister à la fois deux points sur la courbe de l'hyperbole dont un est compris sur l'axe des abscisses de sorte que #[+e() x\in&#93\infty,-c&#91;\cup&#93;c,\infty&#91;.]
+
+    //-TODO+fig("construction-de-lhyperbole-position-courbe.svg").
+
+    p À la suite de notre construction, soit #[+e() d\gt 0.] Si #[+e() x=c-d,] de sorte que #[+e() x\lt c,] le point #[+e() P=(x,0)] existe sur la courbe de l'hyperbole et se retrouve entre les foyers #[+e() F_1] et #[+e() F_2.] On considère cependant que #[+e() x\neq 0,] car l'hyperbole doit exister en deux dimensions. Il est alors possible d'exprimer la formule des longueurs entre le point #[+e() P] et les foyers.
+    
+    +eq().
+        \overline{PF_1}&=|x_P-x_{F_1}|
+        \\&=|c-d-(-c)|
+        \\&=2c-d
+
+    +eq().
+        \overline{PF_2}&=|x_P-x_{F_2}|
+        \\&=|c-(c-d)|
+        \\&=d
+    
+    p Par conséquent, la différence des distances entre le point #[+e() P] et les foyers #[+e() F_1] et #[+e() F_2,] qui est constante, vaut #[+e() 2c-d-d=2c-2d.] Considérons maintenant les coordonnées du point #[+e() P=(x,y)] lorsqu'il se retrouve dans l'axe perpendiculaire à celui décrit par #[+e() \overline{F_1F_2}] au foyer #[+e() F_2,] en ce sens lorsque #[+e() x=c.] Si #[+e() y=0,] alors #[+e() \overline{PF_1}-\overline{PF_2}=2c\gt 2c-2d.] Conséquemment, la valeur de #[+e() y] doit forcément être différente de #[+e() 0.] Soit #[+e() 2a=2c-2d,] la distance entre les deux points sur la courbe de l'hyperbole et sur le segment de droite #[+e() \overline{F_1F_2}], telle que #[+e() a\lt c] et #[+e() a\gt 0.] La valeur de #[+e() 2a] correspond à la constante de la différence des segments #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] telle qu'énoncée dans le #[+refDefinition(0) lieu géométrique de l&#39;hyperbole.]
+
+    //-TODO+fig("").
+
+    p En récapitulatif, #[+e() F_1=(-c,0),] #[+e() F_2=(c,0),] #[+e() P=(x,y)] et #[+e() \overline{PF_1}-\overline{PF_2}=2a.] Nous pouvons déduire l'équation d'une hyperbole à l'aide de la relation de Pythagore.
+
+    +eq().
+        2a&=\overline{PF_1}-\overline{PF_2}
+        \\&=\sqrt{(x_P-x_{F_1})^2+(y_P-y_{F_1})^2}-\sqrt{(x_P-x_{F_2})^2+(y_P-y_{F_2})^2}
+        \\&=\sqrt{(x--c)^2+(y-0)^2}-\sqrt{(x-c)^2+(y-0)^2}
+        \\2a&=\sqrt{(x+c)^2+y^2}-\sqrt{(x-c)^2+y^2}
+        \\\sqrt{(x+c)^2+y^2}&=2a+\sqrt{(x-c)^2+y^2}
+        \\\left(\sqrt{(x+c)^2+y^2}\right)^2&=\left(2a+\sqrt{(x-c)^2+y^2}\right)^2
+        \\(x+c)^2+y^2&=4a^2+4a\sqrt{(x-c)^2+y^2}+(x-c)^2+y^2
+        \\(x+c)^2-(x-c)^2&=4a^2+4a\sqrt{(x-c)^2+y^2}
+        \\4cx&=4a\left(a+\sqrt{(x-c)^2+y^2}\right)
+        \\\dfrac{c}{a}x-a&=\sqrt{(x-c)^2+y^2}
+        \\\left(\sqrt{(x-c)^2+y^2}\right)^2&=\left(\dfrac{c}{a}x-a\right)^2
+        \\(x-c)^2+y^2&=\dfrac{c^2}{a^2}x^2-2a\dfrac{c}{a}x+a^2
+        \\x^2-2cx+c^2+y^2&=\dfrac{c^2}{a^2}x^2-2cx+a^2
+        \\x^2+c^2+y^2&=\dfrac{c^2}{a^2}x^2+a^2
+        \\x^2-\dfrac{c^2}{a^2}x^2+y^2&=a^2-c^2
+        \\x^2\left(1-\dfrac{c^2}{a^2}\right)+y^2&=a^2-c^2
+        \\\dfrac{x^2}{a^2}(a^2-c^2)+y^2&=a^2-c^2
+        \\-\dfrac{x^2}{a^2}(c^2-a^2)+y^2&=-(c^2-a^2)
+        \\\dfrac{x^2}{a^2}-\dfrac{y^2}{c^2-a^2}&=1
+
+    p Plus tôt, nous avions posé les foyers sur l'axe des abscisses. L'équation qui en a découlé est celle d'une hyperbole horizontale. Considérons maintenant le cas où les foyers se retrouvent sur l'axe des ordonnées. Soit #[+e() F_1=(0,-c)] et #[+e() F_2=(0,c),] de sorte que #[+e() 2c] correspond à la longueur du segment #[+e() \overline{F_1F_2}.] Suivant un raisonnement analogue à celui plus tôt, il doit nécessairement exister un point #[+e() (0,y)] sur l'hyperbole de telle sorte que #[+e() y\in&#93;-c,0&#91;\cup&#93;0,c&#91;.] Il doit par la suite exister un point #[+e() P=(x,y)] qui vérifie les formules #[+e() \overline{PF_1}=|x_P-x_{F_1}|=2c-d] et #[+e() \overline{PF_2}=|x_P-x_{F_2}|=d.] Conséquement, on pose #[+e() 2b=2c-2d,] la différence constante des distances de #[+e() P] aux foyers, telle que #[+e() c\gt b.]
+
+    //-TODO+fig("").
+
+    p En récapitulatif, #[+e() F_1=(0,-c),] #[+e() F_2=(0,c),] #[+e() P=(x,y)] et #[+e() \overline{PF_1}-\overline{PF_2}=2b.] Nous pouvons donc déduire l'équation d'une hyperbole horizontale à l'aide de la formule de la distance entre deux points, un corollaire du théorème de Pythagore.
+
+    +eq().
+        2b&=\overline{PF_1}-\overline{PF_2}
+        \\&=\sqrt{(x_P-x_{F_1})^2+(y_P-y_{F_1})^2}-\sqrt{(x_P-x_{F_2})^2+(y_P-y_{F_2})^2}
+        \\&=\sqrt{(x-0)^2+(y--c)^2}-\sqrt{(x-0)^2+(y-c)^2}
+        \\2b&=\sqrt{x^2+(y+c)^2}-\sqrt{x^2+(y-c)^2}
+        \\\sqrt{x^2+(y+c)^2}&=2b+\sqrt{x^2+(y-c)^2}
+        \\\left(\sqrt{x^2+(y+c)^2}\right)^2&=\left(2b+\sqrt{x^2+(y-c)^2}\right)^2
+        \\x^2+(y+c)^2&=4b^2+4b\sqrt{x^2+(y-c)^2}+x^2+(y-c)^2
+        \\(y+c)^2-(y-c)^2&=4b^2+4b\sqrt{x^2+(y-c)^2}
+        \\(y+c)^2-(y-c)^2&=4b^2+4b\sqrt{x^2+(y-c)^2}
+        \\4cy&=4b\left(b+\sqrt{x^2+(y-c)^2}\right)
+        \\\dfrac{c}{b}y-b&=\sqrt{x^2+(y-c)^2}
+        \\\left(\sqrt{x^2+(y-c)^2}\right)^2&=\left(\dfrac{c}{b}y-b\right)^2
+        \\x^2+(y-c)^2&=\dfrac{c^2}{b^2}y^2-2b\dfrac{c}{b}y+b^2
+        \\x^2+y^2-2cy+c^2&=\dfrac{c^2}{b^2}y^2-2cy+b^2
+        \\x^2+y^2+c^2&=\dfrac{c^2}{b^2}y^2+b^2
+        \\x^2+y^2-\dfrac{c^2}{b^2}y^2&=b^2-c^2
+        \\x^2+y^2\left(1-\dfrac{c^2}{b^2}\right)&=b^2-c^2
+        \\x^2+\dfrac{y^2}{b^2}(b^2-c^2)&=b^2-c^2
+        \\x^2-\dfrac{y^2}{b^2}(c^2-b^2)&=-(c^2-b^2)
+        \\\dfrac{x^2}{c^2-b^2}-\dfrac{y^2}{b^2}&=-1
+
+    p Nous avons obtenu deux équations très similaires caractérisant respectivement les hyperboles horizontales et verticales. On y remarque d'abord que le membre droit d'une des équations est l'opposé de l'autre, ce qui a pour effet d'inverser le sens de la soustraction des termes du membre de droit. Ce qui paraît plus intéressant est que les paramètres #[+e() a,] #[+e() b] et #[+e() c] sont liés. Il est donc possible de décrire une hyperbole à l'aide d'un composant de son hyperbole conjuguée. 
+
+    +eq().
+        \dfrac{x^2}{a^2}-\dfrac{y^2}{c^2-a^2}&=1
+        \\\dfrac{x^2}{c^2-b^2}-\dfrac{y^2}{b^2}&=-1
+
+    p En effet, il est possible d'inscrire un rectangle de dimensions horizontale #[+e() 2a] et verticale #[+e() 2b] dans deux hyperboles ayant chacune une des équations ci-hautes.
+
+    //-TODO+fig("").
+
+    p Il en découle la relation de Pythagore #[+e() a^2+b^2=c^2,] qui est indépendante du sens de l'hyperbole. Elle nous permettra de simplifier le résultat de nos preuves.
+
+    +theorem("L'équation d'une hyperbole centrée à l'origine")
+        +leq("hyperbole-centre-o") \dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=\pm 1
+        p Où #[+e() a,] et #[+e() b] sont des réels, #[+e() a\gt 0,] #[+e() b\gt 0,] #[+e() \left\{x\in\mathbb{R}|x\leq -\sqrt{\pm a^2}\vee x\geq\sqrt{\pm a^2}\right\}] et #[+e() \left\{y\in\mathbb{R}|y\leq -\sqrt{\mp b^2}\vee y\geq \sqrt{\mp b^2}\right\}.]
+
+    p Les paramètres #[+e() a] et #[+e() b] de l'équation #[+eqref("hyperbole-centre-o")] sont positifs et non-nuls puisqu'ils correspondent à des moitiés de distances géométriques.
+
+    p Une hyperbole d'équation #[+eqref("hyperbole-centre-o")] est centrée à l'origine. Il est possible de déterminer le domaine d'une telle hyperbole par contrainte en isolant #[+e() y.]
+
+    +eq().
+        \dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}&=\pm 1
+        \\-\dfrac{y^2}{b^2}&=-\dfrac{x^2}{a^2}\pm 1
+        \\\dfrac{y^2}{b^2}&=\dfrac{x^2}{a^2}\mp 1
+        \\y^2&=b^2\left(\dfrac{x^2}{a^2}\mp 1\right)
+        \\|y|&=\sqrt{b^2\left(\dfrac{x^2}{a^2}\mp 1\right)}
+        \\|y|&=\sqrt{b^2}\sqrt{\dfrac{x^2}{a^2}\mp 1}\because b\gt 0
+        \\y&=\pm b\sqrt{\dfrac{x^2}{a^2}\mp 1}
+
+    p Puisque l'expression #[+e() \dfrac{x^2}{a^2}\mp 1] est un radicande, il convient que #[+e() \dfrac{x^2}{a^2}\mp 1\geq 0,] ce qui implique que #[+e() \dfrac{x^2}{a^2}\geq\pm 1,] et donc que #[+e() x^2\geq\pm a^2.] Ce faisant, on peut extraire la racine carrée de part et d'autre de l'équation, puis dégager les contraintes sur #[+e() x.]
+
+    +eq().
+        |x|\geq\sqrt{\pm a^2}\implies x\leq -\sqrt{\pm a^2}\vee x\geq\sqrt{\pm a^2}
+
+    p Le symbole #[+e() \vee] désigne la disjonction logique inclusive, utilisée en logique des propositions. Dans l'équation précédente, il signifie que #[+e() x] existe dans l'intervalle décrit par l'expression à sa gauche, ou dans l'intervalle décrit par l'expression à sa droite. Ces intervalles décrivent des contraintes sur le domaine de #[+e() x,] par conséquent elles ne s'appliquent que lorsqu'elles sont réelles. En d'autres mots, si le radicande des expressions est négatif, alors les contraintes ne s'appliquent pas et #[+e() x\in\mathbb{R},] ce qui est le cas pour les hyperboles verticales. Autrement, #[+e() x\in&#93;-\infty,-a&#93;\cup&#91;a,\infty&#91;,] ce qui est le cas pour les hyperboles horizontales.
+
+    p Il est possible de déterminer l'image d'une hyperbole d'équation #[+eqref("hyperbole-centre-o")] par contrainte en isolant #[+e() x.]
+    
+    +eq().
+        \dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}&=\pm 1
+        \\\dfrac{x^2}{a^2}&=\dfrac{y^2}{b^2}\pm 1
+        \\x^2&=a^2\left(\pm 1+\dfrac{y^2}{b^2}\right)
+        \\|x|&=\sqrt{a^2\left(\dfrac{y^2}{b^2}\pm 1\right)}
+        \\|x|&=\sqrt{a^2}\sqrt{\dfrac{y^2}{b^2}\pm 1}\because a\gt 0
+        \\x&=\pm a\sqrt{\dfrac{y^2}{b^2}\pm 1}
+
+    +eq().
+        \dfrac{y^2}{b^2}\pm 1&\geq 0
+        \\\dfrac{y^2}{b^2}&\geq \mp 1
+        \\y^2&\geq \mp b^2
+        \\|y|&\geq \sqrt{\mp b^2}
+        \\&\implies y\leq -\sqrt{\mp b^2}\vee y\geq \sqrt{\mp b^2}
+
 
     +h(3, "L'équation canonique de l'hyperbole")
 
 +h(2, "L'hyperbole dans le plan cartésien")
+
+    +h(3, "Les asymptotes de l'hyperbole")
 
     +h(3, "L'intersection d'une hyperbole et d'une droite")
 

@@ -51,11 +51,11 @@ p Étudions analytiquement le cercle en tant que section conique.
 
     p On conclut donc que #[+e() y\in[-r,r].]
 
-    +example()
+    +example("Déterminer l'équation d'un cercle centré à l'origine à l'aide de son rayon")
         p Quelle est l'équation canonique d'un cercle centré à l'origine et de rayon #[+e() 3?]
         p À partir de l'équation #[+eqref("cercle-centre-o") ,] l'équation recherchée devient #[+e() x^2+y^2=3^2.]
 
-    +example()
+    +example("Déterminer le domaine et l'image d'un cercle centré à l'origine")
         p Quels sont le domaine et l'image du cercle d'équation #[+e() x^2+y^2=81?]
         p À partir de l'équation #[+eqref("cercle-centre-o") ,] #[+e() r=\sqrt{81}=9.] Sachant que la valeur minimale de #[+e() x] est #[+e() -r] et que sa valeur maximale est #[+e() r,] alors le domaine du cercle est #[+e() [-9,9].] De même, sachant que #[+e() y] est restreint entre #[+e() -r] et #[+e() r,] l'image du cercle est #[+e() [-9,9].]
 
@@ -114,11 +114,11 @@ p Étudions analytiquement le cercle en tant que section conique.
 
         p Enfin, pour un cercle d'équation #[+eqref("cercle-canonique") ,] #[+e() y\in[k-r,k+r].]
 
-        +example()
+        +example("Déterminer l'équation d'un cercle à partir de son centre et de son rayon")
             p Quelle est l'équation canonique d'un cercle de rayon #[+e() 4] centré au point #[+e() A=(-4,7)?]
             p À partir de l'équation #[+eqref("cercle-canonique") ,] si #[+e() r=4] et #[+e() A=(h,k)=(-4,7),] alors l'équation du cercle devient #[+e() (x+4)^2+(y-7)^2=4^2.]
 
-        +example()
+        +example("Utilisation du domaine d'un cercle d'équation canonique")
             p Existe-t-il un point sur la circonférence d'un cercle d'équation #[+e() (x-2)^2+(y+7)^2=16] dont l'abscisse est #[+e() -2?]
             p À partir de l'équation #[+eqref("cercle-canonique") ,] #[+e() r=\sqrt{16}=4] et #[+e() (h,k)=(2,-7).] Sachant que le domaine d'un tel cercle est #[+e() [h-r,h+r],] nous pouvons vérifier que #[+e() -2\in[-2,6].]
 
@@ -155,7 +155,7 @@ p Étudions analytiquement le cercle en tant que section conique.
             (x-h)^2+(y-k)^2&=r^2
             \\\left(\color{blue}{\dfrac{y-b}{m}}-h\right)^2+(y-k)^2&=r^2&&\color{blue}{\text{Par substitution}}
 
-        +example()
+        +example("L'intersection d'un cercle et d'une droite en deux points")
             p Soit un cercle d'équation #[+e() (x-5)^2+(y-2)^2=25] et une droite d'équation #[+e() y=-2x+10.] Quels sont leurs points d'intersection s'il y en a?
             p Il suffit de substituer l'équation de la droite dans celle du cercle pour éliminer une des variables manquantes.
             +eq().
@@ -181,9 +181,9 @@ p Étudions analytiquement le cercle en tant que section conique.
                 \\&=6
             p Les points d'intersection entre la droite et le cercle sont donc #[+e() \left(\dfrac{32}{5},-\dfrac{14}{5}\right)] et #[+e() (2,6).]
             +fig("exemple-intersection-cercle-droite-deux-solutions.svg").
-                Réponse à #[+refExample(0) l&#39;exemple.]
+                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
                 
-        +example()
+        +example("L'intersection d'un cercle et d'une droite en un point")
             p Soit un cercle d'équation #[+e() x^2+(y-1)^2=5] et une droite d'équation #[+e() y-2x=6.] Quels sont leurs points d'intersection s'il y en a?
             p Il suffit d'isoler #[+e() x] ou #[+e() y] dans l'équation de la droite et de substituer l'équation résultante dans l'équation du cercle pour éliminer une des variables manquantes.
             +eq().
@@ -207,9 +207,9 @@ p Étudions analytiquement le cercle en tant que section conique.
                 \\y&=2
             p Le point d'intersection entre la droite et le cercle est donc #[+e() (-2,2).]
             +fig("exemple-intersection-cercle-droite-une-solution.svg").
-                Réponse à #[+refExample(0) l&#39;exemple.]
+                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
                 
-        +example()
+        +example("L'intersection entre un cercle et une droite sans solution")
             p Soit un cercle d'équation #[+e() x^2+(y-5)^2=4] et une droite d'équation #[+e() y=x+1.] Quels sont leurs points d'intersection s'il y en a?
             p Il suffit de substituer l'équation de la droite dans celle du cercle pour éliminer une des variables manquantes.
             +eq().
@@ -224,7 +224,7 @@ p Étudions analytiquement le cercle en tant que section conique.
                 \\&=\dfrac{4\pm\sqrt{-8}}{2}
             p Puisque le discriminant de l'équation #[+e() x^2-4x+6=0] est négatif, il n'y a pas de solutions à l'équation. Par conséquent, il n'y a pas de point d'intersection entre le cercle et la droite. 
             +fig("exemple-intersection-cercle-droite-aucune-solution.svg").
-                Réponse à #[+refExample(0) l&#39;exemple.]
+                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
 
     +h(3, "La droite tangente à un cercle")
 
@@ -256,7 +256,7 @@ p Étudions analytiquement le cercle en tant que section conique.
             +leq("tangente-generale-cercle").
                 y=-\dfrac{x_P-h}{y_P-k}(x-x_P)+y_P.
 
-        +example()
+        +example("Déterminer l'équation d'une droite tangente à un cercle")
             p Soit un cercle centré en #[+e() Q=(-3,-2)] et le point #[+e() P=(-1,2).] Quelle est l'équation de la droite tangente au cercle au point #[+e() P.]
             p Sachant que la droite tangente à un cercle est perpendiculaire au rayon reliant son centre au point de tangence, alors il faut trouver le taux de variation #[+e() m_1] de la droite #[+e() \overline{QP}.]
             +eq().
@@ -272,9 +272,9 @@ p Étudions analytiquement le cercle en tant que section conique.
                 \\y&=-\dfrac{1}{2}(x+1)+2
                 \\&=-\dfrac{1}{2}x+\dfrac{3}{2}.
             +fig("exemple-equation-droite-tangente-cercle.svg").
-                Réponse à #[+refExample(0) l&#39;exemple.]
+                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
 
-        +example()
+        +example("Déterminer l'équation d'un cercle à l'aide de la perpendicularité de la tangente au rayon")
             p Soit une droite d'équation #[+e() 2x+3y=30] tangente à un cercle centré en #[+e() Q=(4,k).] Si le point de tangence entre la droite et le cercle est #[+e() P=(6,6),] quelle est l'équation du cercle?
             p Le premier élément du problème que nous cherchons est la valeur de #[+e() k.] En vertu de la perpendicularité de la droite tangente au cercle par rapport au segment reliant le point de tangence et le centre du cercle, alors #[+e() \overline{QP}] est perpendiculaire à la droite #[+e() 2x+3y=30.] Réécrivons la droite sous forme canonique #[+e() y=m_2x+b.]
             +eq().
@@ -309,9 +309,9 @@ p Étudions analytiquement le cercle en tant que section conique.
             +eq().
                 (x-4)^2+(y-3)^2=13.
             +fig("exemple-determiner-equation-cercle-tangente.svg").
-                Réponse à #[+refExample(0) l&#39;exemple.]
+                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
 
-        +example()
+        +example("Déterminer l'équation d'un cercle à partir des équations de deux tangentes")
             p Quelle est l'équation du cercle tangent à la droite #[+e() y=\dfrac{3}{4}x+\dfrac{7}{4}] en #[+e() P=(3,4)] et tangent à la droite #[+e() 4x-3y=49] en #[+e() M=(10,-3)?]
             p La droite perpendiculaire à une droite tangente à un cercle intersecte son centre. Connaissant l'équation de deux droites tangentes, l'intersection de leur droite perpendiculaire partant de leur point de tangence auront pour solution le centre du cercle. Il faut trouver les équations de ces droites perpendiculaires.
             
@@ -368,7 +368,7 @@ p Étudions analytiquement le cercle en tant que section conique.
             +eq().
                 (x-6)^2+y^2=25
             +fig("exemple-determiner-equation-cercle-deux-tangentes.svg").
-                Réponse à #[+refExample(0) l&#39;exemple.]
+                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
 
     +h(3, "Les inéquations et le cercle")
 
@@ -394,7 +394,7 @@ p Étudions analytiquement le cercle en tant que section conique.
 
         p Un truc pour déterminer la région délimitée par l'inéquation d'un cercle est de l'évaluer au point #[+e() Q=(h,k),] le centre du cercle. Ce faisant, si l'inéquation est vérifiée, c'est-à-dire qu'elle est vraie pour le couple #[+e() (x,y)] donné, alors l'inéquation comprend l'intérieur du cercle. Autrement, elle comprend son extérieur.
 
-        +example()
+        +example("Un point compris dans une inéquation de cercle")
             p Le point #[+e() P=(-7,-1)] est-il compris dans la région délimitée par l'inéquation #[+e() (x+5)^2+(y+3)^2\leq 20?]
             p Il suffit d'insérer les coordonnées du point #[+e() P] dans l'inéquation pour voir si le couple de valeurs #[+e() (x,y)] la vérifie.
             +eq().
@@ -404,9 +404,9 @@ p Étudions analytiquement le cercle en tant que section conique.
                 \\8&\leq 20
             p Alors oui, le point #[+e() P=(-7,-1)] est compris dans la région de l'inéquation #[+e() (x+5)^2+(y+3)^2\leq 20.]
             +fig("exemple-point-compris-inequation-interieur-cercle.svg").
-                Réponse à #[+refExample(0) l&#39;exemple.]
+                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
 
-        +example()
+        +example("Un point non-compris dans une inéquation de cercle")
             p Le point #[+e() P=(-3,8)] est-il compris dans la région délimitée par l'inéquation #[+e() (x-1)^2+(y-6)^2&lt;20?]
             p Il suffit d'insérer les coordonnées du point #[+e() P] dans l'inéquation pour voir si le couple de valeurs #[+e() (x,y)] la vérifie.
             +eq().
@@ -416,7 +416,7 @@ p Étudions analytiquement le cercle en tant que section conique.
                 \\20&\nless 20
             p Alors non, le point #[+e() P=(-3,8)] n'est pas compris dans la région de l'inéquation #[+e() (x-1)^2+(y-6)^2&lt;20.]
             +fig("exemple-point-non-compris-inequation-circonference-cercle.svg").
-                Réponse à #[+refExample(0) l&#39;exemple.]
+                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
 
 +h(2, "La forme générale de l'équation d'un cercle")
 
@@ -427,11 +427,11 @@ p Étudions analytiquement le cercle en tant que section conique.
         \\x^2+y^2-2hx-2ky+h^2+k^2-r^2&=0
     p Ce faisant, l'équation prend la forme suivante:
     +leq("cercle-generale").
-        Ax^2+Bxy+Cy^2+Dx+Ey+F=0.
-    p qui caractérise toutes les coniques. L'équation générale ne décrit un cercle que lorsque #[+e() B=0] et #[+e() A=C,] duquel cas on pourrait annuler leur valeur en divisant de part et d'autre l'équation par #[+e() A] ce qui nous laisserait avec un coefficient de #[+e() 1] pour les termes #[+e() x^2] et #[+e() y^2.] Cela revient à dire que le discriminant #[+e() \Delta = B^2-4AC] doit être négatif et que #[+e() A=C.] Du développement que nous avons fait plus tôt, on remarque que #[+e() D=-2h,] #[+e() E=-2k] et #[+e() F=h2+k2-r^2.] Il ne vaut pas la peine de mémoriser ces coefficients.
+        Ax^2+Bxy+Cy^2+Dx+Ey+F=0
+    p qui caractérise toutes les coniques. Telle quelle, l'équation décrit une section conique ayant subit une rotation si #[+e() B\neq0.] L'équation générale ne décrit un cercle que lorsque #[+e() A=C,] duquel cas on pourrait annuler les valeurs de #[+e() A] et #[+e() C] en divisant de part et d'autre l'équation par #[+e() A] ce qui nous laisserait avec un coefficient de #[+e() 1] pour les termes #[+e() x^2] et #[+e() y^2.] Ces contraites reviennent à dire que le discriminant #[+e() \Delta = B^2-4AC] doit être négatif et que #[+e() A=C.] Du développement que nous avons fait plus tôt, on remarque que #[+e() D=-2h,] #[+e() E=-2k] et #[+e() F=h^2+k^2-r^2.] Il ne vaut pas la peine de mémoriser ces coefficients.
     p Le problème plus intéressant qui surgit lorsqu'on se sert de la forme générale de l'équation d'un cercle c'est d'en dégager la forme canonique. Pour ce faire, il faudra factoriser l'équation #[+eqref("cercle-generale").] On aura recours à la complétion du carré, comme nous verrons dans les exemples numériques.
 
-    +example()
+    +example("Passage de la forme générale à la forme canonique de l'équation d'un cercle")
         p Quelle est l'équation canonique #[+eqref("cercle-canonique")] d'un cercle d'équation #[+e() x^2+y^2+10x-6y=2?]
         p On aura recours à la complétion du carré pour factoriser l'équation. Il ne faut pas oublier de répliquer les ajouts que l'on fait de part et d'autre de l'équation.
         +eq().
@@ -443,7 +443,7 @@ p Étudions analytiquement le cercle en tant que section conique.
             \\(x+5)^2+(y-3)^2&=36
         p La réponse est donc un cercle d'équation #[+e() (x+5)^2+(y-3)^2=36.]
 
-    +example()
+    +example("Passage de la forme canonique à la forme générale de l'équation d'un cercle")
         p Exprimez l'équation du cercle #[+e() (x-2)^2+(y-5)^2=2] sous sa forme générale #[+eqref("cercle-generale").]
         p Il faudra développer l'équation pour en dégager l'équation générale du cercle.
         +eq().

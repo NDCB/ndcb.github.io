@@ -22,21 +22,21 @@
         },
 
         "exemple-intersection-cercle-droite-deux-solutions.svg": {
-            "alt": "Exemple d'intersection d'un cercle et d'une droite en deux points.",
+            "alt": "Exemple d'intersection entre un cercle et une droite en deux points.",
             "authors": [
                 "marc-antoine-ouimet"
             ]
         }, 
 
         "exemple-intersection-cercle-droite-une-solution.svg": {
-            "alt": "Exemple d'intersection d'un cercle et d'une droite en un point.",
+            "alt": "Exemple d'intersection entre un cercle et une droite en un point.",
             "authors": [
                 "marc-antoine-ouimet"
             ]
         },
 
         "exemple-intersection-cercle-droite-aucune-solution.svg": {
-            "alt": "Exemple d'intersection d'un cercle et d'une droite sans solution.",
+            "alt": "Exemple d'intersection entre un cercle et une droite sans solution.",
             "authors": [
                 "marc-antoine-ouimet"
             ]
@@ -78,28 +78,28 @@
         },
 
         "inequation-cercle-plus-petit-que-rayon.svg": {
-            "alt": "Graphe de la région délimitée par l'inéquation de relation plus petite que le rayon d'un cercle canonique.",
+            "alt": "Graphe de la région délimitée par l'inéquation de relation plus petite que le rayon d'un cercle d'équation canonique.",
             "authors": [
                 "marc-antoine-ouimet"
             ]
         },
 
         "inequation-cercle-plus-petit-ou-egal-au-rayon.svg": {
-            "alt": "Graphe de la région délimitée par l'inéquation de relation plus petite que ou égale au rayon d'un cercle canonique.",
+            "alt": "Graphe de la région délimitée par l'inéquation de relation plus petite que ou égale au rayon d'un cercle d'équation canonique.",
             "authors": [
                 "marc-antoine-ouimet"
             ]
         },
 
         "inequation-cercle-plus-grand-que-rayon.svg": {
-            "alt": "Graphe de la région délimitée par l'inéquation de relation plus grande que le rayon d'un cercle canonique.",
+            "alt": "Graphe de la région délimitée par l'inéquation de relation plus grande que le rayon d'un cercle d'équation canonique.",
             "authors": [
                 "marc-antoine-ouimet"
             ]
         },        
         
         "inequation-cercle-plus-grand-ou-egal-au-rayon.svg": {
-            "alt": "Graphe de la région délimitée par l'inéquation de relation plus grande que ou égale au rayon d'un cercle canonique.",
+            "alt": "Graphe de la région délimitée par l'inéquation de relation plus grande que ou égale au rayon d'un cercle d'équation canonique.",
             "authors": [
                 "marc-antoine-ouimet"
             ]
@@ -162,7 +162,7 @@
         },
 
         "exemple-intersection-ellipse-droite-deux-solutions.svg": {
-            "alt": "Exemple de d'intersection entre une droite et une ellipse horizontale en deux points.",
+            "alt": "Exemple d'intersection entre une droite et une ellipse horizontale en deux points.",
             "authors": [
                 "marc-antoine-ouimet"
             ]
@@ -211,7 +211,91 @@
         },
 
         "exemple-intersection-ellipse-droite-une-solution.svg": {
-            "alt": "Exemple de d'intersection entre une droite et une ellipse horizontale en un point.",
+            "alt": "Exemple d'intersection entre une droite et une ellipse horizontale en un point.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-intersection-ellipse-droite-aucune-solution.svg": {
+            "alt": "Exemple d'intersection entre une droite et une ellipse verticale sans solution.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "inequation-ellipse-plus-petite-que-un.svg": {
+            "alt": "Graphe de la région délimitée par l'inéquation de relation plus petite que un d'une ellipse d'équation canonique.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "inequation-ellipse-plus-petite-ou-egale-a-un.svg": {
+            "alt": "Graphe de la région délimitée par l'inéquation de relation plus petite que ou égale à un d'une ellipse d'équation canonique.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "inequation-ellipse-plus-grande-que-un.svg": {
+            "alt": "Graphe de la région délimitée par l'inéquation de relation plus grande que un d'une ellipse d'équation canonique.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },        
+        
+        "inequation-ellispe-plus-grande-ou-egale-a-un.svg": {
+            "alt": "Graphe de la région délimitée par l'inéquation de relation plus grande que ou égale à un d'une ellipse d'équation canonique.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "construction-latus-rectum-ellipse-horizontale.svg": {
+            "alt": "Graphe de la construction de la preuve de la formule du latus rectum des ellipses horizontales centrées à l'origine.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "latus-rectum-ellipse-horizontale.svg": {
+            "alt": "Graphe du latus rectum d'une ellipse horizontale.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "construction-latus-rectum-ellipse-verticale.svg": {
+            "alt": "Graphe de la construction de la preuve de la formule du latus rectum des ellipses verticales centrées à l'origine.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "latus-rectum-ellipse-verticale.svg": {
+            "alt": "Graphe du latus rectum d'une ellipse verticale.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-point-compris-inequation-exterieur-ellipse-horizontale.svg": {
+            "alt": "Exemple d'un point compris dans la région délimitée à l'extérieur de l'inéquation d'une ellipse horizontale.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-point-compris-inequation-courbe-ellipse-verticale.svg": {
+            "alt": "Exemple d'un point compris dans la région délimitée sur la courbe de l'inéquation d'une ellipse verticale.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-point-non-compris-inequation-courbe-ellipse-horizontale.svg": {
+            "alt": "Exemple d'un point non compris dans la région délimitée par l'inéquation d'une ellipse horizontale.",
             "authors": [
                 "marc-antoine-ouimet"
             ]
