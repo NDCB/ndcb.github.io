@@ -141,12 +141,16 @@ head(
     include _favicon
 
     //- AdSense
-    script(async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
-    script.
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "#{Site.auth().googleAdSense}",
-            enable_page_level_ads: true
-        });
+    if Current.isArticle()
+        script(
+            async 
+            src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        )
+        script.
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "#{Site.auth().googleAdSense}",
+                enable_page_level_ads: true
+            });
 
     //- Stylesheets
     include _stylesheets
