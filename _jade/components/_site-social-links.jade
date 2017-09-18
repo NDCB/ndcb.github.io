@@ -69,6 +69,6 @@ if titles
         //- Email icon
         li: +socialLink(
             titles.email, 
-            "mailto:" + Site.profiles().mail, 
+            "mailto:" + Site.profiles().mail.replace("@", "&#064;"), 
             "fa-envelope"
         )

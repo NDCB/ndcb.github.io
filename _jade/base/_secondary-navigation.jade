@@ -27,6 +27,12 @@ footer#secondary-navigation
             for link in links
                 //- List links from the first level which do not have children
                 if link.links.length == 0
+                    //- Remove unnecessary trailing "index"
+                    -
+                        const INDEX = "index";
+                        if (link.path.endsWith(INDEX)) {
+                            link.path = link.path.slice(0, -INDEX.length);
+                        }
                     li: +anchorLink(link)
     //- Rightmost links
     include ../components/_site-social-links
