@@ -1,0 +1,270 @@
+include /_jade/redaction/_redaction
+
++h(2, "Le contrat d'application")
+
+    p Un établissement d'éducation vous engage pour que vous programmiez une application de gestion de cours. Ce gestionnaire doit permettre d'éditer des groupes d'élèves et des évaluations rattachées à un cours. À partir de l'édition d'un groupe, l'utilisateur devrait être en mesure d'ajuster les notes des élèves aux évaluations préalablement définies.
+
+    p L'application doit permettre à l'utilisateur d'ajouter et de supprimer des groupes, des évaluations et le registre d'élèves à l'appui d'un bouton. Il devrait être possible de produire un registre de données consignées dans un fichier texte, et des informations statistiques telles que la moyenne, la médiane et l'écart-type des notes devraient être accessibles aux différents niveaux du gestionnaire.
+
+    p Une interface graphique doit être créée pour assurer une bonne expérience utilisateur. Aucune exception sur les saisies ne peu être ignorée.
+
+    p Vous devez baser votre application sur le motif de programmation modèle, vue, contrôleur (MVC), et au besoin les motifs d'observeur et de fabrique.
+
++h(2, "Les modèles")
+
+    p Organisons les classes du modèle dans des packages qui leur seront propre, de telle sorte que l'application est découpée selon des modules. Les classes qui devront s'y trouver doivent minimalement inclure #[+code("java") Cours], #[+code("java") Groupe], #[+code("java") Etudiant], #[+code("java") Evaluation] et #[+code("java") Note].
+
+    p En vertu du motif MVC, toutes les classes appartenant au modèle de l'application doivent hériter de la classe #[+code("java") java.util.Observable]. Par conséquent, tous les attributs d'une classe de modèle doivent être des objets, c'est-à-dire qu'aucun type primitif n'est admissible. Les éléments du modèle seront des JavaBeans par convention, alors ils devront implémenter l'interface #[+code("java") java.io.Serializable], posséder un constructeur sans paramètre, et tous les attributs de la classe devront être mutables et accessibles. Les mutateurs doivent effectuer vérifications de la validité des nouvelles données sans les gérer, ce qui implique qu'il n'y aura aucun autre constructeur que celui par défaut sans paramètre.
+
+    +h(3, "La classe Evaluation")
+
+        p Commençons par le modèle le plus simple, celui d'une évaluation, appartenant au package #[+code("java") evaluation]. Un utilisateur voudra inévitablement attribuer à une évaluation un titre, un score cumulé des points que peuvent obtenir un étudiant, et une pondération pour le cours.
+
+        +codeBlock("java").
+            public class Evaluation extends Observable implements Serializable {
+                
+                private String titre;
+                
+                private Double scoreCumule;
+                
+                private Double ponderation;
+                
+                //... Accesseurs
+                
+                //... Mutateurs à ajouter
+                
+            }
+
+        p Puisqu'une évaluation sera accessible via une liste des titres des évaluation d'un cours, il faudra que chaque titre soit défini. Par conséquent, il faudra lancer une exception #[+code("java") IllegalArgumentException] lorsqu'on tentera de remplacer le titre d'une évaluation par une chaîne de caractères vides. Il faudra aussi signaler le changement effectué sur le modèle et inclure la nouvelle valeur du titre en argument pour les observateurs. La méthode lance d'elle-même l'exception #[+code("java") NullPointerException] lorqu'on fait appel à la méthode #[+code("java") titre.trim()].
+
+        p Accessoirement, un utilitaire de logging ainsi que des classes de test pourront être ajoutés afin d'assurer un code maintenable.
+
+        +codeBlock("java").
+            public void setTitre(final String titre) 
+                    throws NullPointerException, IllegalArgumentException {
+                if (!titre.trim().isEmpty()) {
+                    this.titre = titre;
+                    setChanged();
+                    notifyObservers(titre);
+                } else {
+                    throw new IllegalArgumentException("Titre vide.");
+                }
+            }
+        
+        p Le score cumulé d'une évaluation ne peut pas être nulle. Il ne peut pas non plus être négatif. Il faudra donc lancer une exception #[+code("java") IllegalArgumentException] lorsqu'on tentera de remplacer le score cumulé d'une évaluation par une valeur négative ou nulle. La méthode lance d'elle-même l'exception #[+code("java") NullPointerException] lorqu'on effectue la comparaison sur l'argument du mutateur.
+
+        +codeBlock("java").
+            public void setScoreCumule(final double scoreCumule) 
+                    throws NullPointerException, IllegalArgumentException {
+                if (scoreCumule > 0) {
+                    this.scoreCumule = scoreCumule;
+                    setChanged();
+                    notifyObservers(scoreCumule);
+                } else {
+                    throw new IllegalArgumentException("Score cumulé nul ou négatif.");
+                }
+            }
+        
+        p La pondération d'une évaluation, quant à elle, peut être nulle dans le cas d'une évaluation formative. Cependant, une pondération négative ne ferait pas de sens. Alors, on lancera une exception si l'argument du mutateur de la pondération n'est pas positive. La méthode lance d'elle-même l'exception #[+code("java") NullPointerException] lorqu'on effectue la comparaison sur l'argument du mutateur.
+
+        +codeBlock("java").
+            public void setPonderation(final double ponderation) 
+                    throws NullPointerException, IllegalArgumentException {
+                if (ponderation >= 0) {
+                    this.ponderation = ponderation;
+                    setChanged();
+                    notifyObservers(ponderation);
+                } else {
+                    throw new IllegalArgumentException("Pondération négative.");
+                }
+            }
+
+    +h(3, "La classe Note")
+
+        p Créons un package #[+code("java") note] qui contiendra toutes les classes du module. Une note n'existe que par rapport à une évaluation. Après tout, c'est l'évaluation qui dicte le score cumulé possible pour un étudiant. Une note ne consiste donc qu'en un score obtenu.
+
+        +codeBlock("java").
+            public class Note extends Observable implements Serializable {
+                
+                private Evaluation evaluation;
+                
+                private Double score;
+                
+                //... Accesseurs
+                
+                //... Mutateurs à ajouter
+                
+            }
+
+        p L'évaluation sur laquelle la note est attribuée ne peut certainement pas être nulle. Il faudra donc lancer une exception #[+code("java") NullPointerException]. Cela dit, la structure que nous commençons à implémenter n'émet aucune garantie de la validité de l'évaluation qu'on met en champ d'une note. Dans le cadre d'applications plus professionnelles, on évitera d'effectuer les vérifications sur les champs des classes de modèle à partir de ses mutateurs: on aura plutôt recours à une interface de programmation de validation dans une classe externe. Le package de Java EE #[+code("java") javax.validation] permet ce genre de validations au moyen d'annotations sur les classes de modèle.
+
+        +codeBlock("java").
+            public void setEvaluation(final Evaluation evaluation) 
+                    throws NullPointerException {
+                if (evaluation != null) {
+                    this.evaluation = evaluation;
+                    setChanged();
+                    notifyObservers(evaluation);
+                } else {
+                    throw new NullPointerException("Évaluation indéfinie.");
+                }
+            }
+
+        p Le score obtenu à une évaluation ne peut pas être négatif. Il peut être nul, malheureusement, mais il y a tout de même la possibilité d'obtention de points bonus. Par conséquent, on ne lancera une exception #[+code("java") NullPointerException] que si la valeur spécifié du score à la note est #[+code("java") null], et il y aura lieu de l'exception #[+code("java") IllegalArgumentException] si la note est négative. Par conséquent, on applique les mêmes vérifications qui ont été faites pour la pondération d'une évaluation.
+
+    +h(3, "Les classes Personne, Enseignant et Etudiant")
+
+        p Dans le cadre de l'application, il peut être intéressant d'introduire de l'héritage dans le programme et de voir la façon dont on va l'intégrer dans les classes de la vue. Pour l'instant, une personne n'est définie que par son nom et son prénom, et un enseignant est simplement une instance de personne. On considère la classe #[+code("java") Personne] comme étant abstraite, et on la crée dans un package #[+code("java") personne].
+
+        +codeBlock("java").
+            public abstract class Personne extends Observable implements Serializable {
+                
+                private String prenom;
+                
+                private String nom;
+                
+                //... Accesseurs
+                
+                //... Mutateurs à ajouter
+                
+            }
+
+        p Il serait inconvénient que le prénom ou le nom d'une personne soit indéfini ou vide. Par conséquent, on applique les mêmes vérifications qui ont été faites pour le titre d'une évaluation à leur mutateur, c'est-à-dire qu'on lance une exception #[+code("java") IllegalArgumentException] si #[+code("java") !prenom.trim().isEmpty()] et si #[+code("java") !nom.trim().isEmpty()]. Puisque le comportement de #[+code("java") Personne.setNom(final String nom)] et #[+code("java") Personne.setPrenom(final String prenom)] ne devrait pas changer dans les classes qui héritent de #[+code("java") Personne], nous pouvons déclarer les accesseurs et mutateurs de #[+code("java") Personne] en tant que #[+code("java") final].
+
+        p La classe #[+code("java") Enseignant] hérite de la classe #[+code("java") Personne] et est instanciable. Pour l'instant, on n'ajoute pas de champs aux enseignants.
+
+        +codeBlock("java").
+            public class Enseignant extends Personne {}
+
+        p La classe #[+code("java") Etudiant], quant à elle, possédera une collection de notes de type #[+code("java") java.util.List].
+
+        +codeBlock("java").
+            public class Etudiant extends Personne {
+                
+                private List&lt;Note&gt; notes;
+                
+                //... Accesseur
+                
+                //... Mutateur à ajouter
+                
+            }
+
+        p L'unique restriction qu'on a à poser sur la liste des notes d'un étudiant serait de la remplacer par #[+code("java") null].
+
+        +codeBlock("java").
+            public void setNotes(final List&lt;Note&gt; notes) throws NullPointerException {
+                if (notes != null) {
+                    this.notes = notes;
+                    setChanged();
+                    notifyObservers(notes);
+                } else {
+                    throw new NullPointerException("Liste de notes indéfinie.");
+                }
+            }
+
+    +h(3, "La classe Groupe")
+
+        p On crée une classe #[+code("java") Groupe] dans un package #[+code("java") groupe] qui servira à regrouper des étudiants sous la supervision d'un enseignant. Un même groupe pourrait avoir plusieurs enseignants, mais ne compliquons pas le programme davantage.
+
+        +codeBlock("java").
+            public class Groupe extends Observable implements Serializable {
+                
+                private Enseignant enseignant;
+                
+                private List&lt;Etudiant&gt; etudiants;
+                
+                //... Accesseurs
+                
+                //... Mutateurs à ajouter
+                
+            }
+
+        p Les seules restrictions à émettre sont lorsqu'on veut modifier l'enseignant ou la liste d'étudiants par #[+code("java") null].
+
+    +h(3, "La classe Cours")
+
+        p Le module de notre application gérant les cours sera le plus global. Créons un package #[+code("java") cours] dans lequel on ajoute une classe #[+code("java") Cours]. Un cours a un titre, une liste d'enseignants qui l'offrent, une liste des évaluations qui auront lieu dans son cadre, et une liste de groupes qui y assistent.
+
+        +codeBlock("java").
+            public class Cours extends Observable implements Serializable {
+                
+                private String titre;
+                
+                private List&lt;Enseignant&gt; enseignants;
+                
+                private List&lt;Evaluation&gt; evaluations;
+                
+                private List&lt;Groupe&gt; groupes;
+                
+                //... Accesseurs
+                
+                //... Mutateurs à ajouter
+                
+            }
+
+        p Tel que nous l'avons fait précédemment pour le titre des évaluations, il va falloir lancer une exception de type #[+code("java") IllegalArgumentException] lorsque #[+code("java") titre.trim().isEmpty()] est vrai. De plus, chacun des autres attributs devra être vérifié pour les indéfinitions.
+
++h(2, "Les contrôleurs")
+
+    p Les classes de contrôleurs apportent à l'application sa couche de logique. C'est à partir des classes de ce genre qu'il sera possible d'effectuer des traitements sur les données des classes de modèle énoncées précédemment. Nous pourrons donc créer une classe contrôleur pour chacune des classes de modèle.
+
+    p Chaque classe contrôleur ne pourra être instanciée que sur une instance non-nulle d'un objet du modèle. Par conséquent, les contrôleurs auront un attribut final privé du type de modèle qu'ils contrôlent. Cet attribut sera initialisé et vérifié à partir du constructeur.
+
+    +h(3, "La classe NoteControleur")
+
+        p La classe #[+code("java") Evaluation] représente un type de donnée qui ne présente pas d'autres interprétations utiles à partir de ses attributs. La classe #[+code("java") Note] en revanche, doit nécessairement permettre le calcul d'une note en fonction de l'évaluation à laquelle la note est rattachée.
+
+        p Dans le package #[+code("java") note], créons une classe contrôleur intitulée #[+code("java") NoteControleur]. Cette classe devra avoir un seul constructeur qui assure l'injection de dépendance d'une instance de #[+code("java") Note] en attribut final.
+
+        +codeBlock("java").
+            public class NoteControleur {
+                
+                private final Note note;
+
+                public NoteControleur(final Note note) throws NullPointerException {
+                    if (note != null) {
+                        this.note = note;
+                    } else {
+                        throw new NullPointerException("Note spécifiée indéfinie.");
+                    }
+                }
+                
+                public double calculerResultat() {
+                    //...
+                }
+                
+            }
+        
+        p Que l'instance de #[+code("java") Note] ne soit pas #[+code("java") null] ne garanti pas nécessairement que la note est valide, c'est-à-dire qu'elle ait un score et une évaluation rattachée. Il faudra prendre cela en compte lorsqu'on implémentera la méthode du calcul du résultat. Il sera aussi important de spécifier en Javadoc quel sera le format de retour du résultat, à savoir si le pourcentage est exprimé comme il serait lu, typiquement avec une valeur entre #[+e() 0] et #[+e() 100], ou bien s'il est exprimé en valeur décimale variant de #[+e() 0.0] à #[+e() 1.0.]
+
+    +h(3, "La classe EtudiantControleur")
+
+    +h(3, "La classe GroupeControleur")
+
+        +h(4, "La classe GroupeActionTri")
+
+    +h(3, "La classe CoursControleur")
+
+        +h(4, "La classe CoursActionTri")
+
++h(2, "Les fabriques")
+
+    +h(3, "La classe EvaluationFabrique")
+
++h(2, "Les vues")
+
+    +h(3, "La classe EvaluationEditeur")
+
+    +h(3, "La classe NoteEditeur")
+
+    +h(3, "La classe PersonneEditeur, EnseignantEditeur et EtudiantEditeur")
+
+        +h(4, "La classe PersonneCellRenderer")
+
+    +h(3, "La classe GroupeEditeur")
+
+        +h(4, "La classe GroupeCellRenderer")
+
+    +h(3, "La classe CoursEditeur")
+
++tableOfContents()

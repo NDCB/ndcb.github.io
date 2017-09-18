@@ -27,7 +27,15 @@ p Étudions analytiquement l'hyperbole en tant que section conique.
     
     p Par conséquent, la différence des distances entre le point #[+e() P] et les foyers #[+e() F_1] et #[+e() F_2,] qui est constante, vaut #[+e() 2c-d-d=2c-2d.] Considérons maintenant les coordonnées du point #[+e() P=(x,y)] lorsqu'il se retrouve dans l'axe perpendiculaire à celui décrit par #[+e() \overline{F_1F_2}] au foyer #[+e() F_2,] en ce sens lorsque #[+e() x=c.] Si #[+e() y=0,] alors #[+e() \overline{PF_1}-\overline{PF_2}=2c\gt 2c-2d.] Conséquemment, la valeur de #[+e() y] doit forcément être différente de #[+e() 0.] Soit #[+e() 2a=2c-2d,] la distance entre les deux points sur la courbe de l'hyperbole et sur le segment de droite #[+e() \overline{F_1F_2}], telle que #[+e() a\lt c] et #[+e() a\gt 0.] La valeur de #[+e() 2a] correspond à la constante de la différence des segments #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] telle qu'énoncée dans le #[+refDefinition(0) lieu géométrique de l&#39;hyperbole.]
 
-    //-TODO+fig("").
+    +fig(""). //-TODO
+
+    +definition("L'axe focal de l'hyperbole")
+
+        p L'axe focal d'une hyperbole correspond à l'axe décrit par le segment de droite reliant ses foyers #[+e() F_1] et #[+e() F_2.]
+
+    +definition("Les hyperboles horizontales")
+
+        p L'axe focal d'une hyperbole horizontale est parallèle à l'axe des abscisses dans le plan cartésien.
 
     p En récapitulatif, #[+e() F_1=(-c,0),] #[+e() F_2=(c,0),] #[+e() P=(x,y)] et #[+e() \overline{PF_1}-\overline{PF_2}=2a.] Nous pouvons déduire l'équation d'une hyperbole à l'aide de la relation de Pythagore.
 
@@ -54,7 +62,11 @@ p Étudions analytiquement l'hyperbole en tant que section conique.
 
     p Plus tôt, nous avions posé les foyers sur l'axe des abscisses. L'équation qui en a découlé est celle d'une hyperbole horizontale. Considérons maintenant le cas où les foyers se retrouvent sur l'axe des ordonnées. Soit #[+e() F_1=(0,-c)] et #[+e() F_2=(0,c),] de sorte que #[+e() 2c] correspond à la longueur du segment #[+e() \overline{F_1F_2}.] Suivant un raisonnement analogue à celui plus tôt, il doit nécessairement exister un point #[+e() (0,y)] sur l'hyperbole de telle sorte que #[+e() y\in&#93;-c,0&#91;\cup&#93;0,c&#91;.] Il doit par la suite exister un point #[+e() P=(x,y)] qui vérifie les formules #[+e() \overline{PF_1}=|x_P-x_{F_1}|=2c-d] et #[+e() \overline{PF_2}=|x_P-x_{F_2}|=d.] Conséquement, on pose #[+e() 2b=2c-2d,] la différence constante des distances de #[+e() P] aux foyers, telle que #[+e() c\gt b.]
 
-    //-TODO+fig("").
+    +fig(""). //-TODO
+
+    +definition("Les hyperboles verticales")
+
+        p L'axe focal d'une hyperbole verticale parallèle à l'axe des ordonnées dans le plan cartésien.
 
     p En récapitulatif, #[+e() F_1=(0,-c),] #[+e() F_2=(0,c),] #[+e() P=(x,y)] et #[+e() \overline{PF_1}-\overline{PF_2}=2b.] Nous pouvons donc déduire l'équation d'une hyperbole horizontale à l'aide de la formule de la distance entre deux points, un corollaire du théorème de Pythagore.
 
@@ -96,6 +108,9 @@ p Étudions analytiquement l'hyperbole en tant que section conique.
         +leq("hyperbole-centre-o") \dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=\pm 1
         p Où #[+e() a,] et #[+e() b] sont des réels, #[+e() a\gt 0,] #[+e() b\gt 0,] #[+e() \left\{x\in\mathbb{R}|x\leq -\sqrt{\pm a^2}\vee x\geq\sqrt{\pm a^2}\right\}] et #[+e() \left\{y\in\mathbb{R}|y\leq -\sqrt{\mp b^2}\vee y\geq \sqrt{\mp b^2}\right\}.]
 
+        //TODO+fig("hyperbole-centre-o.svg").
+            Une hyperbole et sa conjuguée centrées à l'origine dans le plan cartésien.
+
     p Les paramètres #[+e() a] et #[+e() b] de l'équation #[+eqref("hyperbole-centre-o")] sont positifs et non-nuls puisqu'ils correspondent à des moitiés de distances géométriques.
 
     p Une hyperbole d'équation #[+eqref("hyperbole-centre-o")] est centrée à l'origine. Il est possible de déterminer le domaine d'une telle hyperbole par contrainte en isolant #[+e() y.]
@@ -114,9 +129,9 @@ p Étudions analytiquement l'hyperbole en tant que section conique.
     +eq().
         |x|\geq\sqrt{\pm a^2}\implies x\leq -\sqrt{\pm a^2}\vee x\geq\sqrt{\pm a^2}
 
-    p Le symbole #[+e() \vee] désigne la disjonction logique inclusive, utilisée en logique des propositions. Dans l'équation précédente, il signifie que #[+e() x] existe dans l'intervalle décrit par l'expression à sa gauche, ou dans l'intervalle décrit par l'expression à sa droite. Ces intervalles décrivent des contraintes sur le domaine de #[+e() x,] par conséquent elles ne s'appliquent que lorsqu'elles sont réelles. En d'autres mots, si le radicande des expressions est négatif, alors les contraintes ne s'appliquent pas et #[+e() x\in\mathbb{R},] ce qui est le cas pour les hyperboles verticales. Autrement, #[+e() x\in&#93;-\infty,-a&#93;\cup&#91;a,\infty&#91;,] ce qui est le cas pour les hyperboles horizontales.
+    p Le symbole #[+e() \vee] désigne la disjonction logique inclusive, utilisée en logique des propositions. Dans l'équation précédente, il signifie que #[+e() x] existe dans l'intervalle décrit par le prédicat à sa gauche, ou dans l'intervalle décrit par le prédicat à sa droite. Ces intervalles décrivent des contraintes sur le domaine de #[+e() x,] par conséquent elles ne s'appliquent que lorsqu'elles sont réelles. En d'autres mots, si le radicande des expressions est négatif, alors les contraintes ne s'appliquent pas et #[+e() x\in\mathbb{R},] ce qui est le cas des hyperboles verticales. Autrement, #[+e() x\in&#93;-\infty,-a&#93;\cup&#91;a,\infty&#91;,] ce qui est le cas des hyperboles horizontales.
 
-    p Il est possible de déterminer l'image d'une hyperbole d'équation #[+eqref("hyperbole-centre-o")] par contrainte en isolant #[+e() x.]
+    p Il est possible de déterminer l'image d'une hyperbole d'équation #[+eqref("hyperbole-centre-o")] par contrainte en y isolant #[+e() x.]
     
     +eq().
         \dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}&=\pm 1
@@ -126,6 +141,8 @@ p Étudions analytiquement l'hyperbole en tant que section conique.
         \\|x|&=\sqrt{a^2}\sqrt{\dfrac{y^2}{b^2}\pm 1}\because a\gt 0
         \\x&=\pm a\sqrt{\dfrac{y^2}{b^2}\pm 1}
 
+    p L'expression #[+e() \dfrac{y^2}{b^2}\pm 1] étant un radicande, elle doit nécessairement être plus grande ou égale à #[+e() 0.]
+
     +eq().
         \dfrac{y^2}{b^2}\pm 1&\geq 0
         \\\dfrac{y^2}{b^2}&\geq \mp 1
@@ -133,16 +150,187 @@ p Étudions analytiquement l'hyperbole en tant que section conique.
         \\|y|&\geq \sqrt{\mp b^2}
         \\&\implies y\leq -\sqrt{\mp b^2}\vee y\geq \sqrt{\mp b^2}
 
+    p Par conséquent, #[+e() y\in&#93;-\infty,-b&#93;\cup&#91;b,\infty&#91;] lorsque l'hyperbole d'équation #[+eqref("hyperbole-centre-o")] est verticale, et #[+e() y\in\mathbb{R}] lorsqu'elle est horizontale. 
+
+    +example("Utiliser le domaine d'une hyperbole centrée à l'origine")
+        //TODO
+
+    +example("Déterminer l'équation d'une hyperbole centrée à l'origine")
+        //TODO
 
     +h(3, "L'équation canonique de l'hyperbole")
 
+        p Si l'hyperbole n'était pas centrée à l'origine, alors on pourrait dire que l'ensemble des points décrits par le #[+refDefinition(0) lieu géométrique de l&#39;hyperbole] aurait subit une translation horizontale de #[+e() h] unités et une translation verticale de #[+e() k] unités. Cela signifierait que les foyers #[+e() F_1] et #[+e() F_2] auraient pour coordonnées #[+e() F_1=(-c+h,k)] et #[+e() F_2=(c+h,k)] en ce qui concerne l'hyperbole horizontale, et #[+e() F_1=(h,k-c)] et #[+e() F_2=(h,k+c)] pour l'hyperbole verticale. Il faudrait donc reprendre les manipulations algébriques plus tôt pour dégager l'équation canonique de l'hyperbole.
+
+        p Si nous considérions plutôt l'équation d'une ellipse centrée à l'origine en comparaison avec celle d'une hyperbole d'équation #[+eqref("hyperbole-centre-o") .] Ce qui les différencie n'est rien d'autre qu'un symbole de négation. Il devient alors apparent que l'équation canonique de l'hyperbole et de l'ellipse soient similaires.
+
+        +theorem("L'équation d'une hyperbole centrée à l'origine")
+            +leq("hyperbole-canonique") \dfrac{(x-h)^2}{a^2}-\dfrac{(y-k)^2}{b^2}=\pm 1
+            p Où #[+e() a,] et #[+e() b] sont des réels, #[+e() a\gt 0,] #[+e() b\gt 0,] #[+e() \left\{x\in\mathbb{R}|x\leq h-\sqrt{\pm a^2}\vee x\geq h+\sqrt{\pm a^2}\right\}] et #[+e() \left\{y\in\mathbb{R}|y\leq k-\sqrt{\mp b^2}\vee y\geq k+\sqrt{\mp b^2}\right\}.]
+
+            //TODO+fig("hyperbole-canonique.svg").
+                Une hyperbole et sa conjuguée d'équation canonique dans le plan cartésien.
+
+        p Les contraintes émises sur les paramètres des équations #[+eqref("hyperbole-centre-o")] et #[+eqref("hyperbole-canonique")] sont similaires. En vertu des transformations sur les fonctions, il paraît évident que l'ensemble de définition des abscisses de l'hyperbole subisse un décalage de #[+e() h,] et que l'ensemble de ses ordonnées soit décalé par #[+e() k.]
+
+        p Nous pouvons reprendre les manipulations précédentes sur l'équation #[+eqref("hyperbole-centre-o")] en y substituant #[+e() x\leftarrow x-h] et #[+e() y\leftarrow y-k] pour exprimer à nouveau les définitions de l'hyperbole.
+
+        +eq().
+            \dfrac{(x-h)^2}{a^2}-\dfrac{(y-k)^2}{b^2}&=\pm 1
+            \\-\dfrac{(y-k)^2}{b^2}&=-\dfrac{(x-h)^2}{a^2}\pm 1
+            \\\dfrac{(y-k)^2}{b^2}&=\dfrac{(x-h)^2}{a^2}\mp 1
+            \\(y-k)^2&=b^2\left(\dfrac{(x-h)^2}{a^2}\mp 1\right)
+            \\|y-k|&=\sqrt{b^2\left(\dfrac{(x-h)^2}{a^2}\mp 1\right)}
+            \\|y-k|&=\sqrt{b^2}\sqrt{\dfrac{(x-h)^2}{a^2}\mp 1}\because b\gt 0
+            \\y&=k\pm b\sqrt{\dfrac{(x-h)^2}{a^2}\mp 1}
+
+        p Le radicande #[+e() \dfrac{(x-h)^2}{a^2}\mp 1] devant être positif en vertu de la définition de la fonction racine carrée, #[+e() \dfrac{(x-h)^2}{a^2}\mp 1\geq 0 \implies \dfrac{(x-h)^2}{a^2}\geq \pm 1.] En multipliant de part et d'autre l'inéquation par #[+e() a^2,] puis en extrayant la racine de chaque côté, on constate que #[+e() |x-h|\geq\sqrt{\pm a^2}.] Puisque #[+e() x] n'existe que dans l'ensemble des réels #[+e() \mathbb{R},] alors la contrainte émise sur sa définition ne s'applique que si le radicande #[+e() \pm a^2] est positif (donc qu'il existe). Par conséquent, l'inéquation n'a lieu que lorsque l'hyperbole est horizontale, en concordance avec le signe du #[+e() \pm] de l'équation #[+eqref("hyperbole-canonique") .] Puisque l'expression en valeur absolue est plus grande que #[+e() \sqrt{\pm a^2},] l'inéquation décrit deux intervalles distincts. On aura recours à la disjonction logique inclusive dans la notation d'ensembles par compréhension pour décrire le domaine de l'hyperbole.
+
+        +eq().
+            \left\{x\in\mathbb{R}|x\leq h-\sqrt{\pm a^2}\vee x\geq h+\sqrt{\pm a^2}\right\}
+
+        p Alors, pour une hyperbole d'équation #[+eqref("hyperbole-canonique") ,] #[+e() x\in&#93;-\infty,h-a&#93;\cup&#91;h+a,\infty&#91;] si le symbole #[+e() \pm] vaut positif (lorsque l'hyperbole est horizontale), et #[+e() x\in\mathbb{R}] si le symbole #[+e() \pm] vaut négatif (lorsque l'hyperbole est verticale).
+
+        p De manière similaire, on retrouvera la définition de #[+e() y] dans l'équation #[+eqref("hyperbole-canonique")] en y isolant #[+e() x.]
+
+        +eq().
+            \dfrac{(x-h)^2)}{a^2}-\dfrac{(y-k)^2}{b^2}&=\pm 1
+            \\\dfrac{(x-h)^2}{a^2}&=\dfrac{(y-k)^2}{b^2}\pm 1
+            \\(x-h)^2&=a^2\left(\pm 1+\dfrac{(y-k)^2}{b^2}\right)
+            \\|x-h|&=\sqrt{a^2\left(\dfrac{(y-k)^2}{b^2}\pm 1\right)}
+            \\|x-h|&=\sqrt{a^2}\sqrt{\dfrac{(y-k)^2}{b^2}\pm 1}\because a\gt 0
+            \\x&=h\pm a\sqrt{\dfrac{(y-k)^2}{b^2}\pm 1}
+        
+        p L'expression sous une racine carrée devant être paire, il en découle l'inéquation suivante:
+
+        +eq().
+            \dfrac{(y-k)^2}{b^2}\pm 1&\geq 0
+            \\\dfrac{(y-k)^2}{b^2}&\geq\mp 1
+            \\(y-k)^2&\geq\mp b^2
+            \\|y-k|&\geq\sqrt{\mp b^2}
+            \\&\implies y\leq k-\sqrt{\mp b^2}\vee y\geq k+\sqrt{\mp b^2}
+
+        p Par conséquent, #[+e() y\in\mathbb{R}] si l'hyperbole est horizontale, duquel cas #[+e() \pm] vaut positif dans l'équation #[+eqref("hyperbole-canonique") .] Autrement, #[+e() y\in&#93;-\infty,k-b&#93;\cup&#91;k+b,\infty&#91;] lorsque l'hyperbole est verticale, c'est-à-dire lorsque #[+e() \pm] vaut négatif dans l'équation #[+eqref("hyperbole-canonique") .]
+
+        +example("Déterminer l'équation canonique d'une hyperbole")
+            //TODO
+
+        +example("Effectuer une translation sur une hyperbole")
+            //TODO
+
 +h(2, "L'hyperbole dans le plan cartésien")
+
+    p L'équation de l'hyperbole est implicite tout comme celle du cercle et de l'ellipse. Par conséquent, il sera plus pratique d'utiliser la méthode de substitution pour résoudre des équations impliquant l'hyperbole.
 
     +h(3, "Les asymptotes de l'hyperbole")
 
+        +definition("Les asymptotes")
+
+            p Une asymptote est une droite vers laquelle une courbe tend sans jamais la couper.
+
+        p Les hyperboles horizontales et verticales d'équation #[+eqref("hyperbole-centre-o")] ou #[+eqref("hyperbole-canonique")] ont des droites asymptotiques, c'est-à-dire qu'il existe une droite d'équation #[+e() y=mx+b] vers laquelle la courbe de l'hyperbole va tendre sans jamais la croiser.
+
+        p La preuve des équations des asymptotes des hyperboles requiert l'utilisation du concept de limite exploré dans le cade du cours de calcul différentiel.
+
+        p Considérons une hyperbole d'équation #[+eqref("hyperbole-centre-o")] puisqu'une hyperbole d'équation #[+eqref("hyperbole-canonique")] n'est qu'une translation de la première. Commençons par y isoler #[+e() y,] #[+refTheorem(-1) ce que nous avons déjà fait] pour déterminer le domaine de l'hyperbole d'équation #[+eqref("hyperbole-centre-o") .] Le résultat nous révélait que 
+
+        +eq().
+            y&=\pm b\sqrt{\dfrac{x^2}{a^2}\mp 1}
+            \\&=\pm b\sqrt{\dfrac{1}{a^2}(x^2\mp a^2)}
+            \\&=\pm \dfrac{b}{a}\sqrt{x^2\mp a^2}\because a\gt 0.
+
+        p Il est possible de réécrire cette expression comme suit:
+
+        +eq().
+            y&=\pm \dfrac{b}{a}\sqrt{x^2\mp a^2}
+            \\&=\pm \dfrac{b}{a}\sqrt{x^2\left(1\mp \dfrac{a^2}{x^2}\right)}
+            \\&=\pm \dfrac{b}{a}|x|\sqrt{1\mp \dfrac{a^2}{x^2}}.
+
+        p Si l'hyperbole est asymptotique à une droite oblique d'équation #[+e() f(x)=mx+b], alors il devrait exister un écart entre #[+e() y] et #[+e() f(x)] qui s'approche de #[+e() 0] lorsqu'on considère l'équation de l'hyperbole et celle de la droite lorsque #[+e() x] tend vers l'infini. Formellement, on énonce ce raisonnement
+
+        +eq().
+            \lim_{x\rightarrow \infty}{(y-f(x))}=0
+
+        p qui se lit: la valeur de #[+e() y-f(x)] approche #[+e() 0] lorsque #[+e() x] tend vers l'infini. Partant de l'équation qu'on a réécrite plus tôt, l'expression #[+e() \sqrt{1\mp \dfrac{a^2}{x^2}}] tend vers #[+e() 1] lorsque #[+e() x] tend vers l'infini, puisque #[+e() \dfrac{a^2}{x^2}] tend vers #[+e() 0.] Par conséquent, on peut émettre l'hypothèse qu'une hyperbole d'équation #[+eqref("hyperbole-centre-o")] est asymptotique aux courbes d'équation #[+e() y=\pm \dfrac{b}{a}|x|.] Ces courbes correspondent mais ne sont pas égales aux droites décrites par #[+e() f(x)=\pm \dfrac{b}{a}x.] Cela dit, ces droites seront aussi asymptotiques à l'hyperbole.
+
+        .row.middle-sm
+            .col-sm-6
+                +fig(""). //TODO
+                    Le graphe de #[+e() y=\pm \dfrac{b}{a}|x|] lorsque #[+e() a=b=1.]
+
+            .col-sm-6
+                +fig(""). //TODO
+                    Le graphe de #[+e() f(x)=\pm \dfrac{b}{a}x] lorsque #[+e() a=b=1.]
+
+        p On peut donc reprendre la limite énoncée précédemment et l'évaluer avec l'équation des asymptotes de l'hyperbole.
+
+        +eq().
+            0&\stackrel{?}{=}\lim_{x\rightarrow \infty}{(y-f(x))}
+            \\&\stackrel{?}{=}\lim_{x\rightarrow \infty}{\left(\pm \dfrac{b}{a}\sqrt{x^2\mp a^2}-\pm \dfrac{b}{a}x\right)}
+            \\&\stackrel{?}{=}\pm \dfrac{b}{a}\lim_{x\rightarrow \infty}{\left(\sqrt{x^2\mp a^2}-x\right)}
+            \\&\stackrel{?}{=}\pm \dfrac{b}{a}\lim_{x\rightarrow \infty}{\left(\sqrt{x^2\mp a^2}-x\right)\dfrac{\sqrt{x^2\mp a^2}+x}{\sqrt{x^2\mp a^2}+x}}
+            \\&\stackrel{?}{=}\pm \dfrac{b}{a}\lim_{x\rightarrow \infty}{\dfrac{x^2\mp a^2-x^2}{\sqrt{x^2\mp a^2}+x}}
+            \\&\stackrel{?}{=}\pm \dfrac{b}{a}\lim_{x\rightarrow \infty}{\dfrac{\mp a^2}{\sqrt{x^2\mp a^2}+x}}
+            \\&\stackrel{?}{=}\pm \dfrac{b}{a}(0)
+            \\&=0
+
+        +theorem("Les asymptotes d'une hyperbole centrée à l'origine")
+            p Pour une hyperbole d'équation #[+eqref("hyperbole-centre-o") ,] ses deux asymptotes sont décrites par:
+
+            +leq("asymptotes-hyperbole-centre-o") y=\pm \dfrac{b}{a}x.
+
+            //TODO+fig("hyperbole-centre-o-asymptotes.svg").
+                Les asymptotes d'une hyperbole et sa conjuguée centrées à l'origine dans le plan cartésien.
+
+        p Des transformations des fonctions, il est possible d'appliquer une translation de l'équation #[+eqref("asymptotes-hyperbole-centre-o")] afin d'obtenir l'équation des asymptotes d'une hyperbole d'équation canonique.
+
+        +theorem("Les asymptotes d'une hyperbole d'équation canonique")
+            p Pour une hyperbole d'équation #[+eqref("hyperbole-canonique") ,] ses deux asymptotes sont décrites par:
+
+            +leq("asymptotes-hyperbole-canonique") y=\pm \dfrac{b}{a}(x-h)+k.
+
+            //TODO+fig("hyperbole-canonique-asymptotes.svg").
+                Les asymptotes d'une hyperbole et sa conjuguée d'équation canonique dans le plan cartésien.
+
+        +example("Déterminer l'équation des asymptotes d'une hyperbole")
+            //TODO
+
+        +example("Déterminer l'équation d'une hyperbole à partir de l'équation de ses asymptotes")
+            //TODO
+
     +h(3, "L'intersection d'une hyperbole et d'une droite")
 
+        p Soit une hyperbole d'équation #[+eqref("hyperbole-canonique")] et une droite d'équation #[+e() y=mx+b\Longleftrightarrow x=\dfrac{y-b}{m}.] Lorsqu'on cherche le ou les points d'intersection entre une droite et une hyperbole, il suffit de substituer l'équation de la droite dans celle de l'hyperbole. Si #[+e() y=mx+b,] alors il suffit de remplacer #[+e() y] par #[+e() mx+b] dans l'équation #[+eqref("hyperbole-canonique") .]
+        +eq().
+            \dfrac{(x-h)^2}{a^2}-\dfrac{(y-k)^2}{b^2}&=\pm 1
+            \\\dfrac{(x-h)^2}{a^2}-\dfrac{(\color{blue}{mx+b}-k)^2}{b^2}&=\pm 1&&\color{blue}{\text{Par substitution}}
+        p Si en revanche #[+e() x=\dfrac{y-b}{m},] alors il suffit de remplacer #[+e() x] par #[+e() \dfrac{y-b}{m}] dans l'équation #[+eqref("hyperbole-canonique") .]
+        +eq().
+            \dfrac{(x-h)^2}{a^2}-\dfrac{(y-k)^2}{b^2}&=\pm 1
+            \\\dfrac{\left(\color{blue}{\dfrac{y-b}{m}}-h\right)^2}{a^2}-\dfrac{(y-k)^2}{b^2}&=\pm 1&&\color{blue}{\text{Par substitution}}
+
+        +example("L'intersection d'une hyperbole et d'une droite en deux points")
+            //TODO
+
+        +example("L'intersection d'une hyperbole et d'une droite en un point")
+            //TODO
+
+        +example("L'intersection d'une hyperbole et d'une droite sans solution")
+            //TODO
+
     +h(3, "Le latus rectum d'une hyperbole")
+
+        +definition("Le latus rectum")
+            p Le latus rectum correspond à la mesure géométrique de la droite perpendiculaire à l'axe majeur d'une section conique passant par un de ses foyers et délimitée par la courbe.
+
+        p Le latus rectum d'une hyperbole correspond à la longueur d'un segment de droite compris dans sa courbe. Le segment doit être perpendiculaire à l'axe focal de l'hyperbole et passer par l'un ou l'autre de ses foyers.
+
+        p Considérons une hyperbole horizontale d'équation #[+eqref("hyperbole-centre-o")] telle que
+
+        +eq().
+            \dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1.
+
+        p Soit les foyers de l'hyperbole #[+e() F_1=(-c,0)] et #[+e() F_2=(c,0).] //TODO
 
     +h(3, "Les inéquations et l'hyperbole")
 
