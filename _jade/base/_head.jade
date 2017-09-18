@@ -18,7 +18,7 @@ head(
         -description = Current.content().description;
     if description
         meta(
-            property='description'
+            name='description'
             content!=description
         )
         meta(
@@ -26,7 +26,7 @@ head(
             content!=description
         )
         meta(
-            property='twitter:description'
+            name='twitter:description'
             content!=description
         )
         if description.length > 155
@@ -119,7 +119,7 @@ head(
         content!=title
     )
     meta(
-        property='twitter:title'
+        name='twitter:title'
         content!=title
     )
 
@@ -136,6 +136,13 @@ head(
         name='twitter:image' 
         content!=thumbnailFile
     )
+
+    //- Publisher
+    if Current.isArticle()
+        link(
+            rel="publisher"
+            href!="https://plus.google.com/" + Site.profiles().googlePlus
+        )
 
     //- Favicon
     include _favicon
