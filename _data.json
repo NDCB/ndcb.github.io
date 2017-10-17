@@ -100,5 +100,9 @@
 
     "sitemap.xml": {
         "layout": false
+    },
+
+    "robots.txt": {
+        "layout": false
     }
 }

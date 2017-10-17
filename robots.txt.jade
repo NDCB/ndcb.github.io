@@ -1,0 +1,7 @@
+include /_jade/model/_model.js.jade
+!="Sitemap: " + Site.url() + "/sitemap.xml"
+for sitemap in Sitemap.sitemaps()
+    !="\nSitemap: " + sitemap
+!="\nUser-agent: *"
+!="\nDisallow: /res/"
+!="\nDisallow: /css/res/"
