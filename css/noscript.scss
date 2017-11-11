@@ -1,0 +1,12 @@
+@import '_sass/base/_variables';
+@import '_sass/helpers/_breakpoints';
+
+[aria-expanded="false"] {
+    display: inherit;
+}
+#primary-navigation nav {
+    position: relative;
+    @include respond-to(desktop) {
+        position: fixed;
+    }
+}

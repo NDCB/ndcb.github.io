@@ -45,6 +45,10 @@
 
 .wrapper {
 	@include flex-display();
+	@include flex-direction(column);
+    @include respond-to(desktop) {
+        @include flex-direction(row);
+    }
 }
 
 [aria-expanded="false"] {
