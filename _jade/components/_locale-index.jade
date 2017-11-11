@@ -6,15 +6,6 @@ include _article-summary
     let articles = Index.listArticles(Current.locale());
 
     /**
-     * Concatenates the data of a date.
-     * @param {Date} date the date to parse.
-     * @returns {String} the stringified date.
-     */
-    function stringifyDate(date) {
-        return "" + date.year + date.month + date.day;
-    }
-
-    /**
      * Sorts the articles from the most recently published to the least recently 
      * published.
      */
@@ -28,8 +19,8 @@ include _article-summary
         } else if (dateA === dateB) {
             return 0;
         } else {
-            dateA = stringifyDate(dateA);
-            dateB = stringifyDate(dateB);
+            dateA = dateA.raw;
+            dateB = dateB.raw;
             return dateA > dateB ? -1 : 1;
         }
     });

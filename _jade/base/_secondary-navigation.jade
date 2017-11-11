@@ -21,7 +21,7 @@ footer#secondary-navigation
             //- Privacy Policy
             li: a(href="/privacy-policy")
                 i.fa.fa-fw.fa-gavel
-                !=secondaryNavigation.privacyPolicy
+                !=' ' + secondaryNavigation.privacyPolicy
             //- Retrieve the root links found on the primary navigation
             -let links = Index.listNavigationElements(Current.locale())
             for link in links

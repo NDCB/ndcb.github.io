@@ -161,8 +161,9 @@ mixin tableOfContents()
                     itemscope="itemscope" 
                     itemtype="http://www.schema.org/SiteNavigationElement"
                 )
-                    header!=fetchTableOfContentsHeader()
-                    ol: +listTableOfContents(documentContents)
+                    details
+                        summary!=fetchTableOfContentsHeader()
+                        ol: +listTableOfContents(documentContents)
 
 //- Recursively lists the elements of the table of contents given the root from
     which to start.

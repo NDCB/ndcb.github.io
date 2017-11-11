@@ -5,15 +5,6 @@ include /_jade/components/_article-summary
     let articles = Index.listAllArticles();
 
     /**
-     * Concatenates the data of a date.
-     * @param {Date} date the date to parse.
-     * @returns {String} the stringified date.
-     */
-    function stringifyDate(date) {
-        return "" + date.year + date.month + date.day;
-    }
-
-    /**
      * Sorts the articles from the most recently modified to the least recently
      * modified.
      */
@@ -27,8 +18,8 @@ include /_jade/components/_article-summary
         } else if (dateA === dateB) {
             return 0;
         } else {
-            dateA = stringifyDate(dateA);
-            dateB = stringifyDate(dateB);
+            dateA = dateA.raw;
+            dateB = dateB.raw;
             return dateA > dateB ? -1 : 1;
         }
     });

@@ -4,15 +4,16 @@
         /**
          * Constructs a date.
          * @param {Number} year the year of this date.
-         * @param {Number} month the month of this date, ranging from 1 (January) to 12 (December).
+         * @param {Number} month the month of this date, ranging from 
+         * 1 (January) to 12 (December).
          * @param {Number} day the day of this date.
          * @param {Locale} locale the locale of this date.
          */
         constructor({
             year, month, day, locale
         }) {
-            let monthString = month > 10 ? '' + month : '0' + month;
-            let dayString = day > 10 ? '' + day : '0' + day;
+            let monthString = month >= 10 ? '' + month : '0' + month;
+            let dayString = day >= 10 ? '' + day : '0' + day;
             this.raw = year + '-' + monthString + '-' + dayString;
             this.year = year;
             this.month = month;
@@ -44,7 +45,8 @@
                 this._day = value;
             } else {
                 throw new Error(
-                    "Invalid day of " + this.year + '/' + this.month + '/' + value
+                    "Invalid day of " + this.year + '/' 
+                    + this.month + '/' + value
                 );
             }
         }
@@ -54,7 +56,8 @@
         }
 
         /**
-         * @returns {Number} the maximum number of days in the month of this date.
+         * @returns {Number} the maximum number of days in the month of this 
+         * date.
          */
         maximumDaysInMonth() {
             switch (this.month) {
@@ -72,7 +75,8 @@
         }
 
         /**
-         * @returns {Boolean} whether or not the year of this date is a leap year.
+         * @returns {Boolean} whether or not the year of this date is a leap 
+         * year.
          */
         isLeapYear() {
             if (this.year % 4 === 0 && !this.year % 100 === 0) {
