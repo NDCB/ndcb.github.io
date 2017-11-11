@@ -31,6 +31,7 @@ mixin difficulty(difficulty)
 -var exampleNo = 0;
 -var theoremNo = 0;
 -var exerciseNo = 0;
+-var reminderNo = 0;
 
 //- Default counter values for proofs and solutions.
 -var proofNo = 0;
@@ -50,8 +51,9 @@ mixin difficulty(difficulty)
     @param {String} localizedType the localized module type name.
     @param {Number} counter the number of the module.
     @param {Boolean} expanded whether or not the module is expanded by default.
-mixin module(title, moduleType, localizedType, counter, expanded)
-    -expanded = expanded === undefined ? true : false;
+    @param {String} footer the optional footer of the module.
+mixin module(title, moduleType, localizedType, counter, expanded, footer)
+    -if (expanded === undefined) {expanded = true}
     aside.module(
         class!=moduleType id!=moduleType + '-' + counter
     )&attributes(attributes)
@@ -67,6 +69,8 @@ mixin module(title, moduleType, localizedType, counter, expanded)
             i.fa.fa-fw.toggler(class!=togglerIcon)
         .content(aria-expanded="#{expanded}" role="complementary")
             block
+        if footer
+            footer!=footer
 
 //- Adds a module headline.
     @param {Number} the level of the headline.
@@ -104,9 +108,9 @@ mixin definition(title)
     a step of 0 is the latest module declared and a step of 1 is the 
     following module.
     @param {Number} step the step back or forward of this reference relative to
-    the current definition,
+    the current definition.
 mixin refDefinition(step)
-    -reference = definitionNo + step;
+    -let reference = definitionNo + step;
     a(href!='#' + "definition-" + reference)
         block
            
@@ -126,9 +130,9 @@ mixin example(title)
     a step of 0 is the latest module declared and a step of 1 is the 
     following module.
     @param {Number} step the step back or forward of this reference relative to
-    the current definition,
+    the current example.
 mixin refExample(step)
-    -reference = exampleNo + step;
+    -let reference = exampleNo + step;
     a(href!='#' + "example-" + reference)
         block
 
@@ -148,9 +152,9 @@ mixin theorem(title)
     a step of 0 is the latest module declared and a step of 1 is the 
     following module.
     @param {Number} step the step back or forward of this reference relative to
-    the current definition,
+    the current theorem.
 mixin refTheorem(step)
-    -reference = theoremNo + step;
+    -let reference = theoremNo + step;
     a(href!='#' + "theorem-" + reference)
         block
 
@@ -172,9 +176,9 @@ mixin proof(title)
     a step of 0 is the latest module declared and a step of 1 is the 
     following module.
     @param {Number} step the step back or forward of this reference relative to
-    the current definition,
+    the current proof.
 mixin refProof(step)
-    -reference = proofNo + step;
+    -let reference = proofNo + step;
     a(href!='#' + "proof-" + reference)
         block
 
@@ -196,9 +200,9 @@ mixin exercise(difficulty, title)
     a step of 0 is the latest module declared and a step of 1 is the 
     following module.
     @param {Number} step the step back or forward of this reference relative to
-    the current definition,
+    the current exercise.
 mixin refExercise(step)
-    -reference = exerciseNo + step;
+    -let reference = exerciseNo + step;
     a(href!='#' + "exercise-" + reference)
         block
 
@@ -220,8 +224,34 @@ mixin solution(title)
     a step of 0 is the latest module declared and a step of 1 is the 
     following module.
     @param {Number} step the step back or forward of this reference relative to
-    the current definition,
+    the current solution.
 mixin refSolution(step)
-    -reference = solutionNo + step;
+    -let reference = solutionNo + step;
     a(href!='#' + "solution-" + reference)
+        block
+
+//- Adds a numbered reminder block.
+    @param {String} title the title of the reminder.
+    @param {String} linkback the link back to the article that explains the
+    content of the reminder.
+mixin reminder(title, linkback)
+    -reminderNo++
+    -
+        let footer;
+        if (linkback) {
+            footer = "<a class=\"external-link\" href=\"" + linkback 
+            + "\" target=\"_blank\">" + modules.reminderLinkBack + "</a>";
+        }
+    +module(title, "reminder", modules.reminder, reminderNo, true, footer)
+        block
+
+//- Adds a reference to a reminder in the current document.
+    The step is relative to the declaration of the reference, meaning that
+    a step of 0 is the latest module declared and a step of 1 is the 
+    following module.
+    @param {Number} step the step back or forward of this reference relative to
+    the current reminder.
+mixin refReminder(step)
+    -let reference = reminderNo + step;
+    a(href!='#' + "reminder-" + reference)
         block

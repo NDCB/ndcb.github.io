@@ -65,6 +65,8 @@
                     "proof": "Preuve",
                     "exercise": "Exercice",
                     "solution": "Solution",
+                    "reminder": "Rappel",
+                    "reminderLinkBack": "Explication détaillée",
                     "figures": {
                         "figure": "Figure",
                         "folder": "figures"
