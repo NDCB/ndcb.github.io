@@ -38,6 +38,12 @@
         position: fixed;
         width: 100%;
         @extend .vertical-scroll;
+        @include respond-to(mobile-landscape) {
+            position: relative; //Show navigation as part of the page
+        }
+        @include respond-to(tablet-portrait) {
+            position: fixed;
+        }
         @include respond-to(desktop) {
             z-index: 2; //Set navigation content below footer
             width: $desktop-navigation-width;

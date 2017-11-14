@@ -7,7 +7,7 @@
     @include flex-wrap(wrap);
     @include flex-align-items(center);
     @include flex-direction(column);
-    @include respond-to(tablet-landscape) {
+    @include respond-to(desktop) {
         @include flex-justify-content(space-between);
         @include flex-direction(row);
     }
