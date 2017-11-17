@@ -6,14 +6,16 @@ include ../redaction/_math
 script(type="text/x-mathjax-config").
     MathJax.Hub.Config({
         "fast-preview":{disabled:true},
-        jax:["input/TeX","output/SVG"],
-        TeX:{equationNumbers:{autoNumber:"AMS"}},
-        SVG:{linebreaks:{automatic:true}}
+        jax: ["input/TeX","CommonHtml"],
+        extensions: ["tex2jax.js"],
+        TeX: {
+            equationNumbers:{autoNumber:"AMS"},
+            extensions: ["AMSmath.js","AMSsymbols.js"]
+        }
     });
 //- MathJax script reference
 script(
-    async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML" 
-    integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" 
-    crossorigin="anonymous"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"
+    integrity="sha256-fCth3p2B4cZMzlr7OFizmo5RkdJAHJ4vOHpE7FaNcR8="
+    crossorigin="anonymous" 
 )
