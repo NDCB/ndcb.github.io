@@ -1,0 +1,15 @@
+{
+    "pages": {
+        "index": {
+            "headline": "Calcul différentiel",
+            "description": "Trouvez des articles articles de renforcement en calcul différentiel pour exceller.",
+            "changefreq": "weekly"
+        }
+    },
+
+    "categories": {
+        "les-fonctions-derivees": {
+            "headline": "Les fonctions dérivées"
+        }
+    }
+}

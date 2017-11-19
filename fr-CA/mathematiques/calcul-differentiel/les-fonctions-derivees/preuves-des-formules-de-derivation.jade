@@ -1,0 +1,1019 @@
+include /_jade/redaction/_redaction
+
++reminder("Les fonctions dérivées par la limite")
+    p Soit #[+e() f] une fonction quelconque explicite en #[+e() x.] De la définition de la fonction dérivée par la limite, la dérivée de #[+e() f] selon #[+e() x] s'exprime:
+    +leq("derivee-par-limite") \dfrac{df}{dx}=\lim_{h\to 0}{\dfrac{f(x+h)-f(x)}{h}}.
+
++h(2, "Les formules de dérivation de base")
+
+    p Les formules de dérivation de base permettent de dériver toutes les fonctions rationnelles.
+
+    a(href="#la-derivee-dune-fonction-constante")
+        +eq().
+            \dfrac{d}{dx}[c]=0
+
+    a(href="#la-derivee-dune-fonction-multipliee-par-une-constante")
+        +eq().
+            \dfrac{d}{dx}[cu]=c\dfrac{du}{dx}
+
+    a(href="#la-derivee-de-laddition-et-de-la-soustraction-de-fonctions")
+        +eq().
+            \dfrac{d}{dx}\left[u\pm v\right]=\dfrac{du}{dx}\pm\dfrac{dv}{dx}
+
+    a(href="#la-derivee-du-produit-de-deux-fonctions")
+        +eq().
+            \dfrac{d}{dx}[uv]=\dfrac{du}{dx}v+u\dfrac{dv}{dx}
+
+    a(href="#la-derivee-du-quotient-de-deux-fonctions")
+        +eq().
+            \dfrac{d}{dx}\left[\dfrac{u}{v}\right]=\dfrac{\dfrac{du}{dx}v-u\dfrac{dv}{dx}}{v^2}
+
+    a(href="#la-derivee-de-la-composition-de-fonctions")
+        +eq().
+            \dfrac{d}{dx}[u\circ v]=\dfrac{d}{dx}[u(v)]=\dfrac{du}{dv}\cdot\dfrac{dv}{dx}
+
+    a(href="#la-derivee-dune-fonction-puissance")
+        +eq().
+            \dfrac{d}{dx}[u^n]=nu^{n-1}\dfrac{du}{dx}
+
+    +h(3, "La dérivée d'une fonction constante")
+
+        +reminder("La dérivée en un point d'une fonction")
+            p Soit #[+e() f] une fonction quelconque explicite en #[+e() x] continue au voisinage de #[+e() x=a.] La dérivée de #[+e() f] évaluée en #[+e() a] s'exprime:
+
+            +leq("derivee-un-point") \dfrac{df}{dx}\bigg\rvert_{x=a}=\lim_{x\to a}{\dfrac{f(x)-f(a)}{x-a}}.
+
+        p En vertu de la formule de la dérivée d'une fonction en un point #[+eqref("derivee-un-point") ,] pour une fonction #[+e() f(x)=c] dérivable telle que #[+e() c] est un réel, alors #[+e() \dfrac{df}{dx}=0] puisque #[+e() f(x)-f(a)=0] pour toutes valeurs de #[+e() a.] Par conséquent:
+
+        +leq("derivee-fonction-constante") \dfrac{d}{dx}[c]=0.
+
+    +h(3, "La dérivée d'une fonction multipliée par une constante")
+
+        p Soit la fonction #[+e() f=cu] telle que #[+e() u] est une fonction dérivable de #[+e() x,] et #[+e() c] est un réel. En vertu de la fonction dérivée par la limite #[+eqref("derivee-par-limite") :]
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{\dfrac{f(x+h)-f(x)}{h}}
+            \\&=\lim_{h\to 0}{\dfrac{c\cdot u(x+h)-c\cdot u(x)}{h}}
+            \\&=\lim_{h\to 0}{c\dfrac{u(x+h)-u(x)}{h}}.
+
+        p Puisque #[+e() c] ne dépend pas de #[+e() h,] nous pouvons la sortir de la limite. On dégage alors l'expression #[+e() \dfrac{df}{dx}=c\cdot\lim_{h\to 0}{\dfrac{u(x+h)-u(x)}{h}},] d'où:
+
+        +leq("derivee-fonction-multiple-constante") \dfrac{d}{dx}[cu]=c\dfrac{du}{dx}.
+
+    +h(3, "La dérivée de l'addition et de la soustraction de fonctions")
+
+        p Soit la fonction #[+e() f=\color{blue}{u}\pm\color{red}{v}] telle que #[+e() \color{blue}{u}] et #[+e() \color{red}{v}] sont des fonctions dérivables de #[+e() x.] En vertu de la fonction dérivée par la limite #[+eqref("derivee-par-limite") :]
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{\dfrac{f(x+h)-f(x)}{h}}
+            \\&=\lim_{h\to 0}{
+                \dfrac{\color{blue}{u(x+h)}\pm \color{red}{v(x+h)}-[\color{blue}{u(x)}\pm \color{red}{v(x)}]}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\color{blue}{u(x+h)}\pm \color{red}{v(x+h)}-\color{blue}{u(x)}\mp\color{red}{v(x)}}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\color{blue}{u(x+h)}-\color{blue}{u(x)}\pm \color{red}{v(x+h)}\mp\color{red}{v(x)}}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \left[\dfrac{\color{blue}{u(x+h)}-\color{blue}{u(x)}}{h}+\dfrac{\pm \color{red}{v(x+h)}\mp\color{red}{v(x)}}{h}\right]
+            }
+            \\&=\lim_{h\to 0}{
+                \left[\dfrac{\color{blue}{u(x+h)}-\color{blue}{u(x)}}{h}\pm\dfrac{\color{red}{v(x+h)}-\color{red}{v(x)}}{h}\right]
+            }\\&=\lim_{h\to 0}{
+                \dfrac{u(x+h)-u(x)}{h}
+            }\pm\lim_{h\to 0}{
+                \dfrac{v(x+h)-v(x)}{h}
+            }.
+
+        p Par conséquent:
+
+        +leq("derivee-addition-soustraction-fonctions") \dfrac{d}{dx}\left[u\pm v\right]=\dfrac{du}{dx}\pm\dfrac{dv}{dx}.
+
+    +h(3, "La dérivée du produit de deux fonctions")
+
+        p Soit la fonction #[+e() f=\color{blue}{u}\color{red}{v}] telle que #[+e() \color{blue}{u}] et #[+e() \color{red}{v}] sont des fonctions dérivables de #[+e() x.] En vertu de la fonction dérivée par la limite #[+eqref("derivee-par-limite") :]
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{\dfrac{f(x+h)-f(x)}{h}}
+            \\&=\lim_{h\to 0}{
+                \dfrac{\color{blue}{u(x+h)}\color{red}{v(x+h)}-\color{blue}{u(x)}\color{red}{v(x)}}{h}
+            }.
+
+        p En introduisant un terme dans la limite précédente, il sera possible d'en dégager l'expression de deux dérivées. Partant du terme #[+e() \color{blue}{u(x+h)}\color{red}{v(x+h)},] si nous voulions dégager l'expression #[+e() \color{blue}{u(x+h)}[\color{red}{v(x+h)}-\color{red}{v(x)}],] il faudrait ajouter le terme #[+e() \color{magenta}{-u(x+h)v(x)}] à la limite. De façon similaire, à partir du terme #[+e() -\color{blue}{u(x)}\color{red}{v(x)},] si nous voulions dégager l'expression #[+e() \color{red}{v(x)}[\color{blue}{u(x+h)}-\color{blue}{u(x)}],] il faudrait ajouter le terme #[+e() \color{magenta}{u(x+h)v(x)}.] Ce faisant:
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{
+                \dfrac{\color{blue}{u(x+h)}\color{red}{v(x+h)}\color{magenta}{-u(x+h)v(x)}-\color{blue}{u(x)}\color{red}{v(x)}+\color{magenta}{u(x+h)v(x)}}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\color{blue}{u(x+h)}[\color{red}{v(x+h)}-\color{red}{v(x)}]+\color{red}{v(x)}[\color{blue}{u(x+h)}-\color{blue}{u(x)}]}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \left[\color{blue}{u(x+h)}\dfrac{\color{red}{v(x+h)}-\color{red}{v(x)}}{h}+\color{red}{v(x)}\dfrac{\color{blue}{u(x+h)}-\color{blue}{u(x)}}{h}\right]
+            }\\&=\lim_{h\to 0}{
+                \color{blue}{u(x+h)}\dfrac{\color{red}{v(x+h)}-\color{red}{v(x)}}{h}
+            }+\lim_{h\to 0}{
+                \color{red}{v(x)}\dfrac{\color{blue}{u(x+h)}-\color{blue}{u(x)}}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \color{blue}{u(x+h)}
+            }\cdot\lim_{h\to 0}{
+                \dfrac{\color{red}{v(x+h)}-\color{red}{v(x)}}{h}
+            }+\lim_{h\to 0}{
+                \color{red}{v(x)}
+            }\cdot\lim_{h\to 0}{
+                \dfrac{\color{blue}{u(x+h)}-\color{blue}{u(x)}}{h}
+            }
+            \\&=\color{blue}{u(x)}\cdot\lim_{h\to 0}{
+                \dfrac{\color{red}{v(x+h)}-\color{red}{v(x)}}{h}
+            }+\color{red}{v(x)}\cdot\lim_{h\to 0}{
+                \dfrac{\color{blue}{u(x+h)}-\color{blue}{u(x)}}{h}
+            }.
+
+        p Par conséquent, en évaluant la limite au moyen de la fonction dérivée par la limite #[+eqref("derivee-par-limite")] et en réarrangeant les termes de l'expression précédente:
+
+        +leq("derivee-produit-fonctions") \dfrac{d}{dx}[uv]=\dfrac{du}{dx}v+u\dfrac{dv}{dx}.
+
+        p Autrement, au moyen de la dérivation logarithmique et de la dérivation implicite:
+
+        +eq().
+            f&=uv
+            \\\ln|f|&=\ln|uv|
+            \\&=\ln|u|+\ln|v|
+            \\\dfrac{d}{dx}[\ln|f|]&=\dfrac{d}{dx}[\ln|u|+\ln|v|]
+            \\\dfrac{1}{f}\dfrac{df}{dx}&=\dfrac{1}{u}\cdot\dfrac{du}{dx}+\dfrac{1}{v}\cdot\dfrac{dv}{dx}
+            \\\dfrac{df}{dx}&=\dfrac{f}{u}\cdot\dfrac{du}{dx}+\dfrac{f}{v}\cdot\dfrac{dv}{dx}
+            \\&=\dfrac{uv}{u}\cdot\dfrac{du}{dx}+\dfrac{uv}{v}\cdot\dfrac{dv}{dx}
+            \\\dfrac{d}{dx}[uv]&=\dfrac{du}{dx}v+u\dfrac{dv}{dx}.
+
+        p Cela nous ramène au résultat #[+eqref("derivee-produit-fonctions") .]
+
+    +h(3, "La dérivée du quotient de deux fonctions")
+
+        p Soit la fonction #[+e() f=\dfrac{\color{blue}{u}}{\color{red}{v}}] telle que #[+e() \color{blue}{u}] et #[+e() \color{red}{v}] sont des fonctions dérivables de #[+e() x.] En vertu de la fonction dérivée par la limite #[+eqref("derivee-par-limite") :]
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{\dfrac{f(x+h)-f(x)}{h}}
+            \\&=\lim_{h\to 0}{
+                \dfrac{
+                    \dfrac{
+                        \color{blue}{u(x+h)}
+                    }{
+                        \color{red}{v(x+h)}
+                    }-\dfrac{
+                        \color{blue}{u(x)}
+                    }{
+                        \color{red}{v(x)}
+                    }
+                }{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{
+                    \dfrac{
+                        \color{blue}{u(x+h)}\color{red}{v(x)}-\color{blue}{u(x)}\color{red}{v(x+h)}
+                    }{
+                        \color{red}{v(x+h)v(x)}
+                    }
+                }{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{
+                    \color{blue}{u(x+h)}\color{red}{v(x)}-\color{blue}{u(x)}\color{red}{v(x+h)}
+                }{h\color{red}{v(x+h)v(x)}}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{\color{red}{v(x+h)v(x)}}\cdot
+                \dfrac{\color{blue}{u(x+h)}\color{red}{v(x)}-\color{blue}{u(x)}\color{red}{v(x+h)}}{h}
+            }.
+        
+        p En introduisant un terme dans la limite précédente, il sera possible d'en dégager l'expression de deux dérivées. Partant du terme #[+e() \color{blue}{u(x+h)}\color{red}{v(x)},] si nous voulions dégager l'expression #[+e() \color{red}{v(x)}[\color{blue}{u(x+h)}-\color{blue}{u(x)}],] il faudrait ajouter le terme #[+e() \color{magenta}{-u(x)v(x)}] à la limite. De façon similaire, à partir du terme #[+e() \color{blue}{-u(x)}\color{red}{v(x+h)},] si nous voulions dégager l'expression #[+e() -\color{blue}{u(x)}[\color{red}{v(x+h)}-\color{red}{v(x)}],] il faudrait ajouter le terme #[+e() \color{magenta}{u(x)v(x)}.] Ce faisant:
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{
+                \dfrac{1}{\color{red}{v(x+h)v(x)}}
+                \cdot\dfrac{\color{blue}{u(x+h)}\color{red}{v(x)}\color{magenta}{-u(x)v(x)}-\color{blue}{u(x)}\color{red}{v(x+h)}+\color{magenta}{u(x)v(x)}}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{\color{red}{v(x+h)v(x)}}
+                \cdot\dfrac{\color{red}{v(x)}[\color{blue}{u(x+h)}-\color{blue}{u(x)}]-\color{blue}{u(x)}[\color{red}{v(x+h)}-\color{red}{v(x)}]}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{\color{red}{v(x+h)v(x)}}
+                \left[\color{red}{v(x)}\dfrac{\color{blue}{u(x+h)}-\color{blue}{u(x)}}{h}-\color{blue}{u(x)}\dfrac{\color{red}{v(x+h)}-\color{red}{v(x)}}{h}\right]
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{\color{red}{v(x+h)v(x)}}
+            }\cdot\lim_{h\to 0}{
+                \left[\color{red}{v(x)}\dfrac{\color{blue}{u(x+h)}-\color{blue}{u(x)}}{h}-\color{blue}{u(x)}\dfrac{\color{red}{v(x+h)}-\color{red}{v(x)}}{h}\right]
+            }
+            \\&=\dfrac{1}{\color{red}{v^2(x)}}\left[
+            \lim_{h\to 0}{
+                \color{red}{v(x)}\dfrac{\color{blue}{u(x+h)}-\color{blue}{u(x)}}{h}
+            }-\lim_{h\to 0}{
+                \color{blue}{u(x)}\dfrac{\color{red}{v(x+h)}-\color{red}{v(x)}}{h}
+            }\right]
+            \\&=\dfrac{1}{\color{red}{v^2(x)}}\left[
+            \color{red}{v(x)}\lim_{h\to 0}{
+                \dfrac{\color{blue}{u(x+h)}-\color{blue}{u(x)}}{h}
+            }-\color{blue}{u(x)}\lim_{h\to 0}{
+                \dfrac{\color{red}{v(x+h)}-\color{red}{v(x)}}{h}
+            }\right].
+
+        p Par conséquent, en évaluant la limite au moyen de la fonction dérivée par la limite #[+eqref("derivee-par-limite")] et en réarrangeant les termes de l'expression précédente:
+
+        +leq("derivee-quotient-fonctions") \dfrac{d}{dx}\left[\dfrac{u}{v}\right]=\dfrac{\dfrac{du}{dx}v-u\dfrac{dv}{dx}}{v^2}.
+
+        p Autrement, au moyen de la dérivation logarithmique et de la dérivation implicite:
+
+        +eq().
+            f&=\dfrac{u}{v}
+            \\\ln|f|&=\ln\left|\dfrac{u}{v}\right|
+            \\&=\ln|u|-\ln|v|
+            \\\dfrac{d}{dx}[\ln|f|]&=\dfrac{d}{dx}[\ln|u|-\ln|v|]
+            \\\dfrac{1}{f}\cdot\dfrac{df}{dx}&=\dfrac{1}{u}\cdot\dfrac{du}{dx}-\dfrac{1}{v}\cdot\dfrac{dv}{dx}
+            \\\dfrac{df}{dx}&=\dfrac{f}{u}\cdot\dfrac{du}{dx}-\dfrac{f}{v}\cdot\dfrac{dv}{dx}
+            \\&=\dfrac{\dfrac{u}{v}}{u}\cdot\dfrac{du}{dx}-\dfrac{\dfrac{u}{v}}{v}\cdot\dfrac{dv}{dx}
+            \\&=\dfrac{u}{uv}\cdot\dfrac{du}{dx}-\dfrac{u}{vv}\cdot\dfrac{dv}{dx}
+            \\&=\dfrac{v}{v}\cdot\dfrac{1}{v}\dfrac{du}{dx}-\dfrac{u}{v^2}\cdot\dfrac{dv}{dx}
+            \\&=\dfrac{v}{v^2}\cdot\dfrac{du}{dx}-\dfrac{u}{v^2}\cdot\dfrac{dv}{dx}
+            \\\dfrac{d}{dx}\left[\dfrac{u}{v}\right]&=\dfrac{\dfrac{du}{dx}v-u\dfrac{dv}{dx}}{v^2}.
+
+        p Cela nous ramène au résultat #[+eqref("derivee-quotient-fonctions") .]
+
+    +h(3, "La dérivée de la composition de fonctions")
+
+        p Soit la fonction #[+e() f=\color{blue}{u}\circ\color{red}{v}=\color{blue}{u(\color{red}{v})},] la composée des fonctions #[+e() \color{blue}{u}] et #[+e() \color{red}{v}] dérivables de #[+e() x.] En vertu de la fonction dérivée par la limite #[+eqref("derivee-par-limite") :]
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{
+                \dfrac{
+                    \color{blue}{u(\color{red}{v(x+h)})}-\color{blue}{u(\color{red}{v(x)})}
+                }{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{
+                    \color{blue}{u(\color{red}{v(\color{magenta}{x+h})})}-\color{blue}{u(\color{red}{v(\color{magenta}{x})})}
+                }{(\color{magenta}{x+h})-\color{magenta}{x}}
+            }.
+
+        p La dernière expression de la limite soulève quelque chose de particulier entre le numérateur et le dénominateur de la dérivée par la limite. Si nous avions #[+e() \color{red}{v(x+h)}-\color{red}{v(x)}] au dénominateur, nous pourrions affirmer que l'expression correspond à #[+e() \dfrac{du}{dv}.] Nous pouvons cependant multiplier la limite par #[+e() 1,] qu'on pourra manipuler à notre guise pour introduire #[+e() \color{magenta}{v(x+h)-v(x)}.] Cela dit, il faut que #[+e() \color{magenta}{v(x+h)-v(x)}\neq 0] lorsque #[+e() h\to 0,] autrement notre manipulation sera indéterminée et de la forme #[+e() \dfrac{0}{0},] laquelle comprend une infinité de solutions. Il en sera notamment le cas pour les fonctions oscillatoires. Par ailleurs, la propriété de composition de limites ne s'applique pas formellement à tous les cas dans les manipulations suivantes. Il est néanmoins possible de redéfinir le taux d'accroissement de #[+e() f(g(x))] pour que ce qui suit soit vrai sans perte de généralité:
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{
+                \dfrac{\color{blue}{u(\color{red}{v(x+h)})}-\color{blue}{u(\color{red}{v(x)})}}{h}
+                \cdot\dfrac{\color{magenta}{v(x+h)-v(x)}}{\color{magenta}{v(x+h)-v(x)}}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\color{blue}{u(\color{red}{v(x+h)})}-\color{blue}{u(\color{red}{v(x)})}}{\color{red}{v(x+h)}-\color{red}{v(x)}}
+                \cdot\dfrac{\color{red}{v(x+h)}-\color{red}{v(x)}}{h}
+            }.
+
+        p Par conséquent, en évaluant la limite au moyen de la fonction dérivée par la limite #[+eqref("derivee-par-limite") ,] la dérivée de #[+e() f] s'exprime:
+
+        +leq("derivee-composition-fonctions") \dfrac{d}{dx}[u\circ v]=\dfrac{d}{dx}[u(v)]=\dfrac{du}{dv}\cdot\dfrac{dv}{dx}.
+
+    +h(3, "La dérivée d'une fonction puissance")
+
+        +reminder("La notation factorielle")
+            p La factorielle d'un entier #[+e() n] s'exprime:
+            +leq("notation-factorielle") n!=\prod_{i=1}^{n}{i}=1\times 2\times 3\times\ldots\times(n-2)\times(n-1)\times n.
+
+        +reminder("Le dénombrement de combinaisons")
+            p Soit l'ensemble #[+e() S] comprenant #[+e() n] éléments. Le nombre de #[+e() r\mathrm{-combinaisons}] de #[+e() S] sans remise où #[+e() 0\leq r\leq n] s'exprime:
+            +leq("combinaisons-sans-remise") C_n^k=C(n,k)={n\choose k}=\dfrac{n!}{k!(n-k)!}.
+
+        +reminder("Le théorème de l'expansion bionomiale")
+            p Soient #[+e() x] et #[+e() y] des réels et #[+e() n] un nombre positif. L'expression #[+e() (x+y)^n] se développe par la sommation:
+            +leq("expansion-binomiale") (x+y)^n=\sum_{k=0}^{n}{{n \choose k}x^{n-k}y^k}.
+
+        p Soit la fonction composée #[+e() (f\circ u)(x)=f(u(x))] où #[+e() f(x)=x^n,] telle que #[+e() u] est une fonction dérivable de #[+e() x.] En vertu de la fonction dérivée par la limite #[+eqref("derivee-par-limite")] et du théorème d'expansion bionomiale #[+eqref("expansion-binomiale") :]
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{\dfrac{(x+h)^n-x^n}{h}}
+            \\&=\lim_{h\to 0}{
+                \dfrac{\displaystyle\sum_{k=0}^n{{n\choose k}x^{n-k}}h^k-x^n}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{{n\choose 0}x^{n-0}h^0+{n\choose 1}x^{n-1}h^1+\ldots+{n\choose n-1}x^{n-(n-1)}h^{n-1}+{n\choose n}x^{n-n}h^n-x^n}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\color{blue}{x^n}+{n\choose 1}x^{n-1}h+\ldots+{n\choose n-1}xh^{n-1}+{n\choose n}h^n\color{blue}{-x^n}}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{{n\choose 1}x^{n-1}\color{red}{h}+{n\choose 2}x^{n-2}\color{red}{h^2}+\ldots+{n\choose n-1}x\color{red}{h^{n-1}}+{n\choose n}\color{red}{h^n}}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\color{red}{h}\left[{n\choose 1}x^{n-1}+{n\choose 2}x^{n-2}h+\ldots+{n\choose n-1}xh^{n-2}+{n\choose n}h^{n-1}\right]}{\color{red}{h}}
+            }
+            \\&=\lim_{\color{blue}{h\to 0}}{
+                \left[nx^{n-1}+{n\choose 2}x^{n-2}\color{blue}{h}+\ldots+{n\choose n-1}x\color{blue}{h^{n-2}}+{n\choose n}\color{blue}{h^{n-1}}\right]
+            }
+            \\&=nx^{n-1}.
+
+        p Par conséquent, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") :]
+
+        +leq("derivee-fonction-puissance") \dfrac{d}{dx}[u^n]=nu^{n-1}\dfrac{du}{dx}
+
+        p Autrement, au moyen de la dérivation logarithmique et de la dérivation implicite:
+
+        +eq().
+            f&=x^n
+            \\\ln|f|&=\ln|x^n|
+            \\&=n\ln|x|
+            \\\dfrac{d}{dx}[\ln|f|]&=\dfrac{d}{dx}[n\ln|x|]
+            \\\dfrac{1}{f}\cdot\dfrac{df}{dx}&=n\cdot\dfrac{1}{x}
+            \\\dfrac{df}{dx}&=n\cdot\dfrac{f}{x}
+            \\&=n\cdot\dfrac{x^n}{x}
+            \\\dfrac{d}{dx}[x^n]&=nx^{n-1}.
+
+        p Alors, la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions")] nous permet d'exprimer #[+e() \dfrac{d}{dx}[f\circ u]] comme au résultat #[+eqref("derivee-fonction-puissance") .]
+
++h(2, "Les formules de dérivation des fonctions exponentielle et logarithmique")
+
+    p Les formules de dérivation des fonctions exponentielles et logarithmiques permettent de dériver implicitement des fonctions.
+
+    a(href="#la-derivee-dune-fonction-exponentielle-naturelle")
+        +eq().
+            \dfrac{d}{dx}[e^u]=e^u\dfrac{du}{dx}
+
+    a(href="#la-derivee-dune-fonction-exponentielle-de-differente-base")
+        +eq().
+            \dfrac{d}{dx}[b^u]=b^u\ln(b)\dfrac{du}{dx}
+
+    a(href="#la-derivee-dune-fonction-logarithmique-naturelle")
+        +eq().
+            \dfrac{d}{dx}[\ln|u|]=\dfrac{1}{u}\cdot\dfrac{du}{dx}
+
+    a(href="#la-derivee-dune-fonction-logarithmique-de-differente-base")
+        +eq().
+            \dfrac{d}{dx}[\log_b|u|]=\dfrac{1}{u\ln(b)}\cdot\dfrac{du}{dx}
+
+    +h(3, "La dérivée d'une fonction exponentielle naturelle")
+
+        +reminder("La limite particulière de la fonction exponentielle")
+            p Il est possible de prouver la limite suivante au moyen du théorème de l'étau:
+            +leq("limite-exponentielle") \lim_{h\to 0}{\dfrac{e^h-1}{h}}=1.
+            +fig("limite-particuliere-exponentielle.svg") La fonction #[+e() \dfrac{e^x-1}{x}] au voisinage de #[+e() x=0.]
+
+        p Soit la fonction composée #[+e() (f\circ u)(x)=f(u(x))] où #[+e() f(x)=e^x,] telle que #[+e() u] est un fonction dérivable de #[+e() x.] En vertu de la fonction dérivée par la limite #[+eqref("derivee-par-limite")] et de la limite particulière de la fonction exponentielle #[+eqref("limite-exponentielle") :]
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{
+                \dfrac{f(x+h)-f(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{e^{x+h}-e^x}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{e^xe^h-e^x}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{e^x(e^h-1)}{h}
+            }
+            \\&=\lim_{h\to 0}{e^x}\cdot\lim_{h\to 0}{
+                \dfrac{e^h-1}{h}
+            }
+            \\&=e^x.
+
+        p Par conséquent, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") :]
+
+        +leq("derivee-exponentielle-naturelle") \dfrac{d}{dx}[e^u]=e^u\dfrac{du}{dx}.
+
+        p Autrement, au moyen de la dérivation logarithmique et de la dérivation implicite:
+
+        +eq().
+            \color{blue}{f}&=e^x
+            \\\ln|f|&=\ln|e^x|
+            \\&=x\ln|e|
+            \\&=x
+            \\\dfrac{d}{dx}[\ln|f|]&=\dfrac{d}{dx}[x]
+            \\\dfrac{1}{f}\cdot\dfrac{df}{dx}&=1
+            \\\dfrac{df}{dx}&=\color{blue}{f}
+            \\&=e^x.
+
+        p Alors, la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions")] nous permet d'exprimer #[+e() \dfrac{d}{dx}[f\circ u]] comme au résultat #[+eqref("derivee-exponentielle-naturelle") .]
+
+    +h(3, "La dérivée d'une fonction exponentielle de différente base")
+
+        p Soit la fonction composée #[+e() (f\circ u)(x)=f(u(x))] où #[+e() f(x)=b^x,] telle que #[+e() u] est un fonction dérivable de #[+e() x] et #[+e() b] est une constante positive et non-nulle différente de #[+e() 1.] La fonction #[+e() f] peut se réécrire ainsi:
+        
+        +eq().
+            f&=b^x
+            \\&=e^{\ln|b^x|}
+            \\&=e^{x\ln|b|}
+            \\&=e^{x\ln(b)}.
+            
+        p Par conséquent, en vertu de la formule de dérivation d'une fonction multipliée par une constante #[+eqref("derivee-fonction-multiple-constante") ,] de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions")] et de la formule de dérivation de la fonction exponentielle #[+eqref("derivee-exponentielle-naturelle") :]
+        
+        +eq().
+            \dfrac{df}{dx}&=\dfrac{d}{dx}\left[e^{x\ln(b)}\right]
+            \\&=e^{x\ln(b)}\dfrac{d}{dx}\left[x\ln(b)\right]
+            \\&=e^{x\ln(b)}\ln(b)
+            \\&=b^x\ln(b).
+            
+        p Par conséquent, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") :]
+        
+        +leq("derivee-exponentielle") \dfrac{d}{dx}[b^u]=b^u\ln(b)\dfrac{du}{dx}.
+        
+        p Autrement, au moyen de la dérivation logarithmique et de la dérivation implicite:
+        
+        +eq().
+            \color{blue}{f}&=b^u
+            \\\ln|f|&=\ln|b^u|
+            \\&=u\ln|b|
+            \\\ln(f)&=u\ln(b)
+            \\\dfrac{d}{dx}[\ln(f)]&=\dfrac{d}{dx}[u\ln(b)]
+            \\\dfrac{1}{f}\cdot\dfrac{df}{dx}&=\ln(b)\dfrac{du}{dx}
+            \\\dfrac{df}{dx}&=\color{blue}{f}\ln(b)\dfrac{du}{dx}
+            \\\dfrac{d}{dx}[b^u]&=b^u\ln(b)\dfrac{du}{dx}.
+
+    +h(3, "La dérivée d'une fonction logarithmique naturelle")
+    
+        p Soit la fonction #[+e() f=\ln|u|] telle que #[+e() u] est une fonction dérivable de #[+e() x.] Au moyen des propriétés des exposants, il est possible d'écrire:
+        
+        +eq().
+            f&=\ln|u|
+            \\\color{blue}{e^f}&=u.
+            
+        p On admet que #[+e() \ln|x|] est dérivable puisqu'il s'agit de la fonction réciproque de la fonction exponentielle, qui est bijective. Alors, au moyen de la formule de dérivation de la fonction exponentielle naturelle #[+eqref("derivee-exponentielle-naturelle")] et de la dérivation implicite:
+        
+        +eq().
+            \dfrac{d}{dx}\left[e^f\right]&=\dfrac{d}{dx}[u]
+            \\e^f\cdot\dfrac{df}{dx}&=\dfrac{du}{dx}
+            \\\dfrac{df}{dx}&=\dfrac{1}{\color{blue}{e^f}}\cdot\dfrac{du}{dx}
+            \\&=\dfrac{1}{u}\cdot\dfrac{du}{dx}.
+            
+        p Par conséquent:
+        
+        +leq("derivee-logarithme-naturel") \dfrac{d}{dx}[\ln|u|]=\dfrac{1}{u}\cdot\dfrac{du}{dx}.
+        
+    +h(3, "La dérivée d'une fonction logarithmique de différente base")
+
+        p Soit la fonction #[+e() f=\log_b|u|] telle que #[+e() b\gt 0] et #[+e() u] est une fonction dérivable de #[+e() x.] Au moyen des propriétés des exposants, il est possible d'écrire:
+
+        +eq().
+            f&=\log_b|u|
+            \\\color{blue}{b^f}&=u.
+        
+        p On admet que #[+e() \log_b|x|] est dérivable puisqu'il s'agit de la fonction réciproque de la fonction exponentielle de base #[+e() b,] qui est bijective. Alors, au moyen de la formule de dérivation de la fonction exponentielle #[+eqref("derivee-exponentielle")] et de la dérivation implicite:
+
+        +eq().
+            \dfrac{d}{dx}\left[b^f\right]&=\dfrac{d}{dx}[u]
+            \\b^f\ln|b|\cdot\dfrac{df}{dx}&=\dfrac{du}{dx}
+            \\\dfrac{df}{dx}&=\dfrac{1}{\color{blue}{b^f}\ln(b)}\cdot\dfrac{du}{dx}
+            \\&=\dfrac{1}{u\ln(b)}\cdot\dfrac{du}{dx}
+
+        p Par conséquent:
+
+        +leq("derivee-logarithme") \dfrac{d}{dx}[\log_b|u|]=\dfrac{1}{u\ln(b)}\cdot\dfrac{du}{dx}
+
++h(2, "Les formules de dérivation des fonctions trigonométriques")
+
+    p Les formules de dérivation des fonctions trigonométriques permettent de dériver les fonction trigonométriques, ce qui en retour permet l'analyse de mouvements en rotation.
+
+    a(href="#la-derivee-de-la-fonction-sinus")
+        +eq().
+            \dfrac{d}{dx}[\sin(u)]=\cos(u)\dfrac{du}{dx}
+
+    a(href="#la-derivee-de-la-fonction-cosinus")
+        +eq().
+            \dfrac{d}{dx}[\cos(u)]=-\sin(u)\dfrac{du}{dx}
+
+    a(href="#la-derivee-de-la-fonction-secante")
+        +eq().
+            \dfrac{d}{dx}[\sec(u)]=\sec(u)\tan(u)\dfrac{du}{dx}
+
+    a(href="#la-derivee-de-la-fonction-cosecante")
+        +eq().
+            \dfrac{d}{dx}[\csc(u)]=-\csc(u)\cot(u)\dfrac{du}{dx}
+
+    a(href="#la-derivee-de-la-fonction-tangente")
+        +eq().
+            \dfrac{d}{dx}[\tan(u)]=\sec^2(u)\dfrac{du}{dx}
+
+    a(href="#la-derivee-de-la-fonction-cotangente")
+        +eq().
+            \dfrac{d}{dx}[\cot(u)]=-\csc^2(u)\dfrac{du}{dx}
+
+    +reminder("La relation de Pythagore des fonctions sinus et cosinus")
+        p Un point trigonométrique #[+e() P] a pour coordonnées #[+e() (\cos(x),\sin(x)).] Sachant que le cercle trigonométrique est unitaire et en vertu de l'équation d'un cercle centré à l'origine:
+        +leq("relation-pythagore-sinus-cosinus") \sin^2(x)+\cos^2(x)=1.
+
+    +reminder("La limite particulière de la fonction sinus")
+        p Il est possible de prouver la limite suivante au moyen du théorème de l'étau:
+        +leq("limite-sinus") \lim_{h\to 0}{\dfrac{\sin(h)}{h}=1}.
+        +fig("limite-particuliere-sinus.svg") La fonction #[+e() \dfrac{\sin(x)}{x}] au voisinage de #[+e() x=0.]
+
+    +reminder("La limite particulière de la fonction cosinus")
+        p Il est possible de prouver la limite suivante au moyen du théorème de l'étau:
+        +leq("limite-cosinus") \lim_{h\to 0}{\dfrac{\cos(h)-1}{h}=0}.
+        +fig("limite-particuliere-cosinus.svg") La fonction #[+e() \dfrac{\cos(x)-1}{x}] au voisinage de #[+e() x=0.]
+
+    +h(3, "La dérivée de la fonction sinus")
+
+        +reminder("La formule d'addition et de soustraction d'angles de la fonction sinus")
+            p Soient #[+e() \alpha] et #[+e() \beta] deux angles quelconques. Alors:
+            +leq("formule-addition-soustraction-angles-sinus") \sin(\alpha\pm\beta)=\sin(\alpha)\cos(\beta)\pm\sin(\beta)\cos(\alpha).
+
+        p Soit la fonction #[+e() (f\circ u)(x)=\sin(u(x))] où #[+e() f(x)=\sin(x),] telle que #[+e() u] est une fonction dérivable de #[+e() x.] En vertu de la définition de la dérivée par la limite #[+eqref("derivee-par-limite") ,] de la formule d'addition d'angles de la fonction sinus #[+eqref("formule-addition-soustraction-angles-sinus")] et des limites particulières des fonctions sinus #[+eqref("limite-sinus")] et cosinus #[+eqref("limite-cosinus") :] 
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{
+                \dfrac{f(x+h)-f(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\sin(x+h)-\sin(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\sin(x)\cos(h)+\sin(h)\cos(x)-\sin(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \left[\dfrac{\sin(h)\cos(x)}{h}+\dfrac{\sin(x)\cos(h)-\sin(x)}{h}\right]
+            }
+            \\&=\lim_{h\to 0}{
+                \left[\dfrac{\cos(x)\sin(h)}{h}+\dfrac{\sin(x)(\cos(h)-1)}{h}\right]
+            }
+            \\&=\lim_{h\to 0}{
+                \cos(x)\dfrac{\sin(h)}{h}
+            }+\lim_{h\to 0}{
+                \sin(x)\dfrac{\cos(h)-1}{h}
+            }
+            \\&=\cos(x)\cdot\lim_{h\to 0}{
+                \color{blue}{\dfrac{\sin(h)}{h}}
+            }+\sin(x)\cdot\lim_{h\to 0}{
+                \color{red}{\dfrac{\cos(h)-1}{h}}
+            }
+            \\&=\cos(x).
+
+        p Par conséquent, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") :]
+
+        +leq("derivee-sinus") \dfrac{d}{dx}[\sin(u)]=\cos(u)\dfrac{du}{dx}.
+
+    +h(3, "La dérivée de la fonction cosinus")
+
+        +reminder("La formule d'addition et de soustraction d'angles de la fonction cosinus")
+            p Soient #[+e() \alpha] et #[+e() \beta] deux angles quelconques. Alors:
+            +leq("formule-addition-soustraction-angles-cosinus") \cos(\alpha\pm\beta)=\cos(\alpha)\cos(\beta)\mp\sin(\alpha)\sin(\beta).
+
+        p Soit la fonction #[+e() (f\circ u)(x)=\cos(u(x))] où #[+e() f(x)=\cos(x),] telle que #[+e() u] est une fonction dérivable de #[+e() x.] En vertu de la définition de la dérivée par la limite #[+eqref("derivee-par-limite") ,] de la formule d'addition d'angles de la fonction cosinus #[+eqref("formule-addition-soustraction-angles-cosinus")] et des limites particulières des fonctions sinus #[+eqref("limite-sinus")] et cosinus #[+eqref("limite-cosinus") :] 
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{
+                \dfrac{f(x+h)-f(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\cos(x+h)-\cos(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\cos(x)\cos(h)-\sin(x)\sin(h)-\cos(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \left[-\dfrac{\sin(x)\sin(h)}{h}+\dfrac{\cos(x)\cos(h)-\cos(x)}{h}\right]
+            }
+            \\&=\lim_{h\to 0}{
+                \left[-\dfrac{\sin(x)\sin(h)}{h}+\dfrac{\cos(x)(\cos(h)-1)}{h}\right]
+            }
+            \\&=\lim_{h\to 0}{
+                -\sin(x)\dfrac{\sin(h)}{h}
+            }+\lim_{h\to 0}{
+                \cos(x)\dfrac{\cos(h)-1}{h}
+            }
+            \\&=-\sin(x)\cdot\lim_{h\to 0}{
+                \color{blue}{\dfrac{\sin(h)}{h}}
+            }+\cos(x)\cdot\lim_{h\to 0}{
+                \color{red}{\dfrac{\cos(h)-1}{h}}
+            }
+            \\&=-\sin(x).
+
+        p Par conséquent, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") :]
+
+        +leq("derivee-cosinus") \dfrac{d}{dx}[\cos(u)]=-\sin(u)\dfrac{du}{dx}.
+
+    +h(3, "La dérivée de la fonction sécante")
+
+        +reminder("La définition de la fonction sécante")
+            p La fonction sécante est définie comme étant l'inverse multiplicatif de la fonction cosinus. Alors:
+            +leq("definition-fonction-secante") \sec(x)=\dfrac{1}{\cos(x)}.
+
+        p Soit la fonction #[+e() (f\circ u)(x)=\sec(u(x))] où #[+e() f(x)=\sec(x),] telle que #[+e() u] est une fonction dérivable de #[+e() x.] En vertu de la définition de la dérivée par la limite #[+eqref("derivee-par-limite") ,] de la définition de la fonction sécante #[+eqref("definition-fonction-secante") ,] de la formule d'addition d'angles de la fonction cosinus #[+eqref("formule-addition-soustraction-angles-cosinus")] et des limites particulières des fonctions sinus #[+eqref("limite-sinus")] et cosinus #[+eqref("limite-cosinus") :] 
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{
+                \dfrac{f(x+h)-f(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\sec(x+h)-\sec(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\dfrac{1}{\cos(x+h)}-\dfrac{1}{\cos(x)}}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{h}\cdot\dfrac{\cos(x)-\cos(x+h)}{\cos(x)\cos(x+h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\cos(x)-\cos(x)\cos(h)+\sin(x)\sin(h)}{h\cos(x)\cos(x+h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \left[
+                    \dfrac{\cos(x)-\cos(x)\cos(h)}{h\cos(x)\cos(x+h)}+\dfrac{\sin(x)\sin(h)}{h\cos(x)\cos(x+h)}
+                \right]
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\cos(x)[1-\cos(h)]}{h\cos(x)\cos(x+h)}
+            }+\lim_{h\to 0}{
+                \dfrac{\sin(x)}{\cos(x)\cos(x+h)}\cdot\dfrac{\sin(h)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{\cos(x+h)}\cdot\dfrac{1-\cos(h)}{h}
+            }+\lim_{h\to 0}{
+                \dfrac{\sin(x)}{\cos(x)\cos(x+h)}\cdot\dfrac{\sin(h)}{h}
+            }
+            \\&=\dfrac{1}{\cos(x)}\cdot\lim_{h\to 0}{
+                \color{red}{\dfrac{1-\cos(h)}{h}}
+            }+\dfrac{\sin(x)}{\cos(x)\cos(x)}\cdot\lim_{h\to 0}{
+                \color{blue}{\dfrac{\sin(h)}{h}}
+            }
+            \\&=\dfrac{\sin(x)}{\cos(x)\cos(x)}
+            \\&=\sec(x)\tan(x).
+
+        p Par conséquent, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") :]
+
+        +leq("derivee-secante") \dfrac{d}{dx}[\sec(u)]=\sec(u)\tan(u)\dfrac{du}{dx}.
+
+        p Autrement, au moyen de la définition de la fonction sécante #[+eqref("definition-fonction-secante") ,] de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") ,] de la formule de dérivation d'une fonction de puissance #[+eqref("derivee-fonction-puissance")] et de la dérivée de la fonction cosinus #[+eqref("derivee-cosinus") :]
+
+        +eq().
+            \dfrac{df}{dx}&=\dfrac{d}{dx}[\sec(x)]
+            \\&=\dfrac{d}{dx}\left[\cos(x)^{-1}\right]
+            \\&=-\cos(x)^{-2}\dfrac{d}{dx}[\cos(x)]
+            \\&=-\cos(x)^{-2}\cdot-\sin(x)
+            \\&=\dfrac{\sin(x)}{\cos(x)\cos(x)}
+            \\&=\sec(x)\tan(x).
+
+        p Alors, la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions")] nous permet d'exprimer #[+e() \dfrac{d}{dx}[f\circ u]] comme au résultat #[+eqref("derivee-secante") .]
+
+    +h(3, "La dérivée de la fonction cosécante")
+
+        +reminder("La définition de la fonction cosécante")
+            p La fonction cosécante est définie comme étant l'inverse multiplicatif de la fonction sinus. Alors:
+            +leq("definition-fonction-cosecante") \csc(x)=\dfrac{1}{\sin(x)}.
+
+        p Soit la fonction #[+e() (f\circ u)(x)=\csc(u(x))] où #[+e() f=\csc(x),] telle que #[+e() u] est une fonction dérivable de #[+e() x.] En vertu de la définition de la dérivée par la limite #[+eqref("derivee-par-limite") ,] de la définition de la fonction cosécante #[+eqref("definition-fonction-cosecante") ,] de la formule d'addition d'angles de la fonction sinus #[+eqref("formule-addition-soustraction-angles-sinus")] et des limites particulières des fonctions sinus #[+eqref("limite-sinus")] et cosinus #[+eqref("limite-cosinus") :] 
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{
+                \dfrac{f(x+h)-f(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\csc(x+h)-\csc(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\dfrac{1}{\sin(x+h)}-\dfrac{1}{\sin(x)}}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{h}\cdot\dfrac{\sin(x)-\sin(x+h)}{\sin(x)\sin(x+h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\sin(x)-\sin(x)\cos(h)-\sin(h)\cos(x)}{h\sin(x)\sin(x+h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \left[
+                    \dfrac{\sin(x)-\sin(x)\cos(h)}{h\sin(x)\sin(x+h)}-\dfrac{\sin(h)\cos(x)}{h\sin(x)\sin(x+h)}    
+                \right]
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\sin(x)[1-\cos(h)]}{h\sin(x)\sin(x+h)}
+            }-\lim_{h\to 0}{
+                \dfrac{\cos(x)}{\sin(x)\sin(x+h)}\cdot\dfrac{\sin(h)}{h}  
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{\sin(x+h)}\cdot\dfrac{1-\cos(h)}{h}
+            }-\lim_{h\to 0}{
+                \dfrac{\cos(x)}{\sin(x)\sin(x+h)}\cdot\dfrac{\sin(h)}{h}  
+            }
+            \\&=\dfrac{1}{\sin(x)}\cdot\lim_{h\to 0}{
+                \color{red}{\dfrac{1-\cos(h)}{h}}
+            }-\dfrac{\cos(x)}{\sin(x)\sin(x)}\cdot\lim_{h\to 0}{
+                \color{blue}{\dfrac{\sin(h)}{h}}  
+            }
+            \\&=-\dfrac{\cos(x)}{\sin(x)\sin(x)}
+            \\&=-\csc(x)\cot(x).
+
+        p Par conséquent, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") :]
+
+        +leq("derivee-cosecante") \dfrac{d}{dx}[\csc(u)]=-\csc(u)\cot(u)\dfrac{du}{dx}.
+
+        p Autrement, au moyen de la définition de la fonction cosécante #[+eqref("definition-fonction-cosecante") ,] de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") ,] de la formule de dérivation d'une fonction de puissance #[+eqref("derivee-fonction-puissance")] et de la dérivée de la fonction sinus #[+eqref("derivee-sinus") :]
+
+        +eq().
+            \dfrac{df}{dx}&=\dfrac{d}{dx}[\csc(x)]
+            \\&=\dfrac{d}{dx}\left[\sin(x)^{-1}\right]
+            \\&=-\sin(x)^{-2}\dfrac{d}{dx}[\sin(x)]
+            \\&=-\sin(x)^{-2}\cos(x)
+            \\&=-\dfrac{\cos(x)}{\sin(x)\sin(x)}
+            \\&=-\csc(x)\cot(x).
+
+        p Alors, la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions")] nous permet d'exprimer #[+e() \dfrac{d}{dx}[f\circ u]] comme au résultat #[+eqref("derivee-cosecante") .]
+
+    +h(3, "La dérivée de la fonction tangente")
+
+        +reminder("La définition de la fonction tangente")
+            p La fonction tangente est définie comme étant le quotient des fonctions sinus et cosinus. Alors:
+            +leq("definition-fonction-tangente") \tan(x)=\dfrac{\sin(x)}{\cos(x)}.
+
+        +reminder("La relation de Pythagore des fonctions tangente et sécante")
+            p En divisant la relation de Pythagore des fonctions sinus et cosinus #[+eqref("relation-pythagore-sinus-cosinus")] par #[+e() \cos^2(x) :]
+            +leq("relation-pythagore-tangente-secante") \tan^2(x)+1=\sec^2(x).
+
+        +reminder("La formule d'addition et de soustraction d'angles de la fonction tangente")
+        
+            p Soient #[+e() \alpha] et #[+e() \beta] deux angles quelconques. Alors:
+            +leq("formule-addition-soustraction-angles-tangente") \tan(\alpha\pm\beta)=\dfrac{\tan(\alpha)\pm\tan(\beta)}{1\mp\tan(\alpha)\tan(\beta)}
+
+        p Soit la fonction #[+e() (f\circ u)(x)=\tan(u(x))] où #[+e() f(x)=\tan(x),] telle que #[+e() u] est une fonction dérivable de #[+e() x.] En vertu de la définition de la dérivée par la limite #[+eqref("derivee-par-limite") ,] de la formule d'addition d'angles de la fonction tangente #[+eqref("formule-addition-soustraction-angles-tangente") ,] de la définition de la fonction tangente #[+eqref("definition-fonction-tangente") ,] de la relation de Pythagore des fonctions tangente et sécante #[+eqref("relation-pythagore-tangente-secante")] et de la limite particulière de la fonction sinus #[+eqref("limite-sinus") :]
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{
+                \dfrac{f(x+h)-f(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\tan(x+h)-\tan(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\dfrac{\tan(x)+\tan(h)}{1-\tan(x)\tan(h)}-\tan(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{h}\cdot\dfrac{\tan(x)+\tan(h)-\tan(x)+\tan^2(x)\tan(h)}{1-\tan(x)\tan(h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{h}\cdot\dfrac{\tan(h)+\tan^2(x)\tan(h)}{1-\tan(x)\tan(h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\tan(h)}{h}\cdot\dfrac{1+\tan^2(x)}{1-\tan(x)\tan(h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\sin(h)}{h\cos(h)}\cdot\dfrac{\sec^2(x)}{1-\tan(x)\tan(h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{\cos(h)}\cdot\dfrac{\sin(h)}{h}\cdot\dfrac{\sec^2(x)}{1-\tan(x)\tan(h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{\cos(h)}
+            }\cdot\lim_{h\to 0}{
+                \color{blue}{\dfrac{\sin(h)}{h}}
+            }\cdot\lim_{h\to 0}{
+                \dfrac{\sec^2(x)}{1-\tan(x)\tan(h)}
+            }
+            \\&=\sec^2(x)\lim_{h\to 0}{
+                \dfrac{1}{1-\tan(x)\tan(h)}
+            }
+            \\&=\sec^2(x).
+
+        p Par conséquent, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") :]
+
+        +leq("derivee-tangente") \dfrac{d}{dx}[\tan(u)]=\sec^2(u)\dfrac{du}{dx}.
+
+        p Autrement, en vertu de la définition de la fonction tangente #[+eqref("definition-fonction-tangente") ,] de la formule de dérivation du quotient de deux fonctions, de la définition de la fonction sécante #[+eqref("definition-fonction-secante")] et des formules de dérivation des fonctions sinus #[+eqref("derivee-sinus")] et cosinus #[+eqref("derivee-cosinus") :]
+
+        +eq().
+            \dfrac{d}{dx}[\tan(x)]&=\dfrac{d}{dx}\left[\dfrac{\sin(x)}{\cos(x)}\right]
+            \\&=\dfrac{\dfrac{d}{dx}[\sin(x)]\cos(x)-\sin(x)\dfrac{d}{dx}[\cos(x)]}{\cos^2(x)}
+            \\&=\dfrac{\cos^2(x)-[-\sin(x)]\sin(x)}{\cos^2(x)}
+            \\&=\dfrac{\cos^2(x)+\sin^2(x)}{\cos^2(x)}
+            \\&=\dfrac{1}{\cos^2(x)}
+            \\&=\sec^2(x).
+
+        p Alors, la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions")] nous permet d'exprimer #[+e() \dfrac{d}{dx}[f\circ u]] comme au résultat #[+eqref("derivee-tangente") .]
+
+    +h(3, "La dérivée de la fonction cotangente")
+
+        +reminder("La définition de la fonction cotangente")
+            p La fonction cotangente est définie comme étant l'inverse multiplicatif de la fonction tangente. Alors:
+            +leq("definition-fonction-cotangente") \cot(x)=\dfrac{\cos(x)}{\sin(x)}.
+
+        p Soit la fonction #[+e() (f\circ u)(x)=\cot(u(x))] où #[+e() f(x)=\cot(x),] telle que #[+e() u] est une fonction dérivable de #[+e() x.] En vertu de la définition de la fonction cotangente #[+eqref("definition-fonction-cotangente") ,] de la formule d'addition d'angles de la fonction tangente #[+eqref("formule-addition-soustraction-angles-tangente") ,] de la définition de la fonction tangente #[+eqref("definition-fonction-tangente") ,] de la limite particulière de la fonction sinus #[+eqref("limite-sinus")] et de la définition des fonctions sécante #[+eqref("definition-fonction-secante")] et cosécante #[+eqref("definition-fonction-cosecante") :]
+
+        +eq().
+            \dfrac{df}{dx}&=\lim_{h\to 0}{
+                \dfrac{f(x+h)-f(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\cot(x+h)-\cot(x)}{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{
+                    \dfrac{1}{\tan(x+h)}-\dfrac{1}{\tan(x)}
+                }{h}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{h}\cdot\dfrac{\tan(x)-\tan(x+h)}{\tan(x)\tan(x+h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{h}\cdot\dfrac{\tan(x)-\dfrac{\tan(x)+\tan(h)}{1-\tan(x)\tan(h)}}{\tan(x)\tan(x+h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{h}\cdot\dfrac{1}{\tan(x)\tan(x+h)}\cdot\dfrac{\tan(x)-\tan^2(x)\tan(h)-\tan(x)-\tan(h)}{1-\tan(x)\tan(h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{1}{h}\cdot\dfrac{1}{\tan(x)\tan(x+h)}\cdot\dfrac{\tan(h)[-\tan^2(x)-1]}{1-\tan(x)\tan(h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\tan(h)}{h}\cdot\dfrac{1}{\tan(x)\tan(x+h)}\cdot\dfrac{-[\tan^2(x)+1]}{1-\tan(x)\tan(h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\sin(h)}{h\cos(h)}\cdot\dfrac{1}{\tan(x)\tan(x+h)}\cdot\dfrac{-\sec^2(x)}{1-\tan(x)\tan(h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \dfrac{\sin(h)}{h}\cdot\dfrac{1}{\cos(h)\tan(x)\tan(x+h)}\cdot\dfrac{-\sec^2(x)}{1-\tan(x)\tan(h)}
+            }
+            \\&=\lim_{h\to 0}{
+                \color{blue}{\dfrac{\sin(h)}{h}}
+            }\cdot\lim_{h\to 0}{
+                \dfrac{1}{\cos(h)\tan(x)\tan(x+h)}
+            }\cdot\lim_{h\to 0}{
+                \dfrac{-\sec^2(x)}{1-\tan(x)\tan(h)}
+            }
+            \\&=\dfrac{1}{\tan(x)\tan(x)}\cdot-\sec^2(x)
+            \\&=-\dfrac{\sec^2(x)}{\tan^2(x)}
+            \\&=-\csc^2(x).
+
+        p Par conséquent, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") :]
+
+        +leq("derivee-cotangente") \dfrac{d}{dx}[\cot(u)]=-\csc^2(u)\dfrac{du}{dx}.
+
+        p Autrement, en vertu de la définition de la fonction cotangente #[+eqref("definition-fonction-cotangente") ,] de la formule de dérivation du quotient de deux fonctions #[+eqref("derivee-quotient-fonctions") ,] de la relation de Pythagore des fonctions sinus et cosinus #[+eqref("relation-pythagore-sinus-cosinus")] et de la définition de la fonction cosécante #[+eqref("definition-fonction-cosecante") :]
+
+        +eq().
+            \dfrac{d}{dx}[\cot(x)]&=\dfrac{d}{dx}\left[\dfrac{\cos(x)}{\sin(x)}\right]
+            \\&=\dfrac{\dfrac{d}{dx}[\cos(x)]\sin(x)-\cos(x)\dfrac{d}{dx}[\sin(x)]}{\sin^2(x)}
+            \\&=\dfrac{-\sin(x)\sin(x)-\cos(x)\cos(x)}{\sin^2(x)}
+            \\&=-\dfrac{\sin^2(x)+\cos^2(x)}{\sin^2(x)}
+            \\&=-\dfrac{1}{\sin^2(x)}
+            \\&=-\csc^2(x).
+
+        p Alors, la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions")] nous permet d'exprimer #[+e() \dfrac{d}{dx}[f\circ u]] comme au résultat #[+eqref("derivee-cotangente") .]
+
++h(2, "Les formules de dérivation des fonctions trigonométriques inverses")
+
+    p Les formules de dérivation des fonctions trigonométriques inverses permettent de résoudre des intégrales qu'on retrouve fréquemment.
+
+    a(href="#la-derivee-de-la-fonction-arc-sinus")
+        +eq().
+            \dfrac{d}{dx}[\arcsin(u)]=\dfrac{1}{\sqrt{1-u^2}}\cdot\dfrac{du}{dx}
+
+    a(href="#la-derivee-de-la-fonction-arc-cosinus")
+        +eq().
+            \dfrac{d}{dx}[\arccos(u)]=-\dfrac{1}{\sqrt{1-u^2}}\cdot\dfrac{du}{dx}
+
+    a(href="#la-derivee-de-la-fonction-arc-secante")
+        +eq().
+            \DeclareMathOperator{\arcsec}{arcsec}\dfrac{d}{dx}[\arcsec(u)]=\dfrac{1}{|u|\sqrt{u^2-1}}\cdot\dfrac{du}{dx}
+
+    a(href="#la-derivee-de-la-fonction-arc-cosecante")
+        +eq().
+            \DeclareMathOperator{\arccsc}{arccsc}\dfrac{d}{dx}[\arccsc(u)]=-\dfrac{1}{|u|\sqrt{u^2-1}}\cdot\dfrac{du}{dx}
+
+    a(href="#la-derivee-de-la-fonction-arc-tangente")
+        +eq().
+            \dfrac{d}{dx}[\arctan(u)]=\dfrac{1}{u^2+1}\cdot\dfrac{du}{dx}
+
+    a(href="#la-derivee-de-la-fonction-arc-cotangente")
+        +eq().
+            \DeclareMathOperator{\arccot}{arccot}\dfrac{d}{dx}[\arccot(u)]=-\dfrac{1}{u^2+1}\cdot\dfrac{du}{dx}
+
+    +h(3, "La dérivée de la fonction arc sinus")
+
+        +reminder("La définition de la fonction arc sinus")
+            p La fonction #[+e() \arcsin:[-1,1]\to[-\pi/2,\pi/2]] est la réciproque de la fonction sinus telle que:
+            +leq("definition-fonction-arc-sinus") \arcsin(x)=y\iff x=\sin(y).
+            +fig("graphe-fonction-arc-sinus.svg") La fonction #[+e() \arcsin(x).]
+
+        p Soit la fonction #[+e() (f\circ u)(x)=\arcsin(u(x))] où #[+e() f(x)=\arcsin(x),] telle que #[+e() u] est une fonction dérivable de #[+e() x.] En vertu de la définition de la fonction arc sinus #[+eqref("definition-fonction-arc-sinus") ,] l'image de #[+e() f] est #[+e() [-\pi/2,\pi/2],] de sorte que #[+e() \cos(f)] est toujours positif puisque la fonction #[+e() \cos(x)] est positive pour toutes les valeurs de #[+e() x] comprises dans l'intervalle #[+e() [-\pi/2,\pi/2].] Il en découle qu'à partir de la relation de Pythagore des fonctions sinus et cosinus #[+eqref("relation-pythagore-sinus-cosinus") :]
+
+        +eq().
+            \sin^2(f)+\cos^2(f)=1\implies \cos^2(f)&=1-\sin^2(f)
+            \\|\cos(f)|&=\sqrt{1-\sin^2(f)}
+            \\\cos(f)&=\sqrt{1-\sin^2(f)}.
+        
+        p Ce faisant, en vertu de la définition de la fonction arc sinus #[+eqref("definition-fonction-arc-sinus") ,] de la dérivation implicite, de la formule de dérivation de la fonction sinus #[+eqref("derivee-sinus")] et de la relation de Pythagore des fonctions sinus et cosinus #[+eqref("relation-pythagore-sinus-cosinus") :]
+
+        +eq().
+            f&=\arcsin(x)
+            \\\color{blue}{\sin(f)}&=x
+            \\\dfrac{d}{dx}[\sin(f)]&=\dfrac{d}{dx}[x]
+            \\\cos(f)\cdot\dfrac{df}{dx}&=1
+            \\\dfrac{df}{dx}&=\dfrac{1}{\cos(f)}
+            \\&=\dfrac{1}{\sqrt{1-[\color{blue}{\sin(f)}]^2}}
+            \\&=\dfrac{1}{\sqrt{1-x^2}}.
+
+        p Par conséquent, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") :]
+
+        +leq("derivee-arc-sinus") \dfrac{d}{dx}[\arcsin(u)]=\dfrac{1}{\sqrt{1-u^2}}\cdot\dfrac{du}{dx}.
+
+    +h(3, "La dérivée de la fonction arc cosinus")
+
+        +reminder("La définition de la fonction arc cosinus")
+            p La fonction #[+e() \arccos:[-1,1]\to[0,\pi]] est la réciproque de la fonction cosinus telle que:
+            +leq("definition-fonction-arc-cosinus") \arccos(x)=y\iff x=\cos(y).
+            +fig("graphe-fonction-arc-cosinus.svg") La fonction #[+e() \arccos(x).]
+
+        p Soit la fonction #[+e() (f\circ u)(x)=\arccos(u(x))] où #[+e() f(x)=\arccos(x),] telle que #[+e() u] est une fonction dérivable de #[+e() x.] À partir de la définition de la fonction arc cosinus #[+eqref("definition-fonction-arc-cosinus") ,] il est possible de trouver la dérivée de #[+e() f] de façon analogue à la preuve de la dérivée de la fonction arc sinus #[+eqref("derivee-arc-sinus") .] Cependant, il existe une relation entre les fonctions arc sinus et arc cosinus qui simplifie grandement la preuve.
+
+        +reminder("La relation entre les fonctions arc sinus et arc cosinus")
+            p La fonction cosinus est un déphasage de la fonction sinus. Par conséquent, leurs fonctions réciproques sont aussi déphasées. Au moyen des transformations des fonctions, il est possible de dégager la relation suivante:
+            +leq("relation-fonctions-arc-sinus-arc-cosinus") \arccos(x)=\dfrac{\pi}{2}-\arcsin(x).
+            +fig("relation-fonctions-arc-sinus-et-arc-cosinus.svg") La fonction #[+e() \arccos(x)] correspond au résultat d'une symétrie selon l'axe des abscisses de la fonction #[+e() \arcsin(x)] et d'une translation verticale de #[+e() +\pi/2.]
+
+        p En vertu de la relation entre les fonctions arc sinus et arc cosinus #[+eqref("relation-fonctions-arc-sinus-arc-cosinus") ] et de la formule de dérivation de la fonction arc sinus #[+eqref("derivee-arc-sinus") :]
+
+        +leq("derivee-arc-cosinus") \dfrac{d}{dx}[\arccos(u)]=-\dfrac{1}{\sqrt{1-u^2}}\cdot\dfrac{du}{dx}.
+
+    +h(3, "La dérivée de la fonction arc sécante")
+
+        +reminder("La définition de la fonction arc sécante")
+            p La fonction #[+e() \arcsec:\mathbb{R}\setminus &#93;-1,1&#91;\to[0,\pi]\setminus\{\pi/2\}] est la réciproque de la fonction sécante telle que:
+            +leq("definition-fonction-arc-secante") \arcsec(x)=y\iff x=\sec(y).
+            +fig("graphe-fonction-arc-secante.svg") La fonction #[+e() \arcsec(x).]
+
+        p Soit la fonction #[+e() (f\circ u)(x)=\arcsec(u(x))] où #[+e() f(x)=\arcsec(x),] telle que #[+e() u] est une fonction dérivable de #[+e() x.] En vertu de la définition de la fonction arc sécante #[+eqref("definition-fonction-arc-secante") ,] l'image de #[+e() f] est #[+e() [0,\pi]\setminus\{\pi/2\},] de sorte que #[+e() \tan(f)] est positive lorsque #[+e() x\geq 1] et est négative lorsque #[+e() x\leq -1.] De plus, #[+e() \sec(f)] est positive lorsque #[+e() x\geq 1] et négative lorsque #[+e() x\leq -1.] Par conséquent, le produit de #[+e() \sec(f)] et #[+e() \tan(f)] est positif pour toutes les images de #[+e() f:]
+
+        +eq().
+            |\sec(f)\tan(f)|=\sec(f)\tan(f)\geq 0.
+
+        p Ce faisant, en vertu de la définition de la fonction arc sécante #[+eqref("definition-fonction-arc-secante") ,] de la dérivation implicite, de la formule de dérivation de la fonction sécante #[+eqref("derivee-secante")] et de la relation de Pythagore des fonctions tangente et sécante #[+eqref("relation-pythagore-tangente-secante") :]
+
+        +eq().
+            f&=\arcsec(x)
+            \\\color{blue}{\sec(f)}&=x
+            \\\dfrac{d}{dx}[\sec(f)]&=\dfrac{d}{dx}[x]
+            \\\sec(f)\tan(f)\dfrac{df}{x}&=1
+            \\\dfrac{df}{x}&=\dfrac{1}{\sec(f)\tan(f)}
+            \\&=\dfrac{1}{|\sec(f)\tan(f)|}
+            \\&=\dfrac{1}{\left|\sec(f)\sqrt{\tan^2(f)}\right|}
+            \\&=\dfrac{1}{|\color{blue}{\sec(f)}|\sqrt{[\color{blue}{\sec(f)}]^2-1}}
+            \\&=\dfrac{1}{|x|\sqrt{x^2-1}}.
+
+        p Par conséquent, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") :]
+
+        +leq("derivee-arc-secante") \dfrac{d}{dx}[\arcsec(u)]=\dfrac{1}{|u|\sqrt{u^2-1}}\cdot\dfrac{du}{dx}.
+
+    +h(3, "La dérivée de la fonction arc cosécante")
+
+        +reminder("La définition de la fonction arc cosécante")
+            p La fonction #[+e() \arccsc:\mathbb{R}\setminus &#93;-1,1&#91;\to[-\pi/2,\pi/2]\setminus\{0\}] est la réciproque de la fonction cosécante telle que:
+            +leq("definition-fonction-arc-cosecante") \arccsc(x)=y\iff x=\csc(y).
+            +fig("graphe-fonction-arc-cosecante.svg") La fonction #[+e() \arccsc(x).]
+
+        p Soit la fonction #[+e() (f\circ u)(x)=\arccsc(u(x))] où #[+e() f(x)=\arccsc(x),] telle que #[+e() u] est une fonction dérivable de #[+e() x.] À partir de la définition de la fonction arc cosécante #[+eqref("definition-fonction-arc-cosecante") ,] il est possible de trouver la dérivée de #[+e() f] de façon analogue à la preuve de la dérivée de la fonction arc sécante #[+eqref("derivee-arc-secante") .] Cependant, il existe une relation entre les fonctions arc sécante et arc cosécante qui simplifie grandement la preuve.
+
+        +reminder("La relation entre les fonctions arc sécante et arc cosécante")
+            p La fonction cosécante est un déphasage de la fonction sécante. Par conséquent, leurs fonctions réciproques sont aussi déphasées. Au moyen des transformations des fonctions, il est possible de dégager la relation suivante:
+            +leq("relation-fonctions-arc-secante-arc-cosecante") \arccsc(x)=\dfrac{\pi}{2}-\arcsec(x).
+            +fig("relation-fonctions-arc-secante-et-arc-cosecante.svg") La fonction #[+e() \arccsc(x)] correspond au résultat d'une symétrie selon l'axe des abscisses de la fonction #[+e() \arcsec(x)] et d'une translation verticale de #[+e() +\pi/2.]
+
+        p En vertu de la relation entre les fonctions arc sécante et arc cosécante #[+eqref("relation-fonctions-arc-secante-arc-cosecante")] et de la formule de dérivation de la fonction arc sécante #[+eqref("derivee-arc-secante") :]
+
+        +leq("derivee-arc-cosecante") \dfrac{d}{dx}[\arccsc(u)]=-\dfrac{1}{|u|\sqrt{u^2-1}}\cdot\dfrac{du}{dx}.
+
+    +h(3, "La dérivée de la fonction arc tangente")
+
+        +reminder("La définition de la fonction arc tangente")
+            p La fonction #[+e() \arctan:\mathbb{R}\to&#93;-\pi/2,\pi/2&#91;] est la réciproque de la fonction tangente telle que:
+            +leq("definition-fonction-arc-tangente") \arctan(x)=y\iff x=\tan(y).
+            +fig("graphe-fonction-arc-tangente.svg") La fonction #[+e() \arctan(x).]
+
+        p Soit la fonction #[+e() (f\circ u)(x)=\arctan(u(x))] où #[+e() f(x)=\arctan(x),] telle que #[+e() u] est une fonction dérivable de #[+e() x.] En vertu de la définition de la fonction arc tangente #[+eqref("definition-fonction-arc-tangente") ,] de la dérivation implicite, de la formule de dérivation de la fonction tangente #[+eqref("derivee-tangente")] et de la relation de Pythagore des fonctions tangente et sécante #[+eqref("relation-pythagore-tangente-secante") :]
+
+        +eq().
+            f&=\arctan(x)
+            \\\color{blue}{\tan(f)}&=x
+            \\\dfrac{d}{dx}[\tan(f)]&=\dfrac{d}{dx}[x]
+            \\\sec^2(f)\cdot\dfrac{df}{dx}&=1
+            \\\dfrac{df}{dx}&=\dfrac{1}{\sec^2(f)}
+            \\&=\dfrac{1}{[\color{blue}{\tan(f)}]^2+1}
+            \\&=\dfrac{1}{x^2+1}.
+
+        p Par conséquent, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") :]
+
+        +leq("derivee-arc-tangente") \dfrac{d}{dx}[\arctan(u)]=\dfrac{1}{u^2+1}\cdot\dfrac{du}{dx}.
+
+    +h(3, "La dérivée de la fonction arc cotangente")
+
+        +reminder("La définition de la fonction arc cotangente")
+            p La fonction #[+e() \arccot:\mathbb{R}\to&#93;0,\pi&#91;] est la réciproque de la fonction cotangente telle que:
+            +leq("definition-fonction-arc-cotangente") \arccot(x)=y\iff x=\cot(y).
+            +fig("graphe-fonction-arc-cotangente.svg") La fonction #[+e() \arccot(x).]
+
+        p Soit la fonction #[+e() (f\circ u)=\arccot(u(x))] où #[+e() f(x)=\arccot(x),] telle que #[+e() u] est une fonction dérivable de #[+e() x.] À partir de la définition de la fonction arc cotangente #[+eqref("definition-fonction-arc-cotangente") ,] il est possible de trouver la dérivée de #[+e() f] de façon analogue à la preuve de la dérivée de la fonction arc tangente #[+eqref("derivee-arc-tangente") .] Cependant, il existe une relation entre les fonctions arc tangente et arc cotangente qui simplifie grandement la preuve.
+
+        +reminder("La relation entre les fonctions arc tangente et arc cotangente")
+            p La fonction cotangente est un déphasage de la fonction tangente. Par conséquent, leurs fonctions réciproques sont aussi déphasées. Au moyen des transformations des fonctions, il est possible de dégager la relation suivante:
+            +leq("relation-fonctions-arc-tangente-arc-cotangente") \arccot(x)=\dfrac{\pi}{2}-\arctan(x).
+            +fig("relation-fonctions-arc-tangente-et-arc-cotangente.svg") La fonction #[+e() \arccot(x)] correspond au résultat d'une symétrie selon l'axe des abscisses de la fonction #[+e() \arctan(x)] et d'une translation verticale de #[+e() +\pi/2.]
+
+        p En vertu de la relation entre les fonctions arc tangente et arc cotangente #[+eqref("relation-fonctions-arc-tangente-arc-cotangente")] et de la formule de dérivation de la fonction arc tangente #[+eqref("derivee-arc-tangente") :]
+
+        +leq("derivee-arc-cotangente") \dfrac{d}{dx}[\arccot(u)]=-\dfrac{1}{u^2+1}\cdot\dfrac{du}{dx}.
+
++tableOfContents()

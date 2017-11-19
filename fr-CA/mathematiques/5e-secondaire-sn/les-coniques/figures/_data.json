@@ -299,6 +299,20 @@
             "authors": [
                 "marc-antoine-ouimet"
             ]
+        },
+
+        "cercle-courbes-explicites-x.svg": {
+            "alt": "Graphe des courbes explicites en x de l'équation canonique d'un cercle.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "cercle-courbes-explicites-y.svg": {
+            "alt": "Graphe des courbes explicites en y de l'équation canonique d'un cercle.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
         }
     }
 }

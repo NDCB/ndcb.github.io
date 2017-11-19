@@ -142,7 +142,15 @@ p Étudions analytiquement le cercle en tant que section conique.
         \\k-\sqrt{r^2-(x-h)^2}
         \end{cases}
 
-    p Les fonctions par parties résultantes n'ont pas de domaine qui leur soit unique. En effet, un cercle ne peut pas être une fonction puisqu'il existe plusieurs valeurs d'ordonnée #[+e() y] pour une même valeur d'abscisse #[+e() x.] Cependant, les fonctions résultantes s'avèrent intéressantes: chacune d'entre elles représente une moitié du cercle. Par ce, #[+e() x=h+\sqrt{r^2-(y-k)^2}] décrit la moitié droite du cercle, #[+e() x=h-\sqrt{r^2-(y-k)^2}] décrit sa moitié gauche, #[+e() y=k+\sqrt{r^2-(x-h)^2}] décrit sa moitié haute et #[+e() y=k-\sqrt{r^2-(x-h)^2}] décrit sa moitié basse. Si nous voulions résoudre des équations impliquant des cercles, il nous faudrait considérer le couple d'équations décrivant le cercle et essentiellement effectuer deux fois les mêmes étapes de résolution, ou nous pourrions nous servir de la substitution.
+    p Les fonctions par parties résultantes n'ont pas de domaine qui leur soit unique. En effet, un cercle ne peut pas être une fonction puisqu'il existe plusieurs valeurs d'ordonnée #[+e() y] pour une même valeur d'abscisse #[+e() x.] Cependant, les fonctions résultantes s'avèrent intéressantes: chacune d'entre elles représente une moitié du cercle. Par ce, #[+e() x=h+\sqrt{r^2-(y-k)^2}] décrit la moitié droite du cercle, #[+e() x=h-\sqrt{r^2-(y-k)^2}] décrit sa moitié gauche, #[+e() y=k+\sqrt{r^2-(x-h)^2}] décrit sa moitié haute et #[+e() y=k-\sqrt{r^2-(x-h)^2}] décrit sa moitié basse. Si nous voulions résoudre des équations impliquant des cercles, il nous faudrait considérer un couple d'équations décrivant le cercle et essentiellement effectuer deux fois les mêmes étapes de résolution, ou nous pourrions nous servir de la substitution.
+
+    .row
+        .col-sm-6
+            +fig("cercle-courbes-explicites-x.svg").
+                Les courbes explicites en #[+e() x] d'un cercle d'équation canonique.
+        .col-sm-6
+            +fig("cercle-courbes-explicites-y.svg").
+                Les courbes explicites en #[+e() y] d'un cercle d'équation canonique.
 
     +h(3, "L'intersection d'un cercle et d'une droite")
 
@@ -265,7 +273,7 @@ p Étudions analytiquement le cercle en tant que section conique.
                 \\&=\dfrac{2--2}{-1--3}
                 \\&=\dfrac{4}{2}
                 \\&=2
-            p Connaissant la relation entre les taux de variation de droites perpendiculaires #[+e() m_1=-\dfrac{1}{m_2},] et l'équation d'une droite passant par un point #[+e() (x_1,y_1)] étant #[+e() y-y_1=m(x-x_1),] l'équation de la droite tangente au cercle devient
+            p Connaissant la relation entre les taux de variation de droites perpendiculaires #[+e() m_1=-\dfrac{1}{m_2},] et l'équation d'une droite passant par un point #[+e() (x_1,y_1)] étant #[+e() y-y_1=m(x-x_1),] l'équation de la droite tangente au cercle devient:
             +eq().
                 y-y_P&=m_2(x-x_P)
                 \\y-2&=-\dfrac{1}{2}(x--1)
@@ -305,7 +313,7 @@ p Étudions analytiquement le cercle en tant que section conique.
                 \\&=(6-4)^2+(6-3)^2
                 \\&=4+9
                 \\&=13
-            p À partir de l'équation canonique du cercle #[+eqref("cercle-canonique") ,] la réponse devient
+            p À partir de l'équation canonique du cercle #[+eqref("cercle-canonique") ,] la réponse devient:
             +eq().
                 (x-4)^2+(y-3)^2=13.
             +fig("exemple-determiner-equation-cercle-tangente.svg").
@@ -364,9 +372,9 @@ p Étudions analytiquement le cercle en tant que section conique.
                 \\r^2&=(3-6)^2+(4-0)^2
                 \\&=9+16
                 \\&=25
-            p À partir de l'équation canonique du cercle #[+eqref("cercle-canonique") ,] la réponse devient
+            p À partir de l'équation canonique du cercle #[+eqref("cercle-canonique") ,] la réponse devient:
             +eq().
-                (x-6)^2+y^2=25
+                (x-6)^2+y^2=25.
             +fig("exemple-determiner-equation-cercle-deux-tangentes.svg").
                 Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
 

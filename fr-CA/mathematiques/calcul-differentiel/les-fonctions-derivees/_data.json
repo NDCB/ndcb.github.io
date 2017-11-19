@@ -1,0 +1,24 @@
+{
+    "pages": {
+        "index": {
+            "headline": "Les fonctions dérivées",
+            "description": "Tout ce qu'il y a à savoir sur les fonctions dérivées.",
+            "changefreq": "weekly"
+        }
+    },
+
+    "articles": {
+        "preuves-des-formules-de-derivation": {
+            "headline": "Preuves des formules de dérivation",
+            "description": "Des preuves de toutes les formules de dérivation au programme de calcul différentiel.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ],
+            "containsMath": true,
+            "allowsComments": true,
+            "publicationDate": "2017-11-19",
+            "lastestModificationDate": "2017-11-19",
+            "changefreq": "monthly"
+        }
+    }
+}
