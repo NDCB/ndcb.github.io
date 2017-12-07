@@ -16,7 +16,7 @@ This repository contains the source of the website [ndcb.github.io](https://ndcb
 
 The locale directories and their contents are copyrighted by me, Marc-Antoine Ouimet, unless otherwise stated and may not be reused without my permission.
 
-All other files are licensed under the MIT license.
+All other files, except for brand-related logos, are licensed under the MIT license.
 
 ## Acknowledgments
 
