@@ -2,18 +2,31 @@ include ../redaction/_math
 //- Includes `var inlineMathPrefix, inlineMathSuffix, 
     displayedMathPrefix, displayedMathSuffix;`
 
+//-Retrieve the appropriate locale variables
+-
+    let mathjax;
+    if (Current.locale()) {
+        let localeVariables = Current.locale().variables;
+        mathjax = localeVariables.plugins.mathjax;
+    }
+
 //- MathJax configuration
 script(type="text/x-mathjax-config").
     MathJax.Hub.Config({
-        "fast-preview":{disabled:true},
-        jax: ["input/TeX","CommonHtml"],
+        jax: ["input/TeX","output/CommonHTML"],
+        extensions: ["tex2jax.js"],
         TeX: {
-            equationNumbers:{autoNumber:"AMS"}
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            extensions: ["AMSmath.js","AMSsymbols.js"],
+            equationNumbers: {autoNumber:"AMS"}
+        },
+        tex2jax: {
+            preview: ["#{mathjax.loading}"]
         }
     });
 //- MathJax script reference
 script(
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js"
     integrity="sha256-fCth3p2B4cZMzlr7OFizmo5RkdJAHJ4vOHpE7FaNcR8="
     crossorigin="anonymous" 
 )

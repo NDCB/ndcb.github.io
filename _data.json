@@ -95,6 +95,12 @@
                         "github": "Profil Github",
                         "email": "Contacter via email"
                     }
+                },
+
+                "plugins": {
+                    "mathjax": {
+                        "loading": "Chargement... "
+                    }
                 }
             }
         }
