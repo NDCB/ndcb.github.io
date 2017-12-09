@@ -3,5 +3,9 @@ include /_jade/model/_model.js.jade
 for sitemap in Sitemap.sitemaps()
     !="\nSitemap: " + sitemap
 !="\nUser-agent: *"
+!="\nDisallow: /index.html"
 !="\nDisallow: /res/"
+!="\nAllow: /res/thumbnails/"
 !="\nDisallow: /css/res/"
+!="\nDisallow: /privacy-policy.html"
+!="\nDisallow: /sitemap*"
