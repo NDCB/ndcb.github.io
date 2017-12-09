@@ -2,22 +2,31 @@
     a hierarchical navigation through the folders of the website.
     @see https://developers.google.com/search/docs/data-types/breadcrumbs
     @param {Breadcrumb[]} the breadcrumbs to display.
-mixin breadcrumbs(breadcrumbs)
+    @param {Boolean} whether or not to display the microdata.
+mixin breadcrumbs(breadcrumbs, displayMicrodata = true)
     //- If there are breadcrumbs to display
     if breadcrumbs.length > 0
         nav.breadcrumbs
-            //- List breadcrumbs in their given order
-            ol(itemscope itemtype="http://schema.org/BreadcrumbList")
-                for breadcrumb, index in breadcrumbs
-                    li(
-                        itemscope 
-                        itemprop="itemListElement" 
-                        itemtype="http://schema.org/ListItem"
-                    )
-                        a(
+            if displayMicrodata === true
+                //- List breadcrumbs in their given order
+                ol(itemscope itemtype="http://schema.org/BreadcrumbList")
+                    for breadcrumb, index in breadcrumbs
+                        li(
                             itemscope 
-                            itemtype="http://schema.org/Thing" 
-                            itemprop="item" href!=breadcrumb.path
+                            itemprop="itemListElement" 
+                            itemtype="http://schema.org/ListItem"
                         )
-                            span(itemprop="name")!=breadcrumb.headline
-                        meta(itemprop="position" content!=index + 1)
+                            a(
+                                itemscope 
+                                itemtype="http://schema.org/Thing" 
+                                itemprop="item" href!=breadcrumb.path
+                            )
+                                span(itemprop="name")!=breadcrumb.headline
+                            meta(itemprop="position" content!=index + 1)
+            else
+                //- List breadcrumbs in their given order
+                ol
+                    for breadcrumb in breadcrumbs
+                        li
+                            a(href!=breadcrumb.path)!=breadcrumb.headline
+            

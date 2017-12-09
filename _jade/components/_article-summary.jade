@@ -2,16 +2,14 @@ include ../base/_breadcrumbs
 
 //- Retrieve the localized variables for the prompts
 -
-    var prompts;
-    if (Current.locale()) {
-        let localeVariables = Current.locale().variables;
-        prompts = localeVariables.prompts;
-    } else {
-        prompts = {
+    var prompts = {
             published: '',
             modified: '',
             writtenBy: ''
-        };
+    };
+    if (Current.locale()) {
+        let localeVariables = Current.locale().variables;
+        prompts = localeVariables.prompts;
     }
 
 //- Creates a summary of a given article.
@@ -28,7 +26,7 @@ mixin articleSummary(article)
                 );
             //- Display the breadcrumbs
             if breadcrumbs
-                +breadcrumbs(breadcrumbs)
+                +breadcrumbs(breadcrumbs, false)
         span.description!=article.description
         footer: ul.meta
             //- Add the publication date of the article
