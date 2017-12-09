@@ -50,10 +50,8 @@ mixin difficulty(difficulty)
     @param {String} moduleType the type of the module.
     @param {String} localizedType the localized module type name.
     @param {Number} counter the number of the module.
-    @param {Boolean} expanded whether or not the module is expanded by default.
-    @param {String} footer the optional footer of the module.
-mixin module(title, moduleType, localizedType, counter, expanded, footer)
-    -if (expanded === undefined) {expanded = true}
+    @param {Object} argument the optional argument object of the module.
+mixin module(title, moduleType, localizedType, counter, argument = {expanded: true})
     aside.module(
         class!=moduleType id!=moduleType + '-' + counter
     )&attributes(attributes)
@@ -65,12 +63,14 @@ mixin module(title, moduleType, localizedType, counter, expanded, footer)
             if (title)
                 -moduleTitle += ": " + title;
             +moduleHeadline(moduleLevel, moduleTitle)
-            -var togglerIcon = expanded ? "fa-caret-up" : "fa-caret-down";
+            if (argument.difficulty) 
+                +difficulty(argument.difficulty)
+            -var togglerIcon = argument.expanded ? "fa-caret-up" : "fa-caret-down";
             i.fa.fa-fw.toggler(class!=togglerIcon)
-        .content(aria-expanded="#{expanded}" role="complementary")
+        .content(aria-expanded="#{argument.expanded}" role="complementary")
             block
-        if footer
-            footer!=footer
+        if argument.footer
+            footer!=argument.footer
 
 //- Adds a module headline.
     @param {Number} the level of the headline.
@@ -168,7 +168,8 @@ mixin refTheorem(step)
             p ... 
 mixin proof(title)
     -proofNo++
-    +module(title, "proof", modules.proof, theoremNo + '.' + proofNo, false)
+    -let argument = {expanded: false};
+    +module(title, "proof", modules.proof, theoremNo + '.' + proofNo, argument)
         block
 
 //- Adds a reference to a proof in the current document.
@@ -192,7 +193,8 @@ mixin refProof(step)
 mixin exercise(difficulty, title)
     -solutionNo = 0
     -exerciseNo++
-    +module(title, "exercise", modules.exercise, exerciseNo)
+    -let argument = {difficulty: difficulty};
+    +module(title, "exercise", modules.exercise, exerciseNo, argument)
         block
 
 //- Adds a reference to an exercise in the current document.
@@ -216,7 +218,8 @@ mixin refExercise(step)
             p ...
 mixin solution(title)
     -solutionNo++
-    +module(title, "solution", modules.solution, solutionNo, false)
+    -let argument = {expanded: false};
+    +module(title, "solution", modules.solution, solutionNo, argument)
         block
 
 //- Adds a reference to a solution in the current document.
@@ -237,12 +240,12 @@ mixin refSolution(step)
 mixin reminder(title, linkback)
     -reminderNo++
     -
-        let footer;
+        let argument = {};
         if (linkback) {
-            footer = "<a class=\"external-link\" href=\"" + linkback 
+            argument.footer = "<a class=\"external-link\" href=\"" + linkback 
             + "\" target=\"_blank\">" + modules.reminderLinkBack + "</a>";
         }
-    +module(title, "reminder", modules.reminder, reminderNo, true, footer)
+    +module(title, "reminder", modules.reminder, reminderNo, argument)
         block
 
 //- Adds a reference to a reminder in the current document.
