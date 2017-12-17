@@ -52,6 +52,7 @@ mixin difficulty(difficulty)
     @param {Number} counter the number of the module.
     @param {Object} argument the optional argument object of the module.
 mixin module(title, moduleType, localizedType, counter, argument = {expanded: true})
+    -if (argument.expanded === undefined) {argument.expanded = true;}
     aside.module(
         class!=moduleType id!=moduleType + '-' + counter
     )&attributes(attributes)
