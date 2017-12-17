@@ -281,7 +281,7 @@ include /_jade/redaction/_redaction
 
         +reminder("Le dénombrement de combinaisons")
             p Soit l'ensemble #[+e() S] comprenant #[+e() n] éléments. Le nombre de #[+e() r\mathrm{-combinaisons}] de #[+e() S] sans remise où #[+e() 0\leq r\leq n] s'exprime:
-            +leq("combinaisons-sans-remise") C_n^k=C(n,k)={n\choose k}=\dfrac{n!}{k!(n-k)!}.
+            +leq("combinaisons-sans-remise") C_k^n=C(n,k)={n\choose k}=\dfrac{n!}{k!(n-k)!}.
 
         +reminder("Le théorème de l'expansion bionomiale")
             p Soient #[+e() x] et #[+e() y] des réels et #[+e() n] un nombre positif. L'expression #[+e() (x+y)^n] se développe par la sommation:
@@ -311,11 +311,41 @@ include /_jade/redaction/_redaction
             }
             \\&=nx^{n-1}.
 
-        p Par conséquent, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") :]
+        p Cependant, cette preuve n'est valable que pour une puissance entière et positive bien que la formule soit correcte pour tous les entiers réels #[+e() n.] Soit #[+e() m] un entier positif et #[+e() n=-m], tel que:
 
-        +leq("derivee-fonction-puissance") \dfrac{d}{dx}[u^n]=nu^{n-1}\dfrac{du}{dx}
+        +eq().
+            f=x^n=x^{-m}=\dfrac{1}{x^m}.
 
-        p Autrement, au moyen de la dérivation logarithmique et de la dérivation implicite:
+        p En vertu de la formule de dérivation d'un quotient de fonctions #[+eqref("derivee-quotient-fonctions") :]
+
+        +eq().
+            \dfrac{df}{dx}&=\dfrac{d}{dx}\left[\dfrac{1}{x^m}\right]
+            \\&=\dfrac{\dfrac{d}{dx}[1]x^m-1\cdot\dfrac{d}{dx}[x^m]}{\left(x^m\right)^2}
+            \\&=\dfrac{-mx^{m-1}}{x^{2m}}
+            \\&=-mx^{m-1-2m}
+            \\&=-mx^{-m-1}
+            \\&=nx^{n-1}.
+
+        p Cependant, ces preuves ne sont valables que pour une puissance entière. Soient #[+e() p] et #[+e() q] des entiers et #[+e() n=\dfrac{p}{q}], tel que #[+e() n] est rationnel. Il est possible d'exprimer:
+
+        +eq().
+            f&=x^{\frac{p}{q}}
+            \\f^q&=x^p.
+
+        p Alors, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions")] et de la dérivation implicite:
+
+        +eq().
+            \dfrac{d}{dx}[f^q]&=\dfrac{d}{dx}[x^p]
+            \\qf^{q-1}\cdot\dfrac{df}{dx}&=px^{p-1}
+            \\\dfrac{df}{dx}&=\dfrac{px^{p-1}}{qf^{q-1}}
+            \\&=\dfrac{px^{p-1}}{q\left(x^{\frac{p}{q}}\right)^{q-1}}
+            \\&=\dfrac{p}{q}\dfrac{x^{p-1}}{x^{\frac{p}{q}(q-1)}}
+            \\&=\dfrac{p}{q}x^{p-1-\frac{p}{q}(q-1)}
+            \\&=\dfrac{p}{q}x^{p-1-p+\frac{p}{q}}
+            \\&=\dfrac{p}{q}x^{\frac{p}{q}-1}
+            \\&=nx^{n-1}.
+
+        p Enfin, ces preuves ne sont valables que pour une puissance rationnelle. Soit #[+e() n] un nombre réel quelconque. Au moyen de la dérivation logarithmique et de la dérivation implicite:
 
         +eq().
             f&=x^n
@@ -325,9 +355,11 @@ include /_jade/redaction/_redaction
             \\\dfrac{1}{f}\cdot\dfrac{df}{dx}&=n\cdot\dfrac{1}{x}
             \\\dfrac{df}{dx}&=n\cdot\dfrac{f}{x}
             \\&=n\cdot\dfrac{x^n}{x}
-            \\\dfrac{d}{dx}[x^n]&=nx^{n-1}.
+            \\&=nx^{n-1}.
 
-        p Alors, la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions")] nous permet d'exprimer #[+e() \dfrac{d}{dx}[f\circ u]] comme au résultat #[+eqref("derivee-fonction-puissance") .]
+        p Par conséquent, en vertu de la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions") :]
+
+        +leq("derivee-fonction-puissance") \dfrac{d}{dx}[u^n]=nu^{n-1}\dfrac{du}{dx}
 
 +h(2, "Les formules de dérivation des fonctions exponentielle et logarithmique")
 
@@ -947,8 +979,8 @@ include /_jade/redaction/_redaction
             f&=\arcsec(x)
             \\\color{blue}{\sec(f)}&=x
             \\\dfrac{d}{dx}[\sec(f)]&=\dfrac{d}{dx}[x]
-            \\\sec(f)\tan(f)\dfrac{df}{x}&=1
-            \\\dfrac{df}{x}&=\dfrac{1}{\sec(f)\tan(f)}
+            \\\sec(f)\tan(f)\cdot\dfrac{df}{dx}&=1
+            \\\dfrac{df}{dx}&=\dfrac{1}{\sec(f)\tan(f)}
             \\&=\dfrac{1}{|\sec(f)\tan(f)|}
             \\&=\dfrac{1}{\left|\sec(f)\sqrt{\tan^2(f)}\right|}
             \\&=\dfrac{1}{|\color{blue}{\sec(f)}|\sqrt{[\color{blue}{\sec(f)}]^2-1}}
