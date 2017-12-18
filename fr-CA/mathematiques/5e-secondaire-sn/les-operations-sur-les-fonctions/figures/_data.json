@@ -1,0 +1,38 @@
+{
+    "figures": {
+        "exemple-de-relation.svg": {
+            "alt": "Illustration d'une relation par association d'éléments de deux ensembles.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "graphe-fonction-quadratique-notation-fonctionnelle.svg": {
+            "alt": "Graphe de la fonction quadratique de base dans le premier quadrant avec sa notation fonctionnelle.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+        
+        "graphe-fonction-racine-cinquieme-bijective.svg": {
+            "alt": "Graphe d'une fonction racine cinquième bijective.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-de-relation-qui-nest-pas-une-fonction-par-son-domaine.svg": {
+            "alt": "Illustration d'une relation qui n'est pas une fonction parce qu'il manque une association dans son domaine.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-de-relation-qui-nest-pas-une-fonction-par-lunicite-dimage.svg": {
+            "alt": "Illustration d'une relation qui n'est pas une fonction parce que les associations de son domaine ne sont pas uniques.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        }
+    }
+}

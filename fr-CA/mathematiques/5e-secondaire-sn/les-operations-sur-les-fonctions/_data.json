@@ -1,0 +1,76 @@
+{
+    "pages": {
+        "index": {
+            "headline": "Les opérations sur les fonctions",
+            "description": "Tout ce qu'il y a à savoir sur la manipulation de fonctions algébriques.",
+            "changefreq": "weekly"
+        }
+    },
+    
+    "articles": {
+        "les-fonctions-reciproques": {
+            "headline": "Les fonctions réciproques",
+            "description": "La réciprocité des fonctions, définies en termes de relations, est à la base de la résolution d'équations algébriques.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ],
+            "containsMath": true,
+            "allowsComments": true,
+            "publicationDate": "2017-12-17",
+            "lastestModificationDate": "2017-12-17",
+            "changefreq": "monthly"
+        },
+
+        "les-transformations-de-fonctions": {
+            "headline": "Les transformations de fonctions",
+            "description": "Les fonctions peuvent être transformées par mise à l'échelle et par translation au moyen de paramètres.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ],
+            "containsMath": true,
+            "allowsComments": true,
+            "publicationDate": "",
+            "lastestModificationDate": "",
+            "changefreq": "monthly"
+        },
+
+        "la-composition-de-fonctions": {
+            "headline": "La composition de fonctions",
+            "description": "Les fonctions peuvent être composées et décomposées pour être analysées.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ],
+            "containsMath": true,
+            "allowsComments": true,
+            "publicationDate": "",
+            "lastestModificationDate": "",
+            "changefreq": "monthly"
+        },
+
+        "resume-des-operations-sur-les-fonctions": {
+            "headline": "Résumé des opérations sur les fonctions",
+            "description": "L'ensemble des notions importantes concernant les opérations sur les fonctions.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ],
+            "containsMath": true,
+            "allowsComments": true,
+            "publicationDate": "",
+            "lastestModificationDate": "",
+            "changefreq": "monthly"
+        },
+
+        "exercices-sur-les-operations-sur-les-fonctions": {
+            "headline": "Exercices sur les opérations sur les fonctinons",
+            "description": "Plusieurs exercices de renforcement sur les opérations sur les fonctions.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ],
+            "containsMath": true,
+            "allowsComments": true,
+            "publicationDate": "",
+            "lastestModificationDate": "",
+            "changefreq": "monthly"
+        }
+    }
+}
