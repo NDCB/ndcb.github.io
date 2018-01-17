@@ -8,8 +8,16 @@
     },
 
     "categories": {
+        "les-operations-sur-les-fonctions": {
+            "headline": "Les opérations sur les fonctions"
+        },
+
         "les-coniques": {
             "headline": "Les coniques"
+        },
+
+        "les-fonctions-trigonometriques": {
+            "headline": "Les fonctions trigonométriques"
         }
     }
 }

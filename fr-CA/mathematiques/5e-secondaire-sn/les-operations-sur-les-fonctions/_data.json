@@ -8,20 +8,7 @@
     },
     
     "articles": {
-        "les-fonctions-reciproques": {
-            "headline": "Les fonctions réciproques",
-            "description": "La réciprocité des fonctions, définies en termes de relations, est à la base de la résolution d'équations algébriques.",
-            "authors": [
-                "marc-antoine-ouimet"
-            ],
-            "containsMath": true,
-            "allowsComments": true,
-            "publicationDate": "2017-12-17",
-            "lastestModificationDate": "2017-12-17",
-            "changefreq": "monthly"
-        },
-
-        "les-transformations-de-fonctions": {
+       "les-transformations-de-fonctions": {
             "headline": "Les transformations de fonctions",
             "description": "Les fonctions peuvent être transformées par mise à l'échelle et par translation au moyen de paramètres.",
             "authors": [
@@ -44,6 +31,19 @@
             "allowsComments": true,
             "publicationDate": "",
             "lastestModificationDate": "",
+            "changefreq": "monthly"
+        },
+
+        "les-fonctions-reciproques": {
+            "headline": "Les fonctions réciproques",
+            "description": "La réciprocité des fonctions est à la base de la résolution d'équations algébriques.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ],
+            "containsMath": true,
+            "allowsComments": true,
+            "publicationDate": "2017-12-17",
+            "lastestModificationDate": "2017-12-17",
             "changefreq": "monthly"
         },
 

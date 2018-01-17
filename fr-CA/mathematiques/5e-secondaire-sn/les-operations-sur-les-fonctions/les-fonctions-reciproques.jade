@@ -33,22 +33,22 @@ p Une fonction n'aura de réciproque que si plusieurs critères sont remplis. Il
 
 +h(2, "La notation fonctionnelle")
     +definition("La notation fonctionnelle")
-        p Soit une fonction #[+e() f:A\to B.] On dit que #[+e() A] est le domaine de #[+e() f] et que son codomaine est #[+e() B.] L'image de #[+e() f] est un sous-ensemble de #[+e() B.] Une fonction est une relation définie pour l'ensemble des éléments de son domaine, de telle sorte qu'il existe toujours une et une seule valeur de #[+e() b] appartenant à #[+e() B] pour tous les éléments #[+e() a] appartenants à #[+e() A] telle que #[+e() a] et #[+e() b] sont en relation par #[+e() f.] En notation propositionnelle, la relation #[+e() f] est une fonction si la proposition de relation suivante est vraie:
+        p Soit une fonction #[+e() f:A\to B.] On dit que #[+e() A] est le domaine de #[+e() f] et que son codomaine est #[+e() B.] L'image de #[+e() f] est un sous-ensemble de #[+e() B.] Une fonction est une relation définie pour l'ensemble des éléments de son domaine, de telle sorte qu'il existe toujours une et une seule valeur de #[+e() b] appartenant à #[+e() B] pour tous les éléments #[+e() a] appartenant à #[+e() A] telle que #[+e() a] et #[+e() b] sont en relation par #[+e() f.] En notation propositionnelle, la relation #[+e() f] est une fonction si la proposition de relation suivante est vraie:
         +leq("definition-fonction") \forall a\in A,\exists! b\in B,afb.
         p On note alors que #[+e() f(a)=b,] que #[+e() a] est la préimage de #[+e() b,] et que #[+e() b] est l'image de #[+e() a.] 
 
     +example("Exprimer une fonction en notation fonctionnelle")
         p Soit la fonction #[+e() f(x)=x^2,] qu'on peut aussi noter #[+e() f:x\mapsto x^2.] Quelle est l'expression de #[+e() f] en notation fonctionnelle si l'univers du discours est l'ensemble des réels?
-        p Soient les ensembles #[+e() A] et #[+e() B] qui sont respectivement le domaine et le codomaine de #[+e() f.] L'univers du discours de l'énoncé est l'ensemble des réels, de telle sorte que #[+e() A\subseteq\mathbb{R}] et #[+e() B\subseteq\mathbb{R}.] Par définition, on peut dire que #[+e() B=\mathbb{R},] puisque l'image d'une fonction est un sous-ensemble de son codomaine. En revanche, il peut être utile de déterminer l'image de #[+e() f] pour sa notation fonctionnelle. La fonction #[+e() f(x)=x^2] est déterminée pour toutes les valeurs de #[+e() x] appartenants aux réels, c'est-à-dire que #[+e() x^2] existe pour toutes les valeurs réelles de #[+e() x.] Par conséquent, #[+e() A=\mathbb{R}.] Par ailleurs, il n'existe pas de valeur réelle de #[+e() x] qui rende #[+e() x^2] négative. Ce faisant, #[+e() B=\mathbb{R}^+,] l'ensemble des réels positifs incluant #[+e() 0.] Par conséquent, la notation fonctionnelle de #[+e() f] est #[+e() f:\mathbb{R}\to\mathbb{R}^+.]
+        p Soient les ensembles #[+e() A] et #[+e() B] qui sont respectivement le domaine et le codomaine de #[+e() f.] L'univers du discours de l'énoncé est l'ensemble des réels, de telle sorte que #[+e() A\subseteq\mathbb{R}] et #[+e() B\subseteq\mathbb{R}.] Par définition, on peut dire que #[+e() B=\mathbb{R},] puisque l'image d'une fonction est un sous-ensemble de son codomaine. En revanche, il peut être utile de déterminer l'image de #[+e() f] pour sa notation fonctionnelle. La fonction #[+e() f(x)=x^2] est déterminée pour toutes les valeurs de #[+e() x] appartenant aux réels, c'est-à-dire que #[+e() x^2] existe pour toutes les valeurs réelles de #[+e() x.] Par conséquent, #[+e() A=\mathbb{R}.] Par ailleurs, il n'existe pas de valeur réelle de #[+e() x] qui rende #[+e() x^2] négative. Ce faisant, #[+e() B=\mathbb{R}^+,] l'ensemble des réels positifs incluant #[+e() 0.] Par conséquent, la notation fonctionnelle de #[+e() f] est #[+e() f:\mathbb{R}\to\mathbb{R}^+.]
 
     +example("Discerner une fonction d'une relation par l'unicité d'image")
         p Soient les ensembles #[+e() A=\{0,1\}] et #[+e() B=\{0,1,2,3\}] et la relation #[+e() R\subseteq A\times B] telle que #[+e() R=\{(0,1),(0,2),(1,2)\}.] Est-ce que #[+e() R] est une fonction?
-        p Si #[+e() R] est une fonction, alors pour toutes les valeurs #[+e() a] appartenants à #[+e() A] il n'existe qu'une et une seule valeur de #[+e() b] appartenant à #[+e() B] telle que #[+e() R(a)=b.] Cependant, les couples #[+e() (0,1)] et #[+e() (0,2)] appartenants à #[+e() R] ont des images différentes pour une même préimage. Par conséquent, #[+e() R] n'est pas une fonction.
+        p Si #[+e() R] est une fonction, alors pour toutes les valeurs #[+e() a] appartenant à #[+e() A] il n'existe qu'une et une seule valeur de #[+e() b] appartenant à #[+e() B] telle que #[+e() R(a)=b.] Cependant, les couples #[+e() (0,1)] et #[+e() (0,2)] appartenant à #[+e() R] ont des images différentes pour une même préimage. Par conséquent, #[+e() R] n'est pas une fonction.
         +fig("exemple-de-relation-qui-nest-pas-une-fonction-par-lunicite-dimage.svg") Illustration de #[+e() R.]
 
     +example("Discerner une fonction d'une relation par son domaine")
         p Soient les ensembles #[+e() A] et #[+e() B] tels que #[+e() A=B=\{0,1,2,3,4\}] et la relation #[+e() R\subseteq A\times B] telle que #[+e() R=\{(0,2),(1,3),(3,3),(4,1)\}.] Est-ce que #[+e() R] est une fonction?
-        p Si #[+e() R] est une fonction, alors il faut que #[+e() R] satisfasse la proposition #[+eqref("definition-fonction") .] Par conséquent, il faut que pour toutes les valeurs #[+e() a] appartenants à #[+e() A] il existe une relation avec une valeur #[+e() b] appartenant à #[+e() B.] Or, il n'existe pas de relation qui associe la valeur #[+e() 2] à une autre valeur. Par conséquent, #[+e() R] n'est pas une fonction de #[+e() A] vers #[+e() B.]
+        p Si #[+e() R] est une fonction, alors il faut que #[+e() R] satisfasse la proposition #[+eqref("definition-fonction") .] Par conséquent, il faut que pour toutes les valeurs #[+e() a] appartenant à #[+e() A] il existe une relation avec une valeur #[+e() b] appartenant à #[+e() B.] Or, il n'existe pas de relation qui associe la valeur #[+e() 2] à une autre valeur. Par conséquent, #[+e() R] n'est pas une fonction de #[+e() A] vers #[+e() B.]
         +fig("exemple-de-relation-qui-nest-pas-une-fonction-par-son-domaine.svg") Illustration de #[+e() R.]
 
 +h(2, "Les fonctions injectives")
@@ -65,12 +65,12 @@ p Une fonction n'aura de réciproque que si plusieurs critères sont remplis. Il
 
 +h(2, "Les fonctions surjectives")
     +definition("La surjection d'une fonction")
-        p Une fonction #[+e() f:A\to B] est dite surjective s'il existe une préimage pour chaque élément appartenant au codomaine de #[+e() f.] Formellement, on dit que pour tous les éléments #[+e() y] appartenants à #[+e() B,] il existe un élément #[+e() x] appartenant à #[+e() A] pour lequel #[+e() f(x)=y.] En notation propositionnelle, #[+e() f] est surjective si la proposition suivante est vraie:
+        p Une fonction #[+e() f:A\to B] est dite surjective s'il existe une préimage pour chaque élément appartenant au codomaine de #[+e() f.] Formellement, on dit que pour tous les éléments #[+e() y] appartenant à #[+e() B,] il existe un élément #[+e() x] appartenant à #[+e() A] pour lequel #[+e() f(x)=y.] En notation propositionnelle, #[+e() f] est surjective si la proposition suivante est vraie:
         +leq("fonction-surjective") \forall y\in B, \exists x\in A, f(x)=y. 
 
     +example("Déterminer si une fonction est surjective")
         p Soit la fonction #[+e() f:\mathbb{R}\to\mathbb{R}:x\mapsto x^3.] Déterminez si #[+e() f] est surjective.
-        p Soient #[+e() A=\mathbb{R}] le domaine de #[+e() f] et #[+e() B=\mathbb{R}] le codomaine de #[+e() f.] Pour tous les éléments #[+e() b] appartenants à #[+e() B,] on remarque que #[+e() f(\sqrt[3]{b})=b,] de telle sorte que #[+e() \sqrt[3]{b}\in A] et #[+e() b\in B] #[+eqref("fonction-surjective") .] Par conséquent, #[+e() f] est surjective.
+        p Soient #[+e() A=\mathbb{R}] le domaine de #[+e() f] et #[+e() B=\mathbb{R}] le codomaine de #[+e() f.] Pour tous les éléments #[+e() b] appartenant à #[+e() B,] on remarque que #[+e() f(\sqrt[3]{b})=b,] de telle sorte que #[+e() \sqrt[3]{b}\in A] et #[+e() b\in B] #[+eqref("fonction-surjective") .] Par conséquent, #[+e() f] est surjective.
 
 +h(2, "Les fonctions bijectives")
     +definition("La bijection d'une fonction")
@@ -78,19 +78,19 @@ p Une fonction n'aura de réciproque que si plusieurs critères sont remplis. Il
 
     +example("Déterminer si une fonction est bijective")
         p Soit la fonction #[+e() f:\mathbb{R}\to\mathbb{R}:x\mapsto \sqrt[5]{x-k}] où #[+e() k] est un réel quelconque. Déterminez si #[+e() f] est bijective.
-        p Si #[+e() f] est bijective, alors elle est injective et surjective. Pour démontrer que #[+e() f] est injective, on pose que pour toutes les valeurs #[+e() a] et #[+e() b] appartenants à son domaine, #[+e() f(a)=f(b).] Il est alors possible de dégager ce raisonnement:
+        p Si #[+e() f] est bijective, alors elle est injective et surjective. Pour démontrer que #[+e() f] est injective, on pose que pour toutes les valeurs #[+e() a] et #[+e() b] appartenant à son domaine, #[+e() f(a)=f(b).] Il est alors possible de dégager ce raisonnement:
         +eq().
             f(a)&=f(b)
             \\\sqrt[5]{a-k}&=\sqrt[5]{b-k}
             \\a-k&=b-k
             \\a&=b.
         p Par conséquent, puisque deux préimages doivent être égales pour que deux images de #[+e() f] correspondent #[+eqref("fonction-injective") ,] #[+e() f] est injective.
-        p Pour démontrer que #[+e() f] est surjective, on pose #[+e() A=\mathbb{R}] le domaine de #[+e() f] et #[+e() B=\mathbb{R}] le codomaine de #[+e() f.] Pour tous les éléments #[+e() b] appartenants à #[+e() B,] on remarque que #[+e() f\left((b+k)^5\right)=b,] de telle sorte que #[+e() (b+k)^5\in A] et #[+e() b\in B] #[+eqref("fonction-surjective") .] Par conséquent, #[+e() f] est surjective.
+        p Pour démontrer que #[+e() f] est surjective, on pose #[+e() A=\mathbb{R}] le domaine de #[+e() f] et #[+e() B=\mathbb{R}] le codomaine de #[+e() f.] Pour tous les éléments #[+e() b] appartenant à #[+e() B,] on remarque que #[+e() f\left((b+k)^5\right)=b,] de telle sorte que #[+e() (b+k)^5\in A] et #[+e() b\in B] #[+eqref("fonction-surjective") .] Par conséquent, #[+e() f] est surjective.
         p Puisque #[+e() f] est injective et surjective, #[+e() f] est bijective.
         +fig("graphe-fonction-racine-cinquieme-bijective.svg") Le graphe de #[+e() f.]
 
     +definition("La fonction identité d'un ensemble")
-        p Soit #[+e() A] un ensemble. La fonction identité de #[+e() A] est #[+e() I_A:A\to A] de telle sorte que pour tous les éléments #[+e() a] appartenants à #[+e() A,] #[+e() I_A(a)=a.] On note que pour une fonction #[+e() f:A\to B] et les fonctions identités sur #[+e() A] et #[+e() B:]
+        p Soit #[+e() A] un ensemble. La fonction identité de #[+e() A] est #[+e() I_A:A\to A] de telle sorte que pour tous les éléments #[+e() a] appartenant à #[+e() A,] #[+e() I_A(a)=a.] On note que pour une fonction #[+e() f:A\to B] et les fonctions identités sur #[+e() A] et #[+e() B:]
         +eq().
             \forall a\in A,(f\circ I_A)(a)=f(I_A(a))=f(a)=f,
         +eq().
@@ -107,14 +107,14 @@ p Une fonction n'aura de réciproque que si plusieurs critères sont remplis. Il
     +theorem("La réciproque d'une fonction par symétrie")
         p Une fonction inversible #[+e() f:A\to B] est une relation telle que #[+e() f\subseteq A\times B,] et sa fonction réciproque #[+e() g:B\to A] est une relation telle que #[+e() g\subseteq B\times A.] En compréhension, il est possible de définir la réciproque de #[+e() f:]
         +leq("fonction-reciproque") g=\left\{(y,x)\in B\times A\mid (x,y)\in f\right\}.
-        p Ce faisant, pour tous les couples #[+e() (x,y)] appartenants à #[+e() f,] le couple #[+e() (y,x)] doit appartenir à #[+e() g,] de telle sorte que la fonction #[+e() g] correspond à la symétrie de #[+e() f] par rapport à la droite #[+e() y=x.]
+        p Ce faisant, pour tous les couples #[+e() (x,y)] appartenant à #[+e() f,] le couple #[+e() (y,x)] doit appartenir à #[+e() g,] de telle sorte que la fonction #[+e() g] correspond à la symétrie de #[+e() f] par rapport à la droite #[+e() y=x.]
 
-    p En vertu de la détermination de la réciproque d'une fonction par symétrie, il est possible d'établir une démarche du calcul de la réciproque. Soient les fonctions #[+e() f:X\to Y] et #[+e() g:Y\to X] telles que #[+e() g\circ f=x.] Connaissant l'expression de #[+e() f(x)=y,] il suffit d'y permuter #[+e() x] et #[+e() y] et d'isoler #[+e() y] pour dégager l'expression de #[+e() g(x).] Si #[+e() f] est bijective, alors #[+e() g] sera bien définie. Autrement, il faudra établir des intervalles de bijection de #[+e() f] et les fonctions correspondant à #[+e() f] sur ces intervalles pour définir #[+e() g] par parties.
+    p En vertu de la détermination de la réciproque d'une fonction par symétrie, il est possible d'établir une démarche du calcul de la réciproque. Soient les fonctions #[+e() f:X\to Y] et #[+e() g:Y\to X] telles que #[+e() (g\circ f)(x)=x.] Connaissant l'expression de #[+e() f(x)=y,] il suffit d'y permuter #[+e() x] et #[+e() y] et d'isoler #[+e() y] pour dégager l'expression de #[+e() g(x).] Si #[+e() f] est bijective, alors #[+e() g] sera bien définie. Autrement, il faudra établir des intervalles de bijection de #[+e() f] et les fonctions correspondant à #[+e() f] sur ces intervalles pour définir #[+e() g] par parties.
 
     +example("Calculer la réciproque d'une fonction linéaire")
         p Soit la fonction #[+e() f:\mathbb{R}\to\mathbb{R}:x\mapsto mx+k,] où #[+e() m,k\in\mathbb{R}] et #[+e() m\neq 0.] Calculez la réciproque de #[+e() f.]
         p La fonction #[+e() f] est linéaire, et son taux de variation est #[+e() m.] Par conséquent, #[+e() f] sera strictement croissante si #[+e() m\gt 0,] et elle sera strictement décroissante si #[+e() m\lt 0,] ce qui implique que #[+e() f] est injective.
-        p Soient les ensembles #[+e() A=\mathbb{R}] et #[+e() B=\mathbb{R}] le domaine et le codomaine de #[+e() f] respectivement. Pour tous les éléments #[+e() b] appartenants à #[+e() B,] on remarque que #[+e() f\left(\dfrac{b-k}{m}\right)=b,] de telle sorte que #[+e() \left(\dfrac{b-k}{m}\right)\in A] et #[+e() b\in B.] Par conséquent, #[+e() f] est surjective.
+        p Soient les ensembles #[+e() A=\mathbb{R}] et #[+e() B=\mathbb{R}] le domaine et le codomaine de #[+e() f] respectivement. Pour tous les éléments #[+e() b] appartenant à #[+e() B,] on remarque que #[+e() f\left(\dfrac{b-k}{m}\right)=b,] de telle sorte que #[+e() \left(\dfrac{b-k}{m}\right)\in A] et #[+e() b\in B.] Par conséquent, #[+e() f] est surjective.
         p Puisque #[+e() f] est injective et surjective, #[+e() f] est bijective. Ce faisant, sa fonction réciproque sera bien définie. Soient #[+e() g:\mathbb{R}\to\mathbb{R}] la réciproque de #[+e() f,] et #[+e() f(x)=y.] En permutant #[+e() x] et #[+e() y] dans l'expression de #[+e() f] pour exprimer #[+e() g(x)=y:]
         +eq().
             x=my+k\iff y=\dfrac{x-k}{m}.
@@ -123,7 +123,7 @@ p Une fonction n'aura de réciproque que si plusieurs critères sont remplis. Il
     +example("Calculer la réciproque d'une fonction quadratique")
         p Soit la fonction #[+e() f:\mathbb{R}\to\mathbb{R}^+:x\mapsto (x-h)^2,] où #[+e() h\in\mathbb{R}.] Calculez la réciproque de #[+e() f.]
         p La fonction #[+e() f] est quadratique, ce qui implique qu'elle n'est pas injective. En effet, l'expression #[+e() x^2] est paire, et #[+e() f] est une transformation de #[+e() x^2.] En revanche, il est possible de séparer le domaine de #[+e() f] en deux intervalles où la fonction est injective. Soient #[+e() f_1:\{x\in\mathbb{R}\mid x\lt h\}\to\mathbb{R}^+] et #[+e() f_2:\{x\in\mathbb{R}\mid x\geq h\}\to\mathbb{R}^+.] La fonction #[+e() f_1] est strictement décroissante, et #[+e() f_2] est strictement croissante, donc toutes deux sont injectives.
-        p Soient les ensembles #[+e() A=\mathbb{R}] et #[+e() B=\mathbb{R}^+] le domaine et le codomaine de #[+e() f] respectivement. Pour tous les éléments #[+e() b] appartenants à #[+e() B,] on remarque que #[+e() f(\sqrt{b}+h)=b,] de telle sorte que #[+e() (\sqrt{b}+h)\in A] et #[+e() b\in B.] Par conséquent, #[+e() f] est surjective.
+        p Soient les ensembles #[+e() A=\mathbb{R}] et #[+e() B=\mathbb{R}^+] le domaine et le codomaine de #[+e() f] respectivement. Pour tous les éléments #[+e() b] appartenant à #[+e() B,] on remarque que #[+e() f(\sqrt{b}+h)=b,] de telle sorte que #[+e() (\sqrt{b}+h)\in A] et #[+e() b\in B.] Par conséquent, #[+e() f] est surjective.
         p Puisque #[+e() f] est surjective, les fonctions #[+e() f_1] et #[+e() f_2] sont aussi surjectives. Par conséquent, #[+e() f_1] et #[+e() f_2] sont bijectives. Ce faisant, la bijection de #[+e() f] s'exprime en deux fonctions.
         p Soient #[+e() g_1:\mathbb{R}^+\to\{y\in\mathbb{R}\mid y\lt h\}] la réciproque de #[+e() f_1,] et #[+e() f_1(x)=y.] En permutant #[+e() x] et #[+e() y] dans l'expression de #[+e() f_1] pour exprimer #[+e() g_1(x)=y:]
         +eq().
