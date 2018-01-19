@@ -138,6 +138,27 @@
             "authors": [
                 "marc-antoine-ouimet"
             ]
+        },
+        
+        "graphique-triangle-rectangle-cotes-angles-identifies.svg": {
+            "alt": "Graphique d'une triangle rectangles aux côtés et angles identifiés, utilisé pour prouver les identités de cofonctions des fonctions trigonométriques.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "graphique-premiere-partie-preuve-identites-somme-difference-angles.svg": {
+            "alt": "Graphique de la première partie de la preuve des identités de somme et de différence d'angles des fonctions trigonométriques par rotation.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "graphique-deuxieme-partie-preuve-identites-somme-difference-angles.svg": {
+            "alt": "Graphique de la deuxième partie de la preuve des identités de somme et de différence d'angles des fonctions trigonométriques par rotation.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
         }
     }
 }

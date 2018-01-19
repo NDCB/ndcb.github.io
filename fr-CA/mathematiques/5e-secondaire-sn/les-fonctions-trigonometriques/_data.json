@@ -16,21 +16,21 @@
             ],
             "containsMath": true,
             "allowsComments": true,
-            "publicationDate": "2017-01-17",
-            "lastestModificationDate": "2017-01-17",
+            "publicationDate": "2018-01-17",
+            "lastestModificationDate": "2018-01-17",
             "changefreq": "monthly"
         },
 
-        "les-identites-trigonometriques": {
-            "headline": "Les identités trigonométriques",
+        "preuves-des-identites-trigonometriques": {
+            "headline": "Preuves des identités trigonométriques",
             "description": "Les identités trigonométriques permettent de manipuler des expressions trigonométriques pour la résolution d'équations.",
             "authors": [
                 "marc-antoine-ouimet"
             ],
             "containsMath": true,
             "allowsComments": true,
-            "publicationDate": "",
-            "lastestModificationDate": "",
+            "publicationDate": "2018-01-19",
+            "lastestModificationDate": "2018-01-19",
             "changefreq": "monthly"
         }
         
