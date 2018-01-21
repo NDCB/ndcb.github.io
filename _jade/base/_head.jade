@@ -52,6 +52,10 @@ head(
         property='fb:app_id' 
         content!=Site.auth().facebookAppId
     )
+    meta(
+        name="yandex-verification" 
+        content!=Site.auth().yandexWebmaster
+    )
 
     //- OpenGraph
     meta(
