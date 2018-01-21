@@ -19,8 +19,9 @@ p Étudions analytiquement le cercle en tant que section conique.
     p En élevant de part et d'autre de l'équation au carré, on obtient l'équation d'un cercle de rayon #[+e() r] centré à l'origine.
 
     +theorem("L'équation d'un cercle centré à l'origine")
-        +leq("cercle-centre-o") x^2+y^2=r^2
-        p Où #[+e() r,] #[+e() x] et #[+e() y] sont des réels, #[+e() r>0,] #[+e() -r\leq x\leq r] et #[+e() -r\leq y\leq r.]
+        p L'équation d'un cercle #[+e() C] centré à l'origine et de rayon #[+e() r] s'exprime:
+        +leq("cercle-centre-o") C:x^2+y^2=r^2.
+        p #[+e() r,] #[+e() x] et #[+e() y] étant des réels, #[+e() r>0,] #[+e() -r\leq x\leq r] et #[+e() -r\leq y\leq r.]
         +fig("cercle-centre-o.svg").
             Le cercle centré à l'origine dans le plan cartésien.
 
@@ -69,9 +70,10 @@ p Étudions analytiquement le cercle en tant que section conique.
 
         +theorem("L'équation canonique d'un cercle")
 
-            +leq("cercle-canonique") (x-h)^2+(y-k)^2=r^2
+            p L'équation d'un cercle #[+e() C] centré en #[+e() Q=(h,k)] et de rayon #[+e() r] s'exprime:
+            +leq("cercle-canonique") (x-h)^2+(y-k)^2=r^2.
 
-            p Où #[+e() r,] #[+e() h,] #[+e() k,] #[+e() x] et #[+e() y] sont des réels, #[+e() r>0,] #[+e() h-r\leq x\leq h+r] et #[+e() k-r\leq y\leq k+r.]
+            p #[+e() r,] #[+e() h,] #[+e() k,] #[+e() x] et #[+e() y] étant des réels, #[+e() r>0,] #[+e() h-r\leq x\leq h+r] et #[+e() k-r\leq y\leq k+r.]
 
             +fig("cercle-canonique.svg").
                 Le cercle d'équation canonique dans le plan cartésien.
@@ -260,9 +262,9 @@ p Étudions analytiquement le cercle en tant que section conique.
         p En substituant l'équation de #[+e() m_2] dans la dernière équation, on obtient l'équation générale d'une droite tangente en #[+e() P] à un cercle canonique.
 
         +theorem("L'équation générale d'une droite tangente à un cercle canonique")
-            p Pour un cercle d'équation canonique #[+eqref("cercle-canonique")] centré en #[+e() (h,k)] et un point de tangence #[+e() P=(x_P,y_P),] l'équation de la droite tangente s'exprime
+            p Soit un cercle #[+e() C] d'équation canonique #[+eqref("cercle-canonique")] centré en #[+e() (h,k).] Si le point #[+e() P=(x_P,y_P)] sur la circonférence de #[+e() C] est tangent à une droite #[+e() \lambda,] alors #[+e() P] est le point de tangence entre #[+e() C] et #[+e() \lambda,] et l'équation de la droite tangente s'exprime:
             +leq("tangente-generale-cercle").
-                y=-\dfrac{x_P-h}{y_P-k}(x-x_P)+y_P.
+                \lambda:y=-\dfrac{x_P-h}{y_P-k}(x-x_P)+y_P.
 
         +example("Déterminer l'équation d'une droite tangente à un cercle")
             p Soit un cercle centré en #[+e() Q=(-3,-2)] et le point #[+e() P=(-1,2).] Quelle est l'équation de la droite tangente au cercle au point #[+e() P.]

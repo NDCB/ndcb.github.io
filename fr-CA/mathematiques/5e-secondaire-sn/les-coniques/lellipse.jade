@@ -57,8 +57,9 @@ p Étudions analytiquement l'ellipse en tant que section conique.
     p En divisant de part et d'autre l'équation par #[+e() a^2b^2,] on obtient l'équation d'une ellipse centrée à l'origine.
 
     +theorem("L'équation d'une ellipse centrée à l'origine")
-        +leq("ellipse-centre-o") \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1
-        p Où #[+e() x,] #[+e() y,] #[+e() a] et #[+e() b] sont des réels, #[+e() a\gt 0,] #[+e() b\gt 0,] #[+e() a\neq b,] #[+e() -a\leq x\leq a] et #[+e() -b\leq y\leq b.]
+        p L'équation d'une ellipse #[+e() E] centrée à l'origine de largeur #[+e() 2a] et de hauteur #[+e() 2b] s'exprime:
+        +leq("ellipse-centre-o") E:\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1.
+        p #[+e() x,] #[+e() y,] #[+e() a] et #[+e() b] étant des réels, #[+e() a\gt 0,] #[+e() b\gt 0,] #[+e() a\neq b,] #[+e() -a\leq x\leq a] et #[+e() -b\leq y\leq b.]
         +fig("ellipse-centre-o.svg").
             L'ellipse centrée à l'origine dans le plan cartésien.
     
@@ -110,8 +111,9 @@ p Étudions analytiquement l'ellipse en tant que section conique.
         p En revanche, si nous considérons une ellipse comme un cercle ayant subit une mise à l'échelle dont le ratio est différent de #[+e() 1:1] (c'est-à-dire que le cercle ait été étiré ou horizontalement ou verticalement), alors l'équation canonique de l'ellipse paraît intuitive.
 
         +theorem("L'équation canonique d'une ellipse")
-            +leq("ellipse-canonique") \dfrac{(x-h)^2}{a^2}+\dfrac{(y-k)^2}{b^2}=1
-            p Où #[+e() x,] #[+e() y,] #[+e() a,] #[+e() b,] #[+e() h] et #[+e() k] sont des réels, #[+e() a\gt 0,] #[+e() b\gt 0,] #[+e() a\neq b,] #[+e() h-a\leq x\leq h+a] et #[+e() k-b\leq y\leq k+b.]
+            p L'équation d'une ellipse #[+e() E] centrée en #[+e() Q=(h,k),] de largeur #[+e() 2a] et de hauteur #[+e() 2b] s'exprime:
+            +leq("ellipse-canonique") E:\dfrac{(x-h)^2}{a^2}+\dfrac{(y-k)^2}{b^2}=1
+            p #[+e() x,] #[+e() y,] #[+e() a,] #[+e() b,] #[+e() h] et #[+e() k] étant des réels, #[+e() a\gt 0,] #[+e() b\gt 0,] #[+e() a\neq b,] #[+e() h-a\leq x\leq h+a] et #[+e() k-b\leq y\leq k+b.]
             +fig("ellipse-canonique.svg").
                 L'ellipse d'équation canonique dans le plan cartésien.
 
@@ -171,7 +173,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
 
         +example("Déterminer l'équation d'une ellipse à l'aide d'un de ses axes et un point sur sa courbe")
             p Quelle est l'équation d'une ellipse centrée en #[+e() Q=(6,4)] si #[+e() a=4\sqrt{10},] et #[+e() P=(16,10)] est sur la courbe?
-            p L'ellipse est centrée en #[+e() Q,] alors #[+e() (h,k)=(6,4).] À partir de l'équation #[+eqref("ellipse-canonique") ,] il sera possible de trouver la valeur de #[+e() b^2] en substituant y substituant les coordonnées de #[+e() P.]
+            p L'ellipse est centrée en #[+e() Q,] alors #[+e() (h,k)=(6,4).] À partir de l'équation #[+eqref("ellipse-canonique") ,] il sera possible de trouver la valeur de #[+e() b^2] en y substituant les coordonnées de #[+e() P.]
             +eq().
                 \dfrac{(x-h)^2}{a^2}+\dfrac{(y-k)^2}{b^2}&=1
                 \\\dfrac{(y-k)^2}{b^2}&=1-\dfrac{(x-h)^2}{a^2}
@@ -380,7 +382,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
     p Par conséquent, #[+e() A=\left(-c,\dfrac{b^2}{a}\right)] et #[+e() B=\left(-c,-\dfrac{b^2}{a}\right).] La distance entre ces points correspond à la valeur du latus rectum de l'ellipse horizontale. La translation de l'ellipse vers un centre #[+e() Q=(h,k)] n'affecterait pas cette valeur, puisque #[+e() a] et #[+e() b] sont indépendants de #[+e() h] et #[+e() k].
 
     +theorem("Le latus rectum des ellipses horizontales")
-        p Soit une ellipse d'équation #[+eqref("ellipse-canonique")] telle que #[+e() a\gt b.] La formule de son latus rectum #[+e() LR] est
+        p Soit une ellipse #[+e() E] d'équation #[+eqref("ellipse-canonique")] telle que #[+e() a\gt b.] La grandeur de son latus rectum #[+e() LR] s'exprime par la formule:
         +leq("latus-rectum-ellipse-horizontale") LR=\dfrac{2b^2}{a}.
         +fig("latus-rectum-ellipse-horizontale.svg").
             Le latus rectum d'une ellipse horizontale.
@@ -405,7 +407,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
     p Par conséquent, #[+e() A=\left(-\dfrac{a^2}{b},c\right)] et #[+e() B=\left(\dfrac{a^2}{b},c\right).] La distance entre ces points correspond à la valeur du latus rectum de l'ellipse verticale. La translation de l'ellipse vers un centre #[+e() Q=(h,k)] n'affecterait pas cette valeur, puisque #[+e() a] et #[+e() b] sont indépendants de #[+e() h] et #[+e() k.]
         
     +theorem("Le latus rectum des ellipses verticales")
-        p Soit une ellipse d'équation #[+eqref("ellipse-canonique")] telle que #[+e() a\lt b.] La formule de son latus rectum #[+e() LR] est
+        p Soit une ellipse #[+e() E] d'équation #[+eqref("ellipse-canonique")] telle que #[+e() a\lt b.] La grandeur de son latus rectum #[+e() LR] s'exprime par la formule:
         +leq("latus-rectum-ellipse-verticale") LR=\dfrac{2a^2}{b}.
         +fig("latus-rectum-ellipse-verticale.svg").
             Le latus rectum d'une ellipse verticale.
