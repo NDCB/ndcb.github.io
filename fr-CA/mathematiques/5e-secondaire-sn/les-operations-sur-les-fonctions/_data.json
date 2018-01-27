@@ -10,14 +10,14 @@
     "articles": {
        "les-transformations-de-fonctions": {
             "headline": "Les transformations de fonctions",
-            "description": "Les fonctions peuvent être transformées par mise à l'échelle et par translation au moyen de paramètres.",
+            "description": "Les fonctions peuvent être transformées par mise à l'échelle et par translation au moyen de paramètres qui affectent leurs axes de définition.",
             "authors": [
                 "marc-antoine-ouimet"
             ],
             "containsMath": true,
             "allowsComments": true,
-            "publicationDate": "",
-            "lastestModificationDate": "",
+            "publicationDate": "2018-01-27",
+            "lastestModificationDate": "2018-01-27",
             "changefreq": "monthly"
         },
 

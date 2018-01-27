@@ -13,7 +13,7 @@
                 "marc-antoine-ouimet"
             ]
         },
-        
+
         "graphe-fonction-racine-cinquieme-bijective.svg": {
             "alt": "Graphe d'une fonction racine cinquième bijective.",
             "authors": [
@@ -30,6 +30,90 @@
 
         "exemple-de-relation-qui-nest-pas-une-fonction-par-lunicite-dimage.svg": {
             "alt": "Illustration d'une relation qui n'est pas une fonction parce que les associations de son domaine ne sont pas uniques.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "graphique-translation-verticale-negative.svg": {
+            "alt": "Graphique de la translation verticale négative du graphe d'une fonction par la translation positive des valeurs de l'axe des ordonnées.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "graphique-translation-horizontale-negative.svg": {
+            "alt": "Graphique de la translation horizontale négative du graphe d'une fonction par la translation positive des valeurs de l'axe des abscisses.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "graphique-mise-a-lechelle-verticale-positive.svg": {
+            "alt": "Graphique de la mise à l'échelle verticale du graphe d'une fonction.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "graphique-mise-a-lechelle-horizontale-positive.svg": {
+            "alt": "Graphique de la mise à l'échelle horizontale du graphe d'une fonction.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-transformation-fonction-lineaire.svg": {
+            "alt": "Graphe d'une fonction linéaire transformée.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-transformation-fonction-quadratique.svg": {
+            "alt": "Graphe d'une fonction quadratique transformée.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-transformation-fonction-racine-carree.svg": {
+            "alt": "Graphe d'une fonction racine carrée transformée.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-translation-verticale-positive-fonction.svg": {
+            "alt": "Graphique d'une fonction quadratique et de sa fonction transformée par translation verticale vers le haut.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-translation-horizontale-positive-fonction.svg": {
+            "alt": "Graphique d'une fonction cubique et de sa fonction transformée par translation horizontale vers la droite.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-translation-fonction.svg": {
+            "alt": "Graphique d'une fonction quadratique et de sa fonction transformée par translation horizontale et verticale.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-mise-a-lechelle-verticale-fonction.svg": {
+            "alt": "Graphique d'une fonction racine carrée obtenue par mise à l'échelle verticale d'une autre fonction racine carrée.",
+            "authors": [
+                "marc-antoine-ouimet"
+            ]
+        },
+
+        "exemple-mise-a-lechelle-horizontale-section-conique.svg": {
+            "alt": "Graphique d'une ellipse obtenue par mise à l'échelle horizontale d'un cercle.",
             "authors": [
                 "marc-antoine-ouimet"
             ]
