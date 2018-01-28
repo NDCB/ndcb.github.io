@@ -13,6 +13,13 @@
             "iconClass": "info-circle",
             "isAboutPage": true,
             "changeFrequency": "monthly"
+        },
+
+        "recherche": {
+            "headline": "Recherche",
+            "description": "Effectuer une recherche parmi les articles du site.",
+            "iconClass": "search",
+            "changeFrequency": "never"
         }
     },
 

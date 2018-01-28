@@ -1,0 +1,22 @@
+include ../model/_model.js.jade
+
+-
+    let locale = Current.locale();
+    if (!locale) {
+        throw new Error("Undefined locale");
+    }
+    if (!locale.variables.customSearchEngineId) {
+        throw new Error("Undefined custom search engine ID");
+    }
+
+script.
+    (function() {
+        var cx = '#{locale.variables.customSearchEngineId}';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+    })();
+p:  gcse:search

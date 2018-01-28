@@ -36,6 +36,7 @@
             "languageCode": "fr",
             "countryCode": "CA",
             "variables": {
+                "customSearchEngineId": "005246241482745202963:dfoxzw1wxze",
                 "time": {
                     "months": [
                         "Janvier",
