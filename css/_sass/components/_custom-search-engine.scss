@@ -1,0 +1,52 @@
+.gs-title, .gs-snippet, .gsc-search-box input {
+    font-family: Roboto;
+}
+
+.gsc-search-box input {
+    font-size: 1rem !important;
+    padding: 0.5rem;
+    vertical-align: middle;
+    height: inherit;
+    border-radius: 0.5rem;
+    background: #7f8c8d;
+}
+
+.gsc-input {
+    padding: 0 !important;
+    height: 2rem;
+    input {
+        padding: 0.5rem !important;
+    }
+}
+
+.gsc-search-button {
+    color: white !important;
+    border: none !important;
+}
+
+.gsc-clear-button {
+    display: none;
+}
+
+.gs-image {
+    border-radius: 100%;
+}
+
+.gs-result, .gs-title {
+    height: auto !important;
+}
+
+.gs-title {
+    font-family: Arimo;
+    font-size: 1.5rem !important;
+    text-decoration: none !important;
+}
+
+.gs-snippet {
+    font-size: 1rem;
+}
+
+.gs-title b, .gs-snippet b {
+    font-size: inherit !important;
+    text-decoration: inherit !important;
+}
