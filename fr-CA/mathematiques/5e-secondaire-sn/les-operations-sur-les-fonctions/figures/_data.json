@@ -4,6 +4,9 @@
             "alt": "Illustration d'une relation par association d'éléments de deux ensembles.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-fonctions-reciproques"
             ]
         },
 
@@ -11,6 +14,9 @@
             "alt": "Graphe de la fonction quadratique de base dans le premier quadrant avec sa notation fonctionnelle.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-fonctions-reciproques"
             ]
         },
 
@@ -18,6 +24,9 @@
             "alt": "Graphe d'une fonction racine cinquième bijective.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-fonctions-reciproques"
             ]
         },
 
@@ -25,6 +34,9 @@
             "alt": "Illustration d'une relation qui n'est pas une fonction parce qu'il manque une association dans son domaine.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-fonctions-reciproques"
             ]
         },
 
@@ -32,6 +44,9 @@
             "alt": "Illustration d'une relation qui n'est pas une fonction parce que les associations de son domaine ne sont pas uniques.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-fonctions-reciproques"
             ]
         },
 
@@ -39,6 +54,9 @@
             "alt": "Graphique de la translation verticale négative du graphe d'une fonction par la translation positive des valeurs de l'axe des ordonnées.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-transformations-de-fonctions"
             ]
         },
 
@@ -46,6 +64,9 @@
             "alt": "Graphique de la translation horizontale négative du graphe d'une fonction par la translation positive des valeurs de l'axe des abscisses.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-transformations-de-fonctions"
             ]
         },
 
@@ -53,6 +74,9 @@
             "alt": "Graphique de la mise à l'échelle verticale du graphe d'une fonction.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-transformations-de-fonctions"
             ]
         },
 
@@ -60,6 +84,9 @@
             "alt": "Graphique de la mise à l'échelle horizontale du graphe d'une fonction.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-transformations-de-fonctions"
             ]
         },
 
@@ -67,6 +94,9 @@
             "alt": "Graphe d'une fonction linéaire transformée.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-transformations-de-fonctions"
             ]
         },
 
@@ -74,6 +104,9 @@
             "alt": "Graphe d'une fonction quadratique transformée.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-transformations-de-fonctions"
             ]
         },
 
@@ -81,6 +114,9 @@
             "alt": "Graphe d'une fonction racine carrée transformée.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-transformations-de-fonctions"
             ]
         },
 
@@ -88,6 +124,9 @@
             "alt": "Graphique d'une fonction quadratique et de sa fonction transformée par translation verticale vers le haut.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-transformations-de-fonctions"
             ]
         },
 
@@ -95,6 +134,9 @@
             "alt": "Graphique d'une fonction cubique et de sa fonction transformée par translation horizontale vers la droite.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-transformations-de-fonctions"
             ]
         },
 
@@ -102,6 +144,9 @@
             "alt": "Graphique d'une fonction quadratique et de sa fonction transformée par translation horizontale et verticale.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-transformations-de-fonctions"
             ]
         },
 
@@ -109,6 +154,9 @@
             "alt": "Graphique d'une fonction racine carrée obtenue par mise à l'échelle verticale d'une autre fonction racine carrée.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-transformations-de-fonctions"
             ]
         },
 
@@ -116,6 +164,9 @@
             "alt": "Graphique d'une ellipse obtenue par mise à l'échelle horizontale d'un cercle.",
             "authors": [
                 "marc-antoine-ouimet"
+            ],
+            "articles": [
+                "les-transformations-de-fonctions"
             ]
         }
     }
