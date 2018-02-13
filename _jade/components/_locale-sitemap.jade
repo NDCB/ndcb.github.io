@@ -2,7 +2,10 @@ include ../model/_model.js.jade
 
 //- Provides a sitemap of the current locale.
 doctype xml
-urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+urlset(
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+)
     for article in Index.listArticles(Current.locale())
         //- If the article is published
         if article.publicationDate
@@ -10,3 +13,11 @@ urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
                 loc!=article.url
                 lastmod!=article.lastestModificationDate.raw
                 changefreq!=article.changeFrequency
+                //- List the figures featured in the article
+                for figure in article.figures
+                    image:image
+                        image:loc!=figure.loc
+                        if figure.alt
+                            image:caption!=figure.alt
+                        if figure.title
+                            image:title!=figure.title
