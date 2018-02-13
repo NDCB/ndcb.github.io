@@ -136,4 +136,34 @@
         get url() {
             return Site.url() + this.path;
         }
+
+        /**
+         * Fetches the description of the figures featured in this article sorted
+         * in ascending order of their slug.
+         * @returns {Object[]} the figures featured in this article.
+         */
+        get figures() {
+            let figuresData = ROOT;
+            let figuresLocation = Site.url();
+            let pathFragments = Utils.parsePathFragments(this.path);
+            for (let i = 0; i < pathFragments.length - 1; i++) {
+                figuresData = figuresData[pathFragments[i]];
+                figuresLocation += "/" + pathFragments[i];
+            }
+            const figuresFolder = this.locale.variables.modules.figures.folder;
+            figuresLocation += "/" + figuresFolder + "/";
+            figuresData = figuresData[figuresFolder];
+            figuresData = figuresData._data.figures;
+            let figures = [];
+            for (const figureSlug in figuresData) {
+                let figure = figuresData[figureSlug];
+                if (figure.articles.includes(this.slug)) {
+                    figure.slug = figureSlug;
+                    figure.loc = figuresLocation + figureSlug;
+                    figures.push(figure);
+                }
+            }
+            figures.sort(Utils.comparator("slug", false));
+            return figures;
+        }
     }
