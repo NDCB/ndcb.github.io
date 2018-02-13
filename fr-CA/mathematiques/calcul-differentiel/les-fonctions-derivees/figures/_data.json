@@ -1,6 +1,7 @@
 {
     "figures": {
         "limite-particuliere-sinus.svg": {
+            "title": "La limite particulière de la fonction sinus",
             "alt": "Graphe de la limite particulière de la fonction sinus près de l'orgine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -11,6 +12,7 @@
         },
         
         "limite-particuliere-cosinus.svg": {
+            "title": "La limite particulière de la fonction cosinus",
             "alt": "Graphe de la limite particulière de la fonction cosinus près de l'orgine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -21,6 +23,7 @@
         },
         
         "limite-particuliere-exponentielle.svg": {
+            "title": "La limite particulière de la fonction exponentielle",
             "alt": "Graphe de la limite particulière de la fonction exponentielle près de l'orgine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -31,6 +34,7 @@
         },
         
         "graphe-fonction-arc-sinus.svg": {
+            "title": "La fonction arc sinus",
             "alt": "Graphe de la fonction arc sinus, la réciproque de la fonction sinus définie près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -41,6 +45,7 @@
         },
         
         "graphe-fonction-arc-cosinus.svg": {
+            "title": "La fonction arc cosinus",
             "alt": "Graphe de la fonction arc cosinus, la réciproque de la fonction cosinus définie près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -51,6 +56,7 @@
         },
         
         "graphe-fonction-arc-secante.svg": {
+            "title": "La fonction arc sécante",
             "alt": "Graphe de la fonction arc sécante, la réciproque de la fonction sécante définie près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -61,6 +67,7 @@
         },
         
         "graphe-fonction-arc-cosecante.svg": {
+            "title": "La fonction arc cosécante",
             "alt": "Graphe de la fonction arc cosécante, la réciproque de la fonction cosécante définie près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -71,6 +78,7 @@
         },
         
         "graphe-fonction-arc-tangente.svg": {
+            "title": "La fonction arc tangente",
             "alt": "Graphe de la fonction arc tangente, la réciproque de la fonction tangente définie près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -81,6 +89,7 @@
         },
         
         "graphe-fonction-arc-cotangente.svg": {
+            "title": "La fonction arc cotangente",
             "alt": "Graphe de la fonction arc cotangente, la réciproque de la fonction cotangente définie près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -91,6 +100,7 @@
         },
         
         "relation-fonctions-arc-sinus-et-arc-cosinus.svg": {
+            "title": "La relation entre les fonctions arc sinus et arc cosinus",
             "alt": "Illustration de la relation entre les fonctions arc sinus et arc cosinus.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -101,6 +111,7 @@
         },
         
         "relation-fonctions-arc-secante-et-arc-cosecante.svg": {
+            "title": "La relation entre les fonctions arc sécante et arc cosécante",
             "alt": "Illustration de la relation entre les fonctions arc sécante et arc cosécante.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -111,6 +122,7 @@
         },
         
         "relation-fonctions-arc-tangente-et-arc-cotangente.svg": {
+            "title": "La relation entre les fonctions arc tangente et arc cotangente",
             "alt": "Illustration de la relation entre les fonctions arc tangente et arc cotangente.",
             "authors": [
                 "marc-antoine-ouimet"

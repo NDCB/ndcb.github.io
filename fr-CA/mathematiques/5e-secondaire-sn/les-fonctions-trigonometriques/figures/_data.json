@@ -1,6 +1,7 @@
 {
     "figures": {
         "graphique-point-trigonometrique-quadrant-un.svg": {
+            "title": "Un point trigonométrique dans le quadrant 1",
             "alt": "Graphique d'un point trigonométrique dans le quadrant 1.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -11,6 +12,7 @@
         },
 
         "graphique-point-trigonometrique-quadrant-deux.svg": {
+            "title": "Un point trigonométrique dans le quadrant 2",
             "alt": "Graphique d'un point trigonométrique dans le quadrant 2.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -21,6 +23,7 @@
         },
 
         "graphique-point-trigonometrique-quadrant-trois.svg": {
+            "title": "Un point trigonométrique dans le quadrant 3",
             "alt": "Graphique d'un point trigonométrique dans le quadrant 3.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -31,6 +34,7 @@
         },
 
         "graphique-point-trigonometrique-quadrant-quatre.svg": {
+            "title": "Un point trigonométrique dans le quadrant 4",
             "alt": "Graphique d'un point trigonométrique dans le quadrant 4.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -41,6 +45,7 @@
         },
 
         "graphe-fonction-sinus.svg": {
+            "title": "La fonction sinus",
             "alt": "Graphe de la fonction sinus près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -51,6 +56,7 @@
         },
 
         "graphe-fonction-cosinus.svg": {
+            "title": "La fonction cosinus",
             "alt": "Graphe de la fonction cosinus près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -61,6 +67,7 @@
         },
 
         "graphe-fonction-secante.svg": {
+            "title": "La fonction sécante",
             "alt": "Graphe de la fonction sécante près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -71,6 +78,7 @@
         },
 
         "graphe-fonction-cosecante.svg": {
+            "title": "La fonction cosécante",
             "alt": "Graphe de la fonction cosécante près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -81,6 +89,7 @@
         },
 
         "graphe-fonction-tangente.svg": {
+            "title": "La fonction tangente",
             "alt": "Graphe de la fonction tangente près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -91,6 +100,7 @@
         },
 
         "graphe-fonction-cotangente.svg": {
+            "title": "La fonction cotangente",
             "alt": "Graphe de la fonction cotangente près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -101,6 +111,7 @@
         },
 
         "graphe-fonction-arc-sinus.svg": {
+            "title": "La fonction arc sinus",
             "alt": "Graphe de la fonction arc sinus, la réciproque de la fonction sinus définie près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -111,6 +122,7 @@
         },
         
         "graphe-fonction-arc-cosinus.svg": {
+            "title": "La fonction arc cosinus",
             "alt": "Graphe de la fonction arc cosinus, la réciproque de la fonction cosinus définie près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -121,6 +133,7 @@
         },
         
         "graphe-fonction-arc-secante.svg": {
+            "title": "La fonction arc sécante",
             "alt": "Graphe de la fonction arc sécante, la réciproque de la fonction sécante définie près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -131,6 +144,7 @@
         },
         
         "graphe-fonction-arc-cosecante.svg": {
+            "title": "La fonction arc cosécante",
             "alt": "Graphe de la fonction arc cosécante, la réciproque de la fonction cosécante définie près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -141,6 +155,7 @@
         },
         
         "graphe-fonction-arc-tangente.svg": {
+            "title": "La fonction arc tangente",
             "alt": "Graphe de la fonction arc tangente, la réciproque de la fonction tangente définie près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -151,6 +166,7 @@
         },
         
         "graphe-fonction-arc-cotangente.svg": {
+            "title": "La fonction arc cotangente",
             "alt": "Graphe de la fonction arc cotangente, la réciproque de la fonction cotangente définie près de l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -161,6 +177,7 @@
         },
 
         "graphique-deux-solutions-fonctions-arc-sinus.svg": {
+            "title": "Les deux solutions périodiques de la fonction arc sinus",
             "alt": "Graphique des deux solutions périodiques de la fonction arc sinus par transformation des fonctions.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -171,6 +188,7 @@
         },
 
         "graphique-deux-solutions-fonctions-arc-cosinus.svg": {
+            "title": "Les deux solutions périodiques de la fonction arc cosinus",
             "alt": "Graphique des deux solutions périodiques de la fonction arc cosinus par transformation des fonctions.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -181,6 +199,7 @@
         },
 
         "graphique-deux-solutions-fonctions-arc-cosecante.svg": {
+            "title": "Les deux solutions périodiques de la fonction arc cosécante",
             "alt": "Graphique des deux solutions périodiques de la fonction arc cosécante par transformation des fonctions.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -191,6 +210,7 @@
         },
 
         "graphique-deux-solutions-fonctions-arc-secante.svg": {
+            "title": "Les deux solutions périodiques de la fonction arc sécante",
             "alt": "Graphique des deux solutions périodiques de la fonction arc sécante par transformation des fonctions.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -201,6 +221,7 @@
         },
         
         "graphique-triangle-rectangle-cotes-angles-identifies.svg": {
+            "title": "Un triangle rectangle",
             "alt": "Graphique d'une triangle rectangles aux côtés et angles identifiés, utilisé pour prouver les identités de cofonctions des fonctions trigonométriques.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -211,6 +232,7 @@
         },
 
         "graphique-premiere-partie-preuve-identites-somme-difference-angles.svg": {
+            "title": "Preuve de l'identité de somme d'angles",
             "alt": "Graphique de la première partie de la preuve des identités de somme et de différence d'angles des fonctions trigonométriques par rotation.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -221,6 +243,7 @@
         },
 
         "graphique-deuxieme-partie-preuve-identites-somme-difference-angles.svg": {
+            "title": "Preuve de l'identité de somme d'angles",
             "alt": "Graphique de la deuxième partie de la preuve des identités de somme et de différence d'angles des fonctions trigonométriques par rotation.",
             "authors": [
                 "marc-antoine-ouimet"

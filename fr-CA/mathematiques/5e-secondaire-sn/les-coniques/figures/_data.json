@@ -1,6 +1,7 @@
 {
     "figures": {
         "cercle-canonique.svg": {
+            "title": "Un cercle d'équation canonique",
             "alt": "Graphe d'un cercle d'équation canonique dans le plan cartésien.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -11,6 +12,7 @@
         },
 
         "cercle-centre-o.svg": {
+            "title": "Un cercle centré à l'origine",
             "alt": "Graphe d'un cercle centré à l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -21,6 +23,7 @@
         },
         
         "construction-du-cercle.svg": {
+            "title": "La relation de Pythagore dans le cercle",
             "alt": "La construction du cercle en tant que conique.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -31,6 +34,7 @@
         },
 
         "exemple-intersection-cercle-droite-deux-solutions.svg": {
+            "title": "Exemple d'intersection entre un cercle et une droite en deux points",
             "alt": "Exemple d'intersection entre un cercle et une droite en deux points.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -41,6 +45,7 @@
         }, 
 
         "exemple-intersection-cercle-droite-une-solution.svg": {
+            "title": "Exemple d'intersection entre un cercle et une droite en un point",
             "alt": "Exemple d'intersection entre un cercle et une droite en un point.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -51,6 +56,7 @@
         },
 
         "exemple-intersection-cercle-droite-aucune-solution.svg": {
+            "title": "Exemple d'intersection entre un cercle et une droite sans solution",
             "alt": "Exemple d'intersection entre un cercle et une droite sans solution.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -61,6 +67,7 @@
         },
 
         "preuve-perpendicularite-droite-tangente-cercle.svg": {
+            "title": "La perpendicularité de la droite tangente du cercle par rapport au rayon",
             "alt": "Construction d'une preuve de la perpendicularité de la droite tangente à un cercle.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -71,6 +78,7 @@
         },
 
         "construction-equation-generale-droite-tangente-cercle.svg": {
+            "title": "L'équation générale de la droite tangente à un cercle",
             "alt": "Construction de l'équation générale d'une droite tangente à un cercle.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -81,6 +89,7 @@
         },
 
         "exemple-determiner-equation-cercle-tangente.svg": {
+            "title": "Exemple d'exercice concernant la tangente d'un cercle",
             "alt": "Exemple de détermination de l'équation d'un cercle à partir de l'équation de sa tangente, le point de tangence et une coordonnée du centre du cercle.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -91,6 +100,7 @@
         },
 
         "exemple-equation-droite-tangente-cercle.svg": {
+            "title": "Exemple d'exercice concernant la tangente d'un cercle",
             "alt": "Exemple de détermination de l'équation de la droite tangente à un cercle connaissant son centre et le point de tangence.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -101,6 +111,7 @@
         },
 
         "exemple-determiner-equation-cercle-deux-tangentes.svg": {
+            "title": "Exemple d'exercice concernant les tangentes d'un cercle",
             "alt": "Exemple de détermination de l'équation d'un cercle tangent en deux points distincts sur deux droites sécantes.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -111,6 +122,7 @@
         },
 
         "inequation-cercle-plus-petit-que-rayon.svg": {
+            "title": "Une inéquation de cercle",
             "alt": "Graphe de la région délimitée par l'inéquation de relation plus petite que le rayon d'un cercle d'équation canonique.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -121,6 +133,7 @@
         },
 
         "inequation-cercle-plus-petit-ou-egal-au-rayon.svg": {
+            "title": "Une inéquation de cercle",
             "alt": "Graphe de la région délimitée par l'inéquation de relation plus petite que ou égale au rayon d'un cercle d'équation canonique.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -131,6 +144,7 @@
         },
 
         "inequation-cercle-plus-grand-que-rayon.svg": {
+            "title": "Une inéquation de cercle",
             "alt": "Graphe de la région délimitée par l'inéquation de relation plus grande que le rayon d'un cercle d'équation canonique.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -141,6 +155,7 @@
         },        
         
         "inequation-cercle-plus-grand-ou-egal-au-rayon.svg": {
+            "title": "Une inéquation de cercle",
             "alt": "Graphe de la région délimitée par l'inéquation de relation plus grande que ou égale au rayon d'un cercle d'équation canonique.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -151,6 +166,7 @@
         },
         
         "exemple-point-compris-inequation-interieur-cercle.svg": {
+            "title": "Un exemple d'inéquation de cercle",
             "alt": "Exemple d'un point compris dans l'inéquation d'un cercle décrivant son intérieur.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -161,6 +177,7 @@
         },
 
         "exemple-point-non-compris-inequation-circonference-cercle.svg": {
+            "title": "Un exemple d'inéquation de cercle",
             "alt": "Exemple d'un point non-compris dans l'inéquation d'un cercle ne comprenant pas sa circonférence.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -171,6 +188,7 @@
         },
 
         "exercice-equation-cercle-deux-points-diametre.svg": {
+            "title": "Un exercice de cercle défini par les extrémités d'un diamètre",
             "alt": "Réponse à un exercice de détermination de l'équation d'un cercle en connaissant les coordonnées de deux points d'un diamètre.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -181,6 +199,7 @@
         },
 
         "exercice-equation-cercle-deux-points-diametre-vecteurs.svg": {
+            "title": "Un exercice de cercle défini par les extrémités d'un diamètre",
             "alt": "Réponse à un exercice de détermination de l'équation d'un cercle en connaissant les coordonnées de deux points d'un diamètre à l'aide de vecteurs.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -191,6 +210,7 @@
         },
 
         "exemple-determiner-coordonnees-foyers-ellipse-horizontale.svg": {
+            "title": "Déterminer les coordonnées des foyers d'une ellipse horizontale",
             "alt": "Exemple de détermination des coordonnées des foyers d'une ellipse horizontale en connaissant son équation canonique.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -201,6 +221,7 @@
         },
 
         "exemple-determiner-equation-ellipse-coordonnees-foyers.svg": {
+            "title": "Déterminer l'équation d'une ellipse par ses foyers",
             "alt": "Exemple de détermination de l'équation canonique d'une ellipse verticale à partir des coordonnées de ses foyers et de la grandeur de son axe horizontal.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -211,6 +232,7 @@
         },
 
         "construction-de-lellipse-dimension-axes-non-nulle.svg": {
+            "title": "Construction de l'ellipse aux dimensions définies",
             "alt": "Première partie de la construction de l'ellipse prouvant que la dimension des axes de l'ellipse doit être non nulle.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -221,6 +243,7 @@
         },
 
         "construction-de-lellipse-relation-de-pythagore.svg": {
+            "title": "Construction d'une ellipse par la relation de Pythagore",
             "alt": "Seconde partie de la construction de l'ellipse prouvant que la somme des distances du point sur le périmètre de l'ellipse et ses foyers correspond à la longueur de son plus grand axe.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -231,6 +254,7 @@
         },
 
         "exemple-intersection-ellipse-droite-deux-solutions.svg": {
+            "title": "Exemple d'intersection entre une droite et une ellipse horizontale en deux points",
             "alt": "Exemple d'intersection entre une droite et une ellipse horizontale en deux points.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -241,6 +265,7 @@
         },
 
         "ellipse-centre-o.svg": {
+            "title": "Une ellipse centrée à l'origine",
             "alt": "Graphe d'une ellipse centrée à l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -251,6 +276,7 @@
         },
 
         "ellipse-canonique.svg": {
+            "title": "Une ellipse d'équation canonique",
             "alt": "Graphe d'une ellipse d'équation canonique dans le plan cartésien.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -261,6 +287,7 @@
         },
 
         "ellipse-horizontale.svg": {
+            "title": "Une ellipse horizontale",
             "alt": "Graphe d'une ellipse horizontale dans le plan cartésien.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -271,6 +298,7 @@
         },
 
         "ellipse-verticale.svg": {
+            "title": "Une ellipse verticale",
             "alt": "Graphe d'une ellipse verticale dans le plan cartésien.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -281,6 +309,7 @@
         },
 
         "ellipse-horizontale-relation-de-pythagore.svg": {
+            "title": "La relation de Pythagore dans une ellipse horizontale",
             "alt": "Graphe d'une ellipse horizontale et de la relation de Pythagore qui s'y trouve dans le plan cartésien.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -291,6 +320,7 @@
         },
 
         "ellipse-verticale-relation-de-pythagore.svg": {
+            "title": "La relation de Pythagore dans une ellipse verticale",
             "alt": "Graphe d'une ellipse verticale et de la relation de Pythagore qui s'y trouve dans le plan cartésien.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -301,6 +331,7 @@
         },
 
         "exemple-intersection-ellipse-droite-une-solution.svg": {
+            "title": "Exemple d'intersection entre une droite et une ellipse horizontale en un point",
             "alt": "Exemple d'intersection entre une droite et une ellipse horizontale en un point.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -311,6 +342,7 @@
         },
 
         "exemple-intersection-ellipse-droite-aucune-solution.svg": {
+            "title": "Exemple d'intersection entre une droite et une ellipse verticale sans solution",
             "alt": "Exemple d'intersection entre une droite et une ellipse verticale sans solution.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -321,6 +353,7 @@
         },
 
         "inequation-ellipse-plus-petite-que-un.svg": {
+            "title": "Une inéquation d'ellipse",
             "alt": "Graphe de la région délimitée par l'inéquation de relation plus petite que un d'une ellipse d'équation canonique.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -331,6 +364,7 @@
         },
 
         "inequation-ellipse-plus-petite-ou-egale-a-un.svg": {
+            "title": "Une inéquation d'ellipse",
             "alt": "Graphe de la région délimitée par l'inéquation de relation plus petite que ou égale à un d'une ellipse d'équation canonique.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -341,6 +375,7 @@
         },
 
         "inequation-ellipse-plus-grande-que-un.svg": {
+            "title": "Une inéquation d'ellipse",
             "alt": "Graphe de la région délimitée par l'inéquation de relation plus grande que un d'une ellipse d'équation canonique.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -351,6 +386,7 @@
         },        
         
         "inequation-ellispe-plus-grande-ou-egale-a-un.svg": {
+            "title": "Une inéquation d'ellipse",
             "alt": "Graphe de la région délimitée par l'inéquation de relation plus grande que ou égale à un d'une ellipse d'équation canonique.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -361,6 +397,7 @@
         },
 
         "construction-latus-rectum-ellipse-horizontale.svg": {
+            "title": "La construction du latus rectum d'une ellipse horizontale",
             "alt": "Graphe de la construction de la preuve de la formule du latus rectum des ellipses horizontales centrées à l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -371,6 +408,7 @@
         },
 
         "latus-rectum-ellipse-horizontale.svg": {
+            "title": "Le latus rectum d'une ellipse horizontale",
             "alt": "Graphe du latus rectum d'une ellipse horizontale.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -381,6 +419,7 @@
         },
 
         "construction-latus-rectum-ellipse-verticale.svg": {
+            "title": "La construction du latus rectum d'une ellipse verticale",
             "alt": "Graphe de la construction de la preuve de la formule du latus rectum des ellipses verticales centrées à l'origine.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -391,6 +430,7 @@
         },
 
         "latus-rectum-ellipse-verticale.svg": {
+            "title": "Le latus rectum d'une ellipse verticale",
             "alt": "Graphe du latus rectum d'une ellipse verticale.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -401,6 +441,7 @@
         },
 
         "exemple-point-compris-inequation-exterieur-ellipse-horizontale.svg": {
+            "title": "Un problème d'inéquation d'ellipse",
             "alt": "Exemple d'un point compris dans la région délimitée à l'extérieur de l'inéquation d'une ellipse horizontale.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -411,6 +452,7 @@
         },
 
         "exemple-point-compris-inequation-courbe-ellipse-verticale.svg": {
+            "title": "Un problème d'inéquation d'ellipse",
             "alt": "Exemple d'un point compris dans la région délimitée sur la courbe de l'inéquation d'une ellipse verticale.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -421,6 +463,7 @@
         },
 
         "exemple-point-non-compris-inequation-courbe-ellipse-horizontale.svg": {
+            "title": "Un problème d'inéquation d'ellipse",
             "alt": "Exemple d'un point non compris dans la région délimitée par l'inéquation d'une ellipse horizontale.",
             "authors": [
                 "marc-antoine-ouimet"
@@ -431,7 +474,8 @@
         },
 
         "cercle-courbes-explicites-x.svg": {
-            "alt": "Graphe des courbes explicites en x de l'équation canonique d'un cercle.",
+            "title": "L'équation du cercle en deux fonctions",
+            "alt": "Graphe des courbes explicites en 'x' de l'équation canonique d'un cercle.",
             "authors": [
                 "marc-antoine-ouimet"
             ],
@@ -441,7 +485,8 @@
         },
 
         "cercle-courbes-explicites-y.svg": {
-            "alt": "Graphe des courbes explicites en y de l'équation canonique d'un cercle.",
+            "title": "L'équation du cercle en deux fonctions",
+            "alt": "Graphe des courbes explicites en 'y' de l'équation canonique d'un cercle.",
             "authors": [
                 "marc-antoine-ouimet"
             ],
