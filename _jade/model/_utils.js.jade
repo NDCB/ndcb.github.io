@@ -102,4 +102,16 @@
             return extension;
         }
 
+        /**
+         * Returns a comparator function between two objects given a key attribute.
+         *
+         * @param {String} key the objet key from which to sort the array of objects.
+         * @param {Boolean} descending whether or not to sort in descending order.
+         */
+        static comparator(key, descending) {
+            return function(a,b){
+                return descending ? ~~(a[key] < b[key]) : ~~(a[key] > b[key]);
+            }
+        }
+
     }
