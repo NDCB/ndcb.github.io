@@ -7,7 +7,7 @@
   "description": "An educational website for mathematics, physics and computer science.",
   "main": "public/index.jade",
   "scripts": {
-    "compile": "./scripts/compile.sh",
+    "deploy": "./scripts/deploy.sh",
     "web-server": "./scripts/web-server.sh"
   },
   "repository": {
