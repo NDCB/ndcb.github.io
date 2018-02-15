@@ -1,0 +1,29 @@
+{
+  "name": "ndcb.github.io",
+  "engines": {
+    "vscode": "^0.10.0"
+  },
+  "version": "1.0.0",
+  "description": "An educational website for mathematics, physics and computer science.",
+  "main": "public/index.jade",
+  "scripts": {
+    "compile": "./scripts/compile.sh",
+    "web-server": "./scripts/web-server.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NDCB/ndcb.github.io.git"
+  },
+  "author": "Marc-Antoine Ouimet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NDCB/ndcb.github.io/issues"
+  },
+  "homepage": "https://github.com/NDCB/ndcb.github.io#readme",
+  "dependencies": {
+    "harp": "^0.25.0",
+    "jstransformer-scss": "^1.0.0",
+    "pug": "^2.0.0-rc.4"
+  },
+  "keywords": []
+}

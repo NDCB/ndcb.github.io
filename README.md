@@ -1,6 +1,6 @@
-# ndcb.github.io-source
+# ndcb.github.io
 
-This repository contains the source of the website [ndcb.github.io](https://ndcb.github.io). Check out the [compiled version](https://github.com/NDCB/ndcb.github.io).
+This repository contains the source of the website [ndcb.github.io](https://ndcb.github.io).
 
 ## Built With
 
@@ -14,7 +14,7 @@ This repository contains the source of the website [ndcb.github.io](https://ndcb
 
 ## License
 
-The locale directories and their contents are copyrighted by me, Marc-Antoine Ouimet, unless otherwise stated and may not be reused without my permission.
+The locale directories in `public/` and their contents are copyrighted by me, Marc-Antoine Ouimet, unless otherwise stated and may not be reused without my permission.
 
 All other files, except for brand-related logos, are licensed under the MIT license.
 

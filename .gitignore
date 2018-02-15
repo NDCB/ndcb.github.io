@@ -1,5 +1,5 @@
 *.ai
 *.scssc
 *.ggb
-www/
-_temp.js
+public/www/
+node_modules/

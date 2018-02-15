@@ -1,0 +1,240 @@
+include /_jade/redaction/_redaction
+
+p Les fonctions peuvent être transformées par mise à l'échelle et par translation au moyen de paramètres. En effet, en manipulant les axes sur lesquels une fonction est définie, il est possible de comprimer ou d'étirer tant verticalement qu'horizontalement le graphe d'une fonction, voire même d'en effectuer des symétries axiales.
+
++h(2, "La translation verticale d'une fonction")
+    p Afin de déplacer verticalement une fonction, considérons deux axes verticaux #[+e() y] et #[+e() y^\prime] tels que #[+e() y^\prime] est une transformation de l'axe #[+e() y.] Arbitrairement, choisissons une constante #[+e() k\gt 0] pour graduer chacun des axes, et une fonction quelconque #[+e() f(x)=y.] Si l'on veut déplacer le graphe de #[+e() f] verticalement vers le bas, il faut décaler les graduations de #[+e() y^\prime] de sorte qu'un même point de #[+e() f] ait une ordonnée moindre en #[+e() y^\prime] qu'en #[+e() y.] Par conséquent, il faut soustraire une valeur à toutes les graduations de #[+e() y^\prime] pour déplacer le graphe de #[+e() f] verticalement vers le bas. En décalant #[+e() y^\prime] par #[+e() k,] il en découle que #[+e() y^\prime=y-k,] de telle sorte que si l'on exprime #[+e() f] selon #[+e() y^\prime,] alors #[+e() y^\prime+k=f(x).] 
+    p Si nous admettions plutôt que #[+e() k\lt 0,] alors le graphe de #[+e() f] serait déplacé vers le haut si #[+e() k] était ajoutée à toutes les valeurs de #[+e() y.] Il en découlerait que #[+e() y^\prime=y+k,] et donc que #[+e() y^\prime-k=f(x).] 
+    p Il est contre-intuitif d'écrire que d'ajouter une valeur à #[+e() y^\prime] déplace le graphe de #[+e() f] vers le bas, et que d'y soustraire une valeur le déplace vers le haut, puisque c'est à l'opposé du sens de l'axe des ordonnées. Par conséquent, il vaut mieux écrire que #[+e() y^\prime-k=f(x)] pour une translation de #[+e() k] unités dans le sens de l'axe des ordonnées.
+
+    +fig("graphique-translation-verticale-negative.svg") Graphique d'une fonction et de deux axes verticaux, #[+e() y^\prime] étant décalé négativement par rapport à #[+e() y.] Le point #[+e() P] est d'ordonnée #[+e() -k] selon #[+e() y] et #[+e() -2k] selon #[+e() y^\prime,] d'où la translation verticale vers le bas du graphe de #[+e() f] de #[+e() y] vers #[+e() y^\prime.]
+
+    +theorem("La translation verticale d'une fonction")
+        p Soit la fonction #[+e() f:X\to Y] telle que #[+e() X\subseteq\mathbb{R}] et #[+e() Y\subseteq\mathbb{R}.] Une translation verticale positive du graphe de #[+e() f] correspond au décalage négatif des valeurs de #[+e() Y,] et une translation verticale négative du graphe de #[+e() f] correspond au décalage positif des valeurs de #[+e() Y.] Par conséquent, la fonction #[+e() \mathcal{F}(x)] correspondant à la translation du graphe de #[+e() f(x)] par #[+e() k\in\mathbb{R}] dans le sens de l'axe des ordonnées vérifie l'équation:
+        +leq("translation-verticale-fonction") \mathcal{F}(x)-k=f(x).
+        p Ce faisant, puisque #[+e() f] et #[+e() \mathcal{F}] sont des ensembles de points, il est possible d'exprimer la transformation subie par un point de #[+e() f] vers #[+e() \mathcal{F}] par l'équivalence logique suivante:
+        +leq("translation-verticale-point") (x,y)\in f\iff(x,y+k)\in\mathcal{F}.
+
+    +ad("in-article")
+
+    +example("Déplacer verticalement une fonction vers le haut")
+        p Soit la fonction #[+e() f(x)=(x-2)^2.] Quels sont l'équation et le graphe de #[+e() \mathcal{F}] après une translation verticale de #[+e() 3] unités de #[+e() f] dans le sens de l'axe des ordonnées?
+        p À partir de l'équation #[+eqref("translation-verticale-fonction") ,] le graphe de la fonction déplacée aura pour équation #[+e() \mathcal{F}(x)-3=f(x),] ou encore #[+e() \mathcal{F}(x)=(x-2)^2+3.]
+        p La fonction #[+e() f(x)] avait pour zéro #[+e() x=2] et pour image #[+e() \mathbb{R}^+,] mais ayant subit une translation verticale positive, la fonction transformée n'aura pas de zéro.
+        +fig("exemple-translation-verticale-positive-fonction.svg") Graphique de la translation de la fonction #[+e() f] vers #[+e() \mathcal{F}.]
+
+    +example("Déplacer verticalement une fonction vers le bas")
+        p Soit la fonction #[+e() g(x)=-\sqrt{1-x^2}+3.] Par combien d'unités doit-on déplacer verticalement #[+e() g] pour que la fonction transformée ait un seul zéro à #[+e() x=0?]
+        p Soit #[+e() k] le nombre d'unités de la translation de #[+e() g] dans le sens de l'axe des ordonnées. Sachant que la transformation de #[+e() g] n'a qu'un seul zéro à #[+e() x=0,] en vertu de l'équation #[+eqref("translation-verticale-fonction") :]
+        +eq().
+            0-k&=g(0)
+            \\-k&=-\sqrt{1-0^2}+3
+            \\-k-3&=-\sqrt{1}
+            \\k+3&=1
+            \\k&=-2.
+        p Par conséquent, il faut déplacer le graphe de #[+e() g] de #[+e() 2] unités vers le bas pour que la fonction transformée ait un zéro lorsque #[+e() x=0.]
+
++h(2, "La translation horizontale d'une fonction")
+    p Afin de déplacer horizontalement une fonction, considérons deux axes horizontaux #[+e() x] et #[+e() x^\prime] tels que #[+e() x^\prime] est une transformation de l'axe #[+e() x.] Arbitrairement, choisissons une constante #[+e() h\gt 0] pour graduer chacun des axes, et une fonction quelconque #[+e() f(x)=y.] Si l'on veut déplacer le graphe de #[+e() f] horizontalement vers la gauche, il faut décaler les graduations de #[+e() x^\prime] de sorte qu'un même point de #[+e() f] ait une abscisse moindre en #[+e() x^\prime] qu'en #[+e() x.] Par conséquent, il faut soustraire une valeur à toutes les graduations de #[+e() x^\prime] pour déplacer le graphe de #[+e() f] horizontalement vers la gauche. En décalant #[+e() x^\prime] par #[+e() h,] il en découle que #[+e() y^\prime=y-h,] de telle sorte que si l'on exprime #[+e() f] selon #[+e() x^\prime,] alors #[+e() y=f(x^\prime-h).]
+    p Si nous admettions plutôt que #[+e() h\lt 0,] alors le graphe de #[+e() f] serait déplacé vers la droite si #[+e() k] était ajoutée à toutes les valeurs de #[+e() x.] Il en découlerait que #[+e() x^\prime=x+h,] et donc que #[+e() y=f(x^\prime-h).]
+    p Il est contre-intuitif d'écrire que d'ajouter une valeur à #[+e() x^\prime] déplace le graphe de #[+e() f] vers la gauche, et que d'y soustraire une valeur le déplace vers la droite, puisque c'est à l'opposé du sens de l'axe des abscisses. Par conséquent, il vaut mieux écrire que #[+e() y=f(x^\prime-h)] pour une translation de #[+e() h] unités dans le sens de l'axe des abscisses.
+
+    +fig("graphique-translation-horizontale-negative.svg") Graphique d'une fonction et de deux axes horizontaux, #[+e() x^\prime] étant décalé négativement par rapport à #[+e() x.] Le point #[+e() P] est d'abscisse #[+e() -h] selon #[+e() x] et #[+e() -2h] selon #[+e() x^\prime,] d'où la translation horizontale vers la gauche du graphe de #[+e() f] de #[+e() x] vers #[+e() x^\prime.]
+
+    +theorem("La translation horizontale d'une fonction")
+        p Soit la fonction #[+e() f:X\to Y] telle que #[+e() X\subseteq\mathbb{R}] et #[+e() Y\subseteq\mathbb{R}.] Une translation horizontale positive du graphe de #[+e() f] correspond au décalage négatif des valeurs de #[+e() X,] et une translation horizontale négative du graphe de #[+e() f] correspond au décalage positif des valeurs de #[+e() X.] Par conséquent, la fonction #[+e() \mathcal{F}(x)] correspondant à la translation du graphe de #[+e() f(x)] par #[+e() h\in\mathbb{R}] dans le sens de l'axe des abscisses vérifie l'équation:
+        +leq("translation-horizontale-fonction") \mathcal{F}(x)=f(x-h).
+        p Ce faisant, puisque #[+e() f] et #[+e() \mathcal{F}] sont des ensembles de points, il est possible d'exprimer la transformation subie par un point quelconque de #[+e() f] vers #[+e() \mathcal{F}] par l'équivalence logique suivante:
+        +leq("translation-horizontale-point") (x,y)\in f\iff(x+h,y)\in\mathcal{F}.
+
+    +example("Déplacer horizontalement une fonction vers la droite")
+        p Deux coureurs de #[+e() 100 \mathrm{m}] ont la même vitesse de parcours. Lorsque la course commence à un temps initial #[+e() t=0\mathrm{s},] la position de chacun des coureurs est décrite par #[+e() p(t)=\dfrac{t^3}{10}.] En revanche, lors d'une course, le deuxième coureur était inattentif et a commencé sa course #[+e() 0.5\mathrm{s}] après le premier. Quelle est la distance entre les deux coureurs lorsque le premier franchit la ligne d'arrivée?
+        p Le premier coureur franchit la ligne d'arrivée à la marque du #[+e() 100\mathrm{m}.] Soit #[+e() p_1(t)] la fonction de sa position:
+        +eq().
+            100&=p_1(t)
+            \\&=\dfrac{t^3}{10}
+            \\10^3&=t^3
+            \\t&=10\mathrm{s}.
+        p Le course deuxième coureur est identique à celle du premier, mais il était inattentif pendant #[+e() 0.5\mathrm{ s}.] Alors, à partir de l'équation #[+eqref("translation-horizontale-fonction") ,] sa position #[+e() p_2(t)] s'exprime:
+        +eq().
+            p_2(t)&=p_1(t-0.5)
+            \\&=\dfrac{(t-0.5)^3}{10}.
+        p Ce faisant, #[+e() p_2(10)=9.5^3/10\approx 85.74\mathrm{m},] donc la distance entre les coureurs à la fin de la course est #[+e() 100-85.74=14.26\mathrm{m}.]
+        +fig("exemple-translation-horizontale-positive-fonction.svg") Graphique de la translation de la fonction #[+e() p_1] vers #[+e() p_2.]
+
+    +example("Déplacer horizontalement une fonction vers la gauche")
+        p Soit la fonction #[+e() f(c)=(c-2)^3+(c+4)^2-c+10.] Quelle est l'équation de #[+e() g,] la fonction transformée de #[+e() f] par translation horizontale selon #[+e() c] de #[+e() 2] unités vers la gauche?
+        p À partir de l'équation #[+eqref("translation-verticale-fonction") ,] la fonction #[+e() g] correspond à #[+e() f(c+2).] Par conséquent:
+        +eq().
+            g(c)&=f(c+2)
+            \\&=(c+2-2)^3+(c+2+4)^2-(c+2)+10
+            \\&=c^3+(c+6)^2-c+8.
+
+    +example("Déplacer une fonction")
+        p Une parabole ayant la forme de la fonction #[+e() h(x)=-4x^2] sert d'appui instable à un cercle de rayon #[+e() r=3] centré au point #[+e() Q=(-10,10).] Quelle est l'équation de la parabole?
+        p Puisque le cercle repose en équilibre sur la parabole, le sommet de la parabole doit se trouver verticalement à #[+e() -r] par rapport au centre #[+e() Q] du cercle. En fait, le sommet #[+e() S^\prime] de la parabole doit être #[+e() S^\prime=(-10,7)] puisque le cercle doit pouvoir y être maintenu en place. Le sommet #[+e() S] de #[+e() h] étant #[+e() S=(0,0),] il faut déplacer le graphe de #[+e() h] de #[+e() -10] unités horizontalement et #[+e() 7] unités verticalement. Par conséquent, à partir des équations #[+eqref("translation-verticale-fonction")] et #[+eqref("translation-horizontale-fonction") ,] la parabole #[+e() \mathcal{P}] s'exprime:
+        +eq().
+            \mathcal{P}:y-7&=h(x-(-10))
+            \\y&=-4(x+10)^2+7.
+        +fig("exemple-translation-fonction.svg") Graphique de #[+e() \mathcal{P}] obtenue par translation de #[+e() h] telle que #[+e() S\in h\iff S^\prime\in\mathcal{P}.]
+
++h(2, "La mise à l'échelle verticale d'une fonction")
+    p Afin d'effectuer une mise à l'échelle verticale d'une fonction, considérons deux axes verticaux #[+e() y] et #[+e() y^\prime] tels que #[+e() y^\prime] est une transformation de l'axe #[+e() y.] Graduons #[+e() y] par pas de #[+e() 1] et choisissons une constante #[+e() a\gt 1] pour graduer #[+e() y^\prime.] Posons aussi une fonction quelconque #[+e() f(x)=y.] Si l'on veut étirer le graphe de #[+e() f] verticalement, il faut augmenter l'écart entre les graduations de #[+e() y^\prime] de sorte que deux points de #[+e() f] aient un écart plus grand entre leurs ordonnées en #[+e() y^\prime] qu'en #[+e() y.] Par conséquent, il faut multiplier par une valeur plus grande que #[+e() 1] toutes les graduations de #[+e() y^\prime] pour étirer verticalement le graphe de #[+e() f.] En mettant l'échelle de #[+e() y^\prime] à #[+e() a,] il en découle que #[+e() y^\prime=ay,] de telle sorte que si l'on exprime #[+e() f] selon #[+e() y^\prime,] alors #[+e() \dfrac{y^\prime}{a}=f(x).]
+    p Si nous admettions plutôt que #[+e() 0\lt a\lt 1,] alors le graphe de #[+e() f] serait comprimé verticalement, puisque l'écart entre les ordonnées de deux points du graphe de #[+e() f] serait plus petit.
+    p Si #[+e() a] est négatif, alors l'axe #[+e() y^\prime] est une symétrie verticale de l'axe #[+e() y,] donc le graphe de #[+e() f] est réfléchi par rapport à la droite d'équation #[+e() y=0.]
+
+    +fig("graphique-mise-a-lechelle-verticale-positive.svg") Graphique d'une fonction et de deux axes verticaux, #[+e() y^\prime] étant une mise à l'échelle de #[+e() y.] Si #[+e() a=1,] le graphe de #[+e() f] ne subit pas de mise à l'échelle. L'écart entre les ordonnées des points #[+e() Q] et #[+e() P] augmente lorsque #[+e() |a|] augmente, et il diminue lorsque #[+e() |a|] diminue. Si #[+e() a=0,] alors le graphe de #[+e() f] est confondu à une fonction constante. Lorsque #[+e() a\lt 0,] le graphe de #[+e() f] subit une symétrie par rapport à la droite d'équation #[+e() y=0.]
+
+    +theorem("La mise à l'échelle verticale d'une fonction")
+        p Soit la fonction #[+e() f:X\to Y] telle que #[+e() X\subseteq\mathbb{R}] et #[+e() Y\subseteq\mathbb{R}.] Une mise à l'échelle verticale strictement plus grande que #[+e() 1] ou strictement plus petite que #[+e() -1] du graphe de #[+e() f] correspond à l'étirement de l'axe des ordonnées, et une mise à l'échelle verticale strictement plus petite que #[+e() 1] et strictement plus grande que #[+e() -1] du graphe de #[+e() f] correspond à la compression de l'axe des ordonnées. Si la mise à l'échelle verticale de #[+e() f] est négative, alors son graphe subit une symétrie verticale. Par conséquent, la fonction #[+e() \mathcal{F}(x)] correspondant à la mise à l'échelle de #[+e() f(x)] par #[+e() a\in\mathbb{R}^*] selon l'axe des ordonnées vérifie l'équation:
+        +leq("mise-a-lechelle-verticale-fonction") \dfrac{\mathcal{F}(x)}{a}=f(x).
+        p Ce faisant, puisque #[+e() f] et #[+e() \mathcal{F}] sont des ensembles de points, il est possible d'exprimer la transformation subie par un point quelconque de #[+e() f] vers #[+e() \mathcal{F}] par l'équivalence logique suivante:
+        +leq("mise-a-lechelle-verticale-point") (x,y)\in f\iff(x,ay)\in\mathcal{F}.
+
+    +ad("in-article")
+
+    +example("Étirer verticalement le graphe d'une fonction")
+        p Soit la fonction #[+e() h(x)=\sqrt{x-4}.] Pour obtenir la fonction #[+e() l(x),] on a étiré le graphe de #[+e() h] verticalement, de telle sorte que le point #[+e() P=(x,y)=(20,8)] vérifie #[+e() l.] Quelle est l'équation de #[+e() l?]
+        p Soit #[+e() l(x)] la fonction transformée par mise à l'échelle verticale de #[+e() h(x).] En vertu de l'équation #[+eqref("mise-a-lechelle-verticale-fonction") ,] #[+e() \dfrac{l(x)}{a}=h(x)] pour un certain #[+e() a\gt 1.] Le point #[+e() P] vérifie #[+e() l(x),] alors #[+e() l(20)=8.] Ce faisant:
+        +eq().
+            \dfrac{8}{a}&=h(20)
+            \\&=\sqrt{20-4}
+            \\&=4
+            \\a&=2.
+        p Par conséquent, #[+e() l(x)=2\sqrt{x-4}.]
+        +fig("exemple-mise-a-lechelle-verticale-fonction.svg") Graphe des fonctions #[+e() h] et #[+e() l.]
+
+    +example("Déterminer l'image d'une fonction comprimée verticalement")
+        p Soit la fonction #[+e() f(x)=\sin(x)] telle que l'image de #[+e() f] est #[+e() [-1,1].] Quelle est l'image de #[+e() \mathcal{F}] si #[+e() \mathcal{F}(x)=\dfrac{1}{4}f(x)?]
+        p À partir de l'équation #[+eqref("mise-a-lechelle-verticale-fonction") ,] la valeur du paramètre de mise à l'échelle verticale de #[+e() f] pour obtenir #[+e() \mathcal{F}] est #[+e() a=\dfrac{1}{4}.] L'image de #[+e() f] étant #[+e() [-1,1],] il existe au moins un point #[+e() P] appartenant à #[+e() f] tel que #[+e() y_P=1,] et il existe au moins un point #[+e() Q] appartenant à #[+e() f] tel que #[+e() y_Q=-1.] À partir de la proposition #[+eqref("mise-a-lechelle-verticale-point") ,] de #[+e() f] vers #[+e() \mathcal{F},] l'ordonnée de #[+e() P] est transformée à #[+e() \dfrac{1}{4}] et celle de #[+e() Q] est transformée à #[+e() -\dfrac{1}{4}.] Par conséquent, l'image de #[+e() \mathcal{F}] est #[+e() \left[-\dfrac{1}{4},\dfrac{1}{4}\right].]
+
+    +example("Transformer une fonction par symétrie verticale et par translation")
+        p Dressez la table des valeurs de #[+e() \mathcal{F}(x)] si #[+e() -2\mathcal{F}(x)+4=f(x-1).]
+        +eq().
+            \begin{array}{|c|c|}
+            \hline
+            x & f(x)\\\hline
+            -4 & 9\\\hline
+            -2 & -1\\\hline
+            1 & 10\\\hline
+            3 & -4\\\hline
+            4 & -2\\\hline
+            \end{array}
+        p En isolant #[+e() \mathcal{F}(x)] dans l'équation de la transformation de #[+e() f(x):]
+        +eq().
+            -2\mathcal{F}(x)+4&=f(x-1)
+            \\\mathcal{F}(x)&=-\dfrac{1}{2}(f(x-1)-4).
+        p Ce faisant, en évaluant #[+e() \mathcal{F}(x)] pour les valeurs de #[+e() f(x)] connues à partir la table des valeurs:
+        +eq().
+            \begin{array}{|c|c|}
+            \hline
+            x & \mathcal{F}(x)\\\hline
+            -3 & -5/2\\\hline
+            -1 & 5/2\\\hline
+            2 & -3\\\hline
+            4 & 4\\\hline
+            5 & 3\\\hline
+            \end{array}
+        p On constate alors que le signe des ordonnées de #[+e() \mathcal{F}(x)] est l'inverse de celui de #[+e() f(x)] à cause de la symétrie verticale. Par ailleurs, les abscisses de la table de valeurs de #[+e() f(x)] ont été incrémentées de #[+e() 1] à cause de la translation horizontale. On note alors les applications de la transformation sur les points telle que #[+e() (-4,9)\mapsto(-3,-5/2),] #[+e() (-2,-1)\mapsto(-1,5/2)] et #[+e() (1,10)\mapsto(2,-3)] par exemple.
+
++h(2, "La mise à l'échelle horizontale d'une fonction")
+    p Afin d'effectuer une mise à l'échelle horizontale d'une fonction, considérons deux axes horizontaux #[+e() x] et #[+e() x^\prime] tels que #[+e() x^\prime] est une translation de l'axe #[+e() x.] Graduons #[+e() x] par pas de #[+e() 1] et choisissons une constante #[+e() b\gt 1] pour graduer #[+e() x^\prime.] Posons aussi une fonction quelconque #[+e() f(x)=y.] Si l'on veut étirer le graphe de #[+e() f] horizontalement, il faut augmenter l'écart entre les graduations de #[+e() x^\prime] de sorte que deux points de #[+e() f] aient un écart plus grand entre leurs abscisses en #[+e() x^\prime] qu'en #[+e() x.] Par conséquent, il faut multiplier par une valeur plus grande que #[+e() 1] toutes les graduations de #[+e() x^\prime] pour étirer horizontalement le graphe de #[+e() f.] En mettant l'échelle de #[+e() x^\prime] à #[+e() b,] il en découle que #[+e() x^\prime=bx,] de telle sorte que si l'on exprime #[+e() f] selon #[+e() x^\prime,] alors #[+e() y=f\left(\dfrac{x^\prime}{b}\right).]
+    p Si nous admettions plutôt que #[+e() 0\lt b\lt 1,] alors le graphe de #[+e() f] serait comprimé horizontalement, puisque l'écart entre les abscisses de deux points du graphe de #[+e() f] serait plus petit.
+    p Si #[+e() b] est négatif, alors l'axe #[+e() x^\prime] est une symétrie horizontale de l'axe #[+e() x,] donc le graphe de #[+e() f] est réfléchi par rapport à la droite d'équation #[+e() x=0.]
+
+    +fig("graphique-mise-a-lechelle-horizontale-positive.svg") Graphique d'une fonction et de deux axes horizontaux, #[+e() x^\prime] étant une mise à l'échelle de #[+e() x.] Si #[+e() b=1,] le graphe de #[+e() f] ne subit pas de mise à l'échelle. L'écart entre les abscisses des points #[+e() Q] et #[+e() P] augmente lorsque #[+e() |b|] augmente, et il diminue lorsque #[+e() |b|] diminue. Si #[+e() b=0,] alors le graphe de #[+e() f] est confondu à une droite verticale. Lorsque #[+e() b\lt 0,] le graphe de #[+e() f] subit une symétrie par rapport à la droite d'équation #[+e() x=0.]
+
+    +theorem("La mise à l'échelle horizontale d'une fonction")
+        p Soit la fonction #[+e() f:X\to Y] telle que #[+e() X\subseteq\mathbb{R}] et #[+e() Y\subseteq\mathbb{R}.] Une mise à l'échelle horizontale strictement plus grande que #[+e() 1] ou strictement plus petite que #[+e() -1] du graphe de #[+e() f] correspond à l'étirement de l'axe des abscisses, et une mise à l'échelle horizontale strictement plus petite que #[+e() 1] et strictement plus grande que #[+e() -1] du graphe de #[+e() f] correspond à la compression de l'axe des abscisses. Si la mise à l'échelle horizontale de #[+e() f] est négative, alors son graphe subit une symétrie horizontale. Par conséquent, la fonction #[+e() \mathcal{F}(x)] correspondant à la mise à l'échelle de #[+e() f(x)] par #[+e() b\in\mathbb{R}^*] selon l'axe des abscisses vérifie l'équation:
+        +leq("mise-a-lechelle-horizontale-fonction") \mathcal{F}(x)=f\left(\dfrac{x}{b}\right).
+        p Ce faisant, puisque #[+e() f] et #[+e() \mathcal{F}] sont des ensembles de points, il est possible d'exprimer la transformation subie par un point quelconque de #[+e() f] vers #[+e() \mathcal{F}] par l'implication suivante:
+        +leq("mise-a-lechelle-horizontale-point") (x,y)\in f\iff(bx,y)\in\mathcal{F}.
+
+    +example("Étirer horizontalement le graphe d'une section conique")
+        P Soit le cercle d'équation #[+e() C:x^2+(y-2)^2=9] de rayon #[+e() 3.] L'ellipse #[+e() E] est obtenue par l'étirement horizontal de #[+e() C] sans symétrie tel qu'il existe un et un seul point de #[+e() E] dont l'abscisse vaut #[+e() 9.] Quelle est l'équation de #[+e() E?]
+        p Le cercle #[+e() C] est centré en #[+e() (0,2).] Puisque le rayon de #[+e() C] vaut #[+e() 3,] l'abscisse de tous les points de #[+e() C] est comprise dans l'intervalle #[+e() [-3,3].] Or, il n'existe qu'un seul point de #[+e() C] dont l'abscisse est #[+e() 3.] Par conséquent, la transformation de #[+e() C] vers #[+e() E] correspond à la transformation par mise à l'échelle horizontale du point #[+e() (3,2)] vers #[+e() (9,2).] Soit #[+e() b] le paramètre de mise à l'échelle du cercle. En vertu de l'équation #[+eqref("mise-a-lechelle-horizontale-point") :]
+        +eq().
+            (3,2)\in C\iff(9,2)\in E\implies 3b=9\iff b=3.
+        p Par conséquent, en applpiquant le principe de substitution de l'équation #[+eqref("mise-a-lechelle-horizontale-fonction") ,] l'expression de l'ellipse est:
+        +eq().
+            E:\left(\dfrac{x}{3}\right)^2+(y-2)^2&=9
+            \\\dfrac{x^2}{9}+(y-2)^2&=9.
+        +fig("exemple-mise-a-lechelle-horizontale-section-conique.svg") Graphe de l'ellipse #[+e() E] obtenue par mise à l'échelle horizontale de #[+e() C.]
+
+    +example("Comprimer horizontalement le graphe d'une fonction")
+        p La période d'une fonction sinusoïdale de base est #[+e() 2\pi,] c'est-à-dire que la fonction se répète selon une section de longueur #[+e() 2\pi] de l'axe des abscisses. Par conséquent, #[+e() \sin(x)=\sin(x+2k\pi)] pour n'importe quelle valeur entière de #[+e() k.] Soit la fonction #[+e() x(t)=x_m\sin(\omega t+\phi),] où #[+e() \omega\gt 0,] qui décrit le mouvement oscillatoire harmonique d'une particule selon un axe #[+e() x.] Quelle est la valeur de #[+e() \omega] si la période du mouvement est de #[+e() 2\mathrm{s}?]
+        p Dans l'équation du mouvement, #[+e() \omega] est analogue à #[+e() b^{-1}.] La période de la fonction sinus de base est #[+e() 2\pi,] ce qui correspond à la longueur d'un intervalle du domaine de la fonction. Par conséquent, la période de la fonction transformée correspond à #[+e() 2\pi|b|] si on considère que la période est une grandeur positive. Soit la période #[+e() T=2\pi|b|=\dfrac{2\pi}{\omega}=2\mathrm{s}:]
+        +eq().
+            2=\dfrac{2\pi}{\omega}\iff \omega=\pi.
+        p Ce faisant, le graphe de #[+e() x(t)] correspond à la compression horizontale du graphe de #[+e() \sin(t)] puisque #[+e() |b|=|\pi^{-1}|\lt 1.]
+
++h(2, "La forme transformée d'une fonction")
+    +theorem("La forme transformée d'une fonction")
+        p Soit la fonction #[+e() f:X\to Y] telle que #[+e() X\subseteq\mathbb{R}] et #[+e() Y\subseteq\mathbb{R}.] La fonction #[+e() \mathcal{F}(x)] transformée de #[+e() f(x)] par mise une l'échelle verticale selon #[+e() a\in\mathbb{R}^*,] une mise à l'échelle horizontale selon #[+e() b\in\mathbb{R}^*,] une translation verticale par #[+e() k\in\mathbb{R}] et une translation horizontale par #[+e() h\in\mathbb{R}] vérifie l'équation:
+        +leq("forme-transformee-fonction") \dfrac{\mathcal{F}(x)-k}{a}=f\left(\dfrac{x-h}{b}\right).
+        p Ce faisant, puisque #[+e() f] et #[+e() \mathcal{F}] sont des ensembles de points, il est possible d'exprimer la transformation subie par un point quelconque de #[+e() f] vers #[+e() \mathcal{F}] par l'équivalence logique suivante:
+        +leq("forme-transformee-point") (x,y)\in f\iff(bx+h,ay+k)\in\mathcal{F}.
+
+    +ad("in-article")
+
+    +example("Déterminer l'équation d'une fonction linéaire transformée")
+        p Quelle est l'équation de la droite #[+e() \lambda] illustrée par le graphique suivant?
+        +fig("exemple-transformation-fonction-lineaire.svg") Une droite #[+e() \lambda] passant par les points #[+e() P_1=(4,5)] et #[+e() P_2=(6,9).]
+        p L'expression standard d'une fonction linéaire est #[+e() f(x)=x.] Sachant que les points #[+e() P_1=(4,5)] et #[+e() P_2=(6,9)] appartiennent à #[+e() \lambda,] il est possible de poser #[+e() (h,k)=P_1.] Puisque #[+e() \lambda(x)] peut s'exprimer comme une transformation de #[+e() f(x),] en vertu de l'équation #[+eqref("forme-transformee-fonction") :]
+        +eq().
+            \dfrac{\lambda(x)-k}{a}&=f\left(\dfrac{x-h}{b}\right)
+            \\\dfrac{\lambda(x)-5}{a}&=\dfrac{x-4}{b}
+            \\\lambda(x)&=\dfrac{a}{b}(x-4)+5.
+        p À partir d'ici, il est possible d'assimiler #[+e() \dfrac{a}{b}] à l'un ou l'autre des paramètres de mise à l'échelle. Soit #[+e() m=\dfrac{a}{b}.] Puisque #[+e() P_2] appartient à #[+e() \lambda:]
+        +eq().
+            9&=\lambda(6)
+            \\&=m(6-4)+5
+            \\4&=2m
+            \\m&=2.
+        p Par conséquent:
+        +eq().
+            \lambda(x)&=2(x-4)+5
+            \\&=2x-3.
+
+    +example("Déterminer l'équation d'une fonction quadratique transformée")
+        p Quelle est l'équation de la parabole #[+e() \mathcal{P}] illustrée par le graphique suivant?
+        +fig("exemple-transformation-fonction-quadratique.svg") Une parabole #[+e() \mathcal{P}] ayant pour sommet #[+e() S=(1,-4)] et un zéro en #[+e() Q] à #[+e() x=6.]
+        p L'expression standard d'une parabole est #[+e() f(x)=x^2.] Sachant que le sommet de #[+e() f] est à #[+e() (0,0),] la parabole #[+e() \mathcal{P}] est une translation de #[+e() f] selon #[+e() S.] Ce faisant, posons #[+e() (h,k)=S.] En vertu de l'équation #[+eqref("forme-transformee-fonction") :]
+        +eq().
+            \dfrac{\mathcal{P}(x)-k}{a}&=f\left(\dfrac{x-h}{b}\right)
+            \\\dfrac{\mathcal{P}(x)-(-4)}{a}&=\left(\dfrac{x-1}{b}\right)^2
+            \\\dfrac{\mathcal{P}(x)+4}{a}&=\dfrac{1}{b^2}(x-1)^2
+            \\\mathcal{P}(x)&=\dfrac{a}{b^2}(x-1)^2-4.
+        p À partir d'ici, il est possible d'assimiler #[+e() \dfrac{a}{b^2}] à l'un ou l'autre des paramètres de mise à l'échelle. Soit #[+e() m=\dfrac{a}{b^2}.] Puisque #[+e() Q=(6,0)] appartient à #[+e() \mathcal{P}:]
+        +eq().
+            0&=\mathcal{P}(6)
+            \\&=m(6-1)^2-4
+            \\4&=25m
+            \\m&=\dfrac{4}{25}.
+        p Par conséquent:
+        +eq().
+            \mathcal{P}(x)=\dfrac{4}{25}(x-1)^2-4.
+
+    +example("Déterminer l'équation d'une fonction racine carrée transformée")
+        p Quelle est l'équation de la fonction racine carrée #[+e() h] illustrée par le graphique suivant?
+        +fig("exemple-transformation-fonction-racine-carree.svg") Une fonction racine carrée dont le sommet est #[+e() P=(-2,-1)] et passant par le point #[+e() Q=(-14,11).]
+        p L'expression standard d'une fonction racine carrée est #[+e() f(x)=\sqrt{x}.] Sachant que le sommet de #[+e() f] est à #[+e() (0,0),] la fonction #[+e() h] est une translation de #[+e() f] par #[+e() P.] Ce faisant, posons #[+e() (h,k)=P.] Par rapport au graphe de #[+e() f(x),] celui de #[+e() h(x)] est réfléchi par rapport à l'axe des ordonnées. Par conséquent, le paramètre #[+e() b] de mise à l'échelle horizontale est négatif. En vertu de l'équation #[+eqref("forme-transformee-fonction") :]
+        +eq().
+            \dfrac{h(x)-k}{a}&=f\left(\dfrac{x-h}{b}\right)
+            \\\dfrac{h(x)-(-1)}{a}&=\sqrt{\dfrac{x-(-2)}{b}}
+            \\\dfrac{h(x)+1}{a}&=\dfrac{1}{\sqrt{|b|}}\sqrt{-(x+2)}
+            \\h(x)&=\dfrac{a}{\sqrt{|b|}}\sqrt{-x-2}-1.
+        p À partir d'ici, il est possible d'assimiler #[+e() \dfrac{a}{\sqrt{|b|}}] à l'un ou l'autre des paramètres de mise à l'échelle. Soit #[+e() m=\dfrac{a}{\sqrt{|b|}}.] Puisque #[+e() Q=(-14,11)] appartient à #[+e() h:]
+        +eq().
+            11&=h(-14)
+            \\&=m\sqrt{-(-14)-2}-1
+            \\12&=m\sqrt{12}
+            \\m&=\dfrac{12}{\sqrt{12}}
+            \\&=\sqrt{12}
+            \\&=2\sqrt{3}.
+        p Par conséquent:
+        +eq().
+            h(x)&=2\sqrt{3}\sqrt{-x-2}-1
+            \\&=2\sqrt{-3(x+2)}-1.
+
++tableOfContents()
