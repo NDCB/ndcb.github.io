@@ -1,0 +1,9 @@
+Sitemap: https://ndcb.github.io/sitemap.xml
+Sitemap: https://ndcb.github.io/fr-CA/sitemap.xml
+User-agent: *
+Disallow: /index.html
+Disallow: /res/
+Allow: /res/thumbnails/
+Disallow: /css/res/
+Disallow: /privacy-policy.html
+Disallow: /sitemap*
