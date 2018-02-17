@@ -8,7 +8,7 @@
   "main": "public/index.jade",
   "scripts": {
     "deploy": "./scripts/deploy.sh",
-    "web-server": "./scripts/web-server.sh"
+    "server": "harp server ./public/"
   },
   "repository": {
     "type": "git",
