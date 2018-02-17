@@ -1,14 +1,15 @@
 {
   "name": "ndcb.github.io",
   "engines": {
-    "vscode": "^0.10.0"
+    "vscode": "^0.10.0",
+    "npm": "^3.10.3"
   },
   "version": "1.0.0",
   "description": "An educational website for mathematics, physics and computer science.",
   "main": "public/index.jade",
   "scripts": {
     "deploy": "./scripts/deploy.sh",
-    "web-server": "./scripts/web-server.sh"
+    "server": "harp server public/"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,5 @@
     "harp": "^0.25.0",
     "jstransformer-scss": "^1.0.0",
     "pug": "^2.0.0-rc.4"
-  },
-  "keywords": []
+  }
 }

@@ -11,10 +11,10 @@ notifications:
     on_success: always
     on_failure: always
     recipients:
-    - ouimetmarcantoine@gmail.com
+      - ouimetmarcantoine@gmail.com
 branches:
   only:
-  - development
+    - development
 env:
   global:
     secure: USvd1XYcxZMcG7Nbx2kLhPzYI9FGSquT1y49nVU6OHQpOGy5r643cM/G0/BnGjLoDnsFzrxSLZ5cMe3q//LNjKQmHr7eDCF/cRxKRUyhvab14tUyZElM+tNXPc3rzSx4hj+YTMjO5noV+QcGFAa9yDqJAnhBoMHS/Y+M2L5Pt+/Ka54VydVsiMpxYPlmxJE1nbscBFricQak+wWtIxNc3iuxlKAavth044wyarWJMAqdnEu1USRrcLRjpJ/lvl32xmUFE3fz3nUCUoUb0UbBrgrU85DSN/QrQ7yy6SeVrfOe5+Fel5ilEvvetC0c5clUMyHqaZPyoWMI5BS7KJm+dPCq/vtRglWa169MHKg/tqEMbPtErTmbm9o+HrCx3EHelwvkspOvkwf3EbvISBBk23iaGjCFcDRbD9ZO1DLWB8bSNVugKwdyVcAlPAP/H5H+nQyozqtfQS/m8w8ANNZvKJusAkxA4xYc7G9rHSWLK2+9t9aW/qR0TwApj4WKgQ5ze8z8khlo5K9oqQpe9WQAuAh+Hs3FtQK6WjtVG932Y6uO+GS6vKdwP1ltaZeqvOH9rBJpf+ZZadtc1u1ojGy2IcAQtpoRlkE/jKDpx+RUuY4+pfsjV54zFlrynVgivdsKoU8ulzTOp4geOwCwyk2b0oX1E9ms9iGLM6wZK+YMogA=
