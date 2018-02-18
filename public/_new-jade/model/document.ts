@@ -1,5 +1,5 @@
 /**
- * The array of valid change frequencies.
+ * The array of valid change frequencies for the sitemap indexing.
  * See: https://www.sitemaps.org/protocol.html.
  */
 const CHANGE_FREQUENCIES = [
@@ -13,31 +13,93 @@ const CHANGE_FREQUENCIES = [
 ];
 
 /** 
- * The default change frequency of a document.
+ * The default change frequency of a web document for the sitemap indexing.
  */
 const DEFAULT_CHANGE_FREQUENCY = CHANGE_FREQUENCIES[4]; //monthly
+
+/**
+ * The minimal priority of a web document for the sitemap indexing.
+ */
+const MINIMUM_PRIORITY = 0.0;
+
+/**
+ * The maximal priority of a web document for the sitemap indexing.
+ */
+const MAXIMUM_PRIORITY = 1.0;
+
+/**
+ * The default priority of a web document for the sitemap indexing.
+ */
+const DEFAULT_PRIORITY = 0.5;
 
 /**
  * Describes a web document featured on the website.
  */
 class WebDocument {
 
+    get headline() {
+
+    }
+
+    get slug() {
+
+    }
+
+    get description() {
+
+    }
+
+    get url() {
+
+    }
+
+    /**
+     * Returns the change frequency of this document for the sitemap indexing.
+     */
     get changeFrequency() {
         return this._changeFrequency;
     }
 
-    set changeFrequency(value) {
-        if (WebDocument.validChangeFrequency(value)) {
-            this._changeFrequency = value;
+    /**
+     * @param {String} changeFrequency the new change frequency of this web 
+     * document.
+     */
+    set changeFrequency(changeFrequency) {
+        if (WebDocument.validChangeFrequency(changeFrequency)) {
+            this._changeFrequency = changeFrequency;
         }
     }
 
     /**
      * Determines whether or not a given change frequency literal is valid.
-     * @param changeFrequency the change frequency to validate.
+     * @param {String} changeFrequency the change frequency to validate.
      */
     private static validChangeFrequency(changeFrequency) {
         return CHANGE_FREQUENCIES.includes(changeFrequency);
+    }
+
+    /**
+     * Returns the priority of this web document for the sitemap indexing.
+     */
+    get priority() {
+        return this._priority;
+    }
+
+    /**
+     * @param {Number} priority the new priority of the document.
+     */
+    set priority(priority) {
+        if (priority >= MINIMUM_PRIORITY && priority <= MAXIMUM_PRIORITY) {
+            this._priority = priority;
+        }
+    }
+
+    /**
+     * Determines whether or not a given priority is valid.
+     * @param {Number} priority the priority to validate.
+     */
+    private static validPriority(priority) {
+        return priority >= MINIMUM_PRIORITY && priority <= MAXIMUM_PRIORITY;
     }
 
 }
