@@ -37,24 +37,30 @@ const DEFAULT_PRIORITY = 0.5;
  */
 class WebDocument {
 
-    get headline() {
-
-    }
-
-    get slug() {
-
-    }
-
-    get description() {
-
-    }
-
-    get url() {
-
+    /**
+     * @returns {String[]} the path of this web document.
+     */
+    get path() {
+        return this._path;
     }
 
     /**
-     * Returns the change frequency of this document for the sitemap indexing.
+     * @returns {String} the relative path of this web document.
+     */
+    get relativePath() {
+        return this._relativePath;
+    }
+
+    /**
+     * @returns {String} the URL of this web document.
+     */
+    get url() {
+        return this._url;
+    }
+
+    /**
+     * @returns {String} the change frequency of this document for the sitemap 
+     * indexing.
      */
     get changeFrequency() {
         return this._changeFrequency;
@@ -71,15 +77,17 @@ class WebDocument {
     }
 
     /**
-     * Determines whether or not a given change frequency literal is valid.
      * @param {String} changeFrequency the change frequency to validate.
+     * @returns {Boolean} whether or not a given change frequency literal is 
+     * valid.
      */
     private static validChangeFrequency(changeFrequency) {
         return CHANGE_FREQUENCIES.includes(changeFrequency);
     }
 
     /**
-     * Returns the priority of this web document for the sitemap indexing.
+     * @returns {Number} the priority of this web document for the sitemap 
+     * indexing.
      */
     get priority() {
         return this._priority;
@@ -89,14 +97,14 @@ class WebDocument {
      * @param {Number} priority the new priority of the document.
      */
     set priority(priority) {
-        if (priority >= MINIMUM_PRIORITY && priority <= MAXIMUM_PRIORITY) {
+        if (WebDocument.validPriority(priority)) {
             this._priority = priority;
         }
     }
 
     /**
-     * Determines whether or not a given priority is valid.
      * @param {Number} priority the priority to validate.
+     * @returns {Boolean} whether or not a given priority is valid.
      */
     private static validPriority(priority) {
         return priority >= MINIMUM_PRIORITY && priority <= MAXIMUM_PRIORITY;
