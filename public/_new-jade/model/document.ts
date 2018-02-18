@@ -38,6 +38,28 @@ const DEFAULT_PRIORITY = 0.5;
 class WebDocument {
 
     /**
+     * @returns {String} the headline of this web document.
+     */
+    get headline() {
+        return this._headline;
+    }
+
+    /**
+     * @returns {String} the filename of this web document.
+     */
+    get slug() {
+        let path = this.path;
+        return path[path.length - 1];
+    }
+
+    /**
+     * @returns {String} the description of this web document.
+     */
+    get description() {
+        return this._description;
+    }
+
+    /**
      * @returns {String[]} the path of this web document.
      */
     get path() {
@@ -56,6 +78,13 @@ class WebDocument {
      */
     get url() {
         return this._url;
+    }
+
+    /**
+     * @returns {Locale} the locale of this web document.
+     */
+    get locale() {
+        return this._locale;
     }
 
     /**
