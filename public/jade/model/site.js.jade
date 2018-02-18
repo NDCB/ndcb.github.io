@@ -1,36 +1,68 @@
 -
-    class Site {
+    class Website {
 
         /**
-         * @returns {String} the name of this site.
+         * @returns {String} the name of this website.
          */
         get name() {
             return this._name;
         }
 
         /**
-         * @returns {String} the URL of this site.
+         * @returns {String} the URL of this website.
          */
         get url() {
             return this._url;
         }
 
         /**
-         * @returns {String} the sourc URL of this site.
+         * @returns {String} the sourc URL of this website.
          */
         get sourceUrl() {
             return this._sourceUrl;
         }
 
         /**
-         * @returns {Object} the authentification codes of this site as 
+         * @returns {Object} the authentification codes of this website as 
          * attributes.
          */
         get authentifications() {
             return this._authentifications;
         }
 
+        /**
+         * @returns {String} the Google Search Console authentification code
+         * for this website.
+         */
+        get googleSearchConsoleAuthentificationCode() {
+            return this.authentifications.googleSearchConsoleCode;
+        }
+
+        /**
+         * @returns {String} the Google Analytics authentification code for this
+         * website.
+         */
+        get googleAnalyticsAuthentificationCode() {
+            return this.authentifications.googleAnalyticsCode;
+        }
+
+        /**
+         * @returns {String} the Google AdSense authentification code for this
+         * website.
+         */
+        get googleAdSenseAuthentificationCode() {
+            return this.authentifications.googleAdSenseCode;
+        }
+
+        /**
+         * @returns {String} the Bing Webmaster authentification code for this
+         * website.
+         */
+        get bingWebmasterAuthentificationCode() {
+            return this.authentifications.bingWebmasterCode;
+        }
+
     }
 
     //TODO:
-    //const SITE = new Site();
+    //const WEBSITE = new Website(...);
