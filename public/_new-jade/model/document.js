@@ -151,7 +151,7 @@ class WebDocument {
      * @returns {Boolean} whether or not a given change frequency literal is 
      * valid.
      */
-    private static validChangeFrequency(changeFrequency) {
+    static validChangeFrequency(changeFrequency) {
         return CHANGE_FREQUENCIES.includes(changeFrequency);
     }
 
@@ -176,7 +176,7 @@ class WebDocument {
      * @param {Number} priority the priority to validate.
      * @returns {Boolean} whether or not a given priority is valid.
      */
-    private static validPriority(priority) {
+    static validPriority(priority) {
         return priority >= MINIMUM_PRIORITY && priority <= MAXIMUM_PRIORITY;
     }
 
