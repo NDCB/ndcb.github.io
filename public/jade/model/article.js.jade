@@ -1,4 +1,50 @@
 -
     class Article extends WebDocument {
         
+        constructor({
+            headline, description, path,
+            changeFrequency = DEFAULT_CHANGE_FREQUENCY,
+            priority = DEFAULT_PRIORITY,
+            publicationDate, latestModificationDate,
+            authors, plugins
+        }) {
+            super({
+                headline, description, path, changeFrequency, priority
+            });
+            this._publicationDate = publicationDate;
+            this._latestModificationDate = latestModificationDate;
+            this._authors = authors;
+            this._plugins = plugins;
+        }
+
+        /**
+         * @return {String} the date of publication of this article in ISO 8601 
+         * format (https://en.wikipedia.org/wiki/ISO_8601).
+         */
+        get publicationDate() {
+            return this._publicationDate;
+        }
+
+        /**
+         * @return {String} the latest modification date of this article in 
+         * ISO 8601 format (https://en.wikipedia.org/wiki/ISO_8601).
+         */
+        get latestModificationDate() {
+            return this._latestModificationDate;
+        }
+
+        /**
+         * @returns {Person[]} the authors of this article.
+         */
+        get authors() {
+            //TODO:...
+        }
+
+        /**
+         * @returns {String[]} the plugins required for this article.
+         */
+        get plugins() {
+            return this._plugins;
+        }
+
     }
