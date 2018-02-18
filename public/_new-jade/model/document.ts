@@ -37,6 +37,18 @@ const DEFAULT_PRIORITY = 0.5;
  */
 class WebDocument {
 
+    constructor({
+        headline, description, path,
+        changeFrequency = DEFAULT_CHANGE_FREQUENCY,
+        priority = DEFAULT_PRIORITY 
+    }) {
+        this._headline = headline;
+        this._description = description;
+        this._path = path;
+        this._changeFrequency = changeFrequency;
+        this._priority = priority;
+    }
+
     /**
      * @returns {String} the headline of this web document.
      */
@@ -70,26 +82,55 @@ class WebDocument {
      * @returns {String} the relative path of this web document.
      */
     get relativePath() {
-        return this._relativePath;
+        return "/" + this.path.join("/");
     }
 
     /**
      * @returns {String} the URL of this web document.
      */
     get url() {
-        return this._url;
+        return Site.url() + this.relativePath;
+    }
+
+    /**
+     * @returns {String} the string literal of this web document's locale.
+     */
+    get localeSlug() {
+        let path = this.path;
+        if (path.length >= 2) {
+            return path[0];
+        } else {
+            return null;
+        }
     }
 
     /**
      * @returns {Locale} the locale of this web document.
      */
     get locale() {
-        return this._locale;
+        if (this.localeSlug) {
+            return Locale.parse(this.localeSlug);
+        } else {
+            return null;
+        }
     }
 
     /**
-     * @returns {String} the change frequency of this document for the sitemap 
-     * indexing.
+     * @returns {Object} the data of the directory which contains this web
+     * document.
+     */
+    get directoryData() {
+        let data = ROOT;
+        let path = this.path;
+        for (let i = 0; i < path.length - 1; i++) {
+            data = data[path];
+        }
+        return data;
+    }
+
+    /**
+     * @returns {String} the change frequency of this document for the 
+     * sitemap indexing.
      */
     get changeFrequency() {
         return this._changeFrequency;
