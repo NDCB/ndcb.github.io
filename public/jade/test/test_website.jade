@@ -8,8 +8,8 @@ p Website Authentifications:
 pre!=JSON.stringify(WEBSITE.authentifications, null, "\t")
 h2 Contents
 -let path = ["fr-CA", "mathematiques", "5e-secondaire-sn", "les-coniques"];
-pre!=JSON.stringify(WEBSITE.contents(path), null, "\t")
+details: pre!=JSON.stringify(WEBSITE.contents(path), null, "\t")
 h2 Data
-pre!=JSON.stringify(WEBSITE.data(path), null, "\t")
+details: pre!=JSON.stringify(WEBSITE.data(path), null, "\t")
 h2 Root
-pre!=JSON.stringify(WEBSITE.root, null, "\t")
+details: pre!=JSON.stringify(WEBSITE.root, null, "\t")

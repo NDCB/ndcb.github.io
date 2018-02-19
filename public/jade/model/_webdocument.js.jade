@@ -1,8 +1,8 @@
 -
     /**
-    * The array of valid change frequencies for the sitemap indexing.
-    * See: https://www.sitemaps.org/protocol.html.
-    */
+     * The array of valid change frequencies for the sitemap indexing.
+     * See: https://www.sitemaps.org/protocol.html.
+     */
     const CHANGE_FREQUENCIES = [
         "always",
         "hourly",
@@ -14,34 +14,36 @@
     ];
 
     /** 
-    * The default change frequency of a web document for the sitemap indexing.
-    */
+     * The default change frequency of a web document for the sitemap indexing.
+     */
     const DEFAULT_CHANGE_FREQUENCY = CHANGE_FREQUENCIES[4]; //monthly
 
     /**
-    * The minimal priority of a web document for the sitemap indexing.
-    */
+     * The minimal priority of a web document for the sitemap indexing.
+     */
     const MINIMUM_PRIORITY = 0.0;
 
     /**
-    * The maximal priority of a web document for the sitemap indexing.
-    */
+     * The maximal priority of a web document for the sitemap indexing.
+     */
     const MAXIMUM_PRIORITY = 1.0;
 
     /**
-    * The default priority of a web document for the sitemap indexing.
-    */
+     * The default priority of a web document for the sitemap indexing.
+     */
     const DEFAULT_PRIORITY = 0.5;
 
     /**
-    * Describes a web document featured on the website.
-    */
+     * Describes a web document featured on the website.
+     */
     class WebDocument {
 
         constructor({
-            headline, description, path,
+            headline,
+            description,
+            path,
             changeFrequency = DEFAULT_CHANGE_FREQUENCY,
-            priority = DEFAULT_PRIORITY 
+            priority = DEFAULT_PRIORITY
         }) {
             this._headline = headline;
             this._description = description;
@@ -51,51 +53,52 @@
         }
 
         /**
-        * @returns {String} the headline of this web document.
-        */
+         * @returns {String} the headline of this web document.
+         */
         get headline() {
             return this._headline;
         }
 
         /**
-        * @returns {String} the filename of this web document.
-        */
+         * @returns {String} the filename of this web document.
+         */
         get slug() {
             let path = this.path;
             return path[path.length - 1];
         }
 
         /**
-        * @returns {String} the description of this web document.
-        */
+         * @returns {String} the description of this web document.
+         */
         get description() {
             return this._description;
         }
 
         /**
-        * @returns {String[]} the path of this web document.
-        */
+         * @returns {String[]} the path of this web document, including its 
+         * actual file.
+         */
         get path() {
             return this._path;
         }
 
         /**
-        * @returns {String} the relative path of this web document.
-        */
+         * @returns {String} the relative path of this web document.
+         */
         get relativePath() {
             return "/" + this.path.join("/");
         }
 
         /**
-        * @returns {String} the URL of this web document.
-        */
+         * @returns {String} the URL of this web document.
+         */
         get url() {
             return WEBSITE.url() + this.relativePath;
         }
 
         /**
-        * @returns {String} the string literal of this web document's locale.
-        */
+         * @returns {String} the string literal of this web document's locale.
+         */
         get localeSlug() {
             let path = this.path;
             if (path.length >= 2) {
@@ -106,8 +109,8 @@
         }
 
         /**
-        * @returns {Locale} the locale of this web document.
-        */
+         * @returns {Locale} the locale of this web document.
+         */
         get locale() {
             if (this.localeSlug) {
                 return Locale.parse(this.localeSlug);
@@ -117,30 +120,25 @@
         }
 
         /**
-        * @returns {Object} the data of the directory which contains this web
-        * document.
-        */
+         * @returns {Object} the data of the directory which contains this web
+         * document.
+         */
         get directoryData() {
-            let data = ROOT;
-            let path = this.path;
-            for (let i = 0; i < path.length - 1; i++) {
-                data = data[path];
-            }
-            return data;
+            return WEBSITE.directory(this.path.splice(-1));
         }
 
         /**
-        * @returns {String} the change frequency of this document for the 
-        * sitemap indexing.
-        */
+         * @returns {String} the change frequency of this document for the 
+         * sitemap indexing.
+         */
         get changeFrequency() {
             return this._changeFrequency;
         }
 
         /**
-        * @param {String} changeFrequency the new change frequency of this web 
-        * document.
-        */
+         * @param {String} changeFrequency the new change frequency of this web 
+         * document.
+         */
         set changeFrequency(changeFrequency) {
             if (WebDocument.validChangeFrequency(changeFrequency)) {
                 this._changeFrequency = changeFrequency;
@@ -148,25 +146,25 @@
         }
 
         /**
-        * @param {String} changeFrequency the change frequency to validate.
-        * @returns {Boolean} whether or not a given change frequency literal is 
-        * valid.
-        */
+         * @param {String} changeFrequency the change frequency to validate.
+         * @returns {Boolean} whether or not a given change frequency literal is 
+         * valid.
+         */
         static validChangeFrequency(changeFrequency) {
             return CHANGE_FREQUENCIES.includes(changeFrequency);
         }
 
         /**
-        * @returns {Number} the priority of this web document for the sitemap 
-        * indexing.
-        */
+         * @returns {Number} the priority of this web document for the sitemap 
+         * indexing.
+         */
         get priority() {
             return this._priority;
         }
 
         /**
-        * @param {Number} priority the new priority of the document.
-        */
+         * @param {Number} priority the new priority of the document.
+         */
         set priority(priority) {
             if (WebDocument.validPriority(priority)) {
                 this._priority = priority;
@@ -174,9 +172,9 @@
         }
 
         /**
-        * @param {Number} priority the priority to validate.
-        * @returns {Boolean} whether or not a given priority is valid.
-        */
+         * @param {Number} priority the priority to validate.
+         * @returns {Boolean} whether or not a given priority is valid.
+         */
         static validPriority(priority) {
             return priority >= MINIMUM_PRIORITY && priority <= MAXIMUM_PRIORITY;
         }

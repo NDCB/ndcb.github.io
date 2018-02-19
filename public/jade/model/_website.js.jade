@@ -53,15 +53,23 @@
         }
 
         /**
-         * Retrieves the contents of a directory at the specified path.
-         * @param {String[]} path the path of directory.
+         * Retrieves the data of a directory at the specified path.
+         * @param {String[]} path the path of directory. 
          */
-        contents(path) {
+        directory(path) {
             let directory = this.root;
             for (let i = 0; i < path.length; i++) {
                 directory = directory[path[i]];
             }
-            return directory._contents;
+            return directory;
+        }
+
+        /**
+         * Retrieves the contents of a directory at the specified path.
+         * @param {String[]} path the path of directory.
+         */
+        contents(path) {
+            return this.directory(path)._contents;
         }
 
         /**
@@ -69,11 +77,7 @@
          * @param {String[]} path the path of directory.
          */
         data(path) {
-            let directory = this.root;
-            for (let i = 0; i < path.length; i++) {
-                directory = directory[path[i]];
-            }
-            return directory._data;
+            return this.directory(path)._data;
         }
 
     }
