@@ -1,8 +1,13 @@
 -
+    /**
+     * Workaround strict reserved word to access Harp `public` variable.
+     */
+    const DEFAULT_ROOT = public;
+    
     class Website {
 
         constructor({
-            root = public, name, url, sourceUrl, thumbnailsFolder, 
+            root = DEFAULT_ROOT, name, url, sourceUrl, thumbnailsFolder, 
             authentifications, socialProfiles
         }) {
             this._root = root;
@@ -59,6 +64,21 @@
             return directory._contents;
         }
 
-    }
+        /**
+         * Retrieves the data of a directory at the specified path.
+         * @param {String[]} path the path of directory.
+         */
+        data(path) {
+            let directory = this.root;
+            for (let i = 0; i < path.length; i++) {
+                directory = directory[path[i]];
+            }
+            return directory._data;
+        }
 
-    const WEBSITE = new Website(public._data.Website);
+    }
+    
+    /**
+     * The current website.
+     */
+    const WEBSITE = new Website(DEFAULT_ROOT._data.website);
