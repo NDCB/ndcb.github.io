@@ -1,6 +1,23 @@
 -
     class Website {
 
+        constructor({
+            root = public, name, url, sourceUrl, thumbnailsFolder, 
+            authentifications, socialProfiles
+        }) {
+            this._root = root;
+            this._name = name;
+            this._url = url;
+            this._sourceUrl = sourceUrl;
+            this._thumbnailsFolder = thumbnailsFolder;
+            this._authentifications = authentifications;
+            this._socialProfiles = socialProfiles;
+        }
+
+        get root() {
+            return this._root;
+        }
+
         /**
          * @returns {String} the name of this website.
          */
@@ -16,7 +33,7 @@
         }
 
         /**
-         * @returns {String} the sourc URL of this website.
+         * @returns {String} the source URL of this website.
          */
         get sourceUrl() {
             return this._sourceUrl;
@@ -30,7 +47,18 @@
             return this._authentifications;
         }
 
+        /**
+         * Retrieves the contents of a directory at the specified path.
+         * @param {String[]} path the path of directory.
+         */
+        contents(path) {
+            let directory = this.root;
+            for (let i = 0; i < path.length; i++) {
+                directory = directory[path[i]];
+            }
+            return directory._contents;
+        }
+
     }
 
-    //TODO:
-    //const WEBSITE = new Website(...);
+    const WEBSITE = new Website(public._data.Website);

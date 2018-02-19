@@ -10,7 +10,7 @@
         "url": "https://ndcb.github.io",
         "sourceUrl": "https://github.com/NDCB/ndcb.github.io",
         "thumbnailsFolder": "/resources/thumbnails/",
-        "authentification": {
+        "authentifications": {
             "googleSiteVerificationId": "j5wDthszLVOJrFj6TCCMO-eYVVxWpBX9O-PtNU-c-yA",
             "googleAnalyticsTrackingId": "UA-102987614-1",
             "googleAdSensePublisherId": "ca-pub-2206371749235959",
