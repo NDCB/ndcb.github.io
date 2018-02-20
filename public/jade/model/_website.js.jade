@@ -8,7 +8,7 @@
 
         constructor({
             root = DEFAULT_ROOT, name, url, sourceUrl, thumbnailsFolder, 
-            authentifications, socialProfiles
+            authentifications, socialProfiles, defaultLocale
         }) {
             this._root = root;
             this._name = name;
@@ -17,6 +17,7 @@
             this._thumbnailsFolder = thumbnailsFolder;
             this._authentifications = authentifications;
             this._socialProfiles = socialProfiles;
+            this.defaultLocale = defaultLocale;
         }
 
         get root() {
@@ -50,6 +51,21 @@
          */
         get authentifications() {
             return this._authentifications;
+        }
+
+        /**
+         * Sets the default locale of this website to the locale whose slug
+         * corresponds to the given locale slug.
+         */
+        set defaultLocale(localeSlug) {
+            this._defaultLocale = Locale.parse(localeSlug);
+        }
+
+        /**
+         * @returns {Locale} the default locale of this website.
+         */
+        get defaultLocale() {
+            return this._defaultLocale;
         }
 
         /**
