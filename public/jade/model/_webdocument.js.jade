@@ -86,14 +86,18 @@
          * @returns {String} the relative path of this web document.
          */
         get relativePath() {
-            return "/" + this.path.join("/");
+            if (this.locale.slug == WEBSITE.defaultLocale.slug) {
+                return "/" + this.path.slice(1).join("/");
+            } else {
+                return "/" + this.path.join("/");
+            }
         }
 
         /**
          * @returns {String} the URL of this web document.
          */
         get url() {
-            return WEBSITE.url() + this.relativePath;
+            return WEBSITE.url + this.relativePath;
         }
 
         /**
@@ -112,11 +116,7 @@
          * @returns {Locale} the locale of this web document.
          */
         get locale() {
-            if (this.localeSlug) {
-                return Locale.parse(this.localeSlug);
-            } else {
-                return null;
-            }
+            return Locale.parse(this.localeSlug);
         }
 
         /**
@@ -124,7 +124,7 @@
          * document.
          */
         get directoryData() {
-            return WEBSITE.directory(this.path.splice(-1));
+            return WEBSITE.directory(this.path.slice(-1));
         }
 
         /**

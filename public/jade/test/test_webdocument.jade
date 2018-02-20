@@ -2,40 +2,21 @@ include ../model/model.jade
 h1 Testing Web Document
 h2 Valid Localized Web Document
 -
-    let validLocalizedWebDocument = new WebDocument({
+    let mockWebDocument = new WebDocument({
         headline: "Test Valid Localized Web Document",
         description: "A mock object used for testing purposes",
-        path: ["locale", "category", "valid-localized-web-document"],
+        path: ["fr-CA", "category", "valid-localized-web-document"],
         changeFrequency: "yearly",
         priority: "0.7"
     });
-p Document headline: #{validLocalizedWebDocument.headline}.
-p Document description: #{validLocalizedWebDocument.description}.
-p Document path: #{JSON.stringify(validLocalizedWebDocument.path)}.
-p Document relative path: #{validLocalizedWebDocument.relativePath}.
-//p Document URL: #{validLocalizedWebDocument.url}.
-p Document locale slug: #{validLocalizedWebDocument.localeSlug}.
-//p Document locale: #{validLocalizedWebDocument.locale}.
-//p Document directory data: #{validLocalizedWebDocument.directoryData}.
-p Document change frequency: #{validLocalizedWebDocument.changeFrequency}.
-p Document priority: #{validLocalizedWebDocument.priority}.
-
-h2 Valid Unlocalized Web Document
--
-    let validUnlocalizedWebDocument = new WebDocument({
-        headline: "Tetst Valid Unlocalized Web Document",
-        description: "A mock object used for testing purposes",
-        path: ["valid-unlocalized-web-document"],
-        changeFrequency: "monthly",
-        priority: "0.7"
-    });
-p Document headline: #{validUnlocalizedWebDocument.headline}.
-p Document description: #{validUnlocalizedWebDocument.description}.
-p Document path: #{JSON.stringify(validUnlocalizedWebDocument.path)}.
-p Document relative path: #{validUnlocalizedWebDocument.relativePath}.
-//p Document URL: #{validUnlocalizedWebDocument.url}.
-p Document locale slug: #{validUnlocalizedWebDocument.localeSlug}.
-//p Document locale: #{validUnlocalizedWebDocument.locale}.
-//p Document directory data: #{validUnlocalizedWebDocument.directoryData}.
-p Document change frequency: #{validUnlocalizedWebDocument.changeFrequency}.
-p Document priority: #{validUnlocalizedWebDocument.priority}.
+p Document headline: #{mockWebDocument.headline}.
+p Document description: #{mockWebDocument.description}.
+p Document path: #{JSON.stringify(mockWebDocument.path)}.
+p Document relative path: #{mockWebDocument.relativePath}.
+p Document URL: #{mockWebDocument.url}.
+p Document locale slug: #{mockWebDocument.localeSlug}.
+p Document locale:
+details: pre!=JSON.stringify(mockWebDocument.locale, null, "\t")
+//p Document directory data: #{mockWebDocument.directoryData}.
+p Document change frequency: #{mockWebDocument.changeFrequency}.
+p Document priority: #{mockWebDocument.priority}.
