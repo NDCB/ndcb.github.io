@@ -14,8 +14,10 @@
             "authors": [
                 "marc-antoine-ouimet"
             ],
-            "containsMath": true,
-            "allowsComments": true,
+            "plugins": [
+                "mathjax",
+                "disqus"
+            ],
             "publicationDate": "",
             "lastestModificationDate": "",
             "changefreq": "monthly"
@@ -27,8 +29,10 @@
             "authors": [
                 "marc-antoine-ouimet"
             ],
-            "containsMath": true,
-            "allowsComments": true,
+            "plugins": [
+                "mathjax",
+                "disqus"
+            ],
             "publicationDate": "2017-08-18",
             "lastestModificationDate": "2018-01-21",
             "changefreq": "monthly"
@@ -40,8 +44,10 @@
             "authors": [
                 "marc-antoine-ouimet"
             ],
-            "containsMath": true,
-            "allowsComments": true,
+            "plugins": [
+                "mathjax",
+                "disqus"
+            ],
             "publicationDate": "2017-08-26",
             "lastestModificationDate": "2018-01-21",
             "changefreq": "monthly"
@@ -53,8 +59,10 @@
             "authors": [
                 "marc-antoine-ouimet"
             ],
-            "containsMath": true,
-            "allowsComments": true,
+            "plugins": [
+                "mathjax",
+                "disqus"
+            ],
             "publicationDate": "",
             "lastestModificationDate": "",
             "changefreq": "monthly"
@@ -66,8 +74,10 @@
             "authors": [
                 "marc-antoine-ouimet"
             ],
-            "containsMath": true,
-            "allowsComments": true,
+            "plugins": [
+                "mathjax",
+                "disqus"
+            ],
             "publicationDate": "",
             "lastestModificationDate": "",
             "changefreq": "monthly"
@@ -79,8 +89,10 @@
             "authors": [
                 "marc-antoine-ouimet"
             ],
-            "containsMath": true,
-            "allowsComments": true,
+            "plugins": [
+                "mathjax",
+                "disqus"
+            ],
             "publicationDate": "",
             "lastestModificationDate": "",
             "changefreq": "monthly"
@@ -92,8 +104,10 @@
             "authors": [
                 "marc-antoine-ouimet"
             ],
-            "containsMath": true,
-            "allowsComments": true,
+            "plugins": [
+                "mathjax",
+                "disqus"
+            ],
             "publicationDate": "",
             "lastestModificationDate": "",
             "changefreq": "monthly"
