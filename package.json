@@ -6,10 +6,10 @@
   },
   "version": "1.0.0",
   "description": "An educational website for mathematics, physics and computer science.",
-  "main": "public/index.jade",
+  "main": "index.js",
   "scripts": {
     "deploy": "./scripts/deploy.sh",
-    "server": "harp server ./public/"
+    "start": "node index.js server"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,9 @@
     "harp": "^0.25.0",
     "jstransformer-scss": "^1.0.0",
     "moment": "^2.20.1",
-    "pug": "^2.0.0-rc.4"
+    "pug": "^2.0.0-rc.4",
+    "yargs": "^11.0.0",
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1"
   }
 }

@@ -5,7 +5,7 @@ before_script:
   - npm install
   - chmod +x ./scripts/deploy.sh
 script:
-  - npm run-script deploy
+  - npm run deploy
 notifications:
   email:
     on_success: always
