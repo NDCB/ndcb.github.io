@@ -11,15 +11,23 @@
             "headline": "À propos",
             "description": "À propos du site et des personnes impliquées dans sa réalisation et sa rédaction.",
             "iconClass": "info-circle",
-            "isAboutPage": true,
-            "changeFrequency": "monthly"
+            "changeFrequency": "monthly",
+            "type": "about"
         },
 
         "recherche": {
             "headline": "Recherche",
             "description": "Effectuer une recherche parmi les articles du site.",
             "iconClass": "search",
-            "changeFrequency": "never"
+            "changeFrequency": "never",
+            "type": "search"
+        },
+
+        "politique-de-confidentialite": {
+            "headline": "Politique de confidentialité",
+            "description": "La politique de confidentialité du site.",
+            "changeFrequency": "never",
+            "type": "privacy-policy"
         }
     },
 

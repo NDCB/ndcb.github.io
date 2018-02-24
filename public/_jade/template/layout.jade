@@ -1,4 +1,10 @@
 -console.log(moment().format());
+-
+    var websiteData = public._data.website;
+    websiteData.root = public;
+    const WEBSITE = new Website(websiteData);
+    const CURRENT_PATH = current.path;
+    const DOCUMENT = WebDocument.parse(WEBSITE, CURRENT_PATH);
 doctype html
 html
     include _head
