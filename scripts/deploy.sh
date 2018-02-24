@@ -2,10 +2,10 @@
 echo "Starting deployment"
 echo "Target: master branch"
 
-DEFAULT_LOCALE=`node -p "require('./public/_data.json').website.defaultLocale"` || exit 1
-echo "Default locale set to "$DEFAULT_LOCALE
-
 PROJECT_PATH=`node -p "require('./package.json').projectDirectory"`
+DATA_FILE=$PROJECT_PATH"_data.json"
+DEFAULT_LOCALE=`node -p "require('$DATA_FILE').website.defaultLocale"` || exit 1
+echo "Default locale set to "$DEFAULT_LOCALE
 
 TEMP_DIRECTORY="/tmp/deploy"
 CURRENT_COMMIT=`git rev-parse HEAD`
@@ -30,8 +30,8 @@ cp $TEMP_DIRECTORY/.gitignore . || exit 1
 echo "Copying the default locale at the root path"
 rm -rf $TEMP_DIRECTORY
 mkdir $TEMP_DIRECTORY || exit 1
-cp -r .$DEFAULT_LOCALE/* $TEMP_DIRECTORY || exit 1
-rm -rf .$DEFAULT_LOCALE
+cp -r ./$DEFAULT_LOCALE/* $TEMP_DIRECTORY || exit 1
+rm -rf ./$DEFAULT_LOCALE
 cp -r $TEMP_DIRECTORY/* . || exit 1
 
 echo "Committing deployment"
