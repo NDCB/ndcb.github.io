@@ -1,4 +1,3 @@
-const gulp = require('gulp');
 const argv = require('yargs').argv;
 const harp = require('harp');
 const browserSync = require('browser-sync');
@@ -19,22 +18,10 @@ global.Page = require('./lib/page').Page;
 const PROJECT_DIRECTORY = require('./package.json').projectDirectory;
 
 /**
- * The array of watched files in the project directory by extension.
+ * The default locale of the project.
  */
-const WATCHED_EXTENSIONS = ['jade', 'json', 'scss'];
-
-/**
- * Builds the Gulp watch arguments.
- * @return {String[]} the array of built watch arguments.
- */
-const buildWatchArguments = function() {
-    let builtArguments = [];
-    for (let i = 0; i < WATCHED_EXTENSIONS.length; i++) {
-        builtArguments.push(
-            PROJECT_DIRECTORY + '**/*.' + WATCHED_EXTENSIONS[i]);
-    }
-    return builtArguments;
-};
+const DEFAULT_LOCALE = require(PROJECT_DIRECTORY + '_data.json').website
+    .defaultLocale;
 
 /**
  * Logs a message.
@@ -78,9 +65,8 @@ const server = function() {
             browserSync({
                 proxy: adress,
                 open: 'local',
-            });
-            gulp.watch(buildWatchArguments(), function() {
-                browserSync.reload();
+                files: PROJECT_DIRECTORY,
+                startPath: DEFAULT_LOCALE + '/',
             });
             log('Server running at ' + adress
                 + '\n' + 'Press Ctrl+C to stop the server');
