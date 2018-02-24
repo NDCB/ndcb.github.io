@@ -1,5 +1,7 @@
 {
   "name": "ndcb.github.io",
+  "private": true,
+  "projectDirectory": "./public/",
   "engines": {
     "vscode": "^0.10.0",
     "npm": "^3.10.3"
@@ -28,6 +30,12 @@
     "pug": "^2.0.0-rc.4",
     "yargs": "^11.0.0",
     "browser-sync": "^2.23.6",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "normalize": "^0.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "eslint-config-google": "^0.9.1",
+    "jsdoc": "^3.5.5"
   }
 }

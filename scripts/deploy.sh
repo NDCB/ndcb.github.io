@@ -5,7 +5,7 @@ echo "Target: master branch"
 DEFAULT_LOCALE=`node -p "require('./public/_data.json').website.defaultLocale"` || exit 1
 echo "Default locale set to "$DEFAULT_LOCALE
 
-PROJECT_PATH="./public/"
+PROJECT_PATH=`node -p "require('./package.json').projectDirectory"`
 
 TEMP_DIRECTORY="/tmp/deploy"
 CURRENT_COMMIT=`git rev-parse HEAD`
