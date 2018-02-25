@@ -1,11 +1,14 @@
 {
     "website": {
         "name": "NDCB",
+        "shortName": "NDCB",
         "url": "https://ndcb.github.io",
         "sourceUrl": "https://github.com/NDCB/ndcb.github.io",
         "defaultLocale": "fr-CA",
         "thumbnailsFolder": "/resources/thumbnails/",
         "defaultThumbnail": "thumbnail-dark.png",
+        "themeColor": "#34495e",
+        "faviconFolder": "/resources/favicon/",
         "authentifications": {
             "googleSiteVerificationId": "j5wDthszLVOJrFj6TCCMO-eYVVxWpBX9O-PtNU-c-yA",
             "googleAnalyticsTrackingId": "UA-102987614-1",
@@ -95,11 +98,19 @@
         }
     },
 
-    "sitemap.xml": {
+    "browserconfig.xml": {
         "layout": false
     },
 
+    "manifest.json": {
+        "layout": false
+    },
+    
     "robots.txt": {
+        "layout": false
+    },
+
+    "sitemap.xml": {
         "layout": false
     }
 }
