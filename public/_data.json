@@ -1,15 +1,11 @@
 {
-    "pages": {
-        "index": {
-            "headline": "NDCB"
-        }
-    },
-
     "website": {
         "name": "NDCB",
         "url": "https://ndcb.github.io",
         "sourceUrl": "https://github.com/NDCB/ndcb.github.io",
+        "defaultLocale": "fr-CA",
         "thumbnailsFolder": "/resources/thumbnails/",
+        "defaultThumbnail": "thumbnail-dark.png",
         "authentifications": {
             "googleSiteVerificationId": "j5wDthszLVOJrFj6TCCMO-eYVVxWpBX9O-PtNU-c-yA",
             "googleAnalyticsTrackingId": "UA-102987614-1",
@@ -24,8 +20,7 @@
             "googlePlusAccount": "117658749192198190558",
             "githubAccount": "NDCB",
             "emailAddress": "ouimetmarcantoine@gmail.com"
-        },
-        "defaultLocale": "fr-CA"
+        }
     },
 
     "persons": {

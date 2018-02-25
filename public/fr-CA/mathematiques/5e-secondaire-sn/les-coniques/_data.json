@@ -3,7 +3,7 @@
         "index": {
             "headline": "Les coniques",
             "description": "Tout ce qu'il y a à savoir sur les courbes planes que sont les sections coniques.",
-            "changefreq": "weekly"
+            "changeFrequency": "weekly"
         }
     },
 
@@ -20,7 +20,7 @@
             ],
             "publicationDate": "",
             "lastestModificationDate": "",
-            "changefreq": "monthly"
+            "changeFrequency": "monthly"
         },
         
         "le-cercle": {
@@ -35,7 +35,7 @@
             ],
             "publicationDate": "2017-08-18",
             "lastestModificationDate": "2018-01-21",
-            "changefreq": "monthly"
+            "changeFrequency": "monthly"
         },
 
         "lellipse": {
@@ -50,7 +50,7 @@
             ],
             "publicationDate": "2017-08-26",
             "lastestModificationDate": "2018-01-21",
-            "changefreq": "monthly"
+            "changeFrequency": "monthly"
         },
 
         "lhyperbole": {
@@ -65,7 +65,7 @@
             ],
             "publicationDate": "",
             "lastestModificationDate": "",
-            "changefreq": "monthly"
+            "changeFrequency": "monthly"
         },
 
         "la-parabole": {
@@ -80,7 +80,7 @@
             ],
             "publicationDate": "",
             "lastestModificationDate": "",
-            "changefreq": "monthly"
+            "changeFrequency": "monthly"
         },
 
         "resume-des-coniques": {
@@ -95,7 +95,7 @@
             ],
             "publicationDate": "",
             "lastestModificationDate": "",
-            "changefreq": "monthly"
+            "changeFrequency": "monthly"
         },
 
         "exercices-sur-les-coniques": {
@@ -110,7 +110,7 @@
             ],
             "publicationDate": "",
             "lastestModificationDate": "",
-            "changefreq": "monthly"
+            "changeFrequency": "monthly"
         }
     }
 }

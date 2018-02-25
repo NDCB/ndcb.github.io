@@ -3,14 +3,12 @@
         "index": {
             "headline": "Notes de cours blog",
             "description": "Trouvez des articles de renforcement en mathématiques, physique et informatique du secondaire et du collégial pour miser sur l'excellence.",
-            "iconClass": "home",
             "changeFrequency": "weekly"
         },
 
         "a-propos": {
             "headline": "À propos",
             "description": "À propos du site et des personnes impliquées dans sa réalisation et sa rédaction.",
-            "iconClass": "info-circle",
             "changeFrequency": "monthly",
             "type": "about"
         },
@@ -18,7 +16,6 @@
         "recherche": {
             "headline": "Recherche",
             "description": "Effectuer une recherche parmi les articles du site.",
-            "iconClass": "search",
             "changeFrequency": "never",
             "type": "search"
         },
@@ -33,7 +30,6 @@
 
     "categories": {
         "mathematiques": {
-            "headline": "Mathématiques",
             "thumbnailFile": "thumbnail-blue.png",
             "themeColor": "blue"
         }

@@ -3,7 +3,7 @@
         "index": {
             "headline": "Mathématiques",
             "description": "Trouvez des articles de renforcement en mathématiques du secondaire et du collégial pour miser sur l'excellence.",
-            "changefreq": "weekly"
+            "changeFrequency": "weekly"
         }
     },
 

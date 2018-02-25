@@ -3,7 +3,7 @@
         "index": {
             "headline": "Les fonctions dérivées",
             "description": "Tout ce qu'il y a à savoir sur les fonctions dérivées.",
-            "changefreq": "weekly"
+            "changeFrequency": "weekly"
         }
     },
 
@@ -20,7 +20,7 @@
             ],
             "publicationDate": "2017-11-19",
             "lastestModificationDate": "2017-12-10",
-            "changefreq": "monthly"
+            "changeFrequency": "monthly"
         }
     }
 }
