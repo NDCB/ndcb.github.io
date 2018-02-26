@@ -7,10 +7,13 @@ global.moment = require('moment');
 
 global.Locale = require('./lib/locale').Locale;
 global.Website = require('./lib/website').Website;
+global.COLORS = require('./lib/website').COLORS;
 global.Person = require('./lib/person').Person;
 global.WebDocument = require('./lib/webdocument').WebDocument;
 global.Article = require('./lib/article').Article;
 global.Page = require('./lib/page').Page;
+global.PAGE_TYPES = require('./lib/page').TYPES;
+global.Category = require('./lib/category').Category;
 
 /**
  * The directory of the project.
