@@ -18,7 +18,8 @@ global.Category = require('./lib/category').Category;
 /**
  * The directory of the project.
  */
-const PROJECT_DIRECTORY = require('./package.json').projectDirectory;
+const PROJECT_DIRECTORY = require('./package.json').projectConfiguration
+    .directory;
 
 /**
  * The default locale of the project.

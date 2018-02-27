@@ -1,7 +1,11 @@
 {
   "name": "ndcb.github.io",
   "private": true,
-  "projectDirectory": "./public/",
+  "projectConfiguration": {
+    "directory": "./public/",
+    "buildPath": "/tmp/build",
+    "deploymentTargetBranch": "master"
+  },
   "engines": {
     "vscode": "^0.10.0",
     "npm": "^3.10.3"
@@ -10,6 +14,7 @@
   "description": "An educational website for mathematics, physics and computer science.",
   "main": "index.js",
   "scripts": {
+    "build": "./scripts/build.sh",
     "deploy": "./scripts/deploy.sh",
     "start": "node index.js server"
   },
@@ -30,7 +35,10 @@
     "pug": "^2.0.0-rc.4",
     "yargs": "^11.0.0",
     "browser-sync": "^2.23.6",
-    "normalize": "^0.3.1"
+    "normalize": "^0.3.1",
+    "flexbox-grid": "^1.0.0",
+    "flag-icon-css": "^3.0.0",
+    "font-awesome": "^4.7.0"
   },
   "devDependencies": {
     "eslint": "^4.18.1",
