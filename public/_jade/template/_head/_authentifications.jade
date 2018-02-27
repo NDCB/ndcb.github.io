@@ -1,0 +1,13 @@
+-let authentifications = WEBSITE.authentifications;
+if authentifications.googleSiteVerificationId
+    meta(name="google-site-verification" content=WEBSITE.decodeAuthentification(
+        authentifications.googleSiteVerificationId))
+if authentifications.bingWebmasterValidationId
+    meta(name="msvalidate.01" content=WEBSITE.decodeAuthentification(
+        authentifications.bingWebmasterValidationId))
+if authentifications.facebookApplicationId
+    meta(property='fb:app_id' content=WEBSITE.decodeAuthentification(
+        authentifications.facebookApplicationId))
+if authentifications.yandexWebmasterVerificationCode
+    meta(name="yandex-verification" content=WEBSITE.decodeAuthentification(
+        authentifications.yandexWebmasterVerificationCode))

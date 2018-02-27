@@ -1,11 +1,9 @@
--console.log(moment().format());
+include ../model
 -
-    var websiteData = public._data.website;
-    websiteData.root = public;
-    const WEBSITE = new Website(websiteData);
-    const CURRENT_PATH = current.path;
     const DOCUMENT = WebDocument.parse(WEBSITE, CURRENT_PATH);
+    const LOCALE = Locale.parse(WEBSITE, CURRENT_PATH);
+-console.log(moment().format() + " Processing " + DOCUMENT.relativePath);
 doctype html
-html
-    include _head
+html(lang!=LOCALE.slug)
+    include _head/head
     include _body

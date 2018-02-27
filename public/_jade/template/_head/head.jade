@@ -1,0 +1,34 @@
+head(prefix='og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='manifest' href='/manifest.json')
+    if DOCUMENT.headline
+        title=DOCUMENT.headline
+    if DOCUMENT.description
+        meta(name='description' content=DOCUMENT.description)
+    include _authentifications
+    include _favicon
+    include _openGraph
+    include _twitter
+    if DOCUMENT instanceof Article
+        include _publisher
+    //- Google Analytics
+    if environment === 'production'
+        include _googleAnalytics
+    else
+        //Will be included accordingly
+        meta(property='google-analytics-id' 
+        content=WEBSITE.decodeAuthentification(
+            WEBSITE.authentifications.googleAnalyticsTrackingId))
+    //- Google AdSense
+    if DOCUMENT instanceof Article
+        if environment === 'production'
+            include _googleAdSense
+        else
+            //Will be included accordingly
+            meta(property='google-adsense-id' 
+            content=WEBSITE.decodeAuthentification(
+                WEBSITE.authentifications.googleAdSensePublisherId))
+    include _stylesheets
+    include ../../plugins/_stylesheets
+    include _scripts
+    include ../../plugins/_head-scripts
