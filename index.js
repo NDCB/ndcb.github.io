@@ -3,7 +3,9 @@ const harp = require('harp');
 const browserSync = require('browser-sync');
 
 // Modules available to the templating engine
+global.util = require('util');
 global.moment = require('moment');
+global.plugins = require('./plugins').plugins;
 
 global.Locale = require('./lib/locale').Locale;
 global.Website = require('./lib/website').Website;

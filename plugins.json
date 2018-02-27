@@ -1,0 +1,25 @@
+{
+    "plugins": {
+        "normalize": {
+            "type": "mandatory-stylesheet",
+            "cdn": "https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"
+        },
+        "fontAwesome": {
+            "type": "mandatory-stylesheet",
+            "cdn": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        },
+        "flexboxGrid": {
+            "type": "mandatory-stylesheet",
+            "cdn": "https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css"
+        },
+        "disqus": {
+            "src": "https://ndcb.disqus.com/embed.js"
+        },
+        "mathjax": {
+
+        },
+        "prism": {
+            
+        }
+    }
+}
