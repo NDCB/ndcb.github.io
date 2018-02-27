@@ -1,7 +1,6 @@
-link(rel='stylesheet' href=plugins.normalize.cdn)
-link(rel='stylesheet' href=plugins.fontAwesome.cdn)
-link(rel='stylesheet' href=plugins.flexboxGrid.cdn)
-
+each plugin, slug in plugins
+    if plugin.type === 'mandatory-stylesheet'
+        link(rel='stylesheet' href=plugin.cdn)
 link(rel='stylesheet' href='/css/main.css')
 noscript
     link(rel='stylesheet' href='/css/noscript.css')
