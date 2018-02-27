@@ -1,5 +1,6 @@
 -
-    var websiteData = public._data.website;
-    websiteData.root = public;
-    const WEBSITE = new Website(websiteData);
+    const WEBSITE = new Website(Object.defineProperty(
+        public._data.website, 'root', {value: public, writable: false}));
     const CURRENT_PATH = current.path;
+    const LOCALE = Locale.parse(WEBSITE, CURRENT_PATH);
+    const DOCUMENT = WebDocument.parse(WEBSITE, CURRENT_PATH);
