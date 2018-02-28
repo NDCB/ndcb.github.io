@@ -4,6 +4,16 @@ const browserSync = require('browser-sync');
 
 // Modules available to the templating engine
 global.util = require('util');
+global.slug = require('slug');
+global.slug.defaults.mode = 'urlsafe';
+global.slug.defaults.modes['urlsafe'] = {
+    replacement: '-',
+    symbols: true,
+    remove: null,
+    lower: true,
+    charmap: slug.charmap,
+    multicharmap: slug.multicharmap,
+};
 global.moment = require('moment');
 global.plugins = require('./plugins').plugins;
 

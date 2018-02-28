@@ -1,8 +1,8 @@
-include /_jade/redaction/_redaction
+include /_jade/redaction/redaction
 
 p Les identités trigonométriques permettent de simplifier des expressions trigonométriques compliquées. Outre pour l'évaluation d'intégrales de fonctions trigonométriques, les identités trigonométriques sont utilisées dans plusieurs preuves, notamment lors de la résolution de limites de formes indéterminées.
 
-+h(2, "Les relations de Pythagore")
++section("Les relations de Pythagore")
 
     p Partant des sections coniques, l'équation d'un cercle unitaire centré à l'origine est #[+e() x^2+y^2=1.] Selon la définition des fonctions sinus et cosinus, la fonction #[+e() \cos(\alpha)] correspond à l'abscisse d'un point trigonométrique #[+e() P=(x,y)] d'angle #[+e() \alpha] et que la fonction #[+e() \sin(\alpha)] correspond à l'ordonnée du même point trigonométrique. Ce faisant:
 
@@ -31,7 +31,7 @@ p Les identités trigonométriques permettent de simplifier des expressions trig
     +leq("relation-pythagore-cotangente-cosecante"). 
         1+\cot^2(\alpha)=\csc^2(\alpha).
 
-+h(2, "Les propriétés de cofonction")
++section("Les propriétés de cofonction")
 
     p Les propriétés de cofonction des fonctions trigonométriques découlent de leur définition dans un triangle rectangle. Soit un triangle #[+e() \triangle ABC] rectangle en #[+e() B] tel que #[+e() \angle BCA=\gamma,] #[+e() \angle CAB=\alpha] et #[+e() \angle ABC=\beta=\dfrac{\pi}{2}\text{ rad}.]
 
@@ -97,7 +97,7 @@ p Les identités trigonométriques permettent de simplifier des expressions trig
     +leq("cofonction-cotangente").
          \cot\left(\dfrac{\pi}{2}-\alpha\right)=\tan(\alpha).
 
-+h(2, "Les identités de somme et de différence d'angles")
++section("Les identités de somme et de différence d'angles")
 
     p Soient les points trigonométriques #[+e() A=(\cos(\alpha),\sin(\alpha))] et #[+e() B=(\cos(\beta),\sin(\beta))] sur un cercle unitaire centré en #[+e() O,] tel que #[+e() \alpha] et #[+e() \beta] se propagent dans le sens anti-horaire à partir de l'horizontale. Le triangle #[+e() \triangle AOB] est isocèle, puisque #[+e() \overline{AO}=\overline{OB}.] Tel qu'illustré par la figure suivante, #[+e() \angle AOB=\alpha-\beta.] Pour simplifier les calculs, on pose #[+e() A=(A_x,A_y)] et #[+e() B=(B_x,B_y).]
 
@@ -229,7 +229,7 @@ p Les identités trigonométriques permettent de simplifier des expressions trig
     +leq("tangente-somme-difference-angles").
         \tan(\alpha\pm\beta)=\dfrac{\tan(\alpha)\pm\tan(\beta)}{1\mp\tan(\alpha)\tan(\beta)}.
 
-+h(2, "Les identités des angles doubles")
++section("Les identités des angles doubles")
 
     p Les identités des angles doubles permettent de simplifier la résolution de certaines intégrales. À partir des identités de somme d'angles, si les angles de l'addition sont équivalents, alors il est possible d'en dégager les identités des angles doubles.
 
@@ -264,7 +264,7 @@ p Les identités trigonométriques permettent de simplifier des expressions trig
     +leq("tangente-angle-double").
         \tan(2\alpha)=\dfrac{2\tan(\alpha)}{1-\tan^2(\alpha)}.
 
-+h(2, "Les identités de réduction de puissance")
++section("Les identités de réduction de puissance")
 
     p Les identités des angles doubles permettent de simplifier la résolution de certaines intégrales. À partir des identités des angles doubles, il est possible d'exprimer des fonctions trigonométriques élevées au carré linéairement.
 
@@ -289,7 +289,7 @@ p Les identités trigonométriques permettent de simplifier des expressions trig
     +leq("reduction-puissance-tangente").
         \tan^2(\alpha)=\dfrac{1-\cos(2\alpha)}{1+\cos(2\alpha)}.
 
-+h(2, "Les identités du passage de la somme au produit de fonctions")
++section("Les identités du passage de la somme au produit de fonctions")
 
     p En vertu de la formule de somme et de différence d'angles de la fonction sinus #[+eqref("sinus-somme-difference-angles") ,] il est possible de développer l'expression suivante comme suit:
 
@@ -348,7 +348,7 @@ p Les identités trigonométriques permettent de simplifier des expressions trig
     +leq("difference-cosinus-produit").
         \cos(\alpha)+\cos(\beta)=-2\sin\left(\dfrac{\alpha+\beta}{2}\right)\sin\left(\dfrac{\alpha-\beta}{2}\right).
 
-+h(2, "Les identités du passage du produit à la somme de fonctions")
++section("Les identités du passage du produit à la somme de fonctions")
 
     p Les formules du passage du produit à la somme de fonctions trigonométriques permet de simplifier la résolution d'intégrales.
 

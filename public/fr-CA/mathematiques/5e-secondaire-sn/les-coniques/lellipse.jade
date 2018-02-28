@@ -1,4 +1,4 @@
-include /_jade/redaction/_redaction
+include /_jade/redaction/redaction
 
 p L'ellipse en tant que section conique correspond à une tranche oblique d'un cône. C'est un ensemble de points particulier qui, contrairement au cercle, comprend deux points importants nommés foyers. L'ellipse est une figure géométrique remarquable qui permet de modéliser l'orbite des planètes.
 
@@ -7,7 +7,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
 +definition("Le lieu géométrique de l'ellipse")
     p L'ellipse correspond à l'ensemble des points dont la somme des distances à deux points fixes, appelés foyers, est constante.
 
-+h(2, "L'équation cartésienne de l'ellipse")
++section("L'équation cartésienne de l'ellipse")
 
     p Partant du #[+refDefinition(0) lieu géométrique de l&#39;ellipse] posons les points distincts #[+e() F_1] et #[+e() F_2] comme foyers et le point #[+e() P=(x,y)] sur la courbe de l'ellipse. Soit #[+e() 2c,] la distance #[+e() \overline{F_1F_2}] entre les deux foyers, telle que #[+e() c\gt 0]. En vertu du théorème de Pythagore, il est possible d'exprimer les distances #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] à l'aide de la formule de la distance entre deux points. Pour simplifier les démarches, posons #[+e() O=(0,0)] comme le point milieu du segment #[+e() \overline{F_1F_2},] et l'ordonnée des foyers à #[+e() 0,] de telle sorte que #[+e() F_1=(-c,0)] et #[+e() F_2=(c,0).] Considérons les coordonnées de #[+e() P] lorsqu'il se retrouve dans l'axe décrit par la droite #[+e() \overline{F_1F_2},] en ce sens lorsque #[+e() y=0.] S'il existe un point #[+e() P=(x,0)] sur la courbe de l'ellipse tel que #[+e() x\in[-c,c],] alors il est impossible que #[+e() y] soit différent de #[+e() 0] pour l'ensemble des points respectant le #[+refDefinition(0) lieu géométrique de l&#39;ellipse] puisque la somme des distances #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] augmenterait. Par conséquent, pour #[+e() P=(x,0)] sur la courbe de l'ellipse, #[+e() x\in&#93;-\infty,-c[\cup]c,\infty&#91;.] En d'autres mots, il ne peut pas exister à la fois deux points sur la courbe de l'ellipse dont un est compris sur le segment de droite #[+e() \overline{F_1F_2}.]
 
@@ -106,7 +106,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
         p Existe-t-il un point sur la circonférence de l'ellipse d'équation #[+e() \dfrac{x^2}{9}+\dfrac{y^2}{16}=1] dont l'ordonnée vaut #[+e() 3?]
         p À partir de l'équation #[+eqref("ellipse-centre-o") ,] #[+e() b=\sqrt{16}=4.] Puisqu'une ellipse d'équation #[+eqref("ellipse-centre-o")] a pour image #[+e() [-b,b],] alors il est tout à fait possible que pour un point #[+e() P=(x,y)] sur la courbe de l'ellipse #[+e() y=3\in[-4,4].]
 
-    +h(3, "L'équation canonique de l'ellipse")
+    +section("L'équation canonique de l'ellipse")
 
         p Si l'ellipse n'était pas centrée à l'origine, l'ensemble des points aurait subit une translation horizontale de #[+e() h] unités et une translation verticale de #[+e() k] unités. Il en reviendrait à dire que les foyers #[+e() F_1] et #[+e() F_2] auraient pour coordonnées #[+e() F_1=(-c+h,k)] et #[+e() F_2=(c+h,k)] dans notre preuve plus haute. Dégager l'équation d'une ellipse à partir de l'équation #[+e() 2a=\overline{PF_1}+\overline{PF_2}] serait fastidieux, mais de manière analogue à ce que nous avons déjà fait.
 
@@ -194,11 +194,11 @@ p Étudions analytiquement l'ellipse en tant que section conique.
             +eq().
                 E:\dfrac{(x-6)^2}{160}+\dfrac{(y-4)^2}{96}=1.
 
-+h(2, "L'ellipse dans le plan cartésien")
++section("L'ellipse dans le plan cartésien")
 
     p L'équation de l'ellipse est implicite tout comme celle du cercle. Par conséquent, la résolution de problèmes impliquant les ellipses nécessitera la méthode de substitution, comparaison ou réduction. Cela dit, les ellipses décrites par les équations #[+eqref("ellipse-centre-o")] et #[+eqref("ellipse-canonique")] sont distinctes lorsque #[+e() a\gt b] et #[+e() a\lt b.]
 
-    +h(3, "Les ellipses horizontales et verticales")
+    +section("Les ellipses horizontales et verticales")
 
         +definition("L'axe focal d'une ellipse")
             p L'axe focal d'une ellipse correspond à l'axe décrit par le segment de droite reliant ses foyers #[+e() F_1] et #[+e() F_2.]
@@ -268,7 +268,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
                 Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
 
 
-    +h(3, "L'intersection d'une ellipse et d'une droite")
+    +section("L'intersection d'une ellipse et d'une droite")
 
         p Soit une ellipse d'équation #[+eqref("ellipse-canonique")] et une droite d'équation #[+e() y=mx+b\Longleftrightarrow x=\dfrac{y-b}{m}.] Lorsqu'on cherche le ou les points d'intersection entre une droite et une ellipse, il suffit de substituer l'équation de la droite dans celle de l'ellipse. Si #[+e() y=mx+b,] alors il suffit de remplacer #[+e() y] par #[+e() mx+b] dans l'équation #[+eqref("ellipse-canonique") .]
         +eq().
@@ -358,7 +358,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
             +fig("exemple-intersection-ellipse-droite-aucune-solution.svg").
                 Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
 
-    +h(3, "Le latus rectum de l'ellipse")
+    +section("Le latus rectum de l'ellipse")
 
         +definition("Le latus rectum")
             p Le latus rectum correspond à la mesure géométrique de la droite perpendiculaire à l'axe majeur d'une section conique passant par un de ses foyers et délimitée par la courbe.
@@ -439,7 +439,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
                 LR&=\dfrac{2b^2}{a}
                 \\&=\dfrac{1}{2}
 
-    +h(3, "Les inéquations et l'ellipse")
+    +section("Les inéquations et l'ellipse")
 
         p Plus tôt, nous avions mentionné que si #[+e() a=b] dans l'équation #[+eqref("ellipse-canonique") ,] alors le résultat décrirait un cercle de rayon #[+e() a]. Si nous considérions plutôt la définition de l'ellipse telle que #[+e() a\neq b,] nous pourrions tout aussi bien envoyer #[+e() a] et #[+e() b] du côté droite de l'équation.
 
@@ -521,7 +521,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
                 Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
 
 
-+h(2, "La forme générale de l'équation d'une ellipse")
++section("La forme générale de l'équation d'une ellipse")
 
     p La forme générale de l'équation d'une ellipse consiste au développement de son équation canonique #[+eqref("ellipse-canonique") .]
 

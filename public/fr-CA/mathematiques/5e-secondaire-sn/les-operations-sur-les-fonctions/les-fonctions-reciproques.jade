@@ -1,10 +1,10 @@
-include /_jade/redaction/_redaction
+include /_jade/redaction/redaction
 
 p Les fonctions réciproques sont à la base de la résolution d'équations algébriques. En effet, la réciprocité de fonctions permet d'inverser l'application d'une fonction. La réciproque d'une fonction prend sa définition dans celle des relations, puisqu'une fonction est une relation.
 
 p Une fonction n'aura de réciproque que si plusieurs critères sont remplis. Il faudra employer la définition rigoureuse des fonctions afin de les dégager.
 
-+h(2, "Les relations")
++section("Les relations")
     +definition("Le produit cartésien de deux ensembles")
         p Soient les ensembles #[+e() A] et #[+e() B.] Le produit cartésien de #[+e() A] et #[+e() B,] noté #[+e() A\times B,] correspond à l'ensemble de tous les couples distincts #[+e() (a,b)] où #[+e() a] appartient à #[+e() A] et #[+e() b] appartient à #[+e() B.] En compréhension, on exprime cet ensemble:
         +leq("produit-cartesien-ensembles") A\times B=\{(a,b)\mid a\in A\text{ et }b\in B\}.
@@ -33,7 +33,7 @@ p Une fonction n'aura de réciproque que si plusieurs critères sont remplis. Il
             R=\{(1,2),(1,3),(3,5),(4,0)\}.
         +fig("exemple-de-relation.svg") Illustration de #[+e() R.]
 
-+h(2, "La notation fonctionnelle")
++section("La notation fonctionnelle")
     +definition("La notation fonctionnelle")
         p Soit une fonction #[+e() f:A\to B.] On dit que #[+e() A] est le domaine de #[+e() f] et que son codomaine est #[+e() B.] L'image de #[+e() f] est un sous-ensemble de #[+e() B.] Une fonction est une relation définie pour l'ensemble des éléments de son domaine, de telle sorte qu'il existe toujours une et une seule valeur de #[+e() b] appartenant à #[+e() B] pour tous les éléments #[+e() a] appartenant à #[+e() A] telle que #[+e() a] et #[+e() b] sont en relation par #[+e() f.] En notation propositionnelle, la relation #[+e() f] est une fonction si la proposition de relation suivante est vraie:
         +leq("definition-fonction") \forall a\in A,\exists! b\in B,afb.
@@ -53,7 +53,7 @@ p Une fonction n'aura de réciproque que si plusieurs critères sont remplis. Il
         p Si #[+e() R] est une fonction, alors il faut que #[+e() R] satisfasse la proposition #[+eqref("definition-fonction") .] Par conséquent, il faut que pour toutes les valeurs #[+e() a] appartenant à #[+e() A] il existe une relation avec une valeur #[+e() b] appartenant à #[+e() B.] Or, il n'existe pas de relation qui associe la valeur #[+e() 2] à une autre valeur. Par conséquent, #[+e() R] n'est pas une fonction de #[+e() A] vers #[+e() B.]
         +fig("exemple-de-relation-qui-nest-pas-une-fonction-par-son-domaine.svg") Illustration de #[+e() R.]
 
-+h(2, "Les fonctions injectives")
++section("Les fonctions injectives")
     +definition("L'injection d'une fonction")
         p Une fonction #[+e() f:A\to B] est dite injective si pour une valeur d'image de #[+e() f,] il n'existe qu'une seule préimage qui renvoie cette image. Formellement, si pour #[+e() \forall x_1,x_2\in A] on remarque que #[+e() f(x_1)=f(x_2),] alors #[+e() f] est injective si cela est nécessaire et suffisant à ce que #[+e() x_1=x_2.] En notation propositionnelle, #[+e() f] est injective si la proposition suivante est vraie:
         +leq("fonction-injective") \forall x_1,\forall x_2,\left(f(x_1)=f(x_2)\to x_1=x_2\right).
@@ -67,7 +67,7 @@ p Une fonction n'aura de réciproque que si plusieurs critères sont remplis. Il
         p À priori, la fonction #[+e() g:\mathbb{R}\to\mathbb{R}^+] telle que #[+e() g:x\mapsto x^2] n'est pas injective puisque, par contre-exemple, #[+e() g(-2)=g(2).] On note au passage que #[+e() g] est paire puisque #[+e() \forall x \left(g(x)=g(-x)\right)\iff \forall x \left(x^2=(-x)^2\right).] Cela dit, le domaine de #[+e() f] est l'ensemble des réels positifs, et l'expression #[+e() x^2] est strictement croissante sur le domaine de #[+e() f.] Par conséquent, #[+e() f] est injective.
         +fig("graphe-fonction-quadratique-notation-fonctionnelle.svg") Le graphe de #[+e() f.]
 
-+h(2, "Les fonctions surjectives")
++section("Les fonctions surjectives")
     +definition("La surjection d'une fonction")
         p Une fonction #[+e() f:A\to B] est dite surjective s'il existe une préimage pour chaque élément appartenant au codomaine de #[+e() f.] Formellement, on dit que pour tous les éléments #[+e() y] appartenant à #[+e() B,] il existe un élément #[+e() x] appartenant à #[+e() A] pour lequel #[+e() f(x)=y.] En notation propositionnelle, #[+e() f] est surjective si la proposition suivante est vraie:
         +leq("fonction-surjective") \forall y\in B, \exists x\in A, f(x)=y. 
@@ -76,7 +76,7 @@ p Une fonction n'aura de réciproque que si plusieurs critères sont remplis. Il
         p Soit la fonction #[+e() f:\mathbb{R}\to\mathbb{R}:x\mapsto x^3.] Déterminez si #[+e() f] est surjective.
         p Soient #[+e() A=\mathbb{R}] le domaine de #[+e() f] et #[+e() B=\mathbb{R}] le codomaine de #[+e() f.] Pour tous les éléments #[+e() b] appartenant à #[+e() B,] on remarque que #[+e() f(\sqrt[3]{b})=b,] de telle sorte que #[+e() \sqrt[3]{b}\in A] et #[+e() b\in B] #[+eqref("fonction-surjective") .] Par conséquent, #[+e() f] est surjective.
 
-+h(2, "Les fonctions bijectives")
++section("Les fonctions bijectives")
     +definition("La bijection d'une fonction")
         p Une fonction #[+e() f:A\to B] est dite bijective si elle est à la fois injective et surjective. Ce faisant, il n'existe qu'une seule association entre chaque élément de #[+e() A] et #[+e() B.]
 
@@ -107,7 +107,7 @@ p Une fonction n'aura de réciproque que si plusieurs critères sont remplis. Il
         p Soit la fonction #[+e() f:X\to Y.] Quels sont le domaine et le codomaine de sa réciproque #[+e() g?]
         p La fonction #[+e() g] inverse l'application de #[+e() f.] Par conséquent, en vertu de la notation fonctionnelle et de l'inversibilité de fonctions, #[+e() g\circ f=I_X] et #[+e() f\circ g=I_Y.] Par conséquent, #[+e() g:Y\to X,] ce qui signifie que le domaine de #[+e() g] est #[+e() Y] et son codomaine est #[+e() X,] soit la permutation des ensembles de définition de #[+e() f.]
 
-+h(2, "Déterminer la réciproque d'une fonction")
++section("Déterminer la réciproque d'une fonction")
     +theorem("La réciproque d'une fonction par symétrie")
         p Une fonction inversible #[+e() f:A\to B] est une relation telle que #[+e() f\subseteq A\times B,] et sa fonction réciproque #[+e() g:B\to A] est une relation telle que #[+e() g\subseteq B\times A.] En compréhension, il est possible de définir la réciproque de #[+e() f:]
         +leq("fonction-reciproque") g=\left\{(y,x)\in B\times A\mid (x,y)\in f\right\}.

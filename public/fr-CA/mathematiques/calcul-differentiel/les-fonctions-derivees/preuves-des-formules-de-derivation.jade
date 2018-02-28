@@ -1,10 +1,10 @@
-include /_jade/redaction/_redaction
+include /_jade/redaction/redaction
 
 +reminder("Les fonctions dérivées par la limite")
     p Soit #[+e() f] une fonction quelconque explicite en #[+e() x.] De la définition de la fonction dérivée par la limite, la dérivée de #[+e() f] selon #[+e() x] s'exprime:
     +leq("derivee-par-limite") \dfrac{df}{dx}=\lim_{h\to 0}{\dfrac{f(x+h)-f(x)}{h}}.
 
-+h(2, "Les formules de dérivation de base")
++section("Les formules de dérivation de base")
 
     p Les formules de dérivation de base permettent de dériver toutes les fonctions rationnelles.
 
@@ -36,7 +36,7 @@ include /_jade/redaction/_redaction
         +eq().
             \dfrac{d}{dx}[u^n]=nu^{n-1}\dfrac{du}{dx}
 
-    +h(3, "La dérivée d'une fonction constante")
+    +section("La dérivée d'une fonction constante")
 
         +reminder("La dérivée en un point d'une fonction")
             p Soit #[+e() f] une fonction quelconque explicite en #[+e() x] continue au voisinage de #[+e() x=a.] La dérivée de #[+e() f] évaluée en #[+e() a] s'exprime:
@@ -47,7 +47,7 @@ include /_jade/redaction/_redaction
 
         +leq("derivee-fonction-constante") \dfrac{d}{dx}[c]=0.
 
-    +h(3, "La dérivée d'une fonction multipliée par une constante")
+    +section("La dérivée d'une fonction multipliée par une constante")
 
         p Soit la fonction #[+e() f=cu] telle que #[+e() u] est une fonction dérivable de #[+e() x,] et #[+e() c] est un réel. En vertu de la fonction dérivée par la limite #[+eqref("derivee-par-limite") :]
 
@@ -60,7 +60,7 @@ include /_jade/redaction/_redaction
 
         +leq("derivee-fonction-multiple-constante") \dfrac{d}{dx}[cu]=c\dfrac{du}{dx}.
 
-    +h(3, "La dérivée de l'addition et de la soustraction de fonctions")
+    +section("La dérivée de l'addition et de la soustraction de fonctions")
 
         p Soit la fonction #[+e() f=\color{blue}{u}\pm\color{red}{v}] telle que #[+e() \color{blue}{u}] et #[+e() \color{red}{v}] sont des fonctions dérivables de #[+e() x.] En vertu de la fonction dérivée par la limite #[+eqref("derivee-par-limite") :]
 
@@ -90,7 +90,7 @@ include /_jade/redaction/_redaction
 
         +leq("derivee-addition-soustraction-fonctions") \dfrac{d}{dx}\left[u\pm v\right]=\dfrac{du}{dx}\pm\dfrac{dv}{dx}.
 
-    +h(3, "La dérivée du produit de deux fonctions")
+    +section("La dérivée du produit de deux fonctions")
 
         p Soit la fonction #[+e() f=\color{blue}{u}\color{red}{v}] telle que #[+e() \color{blue}{u}] et #[+e() \color{red}{v}] sont des fonctions dérivables de #[+e() x.] En vertu de la fonction dérivée par la limite #[+eqref("derivee-par-limite") :]
 
@@ -149,7 +149,7 @@ include /_jade/redaction/_redaction
 
         p Cela nous ramène au résultat #[+eqref("derivee-produit-fonctions") .]
 
-    +h(3, "La dérivée du quotient de deux fonctions")
+    +section("La dérivée du quotient de deux fonctions")
 
         p Soit la fonction #[+e() f=\dfrac{\color{blue}{u}}{\color{red}{v}}] telle que #[+e() \color{blue}{u}] et #[+e() \color{red}{v}] sont des fonctions dérivables de #[+e() x.] En vertu de la fonction dérivée par la limite #[+eqref("derivee-par-limite") :]
 
@@ -241,7 +241,7 @@ include /_jade/redaction/_redaction
 
         p Cela nous ramène au résultat #[+eqref("derivee-quotient-fonctions") .]
 
-    +h(3, "La dérivée de la composition de fonctions")
+    +section("La dérivée de la composition de fonctions")
 
         p Soit la fonction #[+e() f=\color{blue}{u}\circ\color{red}{v}=\color{blue}{u(\color{red}{v})},] la composée des fonctions #[+e() \color{blue}{u}] et #[+e() \color{red}{v}] dérivables de #[+e() x.] En vertu de la fonction dérivée par la limite #[+eqref("derivee-par-limite") :]
 
@@ -273,7 +273,7 @@ include /_jade/redaction/_redaction
 
         +leq("derivee-composition-fonctions") \dfrac{d}{dx}[u\circ v]=\dfrac{d}{dx}[u(v)]=\dfrac{du}{dv}\cdot\dfrac{dv}{dx}.
 
-    +h(3, "La dérivée d'une fonction puissance")
+    +section("La dérivée d'une fonction puissance")
 
         +reminder("La notation factorielle")
             p La factorielle d'un entier #[+e() n] s'exprime:
@@ -363,7 +363,7 @@ include /_jade/redaction/_redaction
 
         +leq("derivee-fonction-puissance") \dfrac{d}{dx}[u^n]=nu^{n-1}\dfrac{du}{dx}
 
-+h(2, "Les formules de dérivation des fonctions exponentielle et logarithmique")
++section("Les formules de dérivation des fonctions exponentielle et logarithmique")
 
     p Les formules de dérivation des fonctions exponentielles et logarithmiques permettent de dériver implicitement des fonctions.
 
@@ -383,7 +383,7 @@ include /_jade/redaction/_redaction
         +eq().
             \dfrac{d}{dx}[\log_b|u|]=\dfrac{1}{u\ln(b)}\cdot\dfrac{du}{dx}
 
-    +h(3, "La dérivée d'une fonction exponentielle naturelle")
+    +section("La dérivée d'une fonction exponentielle naturelle")
 
         +reminder("La limite particulière de la fonction exponentielle")
             p Il est possible de prouver la limite suivante au moyen du théorème de l'étau:
@@ -430,7 +430,7 @@ include /_jade/redaction/_redaction
 
         p Alors, la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions")] nous permet d'exprimer #[+e() \dfrac{d}{dx}[f\circ u]] comme au résultat #[+eqref("derivee-exponentielle-naturelle") .]
 
-    +h(3, "La dérivée d'une fonction exponentielle de différente base")
+    +section("La dérivée d'une fonction exponentielle de différente base")
 
         p Soit la fonction composée #[+e() (f\circ u)(x)=f(u(x))] où #[+e() f(x)=b^x,] telle que #[+e() u] est un fonction dérivable de #[+e() x] et #[+e() b] est une constante positive et non-nulle différente de #[+e() 1.] La fonction #[+e() f] peut se réécrire ainsi:
         
@@ -464,7 +464,7 @@ include /_jade/redaction/_redaction
             \\\dfrac{df}{dx}&=\color{blue}{f}\ln(b)\dfrac{du}{dx}
             \\\dfrac{d}{dx}[b^u]&=b^u\ln(b)\dfrac{du}{dx}.
 
-    +h(3, "La dérivée d'une fonction logarithmique naturelle")
+    +section("La dérivée d'une fonction logarithmique naturelle")
     
         p Soit la fonction #[+e() f=\ln|u|] telle que #[+e() u] est une fonction dérivable de #[+e() x.] Au moyen des propriétés des exposants, il est possible d'écrire:
         
@@ -484,7 +484,7 @@ include /_jade/redaction/_redaction
         
         +leq("derivee-logarithme-naturel") \dfrac{d}{dx}[\ln|u|]=\dfrac{1}{u}\cdot\dfrac{du}{dx}.
         
-    +h(3, "La dérivée d'une fonction logarithmique de différente base")
+    +section("La dérivée d'une fonction logarithmique de différente base")
 
         p Soit la fonction #[+e() f=\log_b|u|] telle que #[+e() b\gt 0] et #[+e() u] est une fonction dérivable de #[+e() x.] Au moyen des propriétés des exposants, il est possible d'écrire:
 
@@ -504,7 +504,7 @@ include /_jade/redaction/_redaction
 
         +leq("derivee-logarithme") \dfrac{d}{dx}[\log_b|u|]=\dfrac{1}{u\ln(b)}\cdot\dfrac{du}{dx}
 
-+h(2, "Les formules de dérivation des fonctions trigonométriques")
++section("Les formules de dérivation des fonctions trigonométriques")
 
     p Les formules de dérivation des fonctions trigonométriques permettent de dériver les fonction trigonométriques, ce qui en retour permet l'analyse de mouvements en rotation.
 
@@ -546,7 +546,7 @@ include /_jade/redaction/_redaction
         +leq("limite-cosinus") \lim_{h\to 0}{\dfrac{\cos(h)-1}{h}=0}.
         +fig("limite-particuliere-cosinus.svg") La fonction #[+e() \dfrac{\cos(x)-1}{x}] au voisinage de #[+e() x=0.]
 
-    +h(3, "La dérivée de la fonction sinus")
+    +section("La dérivée de la fonction sinus")
 
         +reminder("La formule d'addition et de soustraction d'angles de la fonction sinus")
             p Soient #[+e() \alpha] et #[+e() \beta] deux angles quelconques. Alors:
@@ -588,7 +588,7 @@ include /_jade/redaction/_redaction
 
         +leq("derivee-sinus") \dfrac{d}{dx}[\sin(u)]=\cos(u)\dfrac{du}{dx}.
 
-    +h(3, "La dérivée de la fonction cosinus")
+    +section("La dérivée de la fonction cosinus")
 
         +reminder("La formule d'addition et de soustraction d'angles de la fonction cosinus")
             p Soient #[+e() \alpha] et #[+e() \beta] deux angles quelconques. Alors:
@@ -628,7 +628,7 @@ include /_jade/redaction/_redaction
 
         +leq("derivee-cosinus") \dfrac{d}{dx}[\cos(u)]=-\sin(u)\dfrac{du}{dx}.
 
-    +h(3, "La dérivée de la fonction sécante")
+    +section("La dérivée de la fonction sécante")
 
         +reminder("La définition de la fonction sécante")
             p La fonction sécante est définie comme étant l'inverse multiplicatif de la fonction cosinus. Alors:
@@ -691,7 +691,7 @@ include /_jade/redaction/_redaction
 
         p Alors, la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions")] nous permet d'exprimer #[+e() \dfrac{d}{dx}[f\circ u]] comme au résultat #[+eqref("derivee-secante") .]
 
-    +h(3, "La dérivée de la fonction cosécante")
+    +section("La dérivée de la fonction cosécante")
 
         +reminder("La définition de la fonction cosécante")
             p La fonction cosécante est définie comme étant l'inverse multiplicatif de la fonction sinus. Alors:
@@ -754,7 +754,7 @@ include /_jade/redaction/_redaction
 
         p Alors, la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions")] nous permet d'exprimer #[+e() \dfrac{d}{dx}[f\circ u]] comme au résultat #[+eqref("derivee-cosecante") .]
 
-    +h(3, "La dérivée de la fonction tangente")
+    +section("La dérivée de la fonction tangente")
 
         +reminder("La définition de la fonction tangente")
             p La fonction tangente est définie comme étant le quotient des fonctions sinus et cosinus. Alors:
@@ -824,7 +824,7 @@ include /_jade/redaction/_redaction
 
         p Alors, la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions")] nous permet d'exprimer #[+e() \dfrac{d}{dx}[f\circ u]] comme au résultat #[+eqref("derivee-tangente") .]
 
-    +h(3, "La dérivée de la fonction cotangente")
+    +section("La dérivée de la fonction cotangente")
 
         +reminder("La définition de la fonction cotangente")
             p La fonction cotangente est définie comme étant l'inverse multiplicatif de la fonction tangente. Alors:
@@ -892,7 +892,7 @@ include /_jade/redaction/_redaction
 
         p Alors, la formule de dérivation de fonctions composées #[+eqref("derivee-composition-fonctions")] nous permet d'exprimer #[+e() \dfrac{d}{dx}[f\circ u]] comme au résultat #[+eqref("derivee-cotangente") .]
 
-+h(2, "Les formules de dérivation des fonctions trigonométriques inverses")
++section("Les formules de dérivation des fonctions trigonométriques inverses")
 
     p Les formules de dérivation des fonctions trigonométriques inverses permettent de résoudre des intégrales qu'on retrouve fréquemment.
 
@@ -920,7 +920,7 @@ include /_jade/redaction/_redaction
         +eq().
             \DeclareMathOperator{\arccot}{arccot}\dfrac{d}{dx}[\arccot(u)]=-\dfrac{1}{u^2+1}\cdot\dfrac{du}{dx}
 
-    +h(3, "La dérivée de la fonction arc sinus")
+    +section("La dérivée de la fonction arc sinus")
 
         +reminder("La définition de la fonction arc sinus", "../../5e-secondaire-sn/les-fonctions-trigonometriques/les-fonctions-trigonometriques-inverses#la-fonction-arc-sinus")
             p La fonction #[+e() \arcsin:[-1,1]\to[-\pi/2,\pi/2]] est la réciproque de la fonction sinus telle que:
@@ -949,7 +949,7 @@ include /_jade/redaction/_redaction
 
         +leq("derivee-arc-sinus") \dfrac{d}{dx}[\arcsin(u)]=\dfrac{1}{\sqrt{1-u^2}}\cdot\dfrac{du}{dx}.
 
-    +h(3, "La dérivée de la fonction arc cosinus")
+    +section("La dérivée de la fonction arc cosinus")
 
         +reminder("La définition de la fonction arc cosinus", "../../5e-secondaire-sn/les-fonctions-trigonometriques/les-fonctions-trigonometriques-inverses#la-fonction-arc-cosinus")
             p La fonction #[+e() \arccos:[-1,1]\to[0,\pi]] est la réciproque de la fonction cosinus telle que:
@@ -967,7 +967,7 @@ include /_jade/redaction/_redaction
 
         +leq("derivee-arc-cosinus") \dfrac{d}{dx}[\arccos(u)]=-\dfrac{1}{\sqrt{1-u^2}}\cdot\dfrac{du}{dx}.
 
-    +h(3, "La dérivée de la fonction arc sécante")
+    +section("La dérivée de la fonction arc sécante")
 
         +reminder("La définition de la fonction arc sécante", "../../5e-secondaire-sn/les-fonctions-trigonometriques/les-fonctions-trigonometriques-inverses#la-fonction-arc-secante")
             p La fonction #[+e() \arcsec:\mathbb{R}\setminus &#93;-1,1&#91;\to[0,\pi]\setminus\{\pi/2\}] est la réciproque de la fonction sécante telle que:
@@ -996,7 +996,7 @@ include /_jade/redaction/_redaction
 
         +leq("derivee-arc-secante") \dfrac{d}{dx}[\arcsec(u)]=\dfrac{1}{|u|\sqrt{u^2-1}}\cdot\dfrac{du}{dx}.
 
-    +h(3, "La dérivée de la fonction arc cosécante")
+    +section("La dérivée de la fonction arc cosécante")
 
         +reminder("La définition de la fonction arc cosécante", "../../5e-secondaire-sn/les-fonctions-trigonometriques/les-fonctions-trigonometriques-inverses#la-fonction-arc-cosecante")
             p La fonction #[+e() \arccsc:\mathbb{R}\setminus &#93;-1,1&#91;\to[-\pi/2,\pi/2]\setminus\{0\}] est la réciproque de la fonction cosécante telle que:
@@ -1014,7 +1014,7 @@ include /_jade/redaction/_redaction
 
         +leq("derivee-arc-cosecante") \dfrac{d}{dx}[\arccsc(u)]=-\dfrac{1}{|u|\sqrt{u^2-1}}\cdot\dfrac{du}{dx}.
 
-    +h(3, "La dérivée de la fonction arc tangente")
+    +section("La dérivée de la fonction arc tangente")
 
         +reminder("La définition de la fonction arc tangente", "../../5e-secondaire-sn/les-fonctions-trigonometriques/les-fonctions-trigonometriques-inverses#la-fonction-arc-tangente")
             p La fonction #[+e() \arctan:\mathbb{R}\to&#93;-\pi/2,\pi/2&#91;] est la réciproque de la fonction tangente telle que:
@@ -1036,7 +1036,7 @@ include /_jade/redaction/_redaction
 
         +leq("derivee-arc-tangente") \dfrac{d}{dx}[\arctan(u)]=\dfrac{1}{u^2+1}\cdot\dfrac{du}{dx}.
 
-    +h(3, "La dérivée de la fonction arc cotangente")
+    +section("La dérivée de la fonction arc cotangente")
 
         +reminder("La définition de la fonction arc cotangente", "../../5e-secondaire-sn/les-fonctions-trigonometriques/les-fonctions-trigonometriques-inverses#la-fonction-arc-cotangente")
             p La fonction #[+e() \arccot:\mathbb{R}\to&#93;0,\pi&#91;] est la réciproque de la fonction cotangente telle que:

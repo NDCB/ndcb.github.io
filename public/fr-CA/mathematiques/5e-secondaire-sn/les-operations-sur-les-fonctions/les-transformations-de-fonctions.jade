@@ -1,8 +1,8 @@
-include /_jade/redaction/_redaction
+include /_jade/redaction/redaction
 
 p Les fonctions peuvent être transformées par mise à l'échelle et par translation au moyen de paramètres. En effet, en manipulant les axes sur lesquels une fonction est définie, il est possible de comprimer ou d'étirer tant verticalement qu'horizontalement le graphe d'une fonction, voire même d'en effectuer des symétries axiales.
 
-+h(2, "La translation verticale d'une fonction")
++section("La translation verticale d'une fonction")
     p Afin de déplacer verticalement une fonction, considérons deux axes verticaux #[+e() y] et #[+e() y^\prime] tels que #[+e() y^\prime] est une transformation de l'axe #[+e() y.] Arbitrairement, choisissons une constante #[+e() k\gt 0] pour graduer chacun des axes, et une fonction quelconque #[+e() f(x)=y.] Si l'on veut déplacer le graphe de #[+e() f] verticalement vers le bas, il faut décaler les graduations de #[+e() y^\prime] de sorte qu'un même point de #[+e() f] ait une ordonnée moindre en #[+e() y^\prime] qu'en #[+e() y.] Par conséquent, il faut soustraire une valeur à toutes les graduations de #[+e() y^\prime] pour déplacer le graphe de #[+e() f] verticalement vers le bas. En décalant #[+e() y^\prime] par #[+e() k,] il en découle que #[+e() y^\prime=y-k,] de telle sorte que si l'on exprime #[+e() f] selon #[+e() y^\prime,] alors #[+e() y^\prime+k=f(x).] 
     p Si nous admettions plutôt que #[+e() k\lt 0,] alors le graphe de #[+e() f] serait déplacé vers le haut si #[+e() k] était ajoutée à toutes les valeurs de #[+e() y.] Il en découlerait que #[+e() y^\prime=y+k,] et donc que #[+e() y^\prime-k=f(x).] 
     p Il est contre-intuitif d'écrire que d'ajouter une valeur à #[+e() y^\prime] déplace le graphe de #[+e() f] vers le bas, et que d'y soustraire une valeur le déplace vers le haut, puisque c'est à l'opposé du sens de l'axe des ordonnées. Par conséquent, il vaut mieux écrire que #[+e() y^\prime-k=f(x)] pour une translation de #[+e() k] unités dans le sens de l'axe des ordonnées.
@@ -34,7 +34,7 @@ p Les fonctions peuvent être transformées par mise à l'échelle et par transl
             \\k&=-2.
         p Par conséquent, il faut déplacer le graphe de #[+e() g] de #[+e() 2] unités vers le bas pour que la fonction transformée ait un zéro lorsque #[+e() x=0.]
 
-+h(2, "La translation horizontale d'une fonction")
++section("La translation horizontale d'une fonction")
     p Afin de déplacer horizontalement une fonction, considérons deux axes horizontaux #[+e() x] et #[+e() x^\prime] tels que #[+e() x^\prime] est une transformation de l'axe #[+e() x.] Arbitrairement, choisissons une constante #[+e() h\gt 0] pour graduer chacun des axes, et une fonction quelconque #[+e() f(x)=y.] Si l'on veut déplacer le graphe de #[+e() f] horizontalement vers la gauche, il faut décaler les graduations de #[+e() x^\prime] de sorte qu'un même point de #[+e() f] ait une abscisse moindre en #[+e() x^\prime] qu'en #[+e() x.] Par conséquent, il faut soustraire une valeur à toutes les graduations de #[+e() x^\prime] pour déplacer le graphe de #[+e() f] horizontalement vers la gauche. En décalant #[+e() x^\prime] par #[+e() h,] il en découle que #[+e() y^\prime=y-h,] de telle sorte que si l'on exprime #[+e() f] selon #[+e() x^\prime,] alors #[+e() y=f(x^\prime-h).]
     p Si nous admettions plutôt que #[+e() h\lt 0,] alors le graphe de #[+e() f] serait déplacé vers la droite si #[+e() k] était ajoutée à toutes les valeurs de #[+e() x.] Il en découlerait que #[+e() x^\prime=x+h,] et donc que #[+e() y=f(x^\prime-h).]
     p Il est contre-intuitif d'écrire que d'ajouter une valeur à #[+e() x^\prime] déplace le graphe de #[+e() f] vers la gauche, et que d'y soustraire une valeur le déplace vers la droite, puisque c'est à l'opposé du sens de l'axe des abscisses. Par conséquent, il vaut mieux écrire que #[+e() y=f(x^\prime-h)] pour une translation de #[+e() h] unités dans le sens de l'axe des abscisses.
@@ -78,7 +78,7 @@ p Les fonctions peuvent être transformées par mise à l'échelle et par transl
             \\y&=-4(x+10)^2+7.
         +fig("exemple-translation-fonction.svg") Graphique de #[+e() \mathcal{P}] obtenue par translation de #[+e() h] telle que #[+e() S\in h\iff S^\prime\in\mathcal{P}.]
 
-+h(2, "La mise à l'échelle verticale d'une fonction")
++section("La mise à l'échelle verticale d'une fonction")
     p Afin d'effectuer une mise à l'échelle verticale d'une fonction, considérons deux axes verticaux #[+e() y] et #[+e() y^\prime] tels que #[+e() y^\prime] est une transformation de l'axe #[+e() y.] Graduons #[+e() y] par pas de #[+e() 1] et choisissons une constante #[+e() a\gt 1] pour graduer #[+e() y^\prime.] Posons aussi une fonction quelconque #[+e() f(x)=y.] Si l'on veut étirer le graphe de #[+e() f] verticalement, il faut augmenter l'écart entre les graduations de #[+e() y^\prime] de sorte que deux points de #[+e() f] aient un écart plus grand entre leurs ordonnées en #[+e() y^\prime] qu'en #[+e() y.] Par conséquent, il faut multiplier par une valeur plus grande que #[+e() 1] toutes les graduations de #[+e() y^\prime] pour étirer verticalement le graphe de #[+e() f.] En mettant l'échelle de #[+e() y^\prime] à #[+e() a,] il en découle que #[+e() y^\prime=ay,] de telle sorte que si l'on exprime #[+e() f] selon #[+e() y^\prime,] alors #[+e() \dfrac{y^\prime}{a}=f(x).]
     p Si nous admettions plutôt que #[+e() 0\lt a\lt 1,] alors le graphe de #[+e() f] serait comprimé verticalement, puisque l'écart entre les ordonnées de deux points du graphe de #[+e() f] serait plus petit.
     p Si #[+e() a] est négatif, alors l'axe #[+e() y^\prime] est une symétrie verticale de l'axe #[+e() y,] donc le graphe de #[+e() f] est réfléchi par rapport à la droite d'équation #[+e() y=0.]
@@ -137,7 +137,7 @@ p Les fonctions peuvent être transformées par mise à l'échelle et par transl
             \end{array}
         p On constate alors que le signe des ordonnées de #[+e() \mathcal{F}(x)] est l'inverse de celui de #[+e() f(x)] à cause de la symétrie verticale. Par ailleurs, les abscisses de la table de valeurs de #[+e() f(x)] ont été incrémentées de #[+e() 1] à cause de la translation horizontale. On note alors les applications de la transformation sur les points telle que #[+e() (-4,9)\mapsto(-3,-5/2),] #[+e() (-2,-1)\mapsto(-1,5/2)] et #[+e() (1,10)\mapsto(2,-3)] par exemple.
 
-+h(2, "La mise à l'échelle horizontale d'une fonction")
++section("La mise à l'échelle horizontale d'une fonction")
     p Afin d'effectuer une mise à l'échelle horizontale d'une fonction, considérons deux axes horizontaux #[+e() x] et #[+e() x^\prime] tels que #[+e() x^\prime] est une translation de l'axe #[+e() x.] Graduons #[+e() x] par pas de #[+e() 1] et choisissons une constante #[+e() b\gt 1] pour graduer #[+e() x^\prime.] Posons aussi une fonction quelconque #[+e() f(x)=y.] Si l'on veut étirer le graphe de #[+e() f] horizontalement, il faut augmenter l'écart entre les graduations de #[+e() x^\prime] de sorte que deux points de #[+e() f] aient un écart plus grand entre leurs abscisses en #[+e() x^\prime] qu'en #[+e() x.] Par conséquent, il faut multiplier par une valeur plus grande que #[+e() 1] toutes les graduations de #[+e() x^\prime] pour étirer horizontalement le graphe de #[+e() f.] En mettant l'échelle de #[+e() x^\prime] à #[+e() b,] il en découle que #[+e() x^\prime=bx,] de telle sorte que si l'on exprime #[+e() f] selon #[+e() x^\prime,] alors #[+e() y=f\left(\dfrac{x^\prime}{b}\right).]
     p Si nous admettions plutôt que #[+e() 0\lt b\lt 1,] alors le graphe de #[+e() f] serait comprimé horizontalement, puisque l'écart entre les abscisses de deux points du graphe de #[+e() f] serait plus petit.
     p Si #[+e() b] est négatif, alors l'axe #[+e() x^\prime] est une symétrie horizontale de l'axe #[+e() x,] donc le graphe de #[+e() f] est réfléchi par rapport à la droite d'équation #[+e() x=0.]
@@ -168,7 +168,7 @@ p Les fonctions peuvent être transformées par mise à l'échelle et par transl
             2=\dfrac{2\pi}{\omega}\iff \omega=\pi.
         p Ce faisant, le graphe de #[+e() x(t)] correspond à la compression horizontale du graphe de #[+e() \sin(t)] puisque #[+e() |b|=|\pi^{-1}|\lt 1.]
 
-+h(2, "La forme transformée d'une fonction")
++section("La forme transformée d'une fonction")
     +theorem("La forme transformée d'une fonction")
         p Soit la fonction #[+e() f:X\to Y] telle que #[+e() X\subseteq\mathbb{R}] et #[+e() Y\subseteq\mathbb{R}.] La fonction #[+e() \mathcal{F}(x)] transformée de #[+e() f(x)] par mise une l'échelle verticale selon #[+e() a\in\mathbb{R}^*,] une mise à l'échelle horizontale selon #[+e() b\in\mathbb{R}^*,] une translation verticale par #[+e() k\in\mathbb{R}] et une translation horizontale par #[+e() h\in\mathbb{R}] vérifie l'équation:
         +leq("forme-transformee-fonction") \dfrac{\mathcal{F}(x)-k}{a}=f\left(\dfrac{x-h}{b}\right).

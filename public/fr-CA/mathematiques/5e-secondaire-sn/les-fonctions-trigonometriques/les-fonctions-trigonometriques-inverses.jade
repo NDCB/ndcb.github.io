@@ -1,4 +1,4 @@
-include /_jade/redaction/_redaction
+include /_jade/redaction/redaction
 
 p Les fonctions trigonométriques inverses permettent de résoudre des équations comprenant des fonctions trigonométriques. Cependant, puisque les fonctions trigonométriques sont transcendantales, il n'y a pas d'expression rationnelle qui inverse leur application. Par ailleurs, toutes les fonctions trigonométriques sont périodiques, ce qui implique qu'il doit y avoir des intervalles de bijection choisis par convention dans la définition de leurs inverses.
 
@@ -20,7 +20,7 @@ p Les fonctions trigonométriques inverses permettent de résoudre des équation
     +leq("fonction-reciproque") g=\left\{(y,x)\in B\times A\mid (x,y)\in f\right\}.
     p Ce faisant, pour tous les couples #[+e() (x,y)] appartenant à #[+e() f,] le couple #[+e() (y,x)] doit appartenir à #[+e() g,] de telle sorte que la fonction #[+e() g] correspond à la symétrie de #[+e() f] par rapport à la droite #[+e() y=x.]
 
-+h(2, "La fonction arc sinus")
++section("La fonction arc sinus")
 
     +reminder("La définition de la fonction sinus")
         p La fonction #[+e() \sin:\mathbb{R}\to[-1,1]] correspond à l'ordonnée d'un point trigonométrique #[+e() P=(x,y)] d'angle #[+e() \theta] telle que:
@@ -67,7 +67,7 @@ p Les fonctions trigonométriques inverses permettent de résoudre des équation
         +eq().
             \theta\in\left\{\dots,-\dfrac{25}{24},-\dfrac{5}{24},-\dfrac{1}{24},\dfrac{19}{24},\dfrac{23}{24},\dfrac{43}{24},\dots\right\}.
 
-+h(2, "La fonction arc cosinus")
++section("La fonction arc cosinus")
 
     +reminder("La définition de la fonction cosinus")
         p La fonction #[+e() \cos:\mathbb{R}\to[-1,1]] correspond à l'abscisse d'un point trigonométrique #[+e() P=(x,y)] d'angle #[+e() \theta] telle que:
@@ -114,7 +114,7 @@ p Les fonctions trigonométriques inverses permettent de résoudre des équation
         +eq().
             \theta\in\left\{\dots,-\dfrac{\pi}{4},\dfrac{\pi}{4},\dfrac{3\pi}{4},\dfrac{5\pi}{4},\dfrac{7\pi}{4},\dfrac{9\pi}{4},\dots\right\}.
 
-+h(2, "La fonction arc cosécante")
++section("La fonction arc cosécante")
 
     +reminder("La définition de la fonction cosécante")
         p La fonction #[+e() \csc:\forall k\in\mathbb{Z},\mathbb{R}\setminus\{k\pi\}\to\mathbb{R}\setminus&#93;-1,1&#91;] correspond à l'inverse de l'ordonnée d'un point trigonométrique #[+e() P=(x,y)] d'angle #[+e() \theta] telle que:
@@ -166,7 +166,7 @@ p Les fonctions trigonométriques inverses permettent de résoudre des équation
         +eq().
             \theta\in\left\{\dots,\dfrac{1}{3},\dfrac{5}{3},\dfrac{13}{3},\dfrac{17}{3},\dfrac{25}{3},\dfrac{29}{3},\dots\right\}.
 
-+h(2, "La fonction arc sécante")
++section("La fonction arc sécante")
 
     +reminder("La définition de la fonction sécante")
         p La fonction #[+e() \sec:\forall k\in\mathbb{Z},\mathbb{R}\setminus\{k\pi+\pi/2\}\to\mathbb{R}\setminus&#93;-1,1&#91;] correspond à l'inverse de l'abscisse d'un point trigonométrique #[+e() P=(x,y)] d'angle #[+e() \theta] telle que:
@@ -219,7 +219,7 @@ p Les fonctions trigonométriques inverses permettent de résoudre des équation
         +eq().
             \theta\in\left\{\dots,-8,-4,-2,2,4,8,\dots\right\}. 
 
-+h(2, "La fonction arc tangente")
++section("La fonction arc tangente")
 
     +reminder("La définition de la fonction tangente")
         p La fonction #[+e() \tan:\forall k\in\mathbb{Z},\mathbb{R}\setminus\{k\pi+\pi/2\}\to\mathbb{R}] correspond au ratio ordonnée/abscisse d'un point trigonométrique #[+e() P=(x,y)] d'angle #[+e() \theta] telle que:
@@ -268,7 +268,7 @@ p Les fonctions trigonométriques inverses permettent de résoudre des équation
         +eq().
             \theta\in\left\{\dots,-\dfrac{5}{6},\dfrac{1}{6},\dfrac{7}{6},\dots\right\}.
 
-+h(2, "La fonction arc cotangente")
++section("La fonction arc cotangente")
 
     +reminder("La définition de la fonction cotangente")
         p La fonction #[+e() \cot:\forall k\in\mathbb{Z},\mathbb{R}\setminus\{k\pi\}\to\mathbb{R}] correspond au ratio abscisse/ordonnée d'un point trigonométrique #[+e() P=(x,y)] d'angle #[+e() \theta] telle que:
