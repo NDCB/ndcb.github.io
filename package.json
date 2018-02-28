@@ -32,6 +32,7 @@
     "harp": "^0.25.0",
     "jstransformer-scss": "^1.0.0",
     "moment": "^2.20.1",
+    "slug": "^0.9.1",
     "pug": "^2.0.0-rc.4",
     "yargs": "^11.0.0",
     "browser-sync": "^2.23.6",
