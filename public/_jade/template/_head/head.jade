@@ -17,7 +17,7 @@ head(prefix='og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.
     else
         //Will be included accordingly
         meta(property='google-analytics-id' 
-        content=WEBSITE.decodeAuthentification(
+        content=Website.decodeAuthentification(
             WEBSITE.authentifications.googleAnalyticsTrackingId))
     //- Google AdSense
     if DOCUMENT instanceof Article
@@ -26,7 +26,7 @@ head(prefix='og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.
         else
             //Will be included accordingly
             meta(property='google-adsense-id' 
-            content=WEBSITE.decodeAuthentification(
+            content=Website.decodeAuthentification(
                 WEBSITE.authentifications.googleAdSensePublisherId))
     include _stylesheets
     include ../../plugins/_stylesheets
