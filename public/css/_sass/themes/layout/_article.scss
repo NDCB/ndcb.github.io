@@ -1,6 +1,6 @@
 @mixin colorize($primary-color, $secondary-color, $color-string) {
     article>header {
-        background-image: url("/css/res/pattern-" + $color-string + ".svg");
+        background-image: url("/css/resources/pattern-" + $color-string + ".svg");
         background-color: $primary-color;
     }
     #metadata {
