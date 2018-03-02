@@ -2,6 +2,18 @@ const argv = require('yargs').argv;
 const harp = require('harp');
 const browserSync = require('browser-sync');
 
+/**
+ * The directory of the project.
+ */
+const PROJECT_DIRECTORY = require('./package.json').projectConfiguration
+    .directory;
+
+/**
+ * The default locale of the project.
+ */
+const DEFAULT_LOCALE = require(PROJECT_DIRECTORY + '_data.json').website
+    .defaultLocale;
+
 // Modules available to the templating engine
 global.util = require('util');
 global.slug = require('slug');
@@ -17,6 +29,9 @@ global.slug.defaults.modes['urlsafe'] = {
 global.moment = require('moment');
 global.plugins = require('./plugins').plugins;
 
+global._locales = require(PROJECT_DIRECTORY + '_locales.json');
+global._persons = require(PROJECT_DIRECTORY + '_persons.json');
+
 global.Locale = require('./lib/locale').Locale;
 global.Website = require('./lib/website').Website;
 global.COLORS = require('./lib/website').COLORS;
@@ -26,18 +41,6 @@ global.Article = require('./lib/article').Article;
 global.Page = require('./lib/page').Page;
 global.PAGE_TYPES = require('./lib/page').TYPES;
 global.Category = require('./lib/category').Category;
-
-/**
- * The directory of the project.
- */
-const PROJECT_DIRECTORY = require('./package.json').projectConfiguration
-    .directory;
-
-/**
- * The default locale of the project.
- */
-const DEFAULT_LOCALE = require(PROJECT_DIRECTORY + '_data.json').website
-    .defaultLocale;
 
 /**
  * Logs a message.

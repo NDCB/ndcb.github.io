@@ -1,0 +1,60 @@
+{
+    "fr-CA": {
+        "languageName": "Français",
+        "countryName": "Canada",
+        "languageCode": "fr",
+        "countryCode": "CA",
+        "variables": {
+            "template": {
+                "googleCustomSearchEngineId": "005246241482745202963:dfoxzw1wxze",
+                "siteNavigation": {
+                    "logoAlt": "Retour au choix de localité"
+                },
+                "siteFooter": {
+                    "source": {
+                        "headline": "Code source",
+                        "icon": "code-fork"
+                    },
+                    "privacyPolicy": "Politique de confidentialité",
+                    "socialTitles": {
+                        "rss": "Flux RSS",
+                        "facebook": "Page Facebook",
+                        "twitter": "Flux Twitter",
+                        "googlePlus": "Profil Google+",
+                        "github": "Profil Github",
+                        "email": "Contacter via email"
+                    }
+                }
+            },
+            "components": {
+                "articleSummary": {
+                    "published": "Publié le",
+                    "modified": "Dernière modification le",
+                    "writtenBy": "Écrit par"
+                }
+            },
+            "redaction": {
+                "tableOfContents": "Table des matières",
+                "modules": {
+                    "definition": "Définition",
+                    "example": "Exemple",
+                    "theorem": "Théorème",
+                    "proof": "Preuve",
+                    "exercise": "Exercice",
+                    "solution": "Solution",
+                    "reminder": "Rappel",
+                    "reminderLinkBack": "Explication détaillée"
+                },
+                "figures": {
+                    "figure": "Figure",
+                    "folder": "figures"
+                }
+            },
+            "plugins": {
+                "mathjax": {
+                    "loading": "Chargement... "
+                }
+            }
+        }
+    }
+}

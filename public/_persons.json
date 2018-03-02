@@ -1,0 +1,12 @@
+{
+    "profilePictursFolder": "/resources/profile-pictures/",
+    "marc-antoine-ouimet": {
+        "fullName": "Marc-Antoine Ouimet",
+        "profiles": {
+            "facebook": "marty.ouimet",
+            "twitter": "_NDCB",
+            "github": "MartyO256",
+            "email": "ouimetmarcantoine@gmail.com"
+        }
+    }
+}
