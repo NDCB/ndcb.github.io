@@ -1,6 +1,6 @@
 #sidebar {
     @include respond-to(desktop) {
-        background-image: url("/css/res/pattern-tech.svg");
+        background-image: url("/css/resources/pattern-tech.svg");
         background-color: $primary-light;
         border-right: 15rem $primary-dark solid;
     }
