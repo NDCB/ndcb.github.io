@@ -2,7 +2,14 @@
 @import '_sass/helpers/_breakpoint';
 
 // Base
+@import '_sass/base/_color';
 @import '_sass/base/_typography';
 
+// Components
+
 // Layout
+@import '_sass/layout/_body';
 @import '_sass/layout/_footer';
+
+// Theme
+@import '_sass/themes/_theme';

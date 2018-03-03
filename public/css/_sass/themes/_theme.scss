@@ -1,0 +1,18 @@
+$footer-background-color: $secondary-dark;
+$footer-text-color: $primary-grey;
+$footer-link-hover-color: $primary-yellow;
+
+#site-footer {
+    color: $footer-text-color;
+    background: $footer-background-color;
+    a {
+        text-decoration: none;
+        color: $footer-text-color;
+        &:hover {
+            color: $footer-link-hover-color;
+        }
+        @include breakpoint($break-xl) {
+            transition: color 0.1s ease-in-out;
+        }
+    }
+}

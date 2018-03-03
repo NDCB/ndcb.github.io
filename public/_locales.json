@@ -11,11 +11,7 @@
                     "logoAlt": "Retour au choix de localité"
                 },
                 "siteFooter": {
-                    "source": {
-                        "headline": "Code source",
-                        "icon": "code-fork"
-                    },
-                    "privacyPolicy": "Politique de confidentialité",
+                    "source": "Code source",
                     "socialTitles": {
                         "rss": "Flux RSS",
                         "facebook": "Page Facebook",

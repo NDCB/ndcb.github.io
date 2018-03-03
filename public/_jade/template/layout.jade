@@ -1,9 +1,6 @@
 include ../model
--
-    const DOCUMENT = WebDocument.parse(WEBSITE, CURRENT_PATH);
-    const LOCALE = Locale.parse(WEBSITE, CURRENT_PATH);
 -console.log(moment().format() + " Processing " + DOCUMENT.relativePath);
 doctype html
-html(lang!=LOCALE.slug)
+html(lang=LOCALE.slug)
     include _head/head
     include _body
