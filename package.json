@@ -29,21 +29,22 @@
   },
   "homepage": "https://github.com/NDCB/ndcb.github.io#readme",
   "dependencies": {
+    "breakpoint-sass": "^2.7.1",
+    "browser-sync": "^2.23.6",
     "harp": "^0.25.0",
     "jstransformer-scss": "^1.0.0",
     "moment": "^2.20.1",
-    "slug": "^0.9.1",
     "pug": "^2.0.0-rc.4",
-    "yargs": "^11.0.0",
-    "browser-sync": "^2.23.6",
-    "normalize": "^0.3.1",
-    "flexbox-grid": "^1.0.0",
-    "flag-icon-css": "^3.0.0",
-    "font-awesome": "^4.7.0"
+    "slug": "^0.9.1",
+    "yargs": "^11.0.0"
   },
   "devDependencies": {
     "eslint": "^4.18.1",
     "eslint-config-google": "^0.9.1",
-    "jsdoc": "^3.5.5"
+    "flag-icon-css": "^3.0.0",
+    "flexbox-grid": "^1.0.0",
+    "font-awesome": "^4.7.0",
+    "jsdoc": "^3.5.5",
+    "normalize.css": "^8.0.0"
   }
 }
