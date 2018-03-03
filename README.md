@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/NDCB/ndcb.github.io.svg?branch=development)](https://travis-ci.org/NDCB/ndcb.github.io)
+[![Build Status](https://travis-ci.org/NDCB/ndcb.github.io.svg?branch=development)](https://travis-ci.org/NDCB/ndcb.github.io) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # ndcb.github.io
 
@@ -6,7 +6,7 @@
 
 ## Currently Supported Locales
 
-* Canadian French ([fr-CA](https://ndcb.github.io/fr-CA)).
+* Canadian French ([fr-CA](https://ndcb.github.io/)).
 
 ## Run on a Web Server
 
@@ -14,20 +14,30 @@ Install the package dependencies:
 
 `npm install`
 
-Run the HarpJS web server:
+Start the web server:
 
-`npm run server`
+`npm start`
 
-## Deployment
+## Compilation and Deployment
 
-Any merged pull requests in the `development` branch will be automatically deployed to the master branch by [Travis CI](https://travis-ci.org/NDCB/ndcb.github.io). 
+Any merged pull requests in the `development` branch will be automatically deployed to the master branch by [Travis CI](https://travis-ci.org/NDCB/ndcb.github.io).
+
+To compile the website locally, run the `./scripts/build.sh` script using:
+
+`npm run build`
 
 ## Built With
 
 * [Harp](http://harpjs.com) - Used to compile the website and provide file metadata to the template.
 * [Jade/Pug](https://pugjs.org) - Used to create the website's template.
 * [Sass](http://sass-lang.com) - Used to style the website.
-* [GeoGebra](https://www.geogebra.org) - Used to generate scalable vector graphics of mathematics in the articles.
+
+### Other Dependencies
+
+* [Browsersync](https://browsersync.io/)
+* [Normalize.css](http://necolas.github.io/normalize.css/)
+* [Flexbox Grid](http://flexboxgrid.com/)
+* [Font Awesome](https://fontawesome.com/)
 
 ## Authors
 
@@ -42,4 +52,5 @@ All other files, except for brand-related logos, are licensed under the MIT lice
 ## Acknowledgments
 
 * Shoutout to [Ines Montani](https://github.com/ines), whose [source](https://github.com/ines/ines-io) for [her personnal blog](https://ines.io) as well as [her ultimate guide to static websites with Harp and Jade](https://ines.io/blog/the-ultimate-guide-static-websites-harp-jade) were greatly instructive in developing this website.
-* Also shoutout to [Jurgen Van de Moere](https://twitter.com/jvandemo) for his tutorial on [how to use Travis CI to automatically deploy a HarpJS application to GitHub Pages](https://www.jvandemo.com/how-to-use-travis-ci-to-automatically-deploy-a-harpjs-application-to-github-pages/).
+* Shoutout to [Jurgen Van de Moere](https://twitter.com/jvandemo) for his tutorial on [how to use Travis CI to automatically deploy a HarpJS application to GitHub Pages](https://www.jvandemo.com/how-to-use-travis-ci-to-automatically-deploy-a-harpjs-application-to-github-pages/).
+* Shoutout to [Steve Jamesson](https://github.com/jevets) for [his Harp boilerplate](https://github.com/jevets/harp-starter) that allows the use of Node modules in Harp templates.
