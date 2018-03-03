@@ -1,6 +1,6 @@
-script(async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
+script(async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
 script.
     (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "#{WEBSITE.authentifications.googleAdSensePublisherId}",
+        google_ad_client: '#{Website.decode(WEBSITE.authentifications.googleAdSensePublisherId)}',
         enable_page_level_ads: true
     });
