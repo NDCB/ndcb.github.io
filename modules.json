@@ -1,0 +1,13 @@
+{
+    "modules": [
+        "./plugins",
+        "./lib/link",
+        "./lib/locale",
+        "./lib/website",
+        "./lib/person",
+        "./lib/webdocument",
+        "./lib/article",
+        "./lib/page",
+        "./lib/category"
+    ]
+}

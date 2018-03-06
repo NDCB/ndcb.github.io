@@ -3,7 +3,7 @@
   "private": true,
   "projectConfiguration": {
     "directory": "./public/",
-    "buildPath": "/tmp/build",
+    "buildPath": "./tmp/build",
     "deploymentTargetBranch": "master"
   },
   "engines": {

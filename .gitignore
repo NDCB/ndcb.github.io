@@ -2,6 +2,5 @@
 *.scssc
 *.ggb
 *.log
-public/www/
 node_modules/
 auto_hotkeys/

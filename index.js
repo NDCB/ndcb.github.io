@@ -6,15 +6,25 @@ const browserSync = require('browser-sync');
  * The directory of the project.
  */
 const PROJECT_DIRECTORY = require('./package.json').projectConfiguration
-    .directory;
+    .directory || './public/';
 
 /**
  * The default locale of the project.
  */
 const DEFAULT_LOCALE = require(PROJECT_DIRECTORY + '_data.json').website
-    .defaultLocale;
+.defaultLocale;
 
-// Modules available to the templating engine
+global._locales = require(PROJECT_DIRECTORY + '_locales.json');
+global._persons = require(PROJECT_DIRECTORY + '_persons.json');
+
+// Local modules available to the templating engine
+const requiredModules = require('./modules.json').modules;
+for (let requiredModule of requiredModules) {
+    Object.assign(global, require(requiredModule));
+}
+console.log(global);
+
+// Node modules
 global.util = require('util');
 global.slug = require('slug');
 global.slug.defaults.mode = 'urlsafe';
@@ -27,20 +37,6 @@ global.slug.defaults.modes['urlsafe'] = {
     multicharmap: slug.multicharmap,
 };
 global.moment = require('moment');
-global.plugins = require('./plugins').plugins;
-
-global._locales = require(PROJECT_DIRECTORY + '_locales.json');
-global._persons = require(PROJECT_DIRECTORY + '_persons.json');
-
-global.Locale = require('./lib/locale').Locale;
-global.Website = require('./lib/website').Website;
-global.COLORS = require('./lib/website').COLORS;
-global.Person = require('./lib/person').Person;
-global.WebDocument = require('./lib/webdocument').WebDocument;
-global.Article = require('./lib/article').Article;
-global.Page = require('./lib/page').Page;
-global.PAGE_TYPES = require('./lib/page').TYPES;
-global.Category = require('./lib/category').Category;
 
 /**
  * Logs a message.
@@ -56,6 +52,7 @@ const log = function(message) {
  * Compiles the website.
  */
 const compile = function() {
+    global.environment = 'production';
     log('Compiling');
     let i = argv.i || PROJECT_DIRECTORY;
     let o = argv.o || './www/';
@@ -73,6 +70,7 @@ const compile = function() {
  * Runs the website on a local server.
  */
 const server = function() {
+    global.environment = 'development';
     let ip = argv.ip || 'localhost';
     let port = argv.port || '9000';
     let adress = ip + ':' + port;
