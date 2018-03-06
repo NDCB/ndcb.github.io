@@ -3,6 +3,8 @@ if DOCUMENT.headline
 if DOCUMENT.description
     meta(name='twitter:description' content=DOCUMENT.description)
 meta(name='twitter:card' content='summary')
-meta(name='twitter:site' content=WEBSITE.socialProfiles.twitterAccount)
-//- TODO:..
-//-meta(name='twitter:image' content!=thumbnailFile.replace("https://", "http://"))
+meta(name='twitter:site' content='@' 
+    + Website.decode(WEBSITE.socialProfiles.twitterAccount))
+if DOCUMENT instanceof Article
+    meta(name='twitter:image' content=WEBSITE.url.replace("https://", "http://")
+        + DOCUMENT.category.thumbnailPath)

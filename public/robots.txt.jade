@@ -1,4 +1,4 @@
 include /_jade/model
 each locale in WEBSITE.locales
-    ='Sitemap: ' + WEBSITE.toUrl([locale.slug, 'sitemap.xml']) + '\n'
+    ='Sitemap: ' + new Link({website: WEBSITE, path: [locale.slug, 'sitemap.xml']}) + '\n'
 include _robots.txt

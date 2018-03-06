@@ -30,7 +30,7 @@ mixin pageIcon(type)
     * If the icon of a social media is not defined in {@code SOCIAL_TYPES}, then
     * use this icon.
     */
-    const FALLBACK_SOCIAL_ICON = 'fa-question';
+    const FALLBACK_SOCIAL_ICON = 'question';
 
     /**
     * The types of social medias, their root URL and their associate icons. The
@@ -58,7 +58,8 @@ mixin socialIcon(type)
             i.fa.fa-fw.fa-inverse.fa-stack-1x(
                 class='fa-' + SOCIAL_TYPES[type].icon)
         else
-            i.fa.fa-fw.fa-inverse.fa-stack-1x(class=FALLBACK_SOCIAL_ICON)
+            i.fa.fa-fw.fa-inverse.fa-stack-1x(c
+                lass='fa-' + FALLBACK_SOCIAL_ICON)
 
 footer#site-footer.row.middle-xs.between-xs.center-xs
     .col-xs-12.col-md-9.start-md
@@ -68,7 +69,7 @@ footer#site-footer.row.middle-xs.between-xs.center-xs
             //- Locale's root pages
             each page in LOCALE.pages
                 if page.type !== 'locales' || WEBSITE.locales.length > 1
-                    a(href=page.relativePath)
+                    a(href=page.link.relativePath)
                         +pageIcon(page.type)
                         =page.headline
             //- Source link
@@ -78,16 +79,24 @@ footer#site-footer.row.middle-xs.between-xs.center-xs
                         throw new Error('No defined localized variable for the '
                             + 'source link.');
                 else
-                    a(href=WEBSITE.sourceUrl)
+                    a(href=WEBSITE.sourceUrl target='_blank' 
+                        rel='noopener noreferrer')
                         +pageIcon('source')
                         =localizedVariables.source
     .col-xs-12.col-md-3.end-md
         nav.social
+            -let titles = localizedVariables.socialTitles;
             //- RSS feed
             if WEBSITE.contents(LOCALE.path).includes('feed.xml')
-                a(href=WEBSITE.toUrl(LOCALE.path.concat(['feed.xml'])))
-                    +socialIcon('rssFeed')
+                a(href=new Link({website: WEBSITE, 
+                        path: LOCALE.path.concat(['feed.xml'])}).relativePath
+                    target='_blank' rel='noopener noreferrer'
+                    title=titles.rssFeed alt=title=titles.rssFeed
+                    type='application/rss+xml'
+                    aria-label=titles.rssFeed): +socialIcon('rssFeed')
             //- Social profiles
             each socialProfile, title in WEBSITE.socialProfiles
-                a(href=SOCIAL_TYPES[title].url + Website.decode(socialProfile))
-                    +socialIcon(title)
+                a(href=SOCIAL_TYPES[title].url + Website.decode(socialProfile)
+                    target='_blank' rel='noopener noreferrer'
+                    title=titles[title] alt=titles[title]
+                    aria-label=titles[title]): +socialIcon(title)

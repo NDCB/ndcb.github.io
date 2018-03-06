@@ -11,11 +11,12 @@ head(prefix='og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.
     include _twitter
     if DOCUMENT instanceof Article
         include _publisher
+        include _facebook
     //- Google Analytics
     if environment === 'production'
         include _googleAnalytics
     else
-        //Will be included accordingly
+        //Will be included accordingly in production environment
         meta(property='google-analytics-id' 
         content=Website.decode(
             WEBSITE.authentifications.googleAnalyticsTrackingId))
@@ -24,7 +25,7 @@ head(prefix='og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.
         if environment === 'production'
             include _googleAdSense
         else
-            //Will be included accordingly
+            //Will be included accordingly in production environment
             meta(property='google-adsense-id' 
             content=Website.decode(
                 WEBSITE.authentifications.googleAdSensePublisherId))

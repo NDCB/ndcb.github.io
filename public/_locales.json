@@ -13,12 +13,12 @@
                 "siteFooter": {
                     "source": "Code source",
                     "socialTitles": {
-                        "rss": "Flux RSS",
-                        "facebook": "Page Facebook",
-                        "twitter": "Flux Twitter",
-                        "googlePlus": "Profil Google+",
-                        "github": "Profil Github",
-                        "email": "Contacter via email"
+                        "rssFeed": "Flux RSS",
+                        "facebookPage": "Page Facebook de NDCB",
+                        "twitterAccount": "Flux Twitter de NDCB",
+                        "googlePlusAccount": "Profil Google+ de NDCB",
+                        "githubAccount": "Profil Github de NDCB",
+                        "emailAddress": "Contacter NDCB via email"
                     }
                 }
             },

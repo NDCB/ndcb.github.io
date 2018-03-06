@@ -2,10 +2,12 @@ if DOCUMENT.headline
     meta(property='og:title' content=DOCUMENT.headline)
 if DOCUMENT.description
     meta(property='og:description' content=DOCUMENT.description)
-meta(property='og:url' content=DOCUMENT.url)
+meta(property='og:url' content=DOCUMENT.link.url)
 meta(property='og:site_name' content=WEBSITE.name)
-meta(property='og:locale' content=LOCALE.languageCode + '_' + LOCALE.countryCode)
-meta(property='og:type' content=(DOCUMENT instanceof Article ? 'article' : 'website'))
+meta(property='og:locale' 
+    content=LOCALE.languageCode + '_' + LOCALE.countryCode)
+meta(property='og:type' 
+    content=(DOCUMENT instanceof Article ? 'article' : 'website'))
 //- Thumbnail
 -const thumbnailWidth = 300; // px
 -const thumbnailHeight = 300; // px
