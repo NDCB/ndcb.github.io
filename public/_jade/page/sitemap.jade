@@ -1,0 +1,28 @@
+include ../model
+-
+    let documents = [];
+    for (let category of LOCALE.categories) {
+        documents = documents.concat(category.recursiveDocuments);
+    }
+
+doctype xml
+urlset(
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+)
+    each document in documents
+        if document instanceof Page || document.isPublished
+            url
+                loc=document.link.url
+                priority=document.priority
+                changefreq=document.changeFrequency
+                if document instanceof Article
+                    lastmod=document.latestModificationDateCode
+                if document.category
+                    for figure in document.figures
+                        image:image
+                            image:loc!=figure.link.url
+                            if figure.alt
+                                image:caption!=figure.alt
+                            if figure.title
+                                image:title!=figure.title
