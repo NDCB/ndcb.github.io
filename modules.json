@@ -8,6 +8,7 @@
         "./lib/webdocument",
         "./lib/article",
         "./lib/page",
+        "./lib/figure",
         "./lib/category"
     ]
 }

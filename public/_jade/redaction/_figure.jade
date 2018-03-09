@@ -1,0 +1,51 @@
+//- The localized variables of figures.
+-const FIGURES_VARIABLES = LOCALE.variables.redaction.figures;
+
+-const FIGURES = DOCUMENT.category.figures;
+
+//- Initial counter value of the figures
+-let figureNo = 0;
+
+//- Adds a numbered image block. An image may be fetched from external sources.
+    @param {String} src the source URL of the image.
+    @param {String} alt the alternative text of the image.
+mixin img(src, alt)
+    -figureNo++
+    figure(id!='figure-' + figureNo)
+        img(src!=src, alt!=alt)
+        figcaption
+            header!=FIGURES_VARIABLES.figure + ' ' + figureNo
+            span!=': '
+                block
+
+//- Adds a numbered figure block. The figure should be declared in the localized 
+    figures folder at the root of the referencing document.
+    @param {String} fileName the name of the file of the figure with its 
+    extension.
+mixin fig(fileName)
+    if fileName
+        -figureNo++
+        //- Retrieve the source and the alternative text of the figure
+        -
+            let src;
+            let alt;
+            for (let figure of FIGURES) {
+                if (figure.slug === fileName) {
+                    src = figure.link.relativePath;
+                    alt = figure.alt;
+                }
+            }
+            if (!src) {
+                throw new Error('No defined figure of file name ' + fileName 
+                    + ' in _data.json of the figures folder');
+            }
+            if (!alt) {
+                console.warn('No defined alternative text for figure of ' 
+                    + 'file name ' + fileName);
+            }
+        figure(id!='figure-' + figureNo)
+            img(src!=src, alt!=alt)
+            figcaption
+                header!=FIGURES_VARIABLES.figure + ' ' + figureNo
+                span!=': '
+                    block

@@ -37,8 +37,7 @@ include _jade/model
         4.0,
     ];
     const SIZE = 48;
-    for (let i = 0; i < DENSITIES.length; i++) {
-        const density = DENSITIES[i];
+    for (let density of DENSITIES) {
         const dimensions = density * SIZE + 'x' + density * SIZE;
         MANIFEST.icons.push({
             src: WEBSITE.faviconFolder + 'android-icon-' + dimensions + '.png',

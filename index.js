@@ -22,7 +22,6 @@ const requiredModules = require('./modules.json').modules;
 for (let requiredModule of requiredModules) {
     Object.assign(global, require(requiredModule));
 }
-console.log(global);
 
 // Node modules
 global.util = require('util');
