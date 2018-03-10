@@ -1,6 +1,6 @@
 include ../model
 -
-    let documents = [];
+    let documents = LOCALE.pages;
     for (let category of LOCALE.categories) {
         documents = documents.concat(category.recursiveDocuments);
     }
