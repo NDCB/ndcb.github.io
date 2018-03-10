@@ -1,55 +1,50 @@
-include /_jade/model/_model.js.jade
+include /_jade/redaction/redaction
 
-h1 Privacy Policy
+p Cette politique de confidentialité gouverne la façon par laquelle #{WEBSITE.name} collecte, utilise, maintient et divulgue les informations collectées auprès de ses utilisateurs (chacun, un «Utilisateur») du site #[a(href!=WEBSITE.url)!=WEBSITE.name] («Site»).
 
-p This Privacy Policy governs the manner in which NDCB collects, uses, maintains and discloses information collected from users (each, a "User") of the #[a(href!=Site.url())!=Site.globals().siteName] website ("Site").
++section("Informations à identification personnelle")
+    p Nous pouvons collecter des informations d'identification personnelle de la part des Utilisateurs de plusieurs manières, incluant, mais non limitées, lorsque les Utilisateurs visitent notre site ou remplissent des formulaires en lien avec d'autres activités, services, fonctionnalités ou ressources que nous rendons accessibles sur notre Site. Nous pouvons demander aux Utilisateurs, le cas échéant, leur nom et leur adresse courriel. Les Utilisateurs visitent cependant notre Site anonymement. Nous allons collecter les informations des Utilisateurs uniquement sur une base volontaire. Les Utilisateurs peuvent refuser en tout temps de soumettre leurs informations, mais cela peut les empêcher de prendre part à des activités liées au Site.
 
-h3 Personal identification information
-p We may collect personal identification information from Users in a variety of ways, including, but not limited to, when Users visit our site, fill out a form, and in connection with other activities, services, features or resources we make available on our Site. Users may be asked for, as appropriate, name, email address. Users may, however, visit our Site anonymously. We will collect personal identification information from Users only if they voluntarily submit such information to us. Users can always refuse to supply personally identification information, except that it may prevent them from engaging in certain Site related activities.
++section("Informations à identification non personnelles")
+    p Nous pouvons collecter des informations à identification non personnelles à propos des Utilisateurs en tout temps lorsqu'ils interagissent avec notre Site. Ces informations à identification non personnelles comprennent le nom de leur fureteur, le type d'ordinateur et des informations techniques concernant le moyen de connexion des Utilisateurs à notre site, tels que le système d'exploitation et le fournisseur d'accès Internet utilisé et autres informations similaires.
 
-h3 Non-personal identification information
-p We may collect non-personal identification information about Users whenever they interact with our Site. Non-personal identification information may include the browser name, the type of computer and technical information about Users means of connection to our Site, such as the operating system and the Internet service providers utilized and other similar information.
++section("Témoins de navigateur")
+    p Notre site peut utiliser des témoins de navigateur afin d'améliorer l'expérience des utilisateurs. Le fureteur des Utilisateurs place des témoins de navigateur sur leur disque dur à des fins d'enregistrement et parfois de suivi sur eux. Les Utilisateurs peuvent choisir de paramétrer leur fureteur pour refuser les témoins de navigation, ou de les alerter lorsqu'un témoin est émis.
 
-h3 Web browser cookies
-p Our Site may use "cookies" to enhance User experience. User's web browser places cookies on their hard drive for record-keeping purposes and sometimes to track information about them. User may choose to set their web browser to refuse cookies, or to alert you when cookies are being sent. If they do so, note that some parts of the Site may not function properly.
++section("Comment nous utilisons les informations collectées")
+    p #{WEBSITE.name} peut collecter et utiliser les informations personnelles de ses Utilisateurs pour les fins suivantes:
+    ul
+        li
+            i Pour gérer notre Site
+            br
+            p Nous pouvons avoir besoin de vos informations pour afficher le contenu sur le Site correctement.
+        li
+            i Pour améliorer notre Site
+            br
+            p Nous pouvons utiliser vos recommandations et remarques pour améliorer nos produits et services.
 
-h3 How we use collected information
-p NDCB may collect and use Users personal information for the following purposes:
-ul 
-  li 
-    i To run and operate our Site
-    br
-    p We may need your information display content on the Site correctly.
-  
-  li 
-    i To improve our Site
-    br
-    p We may use feedback you provide to improve our products and services.
-  
++section("Comment nous protégeons vos informations")
+    p Nous adoptons des mesures appropriées de collecte, de stockage et de traitement des données, et des mesures de sécurité pour protéger les informations de transaction et les données sur notre Site contre l'accès non autorisé, la falsification, la divulgation ou la destruction de vos informations personnelles, noms d'usager et mots de passe.  
 
++section("Partager vos informations personnelles")
+    p Nous ne vendons, échangeons, ni ne louons les informations à identification personnelle des Utilisateurs à autrui. Nous pouvons partager des informations démographiques agrégées non liées à des informations à identification personnelle concernant les visiteurs et Utilisateurs avec nos partenaires, affiliés et publicitaires pour les fins soulignées ci-haut.
 
-h3 How we protect your information
-p We adopt appropriate data collection, storage and processing practices and security measures to protect against unauthorized access, alteration, disclosure or destruction of your personal information, username, password, transaction information and data stored on our Site.
++section("Site web tiers")
+    p Les utilisateurs peuvent trouver des annonces ou du contenu sur notre Site qui effectue des liens vers des sites et services de nos partenaires, fournisseurs, publicitaires, commanditaires, concédants et autres partis tiers. Nous ne contrôlons pas le contenu ou les liens apparaissant sur ces sites et nous ne somme pas responsable des pratiques employées par les sites web liés à ou depuis notre Site. De plus, ces sites ou services, incluant leurs contenus et liens, peuvent être modifiés en tout temps. Ces sites et services peuvent avoir leurs propres politiques de confidentialité et politiques de service. La navigation et l'interaction avec tout autre site, incluant les sites web qui ont un lien vers notre Site, sont sujettes aux termes et politiques de ce site.
 
-h3 Sharing your personal information
-p We do not sell, trade, or rent Users personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates and advertisers for the purposes outlined above. 
++section("Publicités")
+    p Les publicités apparaissant sur notre Site peuvent être livrées aux Utilisateurs par des partenaires publicitaires, qui peuvent émettre des témoins de navigateur. Ces témoins permettent au serveur de publicité de reconnaître votre ordinateur chaque fois qu'ils vous envoient une publicité en ligne pour compiler des informations à identification non personnelle à propos de vous ou d'autres usagers de votre ordinateur. Ces informations permettent aux réseaux publicitaires, entre autres, de livrer des publicités ciblées qu'ils pensent être les plus intéressantes pour vous. La présente politique de confidentialité ne couvre pas l'utilisation de témoins de navigateur par nos partenaires publicitaires.
 
-h3 Third party websites
-p Users may find advertising or other content on our Site that link to the sites and services of our partners, suppliers, advertisers, sponsors, licensors and other third parties. We do not control the content or links that appear on these sites and are not responsible for the practices employed by websites linked to or from our Site. In addition, these sites or services, including their content and links, may be constantly changing. These sites and services may have their own privacy policies and customer service policies. Browsing and interaction on any other website, including websites which have a link to our Site, is subject to that website's own terms and policies.
++section("Google AdSense")
+    p Certaines publicités peuvent être servies par Google. Google utilise des témoins de navigateur de type DART qui leur permet de servir des publicités aux Utilisateurs selon leurs visites sur notre Site ou d'autres sites dans Internet. DART utilise des «informations à identification non personnelle» et n'effectue pas de suivi d'informations à identification personnelle telles que votre nom, vote adresse courriel, votre adresse physique, etc. Vous pouvez vous soustraire à l'utilisation de témoins DART en visitant #[+extLink("http://www.google.com/privacy_ads.html") la politique de confidentialité du réseau publicitaire et de contenu Google].
 
-h3 Advertising
-p Ads appearing on our site may be delivered to Users by advertising partners, who may set cookies. These cookies allow the ad server to recognize your computer each time they send you an online advertisement to compile non personal identification information about you or others who use your computer. This information allows ad networks to, among other things, deliver targeted advertisements that they believe will be of most interest to you. This privacy policy does not cover the use of cookies by any advertisers. You may learn more about opting out of major ad networks at <a href="https://websitebuilders.com/tools/advertiser-opt-out/">https://websitebuilders.com/tools/advertiser-opt-out/</a>.
++section("Modifications apportées à cette politique de confidentialité")
+    p #{WEBSITE.name} a la discrétion d'actualiser cette politique de confidentialité à tout moment. Lorsque nous le faisons, nous allons publier une notification sur la page principale de notre Site. Nous encourageons les Utilisateurs à consulter fréquemment cette page en cas de modifications et pour rester informés sur nos politiques de protection des données personnelles que nous collectons. Vous reconnaissez que cette votre responsabilité de revoir périodiquement cette politique de confidentialité pour être au courant de modifications.
 
-h3 Google Adsense
-p Some of the ads may be served by Google. Google's use of the DART cookie enables it to serve ads to Users based on their visit to our Site and other sites on the Internet. DART uses "non personally identifiable information" and does NOT track personal information about you, such as your name, email address, physical address, etc. You may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy at <a href="http://www.google.com/privacy_ads.html">http://www.google.com/privacy_ads.html</a>
++section("Votre accord de ces termes")
+    p En utilisant ce Site, vous signifiez votre accord de cette politique. Si vous n'êtes pas en accord avec cette politique, merci de ne pas utiliser notre Site. La poursuite de votre utilisation du Site suite à la publication de modifications apportées à cette politique sera considérée comme votre accord de ces changements.
 
-h3 Changes to this privacy policy
-p NDCB has the discretion to update this privacy policy at any time. When we do, we will post a notification on the main page of our Site. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications.
++section("Nous contacter")
+    p Si vous avez des questions à propos de cette politique de confidentialité, les pratiques de ce site, ou vos opérations avec ce site, vous êtes priés de nous contacter.
 
-h3 Your acceptance of these terms
-p By using this Site, you signify your acceptance of this policy. If you do not agree to this policy, please do not use our Site. Your continued use of the Site following the posting of changes to this policy will be deemed your acceptance of those changes.
-
-h3 Contacting us
-p If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us.
-
-p This document was last updated on August 25, 2017
+p Ce document a été mis à jour le 10 mars 2018.
