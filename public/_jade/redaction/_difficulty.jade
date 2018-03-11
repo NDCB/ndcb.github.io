@@ -1,0 +1,90 @@
+-
+    /**
+    * The minimum inclusive value of a difficulty.
+    */
+    const MIN_DIFFICULTY = 0;
+
+    /**
+    * The maximum inclusive value of a difficulty.
+    */
+    const MAX_DIFFICULTY = 5;
+
+    /**
+    * Model of a difficulty.
+    */
+    class Difficulty {
+        /**
+        * Constructs a well-defined difficulty.
+        * @param {Number} difficulty the value of the difficuly.
+        */
+        constructor(difficulty) {
+            this.difficulty = difficulty;
+        }
+
+        /**
+        * Determines whether or not a given difficulty is valid.
+        * @param {Number} value the difficulty value to validate.
+        * @return {Boolean} whether the given value is a valid difficulty. 
+        */
+        static valid(value) {
+            return MIN_DIFFICULTY <= value && value <= MAX_DIFFICULTY;
+        }
+
+        /**
+        * @param {Number} value the new value of this difficulty.
+        */
+        set difficulty(value) {
+            if (!Difficulty.valid(value)) {
+                throw new Error('Invalid difficulty of value ' + value 
+                    + ', should be between ' + MIN_DIFFICULTY + ' and ' 
+                    + MAX_DIFFICULTY + ' inclusively.');
+            }
+            this._difficulty = value;
+        }
+
+        /**
+        * @return {Number} the value of this difficulty.
+        */
+        get difficulty() {
+            return this._difficulty;
+        }
+
+        /**
+        * @return {Number} the whole number of filled half-stars to display.
+        */
+        get halfStars() {
+            return (2 * this.difficulty) % 2;
+        }
+
+        /**
+        * @return {Number} the whole number of filled full-stars to display.
+        */
+        get fullStars() {
+            if (2 * (this.difficulty % 2) == 0) {
+                return this.difficulty;
+            } else {
+                return (2 * this.difficulty - 1) / 2;
+            }
+        }
+    }
+
+//- Displays a difficulty on a scale from {@code MIN_DIFFICULTY} to
+    {@code MAX_DIFFICULTY} inclusively as a star rating, which supports
+    half-stars.
+    @param {Number} value the value of the difficulty to display as stars.
+mixin difficulty(value)
+    -const difficulty = new Difficulty(value);
+    -let stars = 0;
+    -let fullStars = difficulty.fullStars;
+    while fullStars > 0
+        -fullStars--;
+        i.fa.fa-fw.fa-star
+        -stars++;
+    -let halfStars = difficulty.halfStars;
+    while halfStars > 0
+        -halfStars--;
+        i.fa.fa-fw.fa-star-half-o
+        -stars++;
+    while MAX_DIFFICULTY - stars > 0
+        i.fa.fa-fw.fa-star-o
+        -stars++;
