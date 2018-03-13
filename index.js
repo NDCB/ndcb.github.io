@@ -18,9 +18,10 @@ global._locales = require(PROJECT_DIRECTORY + '_locales.json');
 global._persons = require(PROJECT_DIRECTORY + '_persons.json');
 
 // Local modules available to the templating engine
-const requiredModules = require('./modules.json').modules;
-for (let requiredModule of requiredModules) {
-    Object.assign(global, require(requiredModule));
+const REQUIRED_MODULES = require('./modules.json').modules;
+for (let REQUIRED_MODULE of REQUIRED_MODULES) {
+    console.log('Loading ' + REQUIRED_MODULE);
+    Object.assign(global, require(REQUIRED_MODULE));
 }
 
 // Node modules
