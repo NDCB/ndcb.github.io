@@ -9,7 +9,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
 
 +section("L'équation cartésienne de l'ellipse")
 
-    p Partant du #[+refDefinition(0) lieu géométrique de l&#39;ellipse] posons les points distincts #[+e() F_1] et #[+e() F_2] comme foyers et le point #[+e() P=(x,y)] sur la courbe de l'ellipse. Soit #[+e() 2c,] la distance #[+e() \overline{F_1F_2}] entre les deux foyers, telle que #[+e() c\gt 0]. En vertu du théorème de Pythagore, il est possible d'exprimer les distances #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] à l'aide de la formule de la distance entre deux points. Pour simplifier les démarches, posons #[+e() O=(0,0)] comme le point milieu du segment #[+e() \overline{F_1F_2},] et l'ordonnée des foyers à #[+e() 0,] de telle sorte que #[+e() F_1=(-c,0)] et #[+e() F_2=(c,0).] Considérons les coordonnées de #[+e() P] lorsqu'il se retrouve dans l'axe décrit par la droite #[+e() \overline{F_1F_2},] en ce sens lorsque #[+e() y=0.] S'il existe un point #[+e() P=(x,0)] sur la courbe de l'ellipse tel que #[+e() x\in[-c,c],] alors il est impossible que #[+e() y] soit différent de #[+e() 0] pour l'ensemble des points respectant le #[+refDefinition(0) lieu géométrique de l&#39;ellipse] puisque la somme des distances #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] augmenterait. Par conséquent, pour #[+e() P=(x,0)] sur la courbe de l'ellipse, #[+e() x\in&#93;-\infty,-c[\cup]c,\infty&#91;.] En d'autres mots, il ne peut pas exister à la fois deux points sur la courbe de l'ellipse dont un est compris sur le segment de droite #[+e() \overline{F_1F_2}.]
+    p Partant de la définition du lieu géométrique de l'ellipse, posons les points distincts #[+e() F_1] et #[+e() F_2] comme foyers et le point #[+e() P=(x,y)] sur la courbe de l'ellipse. Soit #[+e() 2c,] la distance #[+e() \overline{F_1F_2}] entre les deux foyers, telle que #[+e() c\gt 0]. En vertu du théorème de Pythagore, il est possible d'exprimer les distances #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] à l'aide de la formule de la distance entre deux points. Pour simplifier les démarches, posons #[+e() O=(0,0)] comme le point milieu du segment #[+e() \overline{F_1F_2},] et l'ordonnée des foyers à #[+e() 0,] de telle sorte que #[+e() F_1=(-c,0)] et #[+e() F_2=(c,0).] Considérons les coordonnées de #[+e() P] lorsqu'il se retrouve dans l'axe décrit par la droite #[+e() \overline{F_1F_2},] en ce sens lorsque #[+e() y=0.] S'il existe un point #[+e() P=(x,0)] sur la courbe de l'ellipse tel que #[+e() x\in[-c,c],] alors il est impossible que #[+e() y] soit différent de #[+e() 0] pour l'ensemble des points respectant la définition du lieu géométrique de l'ellipse puisque la somme des distances #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] augmenterait. Par conséquent, pour #[+e() P=(x,0)] sur la courbe de l'ellipse, #[+e() x\in&#93;-\infty,-c[\cup]c,\infty&#91;.] En d'autres mots, il ne peut pas exister à la fois deux points sur la courbe de l'ellipse dont un est compris sur le segment de droite #[+e() \overline{F_1F_2}.]
 
     +fig("construction-de-lellipse-dimension-axes-non-nulle.svg").
         Première partie de la construction de la preuve de l'équation de l'ellipse, illustrant que l'ellipse doit avoir des dimensions horizontale et verticale non nulles.
@@ -27,7 +27,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
         \\&=|c+d-c|
         \\&=d
 
-    p Par conséquent, la somme des distances entre le point #[+e() P] et les foyers #[+e() F_1] et #[+e() F_2,] qui est constante, vaut #[+e() 2c+d+d=2c+2d.] Considérons maintenant les coordonnées du point #[+e() P=(x,y)] lorsqu'il se retrouve dans l'axe perpendiculaire à celui décrit par #[+e() \overline{F_1F_2}] au point milieu #[+e() O,] en ce sens lorsque #[+e() x=0.] Si #[+e() y=0,] alors #[+e() \overline{PF_1}+\overline{PF_2}=2c\lt 2c+2d.] Conséquemment, la valeur de #[+e() y] doit forcément être différente de #[+e() 0,] ce qui veut dire qu'il faudra construire des triangles rectangles en #[+e() O] isométriques #[+e() \triangle F_1OP] et #[+e() \triangle F_2OP] pour décrire les segments #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] à l'aide de leur hypoténuse. Soit #[+e() b,] la longueur de la petite cathète, qui se trouve sur l'axe des ordonnées, et soit #[+e() a,] la longueur d'une des hypoténuses. Le théorème de Pythagore stipule pour cette situation que #[+e() c^2+b^2=a^2.] En vertu du #[+refDefinition(0) lieu géométrique de l&#39;ellipse,] #[+e() \overline{PF_1}+\overline{PF_2}=2a=2c+2d.] Par conséquent, #[+e() 2a] correspond à la longueur du grand axe de l'ellipse, reliant les points #[+e() (-c-d, 0)] et #[+e() (c+d,0)]. La valeur de #[+e() 2b,] quant à elle, correspond à la longueur du petit axe de l'ellipse.
+    p Par conséquent, la somme des distances entre le point #[+e() P] et les foyers #[+e() F_1] et #[+e() F_2,] qui est constante, vaut #[+e() 2c+d+d=2c+2d.] Considérons maintenant les coordonnées du point #[+e() P=(x,y)] lorsqu'il se retrouve dans l'axe perpendiculaire à celui décrit par #[+e() \overline{F_1F_2}] au point milieu #[+e() O,] en ce sens lorsque #[+e() x=0.] Si #[+e() y=0,] alors #[+e() \overline{PF_1}+\overline{PF_2}=2c\lt 2c+2d.] Conséquemment, la valeur de #[+e() y] doit forcément être différente de #[+e() 0,] ce qui veut dire qu'il faudra construire des triangles rectangles en #[+e() O] isométriques #[+e() \triangle F_1OP] et #[+e() \triangle F_2OP] pour décrire les segments #[+e() \overline{PF_1}] et #[+e() \overline{PF_2}] à l'aide de leur hypoténuse. Soit #[+e() b,] la longueur de la petite cathète, qui se trouve sur l'axe des ordonnées, et soit #[+e() a,] la longueur d'une des hypoténuses. Le théorème de Pythagore stipule pour cette situation que #[+e() c^2+b^2=a^2.] En vertu de la définition du lieu géométrique de l'ellipse, #[+e() \overline{PF_1}+\overline{PF_2}=2a=2c+2d.] Par conséquent, #[+e() 2a] correspond à la longueur du grand axe de l'ellipse, reliant les points #[+e() (-c-d, 0)] et #[+e() (c+d,0)]. La valeur de #[+e() 2b,] quant à elle, correspond à la longueur du petit axe de l'ellipse.
 
     +fig("construction-de-lellipse-relation-de-pythagore.svg").
         Seconde partie de la construction de la preuve de l'équation de l'ellipse, illustrant la relation de Pythagore reliant les composantes de l'ellipse.
@@ -67,7 +67,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
     
     p Les paramètres #[+e() a] et #[+e() b] de l'équation #[+eqref("ellipse-centre-o")] sont positifs et non-nuls puisqu'ils correspondent à des grandeurs géométriques de l'ellipse. Il faut que #[+e() a] soit différent de #[+e() b,] puisque dans le cas contraire, l'équation décrirait un cercle d'équation #[+e() x^2+y^2=r^2.]
 
-    p Une ellipse définie par l'équation #[+eqref("ellipse-centre-o")] est centrée à l'origine. Il va donc de soi que son domaine soit #[+e() [-a,a]] puisqu'il s'agit de l'intervalle où on retrouve l'axe horizontal de l'ellipse de longueur #[+e() 2a.] Pour le démontrer, il suffit d'isoler #[+e() y] dans l'équation #[+eqref("ellipse-centre-o").]
+    p Une ellipse définie par l'équation #[+eqref("ellipse-centre-o")] est centrée à l'origine. Il va donc de soi que son domaine soit #[+e() [-a,a]] puisqu'il s'agit de l'intervalle où on retrouve l'axe horizontal de l'ellipse de longueur #[+e() 2a.] Pour le démontrer, il suffit d'isoler #[+e() y] dans l'équation #[+eqref("ellipse-centre-o") .]
 
     +eq().
         \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}&=1
@@ -243,7 +243,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
             p Par conséquent, #[+e() F_1=(h-c,k)=(3,6)] et #[+e() F_2=(h+c,k)=(11,6).]
 
             +fig("exemple-determiner-coordonnees-foyers-ellipse-horizontale.svg").
-                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
+                Réponse à l'exemple.
 
         +example("Déterminer l'équation d'une ellipse à l'aide des coordonnées de ses foyers")
             p Quelle est l'équation canonique d'une ellipse dont les foyers sont #[+e() F_1=(-5,6)] et #[+e() F_2=(-5,-4)] si #[+e() a=3?]
@@ -265,7 +265,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
             P Enfin, à partir de l'équation #[+eqref("ellipse-canonique") ,] l'équation de l'ellipse est #[+e() \dfrac{(x+5)^2}{9}+\dfrac{(y-1)^2}{34}=1.]
 
             +fig("exemple-determiner-equation-ellipse-coordonnees-foyers.svg").
-                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
+                Réponse à l'exemple.
 
 
     +section("L'intersection d'une ellipse et d'une droite")
@@ -306,7 +306,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
                 \\&=6
             p Les points d'intersection entre la droite et l'ellipse sont donc #[+e() (-5,6)] et #[+e() (5,2).]
             +fig("exemple-intersection-ellipse-droite-deux-solutions.svg").
-                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
+                Réponse à l'exemple.
 
         +example("L'intersection d'une ellipse et d'une droite en un point")
             p Quelles sont les coordonnées du point de tangence #[+e() P] de la droite #[+e() y=\dfrac{1}{2}x+\dfrac{17}{2}] et de l'ellipse d'équation #[+e() \dfrac{(x-4)^2}{9}+\dfrac{(y-6)^2}{18}=1?]
@@ -338,7 +338,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
             p Alors, le point de tangence entre la droite et l'ellipse est #[+e() P=(3,10).]
 
             +fig("exemple-intersection-ellipse-droite-une-solution.svg").
-                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
+                Réponse à l'exemple.
 
         +example("L'intersection d'une ellipse et d'une droite sans solution")
             p Quelles sont les coordonnées des points d'intersection entre la droite #[+e() y=5x] et l'ellipse d'équation #[+e() (x+2)^2+\dfrac{(y+1)^2}{10}=1?]
@@ -356,7 +356,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
                 \\&=\dfrac{-50\pm\sqrt{-1840}}{70}
             p Puisque le discriminant de l'équation #[+e() 35x^2+50x+31=0] est négatif, il n'y a pas de solutions à l'équation. Par conséquent, il n'y a pas de point d'intersection entre l'ellipse et la droite.
             +fig("exemple-intersection-ellipse-droite-aucune-solution.svg").
-                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
+                Réponse à l'exemple.
 
     +section("Le latus rectum de l'ellipse")
 
@@ -485,7 +485,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
             p Alors oui, le point #[+e() P=(-4,2)] est compris dans la région de l'inéquation #[+e() \dfrac{(x-2)^2}{34}+\dfrac{(y+3)^2}{9}\gt 1.]
 
             +fig("exemple-point-compris-inequation-exterieur-ellipse-horizontale.svg").
-                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
+                Réponse à l'exemple.
 
         +example("Un point compris sur la courbe de l'inéquation d'une ellipse")
             p Le point #[+e() P=(-12,-10)] est-il compris dans la région délimitée par l'inéquation #[+e() \dfrac{(x+4)^2}{144}+\dfrac{y^2}{180}\leq 1?]
@@ -501,7 +501,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
             p Alors oui, le point #[+e() P=(-12,-10)] est compris dans la région de l'inéquation #[+e() \dfrac{(x+4)^2}{144}+\dfrac{y^2}{180}\leq 1.]
 
             +fig("exemple-point-compris-inequation-courbe-ellipse-verticale.svg").
-                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
+                Réponse à l'exemple.
 
         +example("Un point non-compris dans l'inéquation d'une ellipse")
             p L'ensemble solution de l'inéquation #[+e() \dfrac{(x-25)^2}{400}+\dfrac{(y-5)^2}{300}\lt 1] comprend-il le point #[+e() P=(35,25)?]
@@ -518,7 +518,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
             p Par conséquent, #[+e() P=(35,25)] ne fait pas partie de l'inéquation #[+e() \dfrac{(x-25)^2}{400}+\dfrac{(y-5)^2}{300}\lt 1.]
 
             +fig("exemple-point-non-compris-inequation-courbe-ellipse-horizontale.svg").
-                Réponse à #[+refExample(0) l&#39;exemple #{exampleNo}.]
+                Réponse à l'exemple.
 
 
 +section("La forme générale de l'équation d'une ellipse")
@@ -556,7 +556,7 @@ p Étudions analytiquement l'ellipse en tant que section conique.
 
     +example("Passer de la forme générale à la forme canonique de l'équation d'une ellipse")
         p Quelle est l'équation canonique #[+eqref("ellipse-canonique")] d'une ellipse d'équation #[+e() 9x^2+4y^2+18x-12y-27=0?]
-        p On utilisera la méthode de la complétion du carré comme à #[+refExample(0) l&#39;exemple #{exampleNo - 1}.]
+        p On utilisera la méthode de la complétion du carré comme à l'exemple précédent.
 
         +eq().
             9x^2+4y^2+18x-12y-27&=0
