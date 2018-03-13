@@ -68,9 +68,9 @@ footer#site-footer.row.middle-xs.between-xs.center-xs
             span.copyright='© ' + moment().year() + ' ' + WEBSITE.name
             //- Locale's root pages
             each page in LOCALE.pages
-                if page.type !== 'locales' || WEBSITE.locales.length > 1
+                if page.type.name !== 'locales' || WEBSITE.locales.length > 1
                     a(href=page.link.relativePath)
-                        +pageIcon(page.type)
+                        +pageIcon(page.type.name)
                         =page.headline
             //- Source link
             if WEBSITE.sourceUrl
