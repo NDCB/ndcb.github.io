@@ -14,9 +14,13 @@ Install the package dependencies:
 
 `npm install`
 
-Start the web server:
+Start the web server for redaction:
 
 `npm start`
+
+Preview the website as it would be compiled:
+
+`npm run preview`
 
 ## Compilation and Deployment
 

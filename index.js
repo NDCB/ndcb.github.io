@@ -70,7 +70,6 @@ const compile = function() {
  * Runs the website on a local server.
  */
 const server = function() {
-    global.environment = 'development';
     let ip = argv.ip || 'localhost';
     let port = argv.port || '9000';
     let adress = ip + ':' + port;
@@ -79,6 +78,7 @@ const server = function() {
             port: port,
         },
         function() {
+            configureEnvironment();
             browserSync({
                 proxy: adress,
                 open: 'local',
@@ -88,6 +88,20 @@ const server = function() {
             log('Server running at ' + adress
                 + '\n' + 'Press Ctrl+C to stop the server');
         });
+};
+
+/**
+ * Configures the working environment.
+ */
+const configureEnvironment = function() {
+    if (argv['NODE_ENV'] != null) {
+        global.environment = argv['NODE_ENV'];
+    } else if (process.env.NODE_ENV != null) {
+        global.environment = process.env.NODE_ENV;
+    } else {
+        global.environment = 'development';
+    }
+    process.env.NODE_ENV = global.environment;
 };
 
 /**
