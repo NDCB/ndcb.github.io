@@ -2,29 +2,7 @@
     /**
     * The localized variables of the site footer.
     */
-    const localizedVariables = LOCALE.variables.template.siteFooter;
-
-    /**
-    * The icons to display in the footer next to page links based on the page's
-    * type.
-    */
-    const FOOTER_PAGE_ICONS = {
-        'index': 'home',
-        'about': 'info-circle',
-        'sitemap': 'sitemap',
-        'search': 'search',
-        'privacy-policy': 'lock',
-        'locales': 'globe',
-        'source': 'code-fork',
-    };
-
-//- Adds a Font Awesome icon based on a type of page. If there is no icon
-    specified for the given type, then no icon is added.
-    @param {String} type the type of the page.
-mixin pageIcon(type)
-    if (FOOTER_PAGE_ICONS[type])
-        i.fa.fa-fw(class='fa-' + FOOTER_PAGE_ICONS[type])
-
+    const localizedVariables = LOCALE.variables.template.siteFooter
 -
     /**
     * If the icon of a social media is not defined in {@code SOCIAL_TYPES}, then
@@ -70,7 +48,7 @@ footer#site-footer.row.middle-xs.between-xs.center-xs
             each page in LOCALE.pages
                 if page.type.name !== 'locales' || WEBSITE.locales.length > 1
                     a(href=page.link.relativePath)
-                        +pageIcon(page.type.name)
+                        i.fa.fa-fw(class='fa-' + page.type.icon)
                         =page.headline
             //- Source link
             if WEBSITE.sourceUrl
@@ -81,7 +59,7 @@ footer#site-footer.row.middle-xs.between-xs.center-xs
                 else
                     a(href=WEBSITE.sourceUrl target='_blank' 
                         rel='noopener noreferrer')
-                        +pageIcon('source')
+                        i.fa.fa-fw.fa-code-fork
                         =localizedVariables.source
     .col-xs-12.col-md-3.end-md
         nav.social
