@@ -18,7 +18,7 @@ Start the web server for redaction:
 
 `npm start`
 
-Preview the website as it would be compiled:
+Preview the website as it would be compiled. Links made to documents in the website's default locale will be broken, as their leading locale path will have been removed:
 
 `npm run preview`
 
