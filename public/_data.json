@@ -19,11 +19,15 @@
         },
         "socialProfiles": {
             "facebookPage": "bm90ZXNkZWNvdXJzYmxvZw==",
-            "twitterAccount": "X05EQ0I=",
-            "googlePlusAccount": "MTE3NjU4NzQ5MTkyMTk4MTkwNTU4",
+            "twitterAccount": "X05EQ0Jf",
+            "googlePlusAccount": "MTExNTI4MTgwMjc3OTczNzI3OTQ0",
             "githubAccount": "TkRDQg==",
-            "emailAddress": "b3VpbWV0bWFyY2FudG9pbmVAZ21haWwuY29t"
+            "emailAddress": "bm90ZXNkZWNvdXJzYmxvZ0BnbWFpbC5jb20="
         }
+    },
+
+    "ads.txt": {
+        "layout": false
     },
 
     "browserconfig.xml": {
