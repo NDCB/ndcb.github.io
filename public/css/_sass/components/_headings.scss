@@ -6,7 +6,7 @@ h5,
 h6 {
     &.heading a {
         display: none;
-        @include respond-to(tablet-portrait) {
+        @include breakpoint($break-md) {
             $transition-time: 0.2s;
             display: inline-block;
             i {

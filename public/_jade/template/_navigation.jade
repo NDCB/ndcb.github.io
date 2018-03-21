@@ -1,0 +1,33 @@
+//- Lists the pages and the articles recursively of a given category and
+    subsequent subcategories.
+mixin listCategory(category)
+    -let categoryContainsDocument = category.contains(DOCUMENT.path);
+    li
+        a(href=category.link.relativePath)=category.headline
+        if category.subcategories.length > 0
+            i.fa.fa-fw.toggler(class=categoryContainsDocument ? 'fa-caret-up' : 'fa-caret-down')
+            ol(aria-expanded='#{categoryContainsDocument}')
+                each subcategory in category.subcategories
+                    +listCategory(subcategory)
+
+#navigation
+    header
+        a(href!=LOCALE.link.relativePath)
+            img#logo(src='/resources/logo-light.svg' alt=WEBSITE.name)
+        i.fa.fa-navicon.toggler.burger
+    nav(aria-expanded='false')
+        ul
+            -const rootPages = LOCALE.pages;
+            each page in rootPages
+                if page.type === PageType.of('index')
+                    li: a(href=page.link.relativePath)
+                        i.fa.fa-fw(class='fa-' + page.type.icon)
+                        =page.headline
+            each category in LOCALE.categories
+                if category.recursiveDocuments.length > 0
+                    +listCategory(category)
+            each page in rootPages
+                if page.type !== PageType.of('index') && (page.type !== PageType.of('locales') || WEBSITE.locales.length > 1)
+                    li: a(href=page.link.relativePath)
+                        i.fa.fa-fw(class='fa-' + page.type.icon)
+                        =page.headline

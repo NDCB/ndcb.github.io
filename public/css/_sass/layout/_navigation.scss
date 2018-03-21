@@ -1,0 +1,108 @@
+$mobile-navigation-bar-height: 3rem;
+
+$desktop-navigation-width: 25rem;
+$desktop-navigation-bottom-padding: 7rem;
+$navigation-z-index: 1;
+
+#logo {
+    float: left;
+    padding: 0.3rem;
+    height: 100%;
+    width: auto;
+    position: relative;
+    @include breakpoint($break-xl) {
+        height: auto;
+        width: 100%;
+        padding: 10%;
+    }
+}
+
+#navigation {
+    // Background container for the navigation
+    z-index: $navigation-z-index; // Set navigation bar above MathJax equations
+    width: 100%;
+    display: block;
+    position: fixed;
+    top: 0;
+    @include breakpoint((orientation landscape)) {
+        display: none;
+    }
+    @include breakpoint($break-md (orientation landscape)) {
+        display: initial;
+    }
+    @include breakpoint($break-xl) {
+        width: $desktop-navigation-width;
+        height: 100vh;
+        overflow-y: scroll;
+        padding-bottom: $desktop-navigation-bottom-padding;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    @include breakpoint($break-print) {
+        display: none;
+    }
+    nav {
+        width: 100%;
+        max-height: 100vh;
+        padding-bottom: $mobile-navigation-bar-height;
+        // Scrolling
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        @include breakpoint($break-xl) {
+            display: block !important;
+            max-height: fit-content;
+            overflow-y: auto;
+            padding-bottom: 0;
+        }
+        ul, ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            ul, ol {
+                padding-left: 2rem;
+            }
+        }
+        li {
+            position: relative; // Allow the positioning of the category toggler
+            padding: 0;
+            a {
+                display: block;
+                width: 100%;
+                padding: 1rem;
+            }
+            i:not(.toggler) {
+                margin-right: 0.2em;
+            }
+            i.toggler {
+                // Position the category toggler
+                position: absolute;
+                top: 0.3em;
+                right: 0.3em;
+            }
+        }
+        i.toggler {
+            z-index: 10;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+        }
+    }
+    header {
+        height: $mobile-navigation-bar-height;
+        @include breakpoint($break-xl) {
+            height: auto;
+        }
+        i.toggler {
+            float: right;
+            z-index: 10;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            font-size: 2rem;
+            @include breakpoint($break-xl) {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 figure {
     margin-top: 1rem;
-    @include respond-to(print) {
+    @include breakpoint($break-print) {
         width: 50%;
         margin: auto;
     }

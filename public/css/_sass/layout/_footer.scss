@@ -1,6 +1,10 @@
+$footer-z-index: $navigation-z-index + 1;
+
 #site-footer {
     padding: 0.5rem;
     margin: 0;
+    position: relative;
+    z-index: $footer-z-index;
     @include breakpoint($break-print) {
         display: none;
     }

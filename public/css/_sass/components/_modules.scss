@@ -23,7 +23,7 @@
         position: absolute;
         top: 0.5em;
         right: 0;
-        @include respond-to(print) {
+        @include breakpoint($break-print) {
             display: none;
         }
     }

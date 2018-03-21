@@ -3,6 +3,7 @@ $footer-text-color: $primary-grey;
 $footer-link-hover-color: $primary-yellow;
 
 #site-footer {
+    border-top: $primary-dark solid 1px;
     color: $footer-text-color;
     background: $footer-background-color;
     a {
@@ -13,6 +14,40 @@ $footer-link-hover-color: $primary-yellow;
         }
         @include breakpoint($break-xl) {
             transition: color 0.1s ease-in-out;
+        }
+    }
+}
+
+#navigation {
+    header {
+        background: $primary-dark;
+    }
+    color: white;
+    text-transform: uppercase;
+    @include breakpoint($break-xl) {
+        background: $primary-dark;
+    }
+    ul, ol {
+        background: $secondary-dark;
+        @include breakpoint($break-xl) {
+            background: transparent;
+        }
+    }
+    li a {
+        color: white;
+        text-decoration: none;
+        border-bottom: $primary-dark solid 1px;
+        @include breakpoint($break-xl) {
+            border: none;
+        }
+        &:hover {
+            color: $primary-yellow;
+            background: $primary-dark;
+            border-left: 0.3rem solid $primary-yellow;
+            @include breakpoint($break-xl) {
+                transition: all 0.1s ease-in-out;
+                background: $secondary-dark;
+            }
         }
     }
 }
