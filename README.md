@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/NDCB/ndcb.github.io.svg?branch=development)](https://travis-ci.org/NDCB/ndcb.github.io) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/NDCB/ndcb.github.io.svg?branch=development)](https://travis-ci.org/NDCB/ndcb.github.io) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![GitHub Stats](https://img.shields.io/badge/github-stats-ff5500.svg)](http://githubstats.com/NDCB/ndcb.github.io)
 
 # ndcb.github.io
 
@@ -18,7 +18,7 @@ Start the web server for redaction:
 
 `npm start`
 
-Preview the website as it would be compiled. Links made to documents in the website's default locale will be broken, as their leading locale path will have been removed:
+Preview the website as it would be when compiled. Links made to documents in the website's default locale will be broken, as their leading locale path will have been removed. It should also be noted that in this mode, advertisements and analytics scripts will be run on pages they are intended to be in production mode:
 
 `npm run preview`
 
