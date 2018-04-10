@@ -1,4 +1,8 @@
-[![Build Status](https://travis-ci.org/NDCB/ndcb.github.io.svg?branch=development)](https://travis-ci.org/NDCB/ndcb.github.io) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![GitHub Stats](https://img.shields.io/badge/github-stats-ff5500.svg)](http://githubstats.com/NDCB/ndcb.github.io)
+[![Website](https://img.shields.io/website-up-down-green-red/http/ndcb.github.io.svg?label=NDCB)](https://ndcb.github.io)
+[![Build Status](https://travis-ci.org/NDCB/ndcb.github.io.svg?branch=development)](https://travis-ci.org/NDCB/ndcb.github.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub commits](https://img.shields.io/github/commits-since/NDCB/ndcb.github.io/article.svg)](https://github.com/NDCB/ndcb.github.io/tree/redaction)
+[![GitHub Stats](https://img.shields.io/badge/github-stats-ff5500.svg)](http://githubstats.com/NDCB/ndcb.github.io)
 
 # ndcb.github.io
 
