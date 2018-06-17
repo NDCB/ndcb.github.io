@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /resources/
-Allow: /resourcesres/thumbnails/
-Disallow: /css/resources/
-Disallow: /sitemap*
