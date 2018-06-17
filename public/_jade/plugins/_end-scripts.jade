@@ -1,0 +1,34 @@
+//- TODO: In body ... #disqus_thread
+if DOCUMENT.plugins.includes('disqus')
+    script.
+        const disqus_config=function(){
+            this.page.url='#{DOCUMENT.url}';
+            this.language='#{LOCALE.languageCode}';
+        };
+        (function() {
+            const d=document, s=d.createElement('script');
+            s.src='#{plugins.disqus.src}';
+            s.setAttribute('data-timestamp',+new Date());
+            (d.head||d.body).appendChild(s);
+        })();
+    noscript Please enable JavaScript to view the comments #[a(href='https://disqus.com/?ref_noscript') powered by Disqus].
+
+if DOCUMENT.plugins.includes('mathjax')
+    -let mathjax = LOCALE.variables.plugins.mathjax;
+    //- MathJax configuration
+    script(type="text/x-mathjax-config").
+        MathJax.Hub.Config({
+            jax: ["input/TeX","output/CommonHTML"],
+            extensions: ["tex2jax.js"],
+            TeX: {
+                skipTags: ["script","noscript","style","textarea","pre","code"],
+                extensions: ["AMSmath.js","AMSsymbols.js"],
+                equationNumbers: {autoNumber:"AMS"}
+            },
+            tex2jax: {
+                preview: ["#{mathjax.loading}"]
+            }
+        });
+    -let plugin = plugins.mathjax;
+    //- MathJax script reference
+    script(src=plugin.src integrity=plugin.integrity crossorigin="anonymous")

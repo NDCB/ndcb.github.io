@@ -2,6 +2,33 @@ const argv = require('yargs').argv;
 const harp = require('harp');
 const browserSync = require('browser-sync');
 
+// TODO: Écrire un 'pug custom filter' qui fait appel à mathjax-node
+// TODO: Retirer `jax: ["input/TeX","output/HTML-CSS"]` de la configuration mathjax sur les pages pour avoir les .css
+
+// a simple TeX-input example
+let mjAPI = require("mathjax-node");
+mjAPI.config({
+  MathJax: {
+    // traditional MathJax configuration
+  },
+});
+mjAPI.start();
+
+let yourMath = "x=\\dfrac{-b\\pm\\sqrt{b^2-4ac}}{2a}";
+
+let result = mjAPI.typeset({
+  math: yourMath,
+  equationNumbers: "AMS",
+  format: "TeX", // or "inline-TeX", "MathML"
+  html: true,      // or svg:true, or html:true
+}, function(data) {
+    console.log(data);
+});
+
+console.log(result);
+
+
+
 /**
  * The directory of the project.
  */
@@ -37,6 +64,7 @@ global.slug.defaults.modes['urlsafe'] = {
     multicharmap: slug.multicharmap,
 };
 global.moment = require('moment');
+global.mathjax = require('mathjax-node');
 
 /**
  * Logs a message.

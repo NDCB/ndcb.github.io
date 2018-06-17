@@ -1,4 +1,5 @@
 figure {
+    position: relative;
     margin-top: 1rem;
     @include breakpoint($break-print) {
         width: 50%;

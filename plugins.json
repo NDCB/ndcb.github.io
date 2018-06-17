@@ -16,7 +16,9 @@
             "src": "https://ndcb.disqus.com/embed.js"
         },
         "mathjax": {
-
+            "type": "end-script",
+            "src": "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js",
+            "integrity": "sha256-fCth3p2B4cZMzlr7OFizmo5RkdJAHJ4vOHpE7FaNcR8="
         },
         "prism": {
             
