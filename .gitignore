@@ -2,5 +2,6 @@
 *.scssc
 *.ggb
 *.log
+.vscode/
 node_modules/
 auto_hotkeys/

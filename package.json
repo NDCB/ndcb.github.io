@@ -1,10 +1,13 @@
 {
   "name": "ndcb.github.io",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "An educational website for mathematics, physics and computer science.",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf ./build/",
+    "start": "node index.js",
+    "debug": "set DEBUG=* && yarn run start"
   },
   "repository": {
     "type": "git",
@@ -17,7 +20,36 @@
   },
   "homepage": "https://github.com/NDCB/ndcb.github.io#readme",
   "dependencies": {
+    "clean-css": "^4.1.11",
+    "debug": "^3.1.0",
+    "jstransformer": "^1.0.0",
+    "jstransformer-pug": "^0.3.0",
+    "lodash": "^4.17.10",
+    "markdown-it-container": "^2.0.0",
+    "markdown-it-header-sections": "^1.0.0",
+    "metalsmith": "^2.3.0",
+    "metalsmith-broken-link-checker": "^1.0.1",
+    "metalsmith-clean-css": "^6.0.0",
+    "metalsmith-collections": "^0.9.0",
+    "metalsmith-data-loader": "^1.1.2",
+    "metalsmith-disqus": "^1.2.4",
+    "metalsmith-drafts": "0.0.1",
+    "metalsmith-headings": "^0.2.0",
+    "metalsmith-html-minifier": "^3.0.0",
+    "metalsmith-i18n": "^0.2.0",
+    "metalsmith-layouts": "^2.1.0",
+    "metalsmith-markdownit": "^0.5.0",
+    "metalsmith-mathjax": "git+https://github.com/MartyO256/metalsmith-mathjax.git",
+    "metalsmith-multi-language": "^0.3.0",
+    "metalsmith-serve": "0.0.7",
+    "metalsmith-watch": "^1.0.3"
   },
   "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "prettier": "1.13.5",
+    "rimraf": "^2.6.2",
+    "yarn": "^1.7.0"
   }
 }

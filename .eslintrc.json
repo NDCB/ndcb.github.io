@@ -1,0 +1,27 @@
+{
+  "extends": [
+    "plugin:prettier/recommended"
+  ],
+  "parser": "",
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error", {
+        "printWidth": 80,
+        "parser": "flow",
+        "tabWidth": 4,
+        "bracketSpacing": true,
+        "arrowParens": "always",
+        "semi": true,
+        "trailingComma": "all",
+        "singleQuote": false,
+        "useTabs": false
+      }
+    ]
+  },
+  "plugins": [
+    "prettier"
+  ]
+}
