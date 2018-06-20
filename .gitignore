@@ -2,6 +2,7 @@
 *.scssc
 *.ggb
 *.log
+*.exe
 .vscode/
 node_modules/
-auto_hotkeys/
+build/
