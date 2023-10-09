@@ -22,8 +22,6 @@ p Une fonction n'aura de réciproque que si plusieurs critères sont remplis. Il
     +definition("Les relations")
         p Soit une relation #[+e() R] de l'ensemble #[+e() A] vers l'ensemble #[+e() B.] On dit que #[+e() R] est un sous-ensemble du produit cartésien de #[+e() A] et #[+e() B] #[+eqref("produit-cartesien-ensembles") ,] et on note #[+e() R\subseteq A\times B.] Si le couple #[+e() a\in A] et #[+e() b\in B,] noté #[+e() (a,b)] est en relation par #[+e() R,] alors le couple #[+e() (a,b)] fait partie de #[+e() R.] Si #[+e() (a,b)\in R,] alors la proposition de relation #[+e() aRb] est vraie. 
 
-    +ad("in-article")
-
     p Schématiquement, il est possible de représenter une relation à partir de flèches partant d'éléments de l'ensemble de départ et arrivant à l'ensemble d'arrivée de la relation.
 
     +example("Une relation définie par associations")
@@ -57,8 +55,6 @@ p Une fonction n'aura de réciproque que si plusieurs critères sont remplis. Il
     +definition("L'injection d'une fonction")
         p Une fonction #[+e() f:A\to B] est dite injective si pour une valeur d'image de #[+e() f,] il n'existe qu'une seule préimage qui renvoie cette image. Formellement, si pour #[+e() \forall x_1,x_2\in A] on remarque que #[+e() f(x_1)=f(x_2),] alors #[+e() f] est injective si cela est nécessaire et suffisant à ce que #[+e() x_1=x_2.] En notation propositionnelle, #[+e() f] est injective si la proposition suivante est vraie:
         +leq("fonction-injective") \forall x_1,\forall x_2,\left(f(x_1)=f(x_2)\to x_1=x_2\right).
-
-    +ad("in-article")
 
     p En vertu de la définition d'une fonction injective #[+eqref("fonction-injective") ,] une fonction #[+e() f(x)=y] sera injective si une droite horizontale d'équation #[+e() y=k,] où #[+e() k] appartient au codomaine de #[+e() f,] n'est jamais sécante en deux points au graphe conventionnel de #[+e() f.]
 
@@ -112,8 +108,6 @@ p Une fonction n'aura de réciproque que si plusieurs critères sont remplis. Il
         p Une fonction inversible #[+e() f:A\to B] est une relation telle que #[+e() f\subseteq A\times B,] et sa fonction réciproque #[+e() g:B\to A] est une relation telle que #[+e() g\subseteq B\times A.] En compréhension, il est possible de définir la réciproque de #[+e() f:]
         +leq("fonction-reciproque") g=\left\{(y,x)\in B\times A\mid (x,y)\in f\right\}.
         p Ce faisant, pour tous les couples #[+e() (x,y)] appartenant à #[+e() f,] le couple #[+e() (y,x)] doit appartenir à #[+e() g,] de telle sorte que la fonction #[+e() g] correspond à la symétrie de #[+e() f] par rapport à la droite #[+e() y=x.]
-
-    +ad("in-article")
 
     p En vertu de la détermination de la réciproque d'une fonction par symétrie, il est possible d'établir une démarche du calcul de la réciproque. Soient les fonctions #[+e() f:X\to Y] et #[+e() g:Y\to X] telles que #[+e() (g\circ f)(x)=x.] Connaissant l'expression de #[+e() f(x)=y,] il suffit d'y permuter #[+e() x] et #[+e() y] et d'isoler #[+e() y] pour dégager l'expression de #[+e() g(x).] Si #[+e() f] est bijective, alors #[+e() g] sera bien définie. Autrement, il faudra établir des intervalles de bijection de #[+e() f] et les fonctions correspondant à #[+e() f] sur ces intervalles pour définir #[+e() g] par parties.
 

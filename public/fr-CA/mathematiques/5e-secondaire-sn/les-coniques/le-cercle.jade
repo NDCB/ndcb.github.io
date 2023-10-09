@@ -25,8 +25,6 @@ p Étudions analytiquement le cercle en tant que section conique.
         +fig("cercle-centre-o.svg").
             Le cercle centré à l'origine dans le plan cartésien.
 
-    +ad("in-article")
-
     p Puisqu'un cercle découlant de l'équation #[+eqref("cercle-centre-o")] est centré à l'origine, #[+e() x] et #[+e() y] sont tous deux contraints dans l'intervalle #[+e() [-r,r].] Intuitivement, c'est parce que la distance entre un point sur la circonférence et le centre du cercle est #[+e() r,] alors verticalement et horizontalement les distances maximales ne peuvent être que #[+e() r.] Pour le démontrer, il suffit d'isoler #[+e() x] ou #[+e() y] dans l'équation #[+eqref("cercle-centre-o") .]
 
     +eq().
@@ -79,8 +77,6 @@ p Étudions analytiquement le cercle en tant que section conique.
 
             +fig("cercle-canonique.svg").
                 Le cercle d'équation canonique dans le plan cartésien.
-
-        +ad("in-article")
 
         p Puisqu'un cercle découlant de l'équation #[+eqref("cercle-canonique")] est centré en #[+e() (h,k)] et de rayon #[+e() r,] alors #[+e() x] doit nécessairement être contraint par translation entre #[+e() h-r] et #[+e() h+r.] Similairement, #[+e() y] est compris entre #[+e() k-r] et #[+e() k+r,] les extremums verticaux du cercle. La démonstration de ces affirmations est semblable à celles que nous avons fait en ce qui a trait au cercle d'équation #[+eqref("cercle-centre-o") .] Il faudra isoler #[+e() x] et #[+e() y] dans l'équation #[+eqref("cercle-canonique") .]
 
@@ -444,8 +440,6 @@ p Étudions analytiquement le cercle en tant que section conique.
         Ax^2+Bxy+Cy^2+Dx+Ey+F=0
     p qui caractérise toutes les coniques. Telle quelle, l'équation décrit une section conique ayant subit une rotation si #[+e() B\neq0.] L'équation générale ne décrit un cercle que lorsque #[+e() A=C,] duquel cas on pourrait annuler les valeurs de #[+e() A] et #[+e() C] en divisant de part et d'autre l'équation par #[+e() A] ce qui nous laisserait avec un coefficient de #[+e() 1] pour les termes #[+e() x^2] et #[+e() y^2.] Ces contraites reviennent à dire que le discriminant #[+e() \Delta = B^2-4AC] doit être négatif et que #[+e() A=C.] Du développement que nous avons fait plus tôt, on remarque que #[+e() D=-2h,] #[+e() E=-2k] et #[+e() F=h^2+k^2-r^2.] Il ne vaut pas la peine de mémoriser ces coefficients.
     p Le problème plus intéressant qui surgit lorsqu'on se sert de la forme générale de l'équation d'un cercle c'est d'en dégager la forme canonique. Pour ce faire, il faudra factoriser l'équation #[+eqref("cercle-generale").] On aura recours à la complétion du carré, comme nous verrons dans les exemples numériques.
-
-    +ad("in-article")
 
     +example("Passage de la forme générale à la forme canonique de l'équation d'un cercle")
         p Quelle est l'équation canonique #[+eqref("cercle-canonique")] d'un cercle d'équation #[+e() x^2+y^2+10x-6y=2?]

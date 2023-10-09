@@ -62,8 +62,6 @@ p Étudions analytiquement l'ellipse en tant que section conique.
         p #[+e() x,] #[+e() y,] #[+e() a] et #[+e() b] étant des réels, #[+e() a\gt 0,] #[+e() b\gt 0,] #[+e() a\neq b,] #[+e() -a\leq x\leq a] et #[+e() -b\leq y\leq b.]
         +fig("ellipse-centre-o.svg").
             L'ellipse centrée à l'origine dans le plan cartésien.
-
-    +ad("in-article")
     
     p Les paramètres #[+e() a] et #[+e() b] de l'équation #[+eqref("ellipse-centre-o")] sont positifs et non-nuls puisqu'ils correspondent à des grandeurs géométriques de l'ellipse. Il faut que #[+e() a] soit différent de #[+e() b,] puisque dans le cas contraire, l'équation décrirait un cercle d'équation #[+e() x^2+y^2=r^2.]
 
@@ -118,8 +116,6 @@ p Étudions analytiquement l'ellipse en tant que section conique.
             p #[+e() x,] #[+e() y,] #[+e() a,] #[+e() b,] #[+e() h] et #[+e() k] étant des réels, #[+e() a\gt 0,] #[+e() b\gt 0,] #[+e() a\neq b,] #[+e() h-a\leq x\leq h+a] et #[+e() k-b\leq y\leq k+b.]
             +fig("ellipse-canonique.svg").
                 L'ellipse d'équation canonique dans le plan cartésien.
-
-        +ad("in-article")
 
         p Les contraintes sur les paramètres des équations #[+eqref("ellipse-centre-o")] et #[+eqref("ellipse-canonique")] sont similaires. Par la composition des fonctions, il est possible de substituer #[+e() x\leftarrow x-h] dans l'équation #[+eqref("ellipse-centre-o")] pour conclure que #[+e() -a\leq x-h\leq a\implies h-a\leq x\leq h+a.] Similairement, en substituant #[+e() y\leftarrow y-k] dans l'équation #[+eqref("ellipse-centre-o") ,] la contrainte sur les ordonnées de l'ellipse s'exprime #[+e() -b\leq y-k\leq b\implies k-b\leq y\leq k+b.] Il en revient à appliquer la translation de l'ellipse sur #[+e() P=(x,y).]
 
@@ -390,8 +386,6 @@ p Étudions analytiquement l'ellipse en tant que section conique.
             +leq("latus-rectum-ellipse-horizontale") LR=\dfrac{2b^2}{a}.
             +fig("latus-rectum-ellipse-horizontale.svg").
                 Le latus rectum d'une ellipse horizontale.
-
-        +ad("in-article")
 
         p Considérons maintenant une ellipse verticale d'équation #[+eqref("ellipse-centre-o")] telle que #[+e() a\lt b.] La distance entre l'un ou l'autre des foyers #[+e() F_1] et #[+e() F_2] et le centre #[+e() O] de l'ellipse correspond toujours à #[+e() c,] cependant leur coordonnées sont #[+e() F_1=(0,c)] et #[+e() F_2=(0,-c).] Le couple de points délimitant le latus rectum passant par #[+e() F_1] correspond à l'équation de l'ellipse évaluée lorsque #[+e() y=c.] Similairement, le couple de points du latus rectum passant par #[+e() F_2] se trouve par l'évaluation de l'équation de l'ellipse lorsque #[+e() y=-c.] L'ellipse étant symétrique par rapport à ses axes, on ne s'intéresse qu'à un des couples de points. Soit #[+e() A] et #[+e() B,] les points sur la courbe de l'ellipse délimitant le latus rectum passant par #[+e() F_1.] On constate que #[+e() y_A=y_B=y_{F_1}.] Sachant que la relation de Pythagore dans une ellipse verticale est #[+e() c^2=b^2-a^2,] on peut déterminer la valeur des ordonnées de #[+e() A] et #[+e() B.]
 
