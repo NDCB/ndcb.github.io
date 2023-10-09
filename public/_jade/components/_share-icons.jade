@@ -44,11 +44,3 @@ ul
 
     //- Reddit share icon
     li: +shareIcon("reddit", "//www.reddit.com/submit?url=" + Current.url())
-
-    //- If comments are allowed on the current document
-    if Current.isArticle() && Current.content().allowsComments
-        //- Comment icon
-        li: a.comment(
-                href="#disqus_thread"
-            )
-            +iconStackButton("fa-comment", backgroundIconClass)

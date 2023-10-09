@@ -31,8 +31,6 @@ html(lang!=Current.localeSlug())
                         div#content(role="main")
                             !=yield
                         include /_jade/components/_authors
-                        if Current.content().allowsComments
-                            include /_jade/plugins/_disqus-scripts
                 else if Current.isPage()
                     link(itemprop="mainEntityOfPage" href!=Current.url())
                     article
