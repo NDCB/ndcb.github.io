@@ -6,10 +6,9 @@
   },
   "version": "1.0.0",
   "description": "An educational website for mathematics, physics and computer science.",
-  "main": "public/index.jade",
   "scripts": {
     "deploy": "./scripts/deploy.sh",
-    "server": "harp server public/"
+    "server": "harp public/"
   },
   "repository": {
     "type": "git",
@@ -22,8 +21,8 @@
   },
   "homepage": "https://github.com/NDCB/ndcb.github.io#readme",
   "dependencies": {
-    "harp": "^0.25.0",
-    "jstransformer-scss": "^1.0.0",
-    "pug": "^2.0.0-rc.4"
+    "harp": "^0.46.1",
+    "jstransformer-scss": "^2.0.0",
+    "pug": "^3.0.2"
   }
 }
