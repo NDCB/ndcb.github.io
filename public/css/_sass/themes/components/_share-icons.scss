@@ -28,22 +28,10 @@ $color-email: #ffa500;
             color: $color-twitter;
         }
     }
-    &.google-plus {
-        color: $color-google-plus;
-        i:hover {
-            color: $color-google-plus;
-        }
-    }
     &.reddit {
         color: $color-reddit;
         i:hover {
             color: $color-reddit;
-        }
-    }
-    &.comment {
-        color: $color-comment;
-        i:hover {
-            color: $color-comment;
         }
     }
     &.github {

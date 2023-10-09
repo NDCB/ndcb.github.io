@@ -48,14 +48,6 @@ head(
         name="msvalidate.01"
         content!=Site.auth().bingWebmaster
     )
-    meta(
-        property='fb:app_id' 
-        content!=Site.auth().facebookAppId
-    )
-    meta(
-        name="yandex-verification" 
-        content!=Site.auth().yandexWebmaster
-    )
 
     //- OpenGraph
     meta(
@@ -140,13 +132,6 @@ head(
         name='twitter:image' 
         content!=thumbnailFile.replace("https://", "http://")
     )
-
-    //- Publisher
-    if Current.isArticle()
-        link(
-            rel="publisher"
-            href!="https://plus.google.com/" + Site.profiles().googlePlus
-        )
 
     //- Favicon
     include _favicon
